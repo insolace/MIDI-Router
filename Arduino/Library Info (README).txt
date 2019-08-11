@@ -1,4 +1,4 @@
-MIDI Router uses the following modified libraries from github.com/insolace:
+MIDI Router uses the following modified libraries from github.com/insolace, the Adafruit libraries are included with TeensyDuino and you will need to overwrite them:
 
 GSL1680.h
 Adafruit_GFX.h
