@@ -73,8 +73,8 @@ int backLight = 255;
 int oldPosition = 0;
 int knobVal = 0;
 int oldKnobVal = 0;
-long knobTimer = millis();
-int knobSlowdown = 4;
+unsigned long knobTimer = millis();
+unsigned long knobSlowdown = 4;
 int knobSpeedup = 2; // threshold, larger value = less sensitivty to fast turns
 int knobSpeedRate = 4;
 int knobMin = 0;

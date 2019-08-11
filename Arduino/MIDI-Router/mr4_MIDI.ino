@@ -12,6 +12,7 @@ void routeMidi() {
     byte channel = MIDI1.getChannel();
     const uint8_t *sys = MIDI1.getSysExArray();
     byte port = 0;
+    
     if (type != 0) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
@@ -61,7 +62,7 @@ void routeMidi() {
       uint8_t channel =    midilist[port]->getChannel();
       const uint8_t *sys = midilist[port]->getSysExArray();
       if (type != 0) {
-
+/*
         Serial.print("USB ");
         Serial.print("ch=");
         Serial.print(channel, DEC);
@@ -72,7 +73,7 @@ void routeMidi() {
         Serial.println((const char *)midi01.manufacturer());
         Serial.println((const char *)midi01.product());
         Serial.println((const char *)midi01.serialNumber());
-        
+*/        
         transmitMIDI(type, data1, data2, channel, port + 6);
       } else {
         transmitSysEx(data1 + data2 * 256, sys, port + 6);     
@@ -103,15 +104,20 @@ void routeMidi() {
 
 void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 
+  Serial.print("txMIDI: t");
+  Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
+
   // Normal messages, first we must convert usbMIDI's type (an ordinary
   // byte) to the MIDI library's special MidiType.
   midi::MidiType mtype = (midi::MidiType)t;
-
+  
+  //Serial.print("mtype: "); Serial.println(mtype);
+  
   // Route to 6 MIDI DIN Ports
   for (int outp = 0; outp < 6; outp++){
     if (routing[inPort][outp] != 0) {
       switch (outp) {
-        case  0: MIDI1.send(mtype, d1, d2, ch); break;
+        case  0: MIDI1.send(mtype, d1, d2, ch); Serial.print("m1: "); Serial.println(t); break;
         case  1: MIDI2.send(mtype, d1, d2, ch); break;
         case  2: MIDI3.send(mtype, d1, d2, ch); break;
         case  3: MIDI4.send(mtype, d1, d2, ch); break;
@@ -142,6 +148,8 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
+  Serial.print("txSysex: len:");
+  Serial.print(len); Serial.print("array:"), Serial.print("xxx"); Serial.print("inp:"), Serial.print(inPort);
 
   // Route to USB Host 
   for (int outp = 18; outp < 34; outp++){
@@ -150,4 +158,3 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
     }
   }
 }
-
