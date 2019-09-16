@@ -49,6 +49,47 @@ void routeMidi() {
     }
   }
 
+  if (MIDI4.read()) {
+    byte type = MIDI4.getType();
+    byte data1 = MIDI4.getData1();
+    byte data2 = MIDI4.getData2();
+    byte channel = MIDI4.getChannel();
+    const uint8_t *sys = MIDI4.getSysExArray();
+    byte port = 3;
+    if (type != 0) {      
+      transmitMIDI(type, data1, data2, channel, port);
+    } else {
+      transmitSysEx(data1 + data2 * 256, sys, port);     
+    }
+  }
+
+  if (MIDI5.read()) {
+    byte type = MIDI5.getType();
+    byte data1 = MIDI5.getData1();
+    byte data2 = MIDI5.getData2();
+    byte channel = MIDI5.getChannel();
+    const uint8_t *sys = MIDI5.getSysExArray();
+    byte port = 4;
+    if (type != 0) {      
+      transmitMIDI(type, data1, data2, channel, port);
+    } else {
+      transmitSysEx(data1 + data2 * 256, sys, port);     
+    }
+  }  
+
+  if (MIDI6.read()) {
+    byte type = MIDI6.getType();
+    byte data1 = MIDI6.getData1();
+    byte data2 = MIDI6.getData2();
+    byte channel = MIDI6.getChannel();
+    const uint8_t *sys = MIDI6.getSysExArray();
+    byte port = 5;
+    if (type != 0) {      
+      transmitMIDI(type, data1, data2, channel, port);
+    } else {
+      transmitSysEx(data1 + data2 * 256, sys, port);     
+    }
+  }  
   // ============================================================
   // RX USB DEVICE MIDI ports
   // ============================================================
@@ -118,11 +159,11 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
     if (routing[inPort][outp] != 0) {
       switch (outp) {
         case  0: MIDI1.send(mtype, d1, d2, ch); Serial.print("m1: "); Serial.println(t); break;
-        case  1: MIDI2.send(mtype, d1, d2, ch); break;
-        case  2: MIDI3.send(mtype, d1, d2, ch); break;
-        case  3: MIDI4.send(mtype, d1, d2, ch); break;
-        case  4: MIDI5.send(mtype, d1, d2, ch); break;
-        case  5: MIDI6.send(mtype, d1, d2, ch); break;
+        case  1: MIDI2.send(mtype, d1, d2, ch); Serial.print("m2: "); Serial.println(t); break;
+        case  2: MIDI3.send(mtype, d1, d2, ch); Serial.print("m3: "); Serial.println(t); break;
+        case  3: MIDI4.send(mtype, d1, d2, ch); Serial.print("m4: "); Serial.println(t); break;
+        case  4: MIDI5.send(mtype, d1, d2, ch); Serial.print("m5: "); Serial.println(t); break;
+        case  5: MIDI6.send(mtype, d1, d2, ch); Serial.print("m6: "); Serial.println(t); break;
         //default:
       }
     }
