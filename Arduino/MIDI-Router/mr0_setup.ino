@@ -8,6 +8,49 @@ void setup() {
   debouncer.attach(EncSwitch);
   debouncer.interval(100);
   
+  // ============================================================
+  // DAC 16bit SPI setup
+  // ============================================================
+  
+  // set the CS as an output:
+  pinMode (CS, OUTPUT);
+  digitalWrite(CS, LOW);
+
+  // initialise SPI:
+  SPI2.begin();
+  SPI2.setBitOrder(MSBFIRST);
+  
+  //enable internal ref
+  digitalWriteFast(CS, LOW);
+  int c1 = B00000001;
+  int c2 = B00010000;
+  int c3 = B00000000;
+  SPI2.transfer(c1);
+  SPI2.transfer(c2);
+  SPI2.transfer(c3);
+  digitalWriteFast(CS, HIGH);
+
+  // ============================================================
+  // DAC 12bit internal setup
+  // ============================================================
+  
+  pinMode(dac5, OUTPUT); 
+  pinMode(dac6, OUTPUT);   
+  analogWriteResolution(12);
+
+  // ============================================================
+  // D 1-6 setup
+  // ============================================================
+  pinMode(dig1, OUTPUT);
+  pinMode(dig2, OUTPUT);
+  pinMode(dig3, OUTPUT);
+  pinMode(dig4, OUTPUT);
+  pinMode(dig5, OUTPUT);
+  pinMode(dig6, OUTPUT);
+  pinMode(dig1, OUTPUT);
+  //pinMode(adc1, INPUT);
+  //pinMode(adc2, INPUT);
+  
   
   // ============================================================
   // MIDI setup
@@ -64,9 +107,11 @@ void setup() {
   //tft.setRotationA(curRot);
     
   // With hardware accelleration this is instant
-  tft.fillScreen(RA8875_WHITE);
+  tft.fillScreen(RA8875_BLACK);
   tft.graphicsMode();
-
+/*
+  
+ 
   // Play with PWM
   for (uint8_t i = 255; i != 0; i -= 5 ) {
     tft.PWM1out(i);
@@ -92,6 +137,7 @@ void setup() {
   tft.fillScreen(RA8875_MAGENTA);
   delay(500);
   tft.fillScreen(RA8875_BLACK);
+*/
   tft.touchEnable(false);
 
   randomSeed(analogRead(0));
@@ -109,4 +155,3 @@ void setup() {
  
 
 }
-

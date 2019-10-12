@@ -110,8 +110,12 @@ void readKnob() {
       if (oldKnobVal != knobVal) { // is the scaled value new?
         // update knob value and DO SOMETHING
         oldKnobVal = knobVal;
-        Serial.println(knobVal);  
-        tft.PWM1out(knobVal);  // dim screen       
+        cveeKnobOffset = (knobVal - 128) * 10;
+        Serial.println(cveeKnobOffset);  
+        //tft.PWM1out(knobVal);  // dim screen 
+        //setDAC(4, knobVal * 256);
+        //analogWrite(dac5, knobVal * 16);      
+        //analogWrite(dac6, knobVal * 16); 
       }
 
     }
@@ -136,4 +140,3 @@ void readKnob() {
     Serial.println(myEnc.read());  // knob pushed, do something
   }
 }
-

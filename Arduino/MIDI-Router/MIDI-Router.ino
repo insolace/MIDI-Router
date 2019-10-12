@@ -16,6 +16,30 @@ Encoder myEnc(EncA, EncB);
 #include <Bounce2.h>
 Bounce debouncer = Bounce(); 
 
+// DAC 16bit SPI
+#define dacA B00010000
+#define dacB B00010010
+#define dacC B00010100
+#define dacD B00010110
+#define dALL B00110100
+
+#define CS 43 // chip select
+
+// DAC 12bit internal
+#define dac5 A21
+#define dac6 A22
+
+// D1-6 setup
+#define dig1 3  // teensy pins
+#define dig2 4
+#define dig3 5
+#define dig4 6
+#define dig5 22
+#define dig6 21
+#define adc1 A9
+#define adc2 A6
+
+
 // Hardware and USB Device MIDI
 #include <MIDI.h>        // access to serial (5 pin DIN) MIDI
 #include <USBHost_t36.h> // access to USB MIDI devices (plugged into 2nd USB port)
@@ -80,6 +104,9 @@ int knobSpeedRate = 4;
 int knobMin = 0;
 int knobMax = 255;
 
+float cvee = 0;
+long cveeKnobOffset = 0;
+
 // Colors
 #define   tbColor     0,150,0       // tempo/clock box
 #define   hbColor     102,102,102   // setup/home button 
@@ -115,7 +142,7 @@ int WIDE = 799;
 int TALL = 479;
 
 // Rotation, 0 = normal, 2 = 180
-int curRot = 0;
+int curRot = 2;
 
 // devices
 int rows = 6;

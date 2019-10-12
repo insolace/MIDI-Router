@@ -148,6 +148,45 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   Serial.print("txMIDI: t");
   Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
 
+  if (t == 144) {  // note on
+    long cvoffset = 1245; // -5v
+    long cvtop = 64079; // 5v
+    float cvrange = (cvtop - cvoffset);
+    cvee = ((d1 * (cvrange / 120)) + cvoffset);
+    setDAC(4, cvee + cveeKnobOffset);              // set all DACs to CV
+    Serial.print("Cvee: "); Serial.print(cvee); Serial.print(" knobOffset: "); Serial.println(cveeKnobOffset); 
+// 546.125 = ~ .09v
+// shift bot up 364.08333336
+// shift top down 121.36111112
+
+// sub 485.444 from total
+// add 364.08333
+
+//542.07963333
+
+// 62762 = 5v
+    
+    analogWrite(dac5, d1 * 34.133); 
+    analogWrite(dac6, d1 * 34.133); 
+
+    digitalWriteFast(dig1, HIGH);         // GATE on
+    digitalWriteFast(dig2, HIGH);
+    digitalWriteFast(dig3, HIGH);
+    digitalWriteFast(dig4, HIGH);
+    digitalWriteFast(dig5, HIGH);
+    digitalWriteFast(dig6, HIGH);
+
+    Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
+
+  } else if (t == 128) {  // note off
+    digitalWriteFast(dig1, LOW); // GATE off
+    digitalWriteFast(dig2, LOW);
+    digitalWriteFast(dig3, LOW);
+    digitalWriteFast(dig4, LOW);
+    digitalWriteFast(dig5, LOW);
+    digitalWriteFast(dig6, LOW);  
+  
+  }
   // Normal messages, first we must convert usbMIDI's type (an ordinary
   // byte) to the MIDI library's special MidiType.
   midi::MidiType mtype = (midi::MidiType)t;
