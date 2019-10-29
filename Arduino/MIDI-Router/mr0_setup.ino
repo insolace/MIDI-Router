@@ -5,8 +5,14 @@ void setup() {
 
   // knob
   pinMode(EncSwitch, INPUT_PULLUP);
-  debouncer.attach(EncSwitch);
-  debouncer.interval(100);
+  encPush.attach(EncSwitch);
+  encPush.interval(100);
+
+  // ============================================================
+  // EEPROM 
+  // ============================================================
+  loadEEPROM(); 
+  Serial.print("dacNeg[0] = "); Serial.print(dacNeg[0]); Serial.print(" dacPos[0] = "); Serial.println(dacPos[0]); 
   
   // ============================================================
   // DAC 16bit SPI setup
@@ -29,6 +35,8 @@ void setup() {
   SPI2.transfer(c2);
   SPI2.transfer(c3);
   digitalWriteFast(CS, HIGH);
+
+  setDAC(6, dacNeg[0]);
 
   // ============================================================
   // DAC 12bit internal setup
@@ -145,6 +153,7 @@ void setup() {
   tft.textEnlarge(2);
 
   // end touchscreen setup
+
   // setup homescreen
 
   drawBox();

@@ -34,13 +34,26 @@ void drawColumns() {
   tft.setTextColor(newColor(txColor), newColor(insColor));
 
   for (int i = 0; i < columns; i++) {
-    tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, newColor(linClr));
-
     curY = (i*cWidth) + tCOffset;
     curX = tBord;
-    tft.setRotation(3);
-    dPrint(inputNames[(5-i)+(pgIn *6)]);
-    tft.setRotation(curRot);
+    if (menu == 0) {  // routing
+      tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, newColor(linClr));
+      tft.setRotation(3);
+      dPrint(inputNames[(5-i)+(pgIn *6)]); 
+      tft.setRotation(curRot);     
+    } else if (menu == 1) { // cv calibrate
+      tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, newColor(linClr));
+      if (i == 5-CVcalSelect) {
+        Serial.println("fillrect");
+        tft.fillRect( cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, newColor(actFieldBg));
+      }
+      tft.setRotation(3);
+      Serial.println("dprint");  
+      dPrint("CV");
+      dPrint(6-i); 
+      tft.setRotation(curRot);
+    }
+
   }
   
 }
@@ -50,7 +63,7 @@ void drawRows() {
   tft.fillRect(0, rOffset, cOffset, TALL - rOffset, newColor(outsColor));
   
   for (int i = 0; i < rows; i++) {
-    tft.textColor(newColor(txColor), newColor(outsColor));
+    //tft.textColor(newColor(txColor), newColor(outsColor));
     //tft.textSetCursor(0, rOffset + (i*rHeight));
     curX = tBord;
     curY = rOffset + (i*rHeight) + tROffset;
@@ -115,4 +128,3 @@ void flashIn(int inp, int state) {
   tft.textSetCursor(cOffset + (inp*cWidth) + tCOffset , rOffset - tROffset);
 
 }
-

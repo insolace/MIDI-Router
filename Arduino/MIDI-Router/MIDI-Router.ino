@@ -6,6 +6,8 @@
 #include "Adafruit_GFX.h"      // vvvvv
 #include "Adafruit_RA8875.h"   // both of these are modified, see github.com/insolace
 
+#include <EEPROM.h>  
+
 // Knob
 #define EncA 27
 #define EncB 28
@@ -14,7 +16,7 @@
 Encoder myEnc(EncA, EncB);
 
 #include <Bounce2.h>
-Bounce debouncer = Bounce(); 
+Bounce encPush = Bounce(); 
 
 // DAC 16bit SPI
 #define dacA B00010000
@@ -99,13 +101,22 @@ int knobVal = 0;
 int oldKnobVal = 0;
 unsigned long knobTimer = millis();
 unsigned long knobSlowdown = 4;
-int knobSpeedup = 2; // threshold, larger value = less sensitivty to fast turns
+int knobSpeedup = 4; // threshold, larger value = less sensitivty to fast turns
 int knobSpeedRate = 4;
 int knobMin = 0;
-int knobMax = 255;
+int knobMax = 1024;
 
+// DAC stuff
 float cvee = 0;
 long cveeKnobOffset = 0;
+
+long dacNeg[6];
+long dacPos[6];
+long dacOffset[120];
+
+
+//Create address offset so Array2 is located after dacOffset in EEPROM
+int eeprom_addr_offset = 0; 
 
 // Colors
 #define   tbColor     0,150,0       // tempo/clock box
@@ -120,6 +131,12 @@ long cveeKnobOffset = 0;
 #define   linClr      0, 0, 0       // lines
 #define   txColor     255,255,255        // text
 #define   routColor   255,255,255   // routing
+#define   actFieldBg  0,0,255       // Active Field color
+#define   fieldBg     50,50,50      // inactive field color
+
+
+uint16_t posCol;  // for CV calib
+uint16_t negCol;  // for CV calib
 
 uint16_t newColor(uint8_t r, uint8_t g, uint8_t b) 
 {
@@ -153,7 +170,7 @@ String  inputNames[] = {
   "USB7", "USB8", "USB9", "USB10", "", "",               // page 2
   "Comp1", "Comp2", "Comp3", "Comp4", "Comp5", "Comp6",           // page 3
   "Comp7", "Comp8", "Comp9", "Comp10", "Comp11", "Comp12",           // page 4
-  "Comp13", "Comp14", "Comp15", "Comp16", "intClock", "anaClock"                 // page 5
+  "Comp13", "Comp14", "Comp15", "Comp16", "intClock", "extClock"                 // page 5
 }; 
 
 String  outputNames[] = { 
@@ -163,14 +180,20 @@ String  outputNames[] = {
   "Comp1", "Comp2", "Comp3", "Comp4", "Comp5", "Comp6",           // page 3
   "Comp7", "Comp8", "Comp9", "Comp10", "Comp11", "Comp12",           // page 4
   "Comp13", "Comp14", "Comp15", "Comp16", "", "",                 // page 5
-  "CV1", "CV2", "CV3", "CV4", "Clock1", "Clock2"           // page 6
+  "CV1", "CV2", "CV3", "CV4", "CV5", "CV6"           // page 6
 }; 
 
+// Menu options
+int menu = 0;  // which menu are we looking at?  0 = routing, 1 = CV calibration
+int actField = 1; // which data entry field on the page is active?
+
+// Routing page 
 int inPages = 6;
 int outPages = 7;
 //int devices = pages * 6;
 int pgOut = 0;
 int pgIn = 0;
+//
 
 // timers to flash inputs
 elapsedMillis elapseIn;
@@ -194,6 +217,10 @@ int fHeight = 25;
 uint16_t curX = 20;
 uint16_t curY = 20;
 int tBord = 5; // buffer/border from edge of screen to beginning of text
+
+// =================================
+// Routing menu definitions
+// =================================
 
 // Rows
 int rOffset = 152;
@@ -220,30 +247,27 @@ int hbOX = 0;    // origin X
 int hbOY = 0;    // origin Y
 
 
+// =================================
+// CV Calibration menu definitions
+// =================================
+
+int menuCV_butDacNeg5_x = 150 , menuCV_butDacNeg5_y = rOffset+100, menuCV_butDacNeg5_w = 125, menuCV_butDacNeg5_h = 50;
+int menuCV_butDacPos5_x = 460 , menuCV_butDacPos5_y = rOffset+100, menuCV_butDacPos5_w = 125, menuCV_butDacPos5_h = 50;
+int CVcalSelect = 0;
+
 // touch
 char ystr[16];    
 char xstr[16]; 
 long touchX = 0;
 long touchY = 0;
-long touchZ = 0;
 long lastPress = 0;
 long newX = 0;
 long newY = 0;
-long newZ = 0;
 int difX = 0;
 int difY = 0;
-int difZ = 0;
 
-long minPress = 1850;   // minimum pressure for touch (400 - 2400)
-unsigned long touchShort = 800;     // (ms) must touch this long to trigger
-long timeLong = 3000;     // (ms) length for long/hold touch
-int touchHold = 0;       // state of long/hold touch
+unsigned long touchShort = 300;     // (ms) must touch this long to trigger
 int tMargin = 5;       // pixel margin to filter out duplicate triggers for a single touch
-
-int calbXmin = 160;  // calibrate edges
-int calbXmax = 3800;
-int calbYmin = 500; 
-int calbYmax = 3800; 
 
 // Initial routing
 // matrix for routing
