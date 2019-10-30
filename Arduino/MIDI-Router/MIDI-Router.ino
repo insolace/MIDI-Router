@@ -6,7 +6,11 @@
 #include "Adafruit_GFX.h"      // vvvvv
 #include "Adafruit_RA8875.h"   // both of these are modified, see github.com/insolace
 
-#include <EEPROM.h>  
+// Memory/storage functions
+#include <EEPROM.h>
+#include "SdFat.h"
+#define USE_SDIO 1
+SdFatSdioEX SD;
 
 // Knob
 #define EncA 27

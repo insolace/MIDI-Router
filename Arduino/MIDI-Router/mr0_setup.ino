@@ -2,6 +2,14 @@
 void setup() {
   Serial.begin(115200);
   //  delay(1000);
+  if (!SD.begin())
+  {
+    Serial.println("SD initialization failed!");
+    return;
+  }
+
+  Serial.println("SD initialization done.");
+
 
   // knob
   pinMode(EncSwitch, INPUT_PULLUP);
@@ -117,6 +125,7 @@ void setup() {
   // With hardware accelleration this is instant
   tft.fillScreen(RA8875_BLACK);
   tft.graphicsMode();
+  bmpDraw("WELCOME.BMP", 0, 0);
 /*
   
  
