@@ -126,6 +126,7 @@ void setup() {
   tft.fillScreen(RA8875_BLACK);
   tft.graphicsMode();
   bmpDraw("WELCOME.BMP", 0, 0);
+  delay(1000);
 /*
   
  

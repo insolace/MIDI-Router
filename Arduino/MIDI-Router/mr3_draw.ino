@@ -133,7 +133,7 @@ void flashIn(int inp, int state) {
 // BMP function
 // =============================
 
-#define BUFFPIXEL 20
+#define BUFFPIXEL 85
 
 void bmpDraw(const char *filename, int x, int y) {
   File     bmpFile;
