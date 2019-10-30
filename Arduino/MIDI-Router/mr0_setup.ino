@@ -20,7 +20,7 @@ void setup() {
   // EEPROM 
   // ============================================================
   loadEEPROM(); 
-  Serial.print("dacNeg[0] = "); Serial.print(dacNeg[0]); Serial.print(" dacPos[0] = "); Serial.println(dacPos[0]); 
+  //Serial.print("dacNeg[0] = "); Serial.print(dacNeg[0]); Serial.print(" dacPos[0] = "); Serial.println(dacPos[0]); 
   
   // ============================================================
   // DAC 16bit SPI setup
@@ -91,8 +91,8 @@ void setup() {
   // use too much power, Teensy at least completes USB enumeration, which
   // makes isolating the power issue easier.
   delay(1500);
-  Serial.println("Interface_16x16 Example");
-  delay(10);
+  //Serial.println("Interface_16x16 Example");
+  //delay(10);
   myusb.begin();
 
 // ============================================================
@@ -103,7 +103,7 @@ void setup() {
   TS.begin(WAKE, INTRPT);                 // Startup sequence CONTROLER part
   pinMode(led, OUTPUT);
 
-  Serial.println("RA8875 start");
+  //Serial.println("RA8875 start");
   while (!Serial && (millis() <= 1000));
 
   /* Initialise the display using 'RA8875_480x272' or 'RA8875_800x480' */
@@ -127,6 +127,7 @@ void setup() {
   tft.graphicsMode();
   bmpDraw("WELCOME.BMP", 0, 0);
   delay(1000);
+  tft.fillScreen(RA8875_BLACK);
 /*
   
  

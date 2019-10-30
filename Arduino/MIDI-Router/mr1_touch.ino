@@ -21,9 +21,9 @@ void touchIO() {
         touchX = newX;
         touchY = newY;
         lastPress = millis();
-        Serial.println("evaltouch");
+        //Serial.println("evaltouch");
         evaltouch();    
-        Serial.println("done eval");        
+        //Serial.println("done eval");        
       }
     }
   }
@@ -56,7 +56,7 @@ void evaltouch() {
 // =================================
 
 void drawMenu_Routing() {
-  Serial.println("dm rout");
+  //Serial.println("dm rout");
   if (touchY <= rOffset && touchX >= cOffset) {
     // input selected
   } else if (touchY >= rOffset && touchX <= cOffset) {
@@ -64,7 +64,7 @@ void drawMenu_Routing() {
   } else if (touchY >= rOffset && touchX >= cOffset) {
     // routing grid selected 
     curGrid = routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)];
-    Serial.print("curgrid: "); Serial.println(curGrid);
+    //Serial.print("curgrid: "); Serial.println(curGrid);
     if (curGrid == 1){
       routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = 0;      
     } else {
@@ -95,7 +95,7 @@ void drawMenu_Routing() {
 }
 
 void refMenu_Routing() {  // refresh routing display
-  Serial.println("refmenu rout");
+  //Serial.println("refmenu rout");
   if (menu == 0) {
     drawBox();
     drawBGs();
@@ -112,7 +112,7 @@ void refMenu_Routing() {  // refresh routing display
 // =================================
 
 void refMenu_Calibrate() {  // refresh cv calibration display
-  Serial.println("refmenu calib");
+  //Serial.println("refmenu calib");
   drawBox(); 
   drawColumns();
   tft.fillRect(0,(rOffset+1),WIDE,(TALL-rOffset-1), newColor(gridColor));
@@ -137,7 +137,7 @@ void drawMenu_Calibrate() {  // process touch events
     oldPosition = (dacNeg[CVcalSelect] * 4);
     myEnc.write(oldPosition);  // update
     drawMenu_Calibrate_udcv();  // refresh values
-    Serial.println("Neg!");
+    //Serial.println("Neg!");
     setDAC(CVcalSelect, dacNeg[CVcalSelect]);
 
   } else if ( withinBox(touchX, touchY, menuCV_butDacPos5_x, menuCV_butDacPos5_y, menuCV_butDacPos5_w, menuCV_butDacPos5_h) ) {
@@ -145,12 +145,12 @@ void drawMenu_Calibrate() {  // process touch events
     oldPosition = (dacPos[CVcalSelect] * 4);
     myEnc.write(oldPosition);  // update
     drawMenu_Calibrate_udcv();
-    Serial.println("Pos!");
+    //Serial.println("Pos!");
     setDAC(CVcalSelect, dacPos[CVcalSelect]);
 
   } else if ( withinBox(touchX, touchY, cOffset, 0, WIDE-cOffset, rOffset) ) {  // select CV
     CVcalSelect = abs((touchX - cOffset) / ((WIDE-cOffset)/6) );
-    Serial.print("cvSel: "); Serial.println(CVcalSelect);
+    //Serial.print("cvSel: "); Serial.println(CVcalSelect);
     actField = 1; // select neg field
     setDAC(CVcalSelect, dacNeg[CVcalSelect]);
     if (CVcalSelect > 3) {
@@ -238,7 +238,7 @@ void readKnob() {
   // encoder switch
   encPush.update();
   if ( encPush.fell() ) {
-    Serial.println("push");  // knob pushed, do something
+    //Serial.println("push");  // knob pushed, do something
     if (knobVal > (knobMax/2) || knobVal == knobMin) { // change to max value
         myEnc.write(knobMax * 4);
     } else if (knobVal < (knobMax/2) || knobVal == knobMax) {  // change to min value
@@ -253,13 +253,13 @@ void readKnob() {
 // =================================
 
 void knob_calCV() {
-  Serial.print("knobVal: "); Serial.println(knobVal);
+  //Serial.print("knobVal: "); Serial.println(knobVal);
   if (actField == 1) { // neg5
-    Serial.print("neg: "); Serial.println(dacNeg[CVcalSelect]);
+    //Serial.print("neg: "); Serial.println(dacNeg[CVcalSelect]);
     dacNeg[CVcalSelect] = knobVal;
     setDAC(CVcalSelect, dacNeg[CVcalSelect]);
   } else if (actField == 2) {
-    Serial.print("pos: "); Serial.println(dacPos[CVcalSelect]);
+    //Serial.print("pos: "); Serial.println(dacPos[CVcalSelect]);
     dacPos[CVcalSelect] = knobVal;  
     setDAC(CVcalSelect, dacPos[CVcalSelect]);
   }

@@ -44,11 +44,11 @@ void drawColumns() {
     } else if (menu == 1) { // cv calibrate
       tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, newColor(linClr));
       if (i == 5-CVcalSelect) {
-        Serial.println("fillrect");
+        //Serial.println("fillrect");
         tft.fillRect( cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, newColor(actFieldBg));
       }
       tft.setRotation(3);
-      Serial.println("dprint");  
+      //Serial.println("dprint");  
       dPrint("CV");
       dPrint(6-i); 
       tft.setRotation(curRot);

@@ -23,6 +23,12 @@ void dWrite(unsigned char c) {
   
 }
 
+
+
+/*
+
+// code below not used, for reference only
+
 void textSubs() {
   //testRot();
 
@@ -73,5 +79,4 @@ void textSubs() {
 
 }
 
-
-
+*/
