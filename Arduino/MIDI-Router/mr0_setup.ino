@@ -5,10 +5,10 @@ void setup() {
   if (!SD.begin())
   {
     Serial.println("SD initialization failed!");
-    return;
+    //return;
+  } else {
+    Serial.println("SD initialization done.");
   }
-
-  Serial.println("SD initialization done.");
 
 
   // knob

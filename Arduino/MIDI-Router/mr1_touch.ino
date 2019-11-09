@@ -238,7 +238,7 @@ void readKnob() {
   // encoder switch
   encPush.update();
   if ( encPush.fell() ) {
-    //Serial.println("push");  // knob pushed, do something
+    Serial.println("push");  // knob pushed, do something
     if (knobVal > (knobMax/2) || knobVal == knobMin) { // change to max value
         myEnc.write(knobMax * 4);
     } else if (knobVal < (knobMax/2) || knobVal == knobMax) {  // change to min value

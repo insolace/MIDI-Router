@@ -13,9 +13,9 @@
 SdFatSdioEX SD;
 
 // Knob
-#define EncA 27
-#define EncB 28
-#define EncSwitch 26
+#define EncA 26
+#define EncB 27
+#define EncSwitch 28
 #include <Encoder.h>
 Encoder myEnc(EncA, EncB);
 

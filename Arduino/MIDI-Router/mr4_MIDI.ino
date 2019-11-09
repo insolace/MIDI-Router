@@ -149,8 +149,8 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
 
   if (t == 144) {  // note on
-    dacNeg[CVcalSelect] = 1245; // -5v
-    dacPos[CVcalSelect] = 64079; // 5v
+    //dacNeg[CVcalSelect] = 1245; // -5v
+    //dacPos[CVcalSelect] = 64079; // 5v
     float cvrange = (dacPos[CVcalSelect] - dacNeg[CVcalSelect]);
     cvee = ((d1 * (cvrange / 120)) + dacNeg[CVcalSelect]);
     setDAC(6, cvee + cveeKnobOffset);              // set all DACs to CV
