@@ -28,11 +28,11 @@ void setDAC(int dac, uint32_t data) {
         break;
     case 6:
         c1 = dALL;
+        analogWrite(dac5, data); 
+        analogWrite(dac6, data); 
         break;
   }
 
-
-    
   digitalWriteFast(CS, LOW);
 
   c2 = data >> 8;

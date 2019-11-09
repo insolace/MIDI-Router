@@ -148,37 +148,6 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   Serial.print("txMIDI: t");
   Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
 
-  if (t == 144) {  // note on
-    //dacNeg[CVcalSelect] = 1245; // -5v
-    //dacPos[CVcalSelect] = 64079; // 5v
-    float cvrange = (dacPos[CVcalSelect] - dacNeg[CVcalSelect]);
-    cvee = ((d1 * (cvrange / 120)) + dacNeg[CVcalSelect]);
-    setDAC(6, cvee + cveeKnobOffset);              // set all DACs to CV
-    Serial.print("Cvee: "); Serial.print(cvee); Serial.print(" knobOffset: "); Serial.println(cveeKnobOffset); 
-
-    saveEEPROM();
-    
-    analogWrite(dac5, d1 * 34.133); 
-    analogWrite(dac6, d1 * 34.133); 
-
-    digitalWriteFast(dig1, HIGH);         // GATE on
-    digitalWriteFast(dig2, HIGH);
-    digitalWriteFast(dig3, HIGH);
-    digitalWriteFast(dig4, HIGH);
-    digitalWriteFast(dig5, HIGH);
-    digitalWriteFast(dig6, HIGH);
-
-    Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
-
-  } else if (t == 128) {  // note off
-    digitalWriteFast(dig1, LOW); // GATE off
-    digitalWriteFast(dig2, LOW);
-    digitalWriteFast(dig3, LOW);
-    digitalWriteFast(dig4, LOW);
-    digitalWriteFast(dig5, LOW);
-    digitalWriteFast(dig6, LOW);  
-  
-  }
   // Normal messages, first we must convert usbMIDI's type (an ordinary
   // byte) to the MIDI library's special MidiType.
   midi::MidiType mtype = (midi::MidiType)t;
@@ -217,6 +186,48 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
       //MIDI3.send(mtype, d1, d2, ch);
     }
   }
+
+  // Route to 6 CV jacks
+  for (int outp = 36; outp < 42; outp++){
+    if (routing[inPort][outp] != 0) {
+      int curDac = outp-36;
+      if (curDac < 4) {
+        if (t == 144) {  // note on
+          digitalWriteFast(dig1+(outp-36), HIGH);         // GATE on
+          setDAC(curDac, CVnoteCal(d1, curDac));     // send note value t CV, -5 to 5v
+        } else if (t == 128) {  // note off
+          digitalWriteFast(dig1+(outp-36), LOW); // GATE off    
+        }
+      } else if (curDac == 4) {
+        if (t == 250) {  // Realtime Start Transport
+            digitalWriteFast(dig5, HIGH);  // pulse on at start  
+        } else if (t == 248 and startCount < 16) { // clock
+          if (startCount < 15) {
+            startCount++;
+          } else if (startCount = 15) {
+            digitalWriteFast(dig5, LOW);   // pulse off after 10 clocks     
+            startCount++;       
+          }
+        } else if (t == 252) { // Realtime Stop Transport
+          startCount = 0;
+          digitalWriteFast(dig5, LOW);   // pulse off after 10 clocks 
+        } else if (t == 144) { // note on
+          analogWrite(dac5, CVparamCal(d2, curDac) );  // send velocity to CV5, 0-5v
+        }
+      } else if (curDac == 5) {
+        if (t == 250) {  // Realtime Start Transport
+          clockPulse = 1;  // set high at start
+        } else if (t == 252) { // stop
+          digitalWriteFast(dig6, LOW);
+        } else if (t == 248) { // clock
+          digitalWriteFast(dig6, clockPulse);  // clock!!
+          clockPulse = !clockPulse;  // toggle for next clock pulse
+        } else if (t == 176 and d1 == 1) { // mod wheel
+          analogWrite(dac6, CVparamCal(d2, curDac) );  // send mod wheel to CV6, 0-5v
+        }
+      }
+    }
+  }
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
@@ -229,4 +240,21 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
       usbMIDI.sendSysEx(len, sysexarray, true, outp - 18);
     }
   }
+}
+
+float CVnoteCal(int note, int dac) {
+    float cvrange = (dacPos[dac] - dacNeg[dac]);
+    cvee = ((note * (cvrange / 120)) + dacNeg[dac]);
+    return(cvee);  
+        //analogWrite(dac5, d1 * 34.133); 
+        //analogWrite(dac6, d1 * 34.133); 
+}
+
+float CVparamCal(int data, int dac) {
+    float cvrange = ((dacPos[dac] - dacNeg[dac]) / 2);
+    cvee = ((data * (cvrange / 127)) + dacNeg[dac]) + cvrange;
+    return(cvee);  
+}
+void showADC(){
+      Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
 }

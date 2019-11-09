@@ -23,17 +23,17 @@ Encoder myEnc(EncA, EncB);
 Bounce encPush = Bounce(); 
 
 // DAC 16bit SPI
-#define dacA B00010000
+#define dacA B00010100 // cv 1
 #define dacB B00010010
-#define dacC B00010100
-#define dacD B00010110
+#define dacC B00010110
+#define dacD B00010000
 #define dALL B00110100
 
 #define CS 43 // chip select
 
 // DAC 12bit internal
-#define dac5 A21
-#define dac6 A22
+#define dac5 A22
+#define dac6 A21
 
 // D1-6 setup
 #define dig1 3  // teensy pins
@@ -44,6 +44,7 @@ Bounce encPush = Bounce();
 #define dig6 21
 #define adc1 A9
 #define adc2 A6
+
 
 
 // Hardware and USB Device MIDI
@@ -92,6 +93,10 @@ Adafruit_RA8875 tft = Adafruit_RA8875(RA8875_CS, RA8875_RESET);
 
 // touch
 GSL1680 TS = GSL1680();
+
+// clock stuff
+boolean clockPulse = 0;
+int startCount = 0;
 
 // Teensy LED
 int led = 13;
