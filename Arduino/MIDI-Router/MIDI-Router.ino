@@ -278,9 +278,12 @@ int difY = 0;
 unsigned long touchShort = 300;     // (ms) must touch this long to trigger
 int tMargin = 5;       // pixel margin to filter out duplicate triggers for a single touch
 
+float clearRouting = 0;
+float pi = 3.141592;
+
 // Initial routing
 // matrix for routing
-int routing[50][50] = {  // [input port][output port]
+bool routing[50][50] = {  // [input port][output port]
  
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},

@@ -1,7 +1,9 @@
+
 void saveEEPROM() {
+  eeprom_addr_offset = 0; 
   //Write dacNeg
-  EEPROM.put( 0, dacNeg );
-  eeprom_addr_offset = sizeof(dacNeg);
+  EEPROM.put( eeprom_addr_offset, dacNeg );
+  eeprom_addr_offset = eeprom_addr_offset + sizeof(dacNeg);
     
   //Write dacPos
   EEPROM.put( eeprom_addr_offset , dacPos );
@@ -10,17 +12,22 @@ void saveEEPROM() {
   //Write dacOffset
   EEPROM.put( eeprom_addr_offset , dacOffset );
   eeprom_addr_offset = eeprom_addr_offset + sizeof(dacOffset);
+
+  //Write clearRouting
+  EEPROM.put(eeprom_addr_offset, clearRouting );
+  eeprom_addr_offset = eeprom_addr_offset + sizeof(clearRouting); 
   
   //Write routing
   EEPROM.put( eeprom_addr_offset , routing );
   eeprom_addr_offset = eeprom_addr_offset + sizeof(routing);
-  
+
 }
 
 void loadEEPROM() {
+  eeprom_addr_offset = 0;
   //Read dacNeg
-  EEPROM.get( 0, dacNeg );
-  eeprom_addr_offset = sizeof(dacNeg);
+  EEPROM.get( eeprom_addr_offset, dacNeg );
+  eeprom_addr_offset = eeprom_addr_offset + sizeof(dacNeg);
     
   //Read dacPos
   EEPROM.get( eeprom_addr_offset , dacPos );
@@ -30,7 +37,17 @@ void loadEEPROM() {
   EEPROM.get( eeprom_addr_offset , dacOffset );
   eeprom_addr_offset = eeprom_addr_offset + sizeof(dacOffset);
   
-  //Read routing
-  EEPROM.get( eeprom_addr_offset , routing );
-  eeprom_addr_offset = eeprom_addr_offset + sizeof(routing);
+  //Read clearRouting;
+  EEPROM.get( eeprom_addr_offset, clearRouting );
+  eeprom_addr_offset = eeprom_addr_offset + sizeof(clearRouting);
+  
+  //Read routing, maybe
+  if (clearRouting == pi) {  // 1
+    Serial.println("pi");
+    EEPROM.get( eeprom_addr_offset , routing );
+    eeprom_addr_offset = eeprom_addr_offset + sizeof(routing);
+  } else {
+    clearRouting = pi;
+    saveEEPROM();
+  }
 }
