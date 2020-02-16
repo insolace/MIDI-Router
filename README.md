@@ -2,16 +2,22 @@
 Created by Eric Bateman (eric@timeline85.com)
 Released under GPLv3
 
-Libraries: see “Library Info (README).txt” before attempting to compile!
+MIDIRouter is a hardware MIDI processor.  It routes and translates messages to/from hardware DIN, USB Devices, and a USB Host (DAW).  
+
+INSTALLATION:
+* Hardware - prototype dev kits available in limited quantities for active contributors/devs, email eric (at) timeline85.com for more info.  Otherwise see hardware listed below and DIY.
+* Libraries - see “Library Info.txt” before attempting to compile!
+* First time compiling - Select Teensy 3.6 and port etc, set USB TYPE to "Serial + MIDIx16".
 
 
 Hardware:
 
-Teensy 3.6 with USB panel mount pig-tails, red 5v power cut from USB-B (DAW) connector, left for USB-A (DEVICE) connector. 
+Teensy 3.6 with USB panel mount pig-tails, red 5v power cut from USB-B (DAW) connector, leave 5v connected for USB-A (DEVICE) connector. 
 https://www.pjrc.com/store/teensy36.html
 
 Display - ER-TFTM050A2-3-3661
 https://www.buydisplay.com/default/5-inch-tft-lcd-display-capacitive-touchscreen-ra8875-controller-800x480
+-This display uses the RA8875 display (SPI) and GSL1680 (I2S) touch drivers.
 
 MIDI hardware follows electrical spec:
 https://www.midi.org/specifications-old/item/midi-din-electrical-specification
