@@ -1,19 +1,24 @@
-MIDI Router uses the following modified libraries from github.com/insolace.  Put them in your sketchbook/libraries folder and they should take precedence over the libraries included with the TeensyDuino install:
+MIDI Router Library Configuration
 
-GSL1680.h
-Adafruit_GFX.h
-Adafruit_RA8875.h
+Remove/archive the following libraries from the Arduino/Teensy default installation:
 
-Also add:
-SDfat - https://github.com/greiman/SdFat
+hardware/teensy/avr/libraries/Adafruit_GFX
+hardware/teensy/avr/libraries/Adafruit_RA8875
+hardware/teensy/avr/libraries/RA8875
+hardware/teensy/avr/libraries/MIDI
 
-Arduino standard libraries:
+Clone these libraries to your sketchbook/libraries folder:
+
+https://github.com/insolace/GSL1680
+https://github.com/insolace/Adafruit-GFX-Library
+https://github.com/insolace/Adafruit_RA8875
+https://github.com/FortySevenEffects/arduino_midi_library
+https://github.com/greiman/SdFat
+
+Arduino standard libraries (included with the Arduino IDE install):
 Wire.h
 stdint.h
 SPI.h
-
-The Arduino standard MIDI library is out of date.  You need to replace it with the current version that fixes clocking issues:
-https://github.com/FortySevenEffects/arduino_midi_library
 
 Teensy 3.6 libraries from Paul Stoffregen (included with TeensyDuino install):
 Bounce2.h
