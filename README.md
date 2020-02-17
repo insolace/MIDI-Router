@@ -26,4 +26,4 @@ https://www.midi.org/specifications-old/item/midi-din-electrical-specification
 DMX not yet incorporated into prototype, but will share serial6 TX line with MIDI6, and use this circuit:
 https://i.stack.imgur.com/0ZBnO.png
 
-Eurorack connections use TEENSY I/O and op-amps as appropriate.
+Eurorack connections use TEENSY I/O and DAC with op-amps as appropriate.
