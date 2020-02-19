@@ -1,0 +1,687 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Portamento",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 8,
+      "name": "Timbre Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Voice Spread",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "AMP EG Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "AMP EG Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "AMP EG Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "AMP EG Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "EG Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "EG Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "EG Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "EG Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "LFO Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "LFO Int",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Voice Mod Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Mod FX Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "Mod FX Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "Delay/Reverb Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "Delay/Reverb Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 34,
+      "name": "VCO 1 Pitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 35,
+      "name": "VCO 2 Pitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 36,
+      "name": "VCO 1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 37,
+      "name": "VCO 2 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 33,
+      "name": "Multi Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 39,
+      "name": "VCO 1 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 40,
+      "name": "VCO 2 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 41,
+      "name": "Cross Mod Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 42,
+      "name": "Pitch EG Int",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 43,
+      "name": "Filter Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 44,
+      "name": "Filter Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 45,
+      "name": "EG Int",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 48,
+      "name": "VCO 1 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 49,
+      "name": "VCO 2 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 50,
+      "name": "VCO 1 Wave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 51,
+      "name": "VCO 2 Wave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 52,
+      "name": "Multi Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 53,
+      "name": "Multi Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 54,
+      "name": "Multi Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 56,
+      "name": "LFO Target",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 57,
+      "name": "LFO Wave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 58,
+      "name": "LFO Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Damper",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "Ring/Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "Pitch EG",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "Filter Low Cut",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "Keyboard Track",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "Filter Drive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "Timbre Edit",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "Timbre Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "Mod FX Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "Delay/Reverb Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "Mod FX On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "Delay/Reverb On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 96,
+      "name": "Mod Effect Sub Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 97,
+      "name": "Delay/Reverb Sub Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "Multi Sub Type Select",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Multi Shift Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Korg Prologue",
+  "device": {
+    "description": "Analog Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Prologue",
+    "documentationResource": "www.korgusa.com",
+    "identifier": "42",
+    "manufacturer": "Korg",
+    "model": "Prologue",
+    "name": "Prologue",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "42",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 42 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Korg Prologue",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Korg Prologue Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "additionalProperties": {}
+}

@@ -1,0 +1,821 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 3,
+      "name": "Trig Root/Chorus Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 4,
+      "name": "Trig Velocity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Trig Length",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Volume",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 9,
+      "name": "Amp Drive/Chorus Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 10,
+      "name": "Pan",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Chorus Send/Chor Delay Send",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Trig Filt/Dly Send/Cho Rvb Send",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Trig LFO/Rvb Send/Rvb Mix",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "Delay Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "FM Ratio B/Dly PPong",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "FM Harmonics/Dly Width",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "FM Detune/Dly Fbk",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "FM Feedback/Dly Rvb Send",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "FM Mix/Delay Mix",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "Reverb PreDelay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "Reverb Shelf Gain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "Filter Freq/Rvb Mix",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "Filter Res/Master Input L Vol",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "Master Input R Volume",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Filter Base/Chor Send",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Filter Width/Dly Send",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "LFO1 Speed/Rvb Send",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "LFO1 Depth/Overdrive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "LFO2 Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "LFO2 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 70,
+      "name": "Filter Attack/Chor HP",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Filter Decay/Chor Width",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "Filter Sustain/Dly HP",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "Filter Release/Dly LP",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Filt Type/Rvb Decay Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "A Env Attack/Rvb Shelf Freq",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "A Env Decay/Rvb HP",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "A Env End/Filt Env Dep/Rvb LF",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "A Env Level/Pan L",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 79,
+      "name": "B Env Attack/Pan R",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "B Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "B Env End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "B Env Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "A Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "A Trig",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "A Env Reset",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "B Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "B Trig",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "B Env Reset",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "Phase Reset",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 91,
+      "name": "FM Algorithm",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "FM Ratio C",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "FM Ratio A",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "Mute Track",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "Track Level/Patt Vol",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "Amp Env Reset",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Amp Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "Amp Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "Amp Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "Amp Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "LFO1 Multiplier",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "LFO1 Fade In/Out",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "LFO1 Destination",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 111,
+      "name": "LFO1 Waveform",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "LFO1 Start Phase",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "LFO1 Trig Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "LFO2 Multiplier",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "LFO2 Fade In/Out",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "LFO2 Destination",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "LFO2 Waveform",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "LFO2 Start Phase",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 119,
+      "name": "LFO2 Trig Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Elektron Digitone",
+  "device": {
+    "description": "FM Synthesizer and Groove Box",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Digitone",
+    "documentationResource": "www.elektron.se",
+    "identifier": "00 20 3C",
+    "manufacturer": "Elektron",
+    "model": "Digitone",
+    "name": "Digitone",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "00 20 3C",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 00 20 3C 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Elektron Digitone",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Elektron Digitone Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE"
+  ],
+  "additionalProperties": {}
+}

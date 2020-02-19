@@ -1,0 +1,168 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 12,
+      "name": "Env Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Accent Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "Overdrive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "Delay Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "Delay Feedback",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "Slide Status",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Tuning",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Roland TB-03",
+  "device": {
+    "description": "Analog Modeled Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "TB-03",
+    "documentationResource": "www.roland.com",
+    "identifier": "41",
+    "manufacturer": "Roland",
+    "model": "TB-03",
+    "name": "TB-03",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "41",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 41 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Roland TB-03",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Roland TB-03 Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "additionalProperties": {}
+}

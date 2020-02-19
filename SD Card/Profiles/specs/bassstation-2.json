@@ -1,0 +1,755 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 0,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Portamento Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Patch Volume",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Osc 1 Fine",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Osc 1 Coarse",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Osc 1 LFO 1 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 70,
+      "name": "Osc 1 Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Osc 1 Mod Env Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "Osc 1 Mod Env PW Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "Osc 1 LFO 2 PW Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Osc 1 Manual PW Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "Osc 2 Fine",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "Osc 2 Coarse",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "Osc 2 LFO 1 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Osc 2 Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "Osc 2 Mod Env Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "Osc 2 Mod Env PW Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "Osc 2 LFO 2 PW Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 79,
+      "name": "Osc 2 Manual PW Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "Sub Osc Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "Sub Osc Wave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "Osc 1 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "Osc 2 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "Sub Osc Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "Noise Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "Ring Mod Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "Ext Signal Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "Filter Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "Filter Slope",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "Filter Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Filter Frequency",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "Filter Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "Filter Mod Env Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "Filter LFO 2 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "Filter Overdrive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "LFO 1 Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "LFO 1 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "LFO 2 Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "LFO 2 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "LFO 1 Wave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "LFO 2 Wave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "Amp Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 91,
+      "name": "Amp Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "Amp Env Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "Amp Env Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "Mod Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "Mod Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Mod Env Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "Mod Env Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "Distortion",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "Osc Filter Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "Arp On",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "Arp Latch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 119,
+      "name": "Arp Rhythm",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "Arp Note Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 111,
+      "name": "Arp Octaves",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "Bend Amount",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "Osc 1-2 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "Amp Env Velocity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "Mod Env Velocity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "VCA Limit",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "Arp Swing",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Novation BassStation II",
+  "device": {
+    "description": "DCO Analog Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "BassStation II",
+    "documentationResource": "www.novationmusic.com",
+    "identifier": "00 20 29",
+    "manufacturer": "Novation",
+    "model": "BassStation II",
+    "name": "BassStation II",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "00 20 29",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 00 20 29 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Novation BassStation II",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Novation BassStation II Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE"
+  ],
+  "additionalProperties": {}
+}

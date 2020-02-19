@@ -1,0 +1,598 @@
+﻿SysEx ID Number (MMA format),Company Name ,# of bytes,Dec 1b,Dec 2b,Dec 3b
+00H,[Used for ID Extensions],,,,
+60H to 7FH,[Reserved for Other Uses],,,,
+01H,Sequential Circuits,1,1,,
+02H,IDP,1,2,,
+03H,"Voyetra Turtle Beach, Inc.",1,3,,
+04H,Moog Music,1,4,,
+05H,Passport Designs,1,5,,
+06H,Lexicon Inc.,1,6,,
+07H,Kurzweil / Young Chang,1,7,,
+08H,Fender,1,8,,
+09H,MIDI9,1,9,,
+0AH,AKG Acoustics,1,10,,
+0BH,Voyce Music,1,11,,
+0CH,WaveFrame (Timeline),1,12,,
+0DH,"ADA Signal Processors, Inc.",1,13,,
+0EH,Garfield Electronics,1,14,,
+0FH,Ensoniq,1,15,,
+10H,Oberheim / Gibson Labs,1,16,,
+11H,Apple,1,17,,
+12H,Grey Matter Response,1,18,,
+13H,Digidesign Inc.,1,19,,
+14H,Palmtree Instruments,1,20,,
+15H,JLCooper Electronics,1,21,,
+16H,Lowrey Organ Company,1,22,,
+17H,Adams-Smith,1,23,,
+18H,E-mu,1,24,,
+19H,Harmony Systems,1,25,,
+1AH,ART,1,26,,
+1BH,Baldwin,1,27,,
+1CH,Eventide,1,28,,
+1DH,Inventronics,1,29,,
+1EH,Key Concepts,1,30,,
+1FH,Clarity,1,31,,
+20H,Passac,1,32,,
+21H,Proel Labs (SIEL),1,33,,
+22H,Synthaxe (UK),1,34,,
+23H,Stepp,1,35,,
+24H,Hohner,1,36,,
+25H,Twister,1,37,,
+26H,Ketron s.r.l.,1,38,,
+27H,Jellinghaus MS,1,39,,
+28H,Southworth Music Systems,1,40,,
+29H,PPG (Germany),1,41,,
+2AH,JEN,1,42,,
+2BH,Solid State Logic Organ Systems,1,43,,
+2CH,Audio Veritrieb-P. Struven,1,44,,
+2DH,Neve,1,45,,
+2EH,Soundtracs Ltd.,1,46,,
+2FH,Elka,1,47,,
+30H,Dynacord,1,48,,
+31H,Viscount International Spa,1,49,,
+32H,Drawmer,1,50,,
+33H,Clavia Digital Instruments,1,51,,
+34H,Audio Architecture,1,52,,
+35H,Generalmusic Corp SpA,1,53,,
+36H,Cheetah Marketing,1,54,,
+37H,C.T.M.,1,55,,
+38H,Simmons UK,1,56,,
+39H,Soundcraft Electronics,1,57,,
+3AH,Steinberg Media Technologies GmbH,1,58,,
+3BH,Wersi Gmbh,1,59,,
+3CH,AVAB Niethammer AB,1,60,,
+3DH,Digigram,1,61,,
+3EH,Waldorf Electronics GmbH,1,62,,
+3FH,Quasimidi,1,63,,
+40H,Kawai Musical Instruments MFG. CO. Ltd,1,64,,
+41H,Roland Corporation,1,65,,
+42H,Korg Inc.,1,66,,
+43H,Yamaha Corporation,1,67,,
+44H,Casio Computer Co. Ltd,1,68,,
+46H,Kamiya Studio Co. Ltd,1,70,,
+47H,Akai Electric Co. Ltd.,1,71,,
+48H,"Victor Company of Japan, Ltd.",1,72,,
+4BH,Fujitsu Limited,1,75,,
+4CH,Sony Corporation,1,76,,
+4EH,Teac Corporation,1,78,,
+50H,"Matsushita Electric Industrial Co. , Ltd",1,80,,
+51H,Fostex Corporation,1,81,,
+52H,Zoom Corporation,1,82,,
+54H,"Matsushita Communication Industrial Co., Ltd.",1,84,,
+55H,"Suzuki Musical Instruments MFG. Co., Ltd.",1,85,,
+56H,Fuji Sound Corporation Ltd.,1,86,,
+57H,"Acoustic Technical Laboratory, Inc.",1,87,,
+59H,"Faith, Inc.",1,89,,
+5AH,Internet Corporation,1,90,,
+5CH,Seekers Co. Ltd.,1,92,,
+5FH,SD Card Association,1,95,,
+00H 00H 01H,Time/Warner Interactive,3,0,0,1
+00H 00H 02H,Advanced Gravis Comp. Tech Ltd.,3,0,0,2
+00H 00H 03H,Media Vision,3,0,0,3
+00H 00H 04H,Dornes Research Group,3,0,0,4
+00H 00H 05H,K-Muse,3,0,0,5
+00H 00H 06H,Stypher,3,0,0,6
+00H 00H 07H,Digital Music Corp.,3,0,0,7
+00H 00H 08H,IOTA Systems,3,0,0,8
+00H 00H 09H,New England Digital,3,0,0,9
+00H 00H 0AH,Artisyn,3,0,0,10
+00H 00H 0BH,IVL Technologies Ltd.,3,0,0,11
+00H 00H 0CH,Southern Music Systems,3,0,0,12
+00H 00H 0DH,Lake Butler Sound Company,3,0,0,13
+00H 00H 0EH,Alesis Studio Electronics,3,0,0,14
+00H 00H 0FH,Sound Creation,3,0,0,15
+00H 00H 10H,DOD Electronics Corp.,3,0,0,16
+00H 00H 11H,Studer-Editech,3,0,0,17
+00H 00H 12H,Sonus,3,0,0,18
+00H 00H 13H,Temporal Acuity Products,3,0,0,19
+00H 00H 14H,Perfect Fretworks,3,0,0,20
+00H 00H 15H,KAT Inc.,3,0,0,21
+00H 00H 16H,Opcode Systems,3,0,0,22
+00H 00H 17H,Rane Corporation,3,0,0,23
+00H 00H 18H,Anadi Electronique,3,0,0,24
+00H 00H 19H,KMX,3,0,0,25
+00H 00H 1AH,Allen & Heath Brenell,3,0,0,26
+00H 00H 1BH,Peavey Electronics,3,0,0,27
+00H 00H 1CH,360 Systems,3,0,0,28
+00H 00H 1DH,Spectrum Design and Development,3,0,0,29
+00H 00H 1EH,Marquis Music,3,0,0,30
+00H 00H 1FH,Zeta Systems,3,0,0,31
+00H 00H 20H,Axxes (Brian Parsonett),3,0,0,32
+00H 00H 21H,Orban,3,0,0,33
+00H 00H 22H,Indian Valley Mfg.,3,0,0,34
+00H 00H 23H,Triton,3,0,0,35
+00H 00H 24H,KTI,3,0,0,36
+00H 00H 25H,Breakaway Technologies,3,0,0,37
+00H 00H 26H,Leprecon / CAE Inc.,3,0,0,38
+00H 00H 27H,Harrison Systems Inc.,3,0,0,39
+00H 00H 28H,Future Lab/Mark Kuo,3,0,0,40
+00H 00H 29H,Rocktron Corporation,3,0,0,41
+00H 00H 2AH,PianoDisc,3,0,0,42
+00H 00H 2BH,Cannon Research Group,3,0,0,43
+00H 00H 2CH,Reserved,3,0,0,44
+00H 00H 2DH,Rodgers Instrument LLC,3,0,0,45
+00H 00H 2EH,Blue Sky Logic,3,0,0,46
+00H 00H 2FH,Encore Electronics,3,0,0,47
+00H 00H 30H,Uptown,3,0,0,48
+00H 00H 31H,Voce,3,0,0,49
+00H 00H 32H,"CTI Audio, Inc. (Musically Intel. Devs.)",3,0,0,50
+00H 00H 33H,S3 Incorporated,3,0,0,51
+00H 00H 34H,Broderbund / Red Orb,3,0,0,52
+00H 00H 35H,Allen Organ Co.,3,0,0,53
+00H 00H 36H,Reserved,3,0,0,54
+00H 00H 37H,Music Quest,3,0,0,55
+00H 00H 38H,Aphex,3,0,0,56
+00H 00H 39H,Gallien Krueger,3,0,0,57
+00H 00H 3AH,IBM,3,0,0,58
+00H 00H 3BH,Mark Of The Unicorn,3,0,0,59
+00H 00H 3CH,Hotz Corporation,3,0,0,60
+00H 00H 3DH,ETA Lighting,3,0,0,61
+00H 00H 3EH,NSI Corporation,3,0,0,62
+00H 00H 3FH,"Ad Lib, Inc.",3,0,0,63
+00H 00H 40H,Richmond Sound Design,3,0,0,64
+00H 00H 41H,Microsoft,3,0,0,65
+00H 00H 42H,Mindscape (Software Toolworks),3,0,0,66
+00H 00H 43H,Russ Jones Marketing / Niche,3,0,0,67
+00H 00H 44H,Intone,3,0,0,68
+00H 00H 45H,Advanced Remote Technologies,3,0,0,69
+00H 00H 46H,White Instruments,3,0,0,70
+00H 00H 47H,GT Electronics/Groove Tubes,3,0,0,71
+00H 00H 48H,Pacific Research & Engineering,3,0,0,72
+00H 00H 49H,"Timeline Vista, Inc.",3,0,0,73
+00H 00H 4AH,Mesa Boogie Ltd.,3,0,0,74
+00H 00H 4BH,FSLI,3,0,0,75
+00H 00H 4CH,Sequoia Development Group,3,0,0,76
+00H 00H 4DH,Studio Electronics,3,0,0,77
+00H 00H 4EH,"Euphonix, Inc",3,0,0,78
+00H 00H 4FH,"InterMIDI, Inc.",3,0,0,79
+00H 00H 50H,MIDI Solutions Inc.,3,0,0,80
+00H 00H 51H,3DO Company,3,0,0,81
+00H 00H 52H,Lightwave Research / High End Systems,3,0,0,82
+00H 00H 53H,Micro-W Corporation,3,0,0,83
+00H 00H 54H,"Spectral Synthesis, Inc.",3,0,0,84
+00H 00H 55H,Lone Wolf,3,0,0,85
+00H 00H 56H,Studio Technologies Inc.,3,0,0,86
+00H 00H 57H,"Peterson Electro-Musical Product, Inc.",3,0,0,87
+00H 00H 58H,Atari Corporation,3,0,0,88
+00H 00H 59H,Marion Systems Corporation,3,0,0,89
+00H 00H 5AH,Design Event,3,0,0,90
+00H 00H 5BH,Winjammer Software Ltd.,3,0,0,91
+00H 00H 5CH,AT&T Bell Laboratories,3,0,0,92
+00H 00H 5DH,Reserved,3,0,0,93
+00H 00H 5EH,Symetrix,3,0,0,94
+00H 00H 5FH,MIDI the World,3,0,0,95
+00H 00H 60H,Spatializer,3,0,0,96
+00H 00H 61H,Micros 'N MIDI,3,0,0,97
+00H 00H 62H,Accordians International,3,0,0,98
+00H 00H 63H,EuPhonics (now 3Com),3,0,0,99
+00H 00H 64H,Musonix,3,0,0,100
+00H 00H 65H,Turtle Beach Systems (Voyetra),3,0,0,101
+00H 00H 66H,Loud Technologies / Mackie,3,0,0,102
+00H 00H 67H,Compuserve,3,0,0,103
+00H 00H 68H,BEC Technologies,3,0,0,104
+00H 00H 69H,QRS Music Inc,3,0,0,105
+00H 00H 6AH,P.G. Music,3,0,0,106
+00H 00H 6BH,Sierra Semiconductor,3,0,0,107
+00H 00H 6CH,EpiGraf,3,0,0,108
+00H 00H 6DH,Electronics Diversified Inc,3,0,0,109
+00H 00H 6EH,Tune 1000,3,0,0,110
+00H 00H 6FH,Advanced Micro Devices,3,0,0,111
+00H 00H 70H,Mediamation,3,0,0,112
+00H 00H 71H,Sabine Musical Mfg. Co. Inc.,3,0,0,113
+00H 00H 72H,Woog Labs,3,0,0,114
+00H 00H 73H,Micropolis Corp,3,0,0,115
+00H 00H 74H,Ta Horng Musical Instrument,3,0,0,116
+00H 00H 75H,e-Tek Labs (Forte Tech),3,0,0,117
+00H 00H 76H,Electro-Voice,3,0,0,118
+00H 00H 77H,Midisoft Corporation,3,0,0,119
+00H 00H 78H,QSound Labs,3,0,0,120
+00H 00H 79H,Westrex,3,0,0,121
+00H 00H 7AH,Nvidia,3,0,0,122
+00H 00H 7BH,ESS Technology,3,0,0,123
+00H 00H 7CH,Media Trix Peripherals,3,0,0,124
+00H 00H 7DH,Brooktree Corp,3,0,0,125
+00H 00H 7EH,Otari Corp,3,0,0,126
+00H 00H 7FH,"Key Electronics, Inc.",3,0,0,127
+00H 01H 00H,Shure Incorporated,3,0,1,0
+00H 01H 01H,AuraSound,3,0,1,1
+00H 01H 02H,Crystal Semiconductor,3,0,1,2
+00H 01H 03H,Conexant (Rockwell),3,0,1,3
+00H 01H 04H,Silicon Graphics,3,0,1,4
+00H 01H 05H,M-Audio (Midiman),3,0,1,5
+00H 01H 06H,PreSonus,3,0,1,6
+00H 01H 08H,Topaz Enterprises,3,0,1,8
+00H 01H 09H,Cast Lighting,3,0,1,9
+00H 01H 0AH,Microsoft Consumer Division,3,0,1,10
+00H 01H 0BH,Sonic Foundry,3,0,1,11
+00H 01H 0CH,Line 6 (Fast Forward) (Yamaha),3,0,1,12
+00H 01H 0DH,Beatnik Inc,3,0,1,13
+00H 01H 0EH,Van Koevering Company,3,0,1,14
+00H 01H 0FH,Altech Systems,3,0,1,15
+00H 01H 10H,S & S Research,3,0,1,16
+00H 01H 11H,VLSI Technology,3,0,1,17
+00H 01H 12H,Chromatic Research,3,0,1,18
+00H 01H 13H,Sapphire,3,0,1,19
+00H 01H 14H,IDRC,3,0,1,20
+00H 01H 15H,Justonic Tuning,3,0,1,21
+00H 01H 16H,TorComp Research Inc.,3,0,1,22
+00H 01H 17H,Newtek Inc.,3,0,1,23
+00H 01H 18H,Sound Sculpture,3,0,1,24
+00H 01H 19H,Walker Technical,3,0,1,25
+00H 01H 1AH,Digital Harmony (PAVO),3,0,1,26
+00H 01H 1BH,InVision Interactive,3,0,1,27
+00H 01H 1CH,T-Square Design,3,0,1,28
+00H 01H 1DH,Nemesys Music Technology,3,0,1,29
+00H 01H 1EH,DBX Professional (Harman Intl),3,0,1,30
+00H 01H 1FH,Syndyne Corporation,3,0,1,31
+00H 01H 20H,Bitheadz,3,0,1,32
+00H 01H 21H,BandLab Technologies,3,0,1,33
+00H 01H 22H,Analog Devices,3,0,1,34
+00H 01H 23H,National Semiconductor,3,0,1,35
+00H 01H 24H,Boom Theory / Adinolfi Alternative Percussion,3,0,1,36
+00H 01H 25H,Virtual DSP Corporation,3,0,1,37
+00H 01H 26H,Antares Systems,3,0,1,38
+00H 01H 27H,Angel Software,3,0,1,39
+00H 01H 28H,St Louis Music,3,0,1,40
+00H 01H 29H,Passport Music Software LLC (Gvox),3,0,1,41
+00H 01H 2AH,Ashley Audio Inc.,3,0,1,42
+00H 01H 2BH,Vari-Lite Inc.,3,0,1,43
+00H 01H 2CH,Summit Audio Inc.,3,0,1,44
+00H 01H 2DH,Aureal Semiconductor Inc.,3,0,1,45
+00H 01H 2EH,SeaSound LLC,3,0,1,46
+00H 01H 2FH,U.S. Robotics,3,0,1,47
+00H 01H 30H,Aurisis Research,3,0,1,48
+00H 01H 31H,Nearfield Research,3,0,1,49
+00H 01H 32H,FM7 Inc,3,0,1,50
+00H 01H 33H,Swivel Systems,3,0,1,51
+00H 01H 34H,Hyperactive Audio Systems,3,0,1,52
+00H 01H 35H,MidiLite (Castle Studios Productions),3,0,1,53
+00H 01H 36H,Radikal Technologies,3,0,1,54
+00H 01H 37H,Roger Linn Design,3,0,1,55
+00H 01H 38H,TC-Helicon Vocal Technologies,3,0,1,56
+00H 01H 39H,Event Electronics,3,0,1,57
+00H 01H 3AH,Sonic Network Inc,3,0,1,58
+00H 01H 3BH,Realtime Music Solutions,3,0,1,59
+00H 01H 3CH,Apogee Digital,3,0,1,60
+00H 01H 3DH,"Classical Organs, Inc.",3,0,1,61
+00H 01H 3EH,Microtools Inc.,3,0,1,62
+00H 01H 3FH,Numark Industries,3,0,1,63
+00H 01H 40H,"Frontier Design Group, LLC",3,0,1,64
+00H 01H 41H,Recordare LLC,3,0,1,65
+00H 01H 42H,Starr Labs,3,0,1,66
+00H 01H 43H,Voyager Sound Inc.,3,0,1,67
+00H 01H 44H,Manifold Labs,3,0,1,68
+00H 01H 45H,Aviom Inc.,3,0,1,69
+00H 01H 46H,Mixmeister Technology,3,0,1,70
+00H 01H 47H,Notation Software,3,0,1,71
+00H 01H 48H,Mercurial Communications,3,0,1,72
+00H 01H 49H,Wave Arts,3,0,1,73
+00H 01H 4AH,Logic Sequencing Devices,3,0,1,74
+00H 01H 4BH,Axess Electronics,3,0,1,75
+00H 01H 4CH,Muse Research,3,0,1,76
+00H 01H 4DH,Open Labs,3,0,1,77
+00H 01H 4EH,Guillemot Corp,3,0,1,78
+00H 01H 4FH,Samson Technologies,3,0,1,79
+00H 01H 50H,Electronic Theatre Controls,3,0,1,80
+00H 01H 51H,Blackberry (RIM),3,0,1,81
+00H 01H 52H,Mobileer,3,0,1,82
+00H 01H 53H,Synthogy,3,0,1,83
+00H 01H 54H,Lynx Studio Technology Inc.,3,0,1,84
+00H 01H 55H,Damage Control Engineering LLC,3,0,1,85
+00H 01H 56H,"Yost Engineering, Inc.",3,0,1,86
+00H 01H 57H,Brooks & Forsman Designs LLC / DrumLite,3,0,1,87
+00H 01H 58H,Infinite Response,3,0,1,88
+00H 01H 59H,Garritan Corp,3,0,1,89
+00H 01H 5AH,"Plogue Art et Technologie, Inc",3,0,1,90
+00H 01H 5BH,RJM Music Technology,3,0,1,91
+00H 01H 5CH,Custom Solutions Software,3,0,1,92
+00H 01H 5DH,Sonarcana LLC / Highly Liquid,3,0,1,93
+00H 01H 5EH,Centrance,3,0,1,94
+00H 01H 5FH,Kesumo LLC,3,0,1,95
+00H 01H 60H,Stanton (Gibson Brands),3,0,1,96
+00H 01H 61H,Livid Instruments,3,0,1,97
+00H 01H 62H,First Act / 745 Media,3,0,1,98
+00H 01H 63H,"Pygraphics, Inc.",3,0,1,99
+00H 01H 64H,Panadigm Innovations Ltd,3,0,1,100
+00H 01H 65H,Avedis Zildjian Co,3,0,1,101
+00H 01H 66H,Auvital Music Corp,3,0,1,102
+00H 01H 67H,You Rock Guitar (was: Inspired Instruments),3,0,1,103
+00H 01H 68H,Chris Grigg Designs,3,0,1,104
+00H 01H 69H,Slate Digital LLC,3,0,1,105
+00H 01H 6AH,Mixware,3,0,1,106
+00H 01H 6BH,Social Entropy,3,0,1,107
+00H 01H 6CH,Source Audio LLC,3,0,1,108
+00H 01H 6DH,Ernie Ball / Music Man,3,0,1,109
+00H 01H 6EH,Fishman,3,0,1,110
+00H 01H 6FH,Custom Audio Electronics,3,0,1,111
+00H 01H 70H,American Audio/DJ,3,0,1,112
+00H 01H 71H,Mega Control Systems,3,0,1,113
+00H 01H 72H,Kilpatrick Audio,3,0,1,114
+00H 01H 73H,iConnectivity,3,0,1,115
+00H 01H 74H,Fractal Audio,3,0,1,116
+00H 01H 75H,NetLogic Microsystems,3,0,1,117
+00H 01H 76H,Music Computing,3,0,1,118
+00H 01H 77H,Nektar Technology Inc,3,0,1,119
+00H 01H 78H,Zenph Sound Innovations,3,0,1,120
+00H 01H 79H,DJTechTools.com,3,0,1,121
+00H 01H 7AH,Rezonance Labs,3,0,1,122
+00H 01H 7BH,Decibel Eleven,3,0,1,123
+00H 01H 7CH,CNMAT,3,0,1,124
+00H 01H 7DH,Media Overkill,3,0,1,125
+00H 01H 7EH,Confusion Studios,3,0,1,126
+00H 01H 7FH,moForte Inc,3,0,1,127
+00H 02H 00H,Miselu Inc,3,0,2,0
+00H 02H 01H,Amelia's Compass LLC,3,0,2,1
+00H 02H 02H,Zivix LLC,3,0,2,2
+00H 02H 03H,Artiphon,3,0,2,3
+00H 02H 04H,Synclavier Digital,3,0,2,4
+00H 02H 05H,Light & Sound Control Devices LLC,3,0,2,5
+00H 02H 06H,Retronyms Inc,3,0,2,6
+00H 02H 07H,JS Technologies,3,0,2,7
+00H 02H 08H,Quicco Sound,3,0,2,8
+00H 02H 09H,A-Designs Audio,3,0,2,9
+00H 02H 0AH,McCarthy Music Corp,3,0,2,10
+00H 02H 0BH,Denon DJ,3,0,2,11
+00H 02H 0CH,Keith Robert Murray,3,0,2,12
+00H 02H 0DH,Google,3,0,2,13
+00H 02H 0EH,ISP Technologies,3,0,2,14
+00H 02H 0FH,Abstrakt Instruments LLC,3,0,2,15
+00H 02H 10H,Meris LLC,3,0,2,16
+00H 02H 11H,Sensorpoint LLC,3,0,2,17
+00H 02H 12H,Hi-Z Labs,3,0,2,18
+00H 02H 13H,Imitone,3,0,2,19
+00H 02H 14H,Intellijel Designs Inc.,3,0,2,20
+00H 02H 15H,Dasz Instruments Inc.,3,0,2,21
+00H 02H 16H,Remidi,3,0,2,22
+00H 02H 17H,Disaster Area Designs LLC,3,0,2,23
+00H 02H 18H,Universal Audio,3,0,2,24
+00H 02H 19H,Carter Duncan Corp,3,0,2,25
+00H 02H 1AH,Essential Technology,3,0,2,26
+00H 02H 1BH,Cantux Research LLC,3,0,2,27
+00H 02H 1CH,Hummel Technologies,3,0,2,28
+00H 02H 1DH,Sensel Inc,3,0,2,29
+00H 02H 1EH,DBML Group,3,0,2,30
+00H 02H 1FH,Madrona Labs,3,0,2,31
+00H 02H 20H,Mesa Boogie,3,0,2,32
+00H 02H 21H,Effigy Labs,3,0,2,33
+00H 02H 22H,MK2 Image Ltd,3,0,2,34
+00H 02H 23H,Red Panda LLC,3,0,2,35
+00H 02H 24H,OnSong LLC,3,0,2,36
+00H 02H 25H,Jamboxx Inc.,3,0,2,37
+00H 02H 26H,Electro-Harmonix ,3,0,2,38
+00H 02H 27H,RnD64 Inc,3,0,2,39
+00H 02H 28H ,Neunaber Technology LLC ,3,0,2,40
+00H 02H 29H,Kaom Inc.,3,0,2,41
+00H 02H 2AH,Hallowell EMC,3,0,2,42
+00H 02H 2BH,"Sound Devices, LLC",3,0,2,43
+00H 02H 2CH,"Spectrasonics, Inc",3,0,2,44
+00H 02H 2DH,"Second Sound, LLC",3,0,2,45
+00H 02H 2EH,8eo (Horn),3,0,2,46
+00H 02H 2FH,VIDVOX LLC,3,0,2,47
+00H 02H 30H,Matthews Effects,3,0,2,48
+00H 20H 00H,Dream SAS,3,0,32,0
+00H 20H 01H,Strand Lighting,3,0,32,1
+00H 20H 02H,Amek Div of Harman Industries,3,0,32,2
+00H 20H 03H,Casa Di Risparmio Di Loreto,3,0,32,3
+00H 20H 04H,Böhm electronic GmbH,3,0,32,4
+00H 20H 05H,Syntec Digital Audio,3,0,32,5
+00H 20H 06H,Trident Audio Developments,3,0,32,6
+00H 20H 07H,Real World Studio,3,0,32,7
+00H 20H 08H,"Evolution Synthesis, Ltd",3,0,32,8
+00H 20H 09H,Yes Technology,3,0,32,9
+00H 20H 0AH,Audiomatica,3,0,32,10
+00H 20H 0BH,Bontempi SpA (Sigma),3,0,32,11
+00H 20H 0CH,F.B.T. Elettronica SpA,3,0,32,12
+00H 20H 0DH,MidiTemp GmbH,3,0,32,13
+00H 20H 0EH,LA Audio (Larking Audio),3,0,32,14
+00H 20H 0FH,Zero 88 Lighting Limited,3,0,32,15
+00H 20H 10H,Micon Audio Electronics GmbH,3,0,32,16
+00H 20H 11H,Forefront Technology,3,0,32,17
+00H 20H 12H,Studio Audio and Video Ltd.,3,0,32,18
+00H 20H 13H,Kenton Electronics,3,0,32,19
+00H 20H 14H,Celco/ Electrosonic,3,0,32,20
+00H 20H 15H,ADB,3,0,32,21
+00H 20H 16H,Marshall Products Limited,3,0,32,22
+00H 20H 17H,DDA,3,0,32,23
+00H 20H 18H,BSS Audio Ltd.,3,0,32,24
+00H 20H 19H,MA Lighting Technology,3,0,32,25
+00H 20H 1AH,Fatar SRL c/o Music Industries,3,0,32,26
+00H 20H 1BH,QSC Audio Products Inc.,3,0,32,27
+00H 20H 1CH,Artisan Clasic Organ Inc.,3,0,32,28
+00H 20H 1DH,Orla Spa,3,0,32,29
+00H 20H 1EH,Pinnacle Audio (Klark Teknik PLC),3,0,32,30
+00H 20H 1FH,TC Electronics,3,0,32,31
+00H 20H 20H,Doepfer Musikelektronik GmbH,3,0,32,32
+00H 20H 21H,Creative ATC / E-mu,3,0,32,33
+00H 20H 22H,Seyddo/Minami,3,0,32,34
+00H 20H 23H,LG Electronics (Goldstar),3,0,32,35
+00H 20H 24H,Midisoft sas di M.Cima & C,3,0,32,36
+00H 20H 25H,Samick Musical Inst. Co. Ltd.,3,0,32,37
+00H 20H 26H,Penny and Giles (Bowthorpe PLC),3,0,32,38
+00H 20H 27H,Acorn Computer,3,0,32,39
+00H 20H 28H,LSC Electronics Pty. Ltd.,3,0,32,40
+00H 20H 29H,Focusrite/Novation,3,0,32,41
+00H 20H 2AH,Samkyung Mechatronics,3,0,32,42
+00H 20H 2BH,Medeli Electronics Co.,3,0,32,43
+00H 20H 2CH,Charlie Lab SRL,3,0,32,44
+00H 20H 2DH,Blue Chip Music Technology,3,0,32,45
+00H 20H 2EH,BEE OH Corp,3,0,32,46
+00H 20H 2FH,LG Semicon America,3,0,32,47
+00H 20H 30H,TESI,3,0,32,48
+00H 20H 31H,EMAGIC,3,0,32,49
+00H 20H 32H,Behringer GmbH,3,0,32,50
+00H 20H 33H,Access Music Electronics,3,0,32,51
+00H 20H 34H,Synoptic,3,0,32,52
+00H 20H 35H,Hanmesoft,3,0,32,53
+00H 20H 36H,Terratec Electronic GmbH,3,0,32,54
+00H 20H 37H,Proel SpA,3,0,32,55
+00H 20H 38H,IBK MIDI,3,0,32,56
+00H 20H 39H,IRCAM,3,0,32,57
+00H 20H 3AH,Propellerhead Software,3,0,32,58
+00H 20H 3BH,Red Sound Systems Ltd,3,0,32,59
+00H 20H 3CH,Elektron ESI AB,3,0,32,60
+00H 20H 3DH,Sintefex Audio,3,0,32,61
+00H 20H 3EH,MAM (Music and More),3,0,32,62
+00H 20H 3FH,Amsaro GmbH,3,0,32,63
+00H 20H 40H,CDS Advanced Technology BV (Lanbox),3,0,32,64
+00H 20H 41H,Mode Machines (Touched By Sound GmbH),3,0,32,65
+00H 20H 42H,DSP Arts,3,0,32,66
+00H 20H 43H,Phil Rees Music Tech,3,0,32,67
+00H 20H 44H,Stamer Musikanlagen GmbH,3,0,32,68
+00H 20H 45H,Musical Muntaner S.A. dba Soundart,3,0,32,69
+00H 20H 46H,C-Mexx Software,3,0,32,70
+00H 20H 47H,Klavis Technologies,3,0,32,71
+00H 20H 48H,Noteheads AB,3,0,32,72
+00H 20H 49H,Algorithmix,3,0,32,73
+00H 20H 4AH,Skrydstrup R&D,3,0,32,74
+00H 20H 4BH,Professional Audio Company,3,0,32,75
+00H 20H 4CH,NewWave Labs (MadWaves),3,0,32,76
+00H 20H 4DH,Vermona,3,0,32,77
+00H 20H 4EH,Nokia,3,0,32,78
+00H 20H 4FH,Wave Idea,3,0,32,79
+00H 20H 50H,Hartmann GmbH,3,0,32,80
+00H 20H 51H,Lion's Tracs,3,0,32,81
+00H 20H 52H,Analogue Systems,3,0,32,82
+00H 20H 53H,Focal-JMlab,3,0,32,83
+00H 20H 54H,Ringway Electronics (Chang-Zhou) Co Ltd,3,0,32,84
+00H 20H 55H,Faith Technologies (Digiplug),3,0,32,85
+00H 20H 56H,Showworks,3,0,32,86
+00H 20H 57H,Manikin Electronic,3,0,32,87
+00H 20H 58H,1 Come Tech,3,0,32,88
+00H 20H 59H,Phonic Corp,3,0,32,89
+00H 20H 5AH,Dolby Australia (Lake),3,0,32,90
+00H 20H 5BH,Silansys Technologies,3,0,32,91
+00H 20H 5CH,Winbond Electronics,3,0,32,92
+00H 20H 5DH,Cinetix Medien und Interface GmbH,3,0,32,93
+00H 20H 5EH,A&G Soluzioni Digitali,3,0,32,94
+00H 20H 5FH,Sequentix GmbH,3,0,32,95
+00H 20H 60H,Oram Pro Audio,3,0,32,96
+00H 20H 61H,Be4 Ltd,3,0,32,97
+00H 20H 62H,Infection Music,3,0,32,98
+00H 20H 63H,Central Music Co. (CME),3,0,32,99
+00H 20H 64H,genoQs Machines GmbH,3,0,32,100
+00H 20H 65H,Medialon,3,0,32,101
+00H 20H 66H,Waves Audio Ltd,3,0,32,102
+00H 20H 67H,Jerash Labs,3,0,32,103
+00H 20H 68H,Da Fact,3,0,32,104
+00H 20H 69H,Elby Designs,3,0,32,105
+00H 20H 6AH,Spectral Audio,3,0,32,106
+00H 20H 6BH,Arturia,3,0,32,107
+00H 20H 6CH,Vixid,3,0,32,108
+00H 20H 6DH,C-Thru Music,3,0,32,109
+00H 20H 6EH,Ya Horng Electronic Co LTD,3,0,32,110
+00H 20H 6FH,SM Pro Audio,3,0,32,111
+00H 20H 70H,OTO Machines,3,0,32,112
+00H 20H 71H,ELZAB S.A. (G LAB),3,0,32,113
+00H 20H 72H,Blackstar Amplification Ltd,3,0,32,114
+00H 20H 73H,M3i Technologies GmbH,3,0,32,115
+00H 20H 74H,Gemalto (from Xiring),3,0,32,116
+00H 20H 75H,Prostage SL,3,0,32,117
+00H 20H 76H,Teenage Engineering,3,0,32,118
+00H 20H 77H,Tobias Erichsen Consulting,3,0,32,119
+00H 20H 78H,Nixer Ltd,3,0,32,120
+00H 20H 79H,Hanpin Electron Co Ltd,3,0,32,121
+00H 20H 7AH,"""MIDI-hardware"" R.Sowa",3,0,32,122
+00H 20H 7BH,Beyond Music Industrial Ltd,3,0,32,123
+00H 20H 7CH,Kiss Box B.V.,3,0,32,124
+00H 20H 7DH,Misa Digital Technologies Ltd,3,0,32,125
+00H 20H 7EH,AI Musics Technology Inc,3,0,32,126
+00H 20H 7FH,Serato Inc LP,3,0,32,127
+00H 21H 00H,Limex,3,0,33,0
+00H 21H 01H,Kyodday (Tokai),3,0,33,1
+00H 21H 02H,Mutable Instruments,3,0,33,2
+00H 21H 03H,PreSonus Software Ltd,3,0,33,3
+00H 21H 04H,Ingenico (was Xiring),3,0,33,4
+00H 21H 05H,Fairlight Instruments Pty Ltd,3,0,33,5
+00H 21H 06H,Musicom Lab,3,0,33,6
+00H 21H 07H,Modal Electronics (Modulus/VacoLoco),3,0,33,7
+00H 21H 08H,RWA (Hong Kong) Limited,3,0,33,8
+00H 21H 09H,Native Instruments,3,0,33,9
+00H 21H 0AH,Naonext,3,0,33,10
+00H 21H 0BH,MFB,3,0,33,11
+00H 21H 0CH,Teknel Research,3,0,33,12
+00H 21H 0DH,Ploytec GmbH,3,0,33,13
+00H 21H 0EH,Surfin Kangaroo Studio,3,0,33,14
+00H 21H 0FH,Philips Electronics HK Ltd,3,0,33,15
+00H 21H 10H,ROLI Ltd,3,0,33,16
+00H 21H 11H,Panda-Audio Ltd,3,0,33,17
+00H 21H 12H,BauM Software,3,0,33,18
+00H 21H 13H,Machinewerks Ltd.,3,0,33,19
+00H 21H 14H,Xiamen Elane Electronics,3,0,33,20
+00H 21H 15H,Marshall Amplification PLC,3,0,33,21
+00H 21H 16H,Kiwitechnics Ltd,3,0,33,22
+00H 21H 17H,Rob Papen,3,0,33,23
+00H 21H 18H,Spicetone OU,3,0,33,24
+00H 21H 19H,V3Sound,3,0,33,25
+00H 21H 1AH,IK Multimedia,3,0,33,26
+00H 21H 1BH,Novalia Ltd,3,0,33,27
+00H 21H 1CH,Modor Music,3,0,33,28
+00H 21H 1DH,Ableton,3,0,33,29
+00H 21H 1EH,Dtronics,3,0,33,30
+00H 21H 1FH,ZAQ Audio,3,0,33,31
+00H 21H 20H,Muabaobao Education Technology Co Ltd,3,0,33,32
+00H 21H 21H,Flux Effects,3,0,33,33
+00H 21H 22H,Audiothingies (MCDA),3,0,33,34
+00H 21H 23H,Retrokits,3,0,33,35
+00H 21H 24H,Morningstar FX Pte Ltd,3,0,33,36
+00H 21H 25H,Changsha Hotone Audio Co Ltd,3,0,33,37
+00H 21H 26H,Expressive E,3,0,33,38
+00H 21H 27H,Expert Sleepers Ltd,3,0,33,39
+00H 21H 28H,Timecode-Vision Technology,3,0,33,40
+00H 21H 29H,Hornberg Research GbR,3,0,33,41
+00H 21H 2AH,Sonic Potions,3,0,33,42
+00H 21H 2BH,Audiofront,3,0,33,43
+00H 21H 2CH,Fred's Lab,3,0,33,44
+00H 21H 2DH,Audio Modeling,3,0,33,45
+00H 21H 2EH,C. Bechstein Digital GmbH,3,0,33,46
+00H 21H 2FH,Motas Electronics Ltd,3,0,33,47
+00H 21H 30H,MIND Music Labs,3,0,33,48
+00H 21H 31H,Sonic Academy Ltd,3,0,33,49
+00H 21H 32H,Bome Software,3,0,33,50
+00H 21H 33H,AODYO SAS,3,0,33,51
+00H 21H 34H,Pianoforce S.R.O,3,0,33,52
+00H 21H 35H,Dreadbox P.C.,3,0,33,53
+00H 21H 36H,TouchKeys Instruments Ltd,3,0,33,54
+00H 21H 37H,The Gigrig Ltd,3,0,33,55
+00H 21H 38H,ALM Co,3,0,33,56
+00H 21H 39H,CH Sound Design,3,0,33,57
+00H 21H 3AH,Beat Bars,3,0,33,58
+00H 21H 3BH,Blokas,3,0,33,59
+00H 21H 3CH,GEWA Music GmbH,3,0,33,60
+00H 21H 3DH,dadamachines,3,0,33,61
+00H 21H 3EH,Augmented Instruments Ltd (Bela),3,0,33,62
+00H 21H 3FH,Supercritical Ltd,3,0,33,63
+00H 21H 40H,Genki Instruments,3,0,33,64
+00H 21H 41H,Marienberg Devices Germany,3,0,33,65
+00H 21H 42H,Supperware Ltd,3,0,33,66
+00H 21H 43H,Imoxplus BVBA ,3,0,33,67
+00H 21H 44H,Swapp Technologies SRL,3,0,33,68
+00H 21H 45H,Electra One S.R.O.,3,0,33,69
+00H 21H 46H,Digital Clef Limited,3,0,33,70
+00H 21H 47H,Paul Whittington Group Ltd,3,0,33,71
+00H 21H 48H,Music Hackspace,3,0,33,72
+00H 21H 49H,Bitwig GMBH,3,0,33,73
+00H 40H 00H,Crimson Technology Inc.,3,0,64,0
+00H 40H 01H,Softbank Mobile Corp,3,0,64,1
+00H 40H 03H,D&M Holdings Inc.,3,0,64,3
+,,,,,
+,,,,,

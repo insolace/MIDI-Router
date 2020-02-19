@@ -1,0 +1,454 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Mod Wheel",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 3,
+      "name": "Mod Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Glide Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 8,
+      "name": "Arp Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 9,
+      "name": "Noise Filter Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Delay Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Delay Spacing",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Arp Swing",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "Arp Gate Length",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Osc 2 Frequency",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "Osc 3 Frequency",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "Osc 4 Frequency",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Sustain Pedal",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "Glide On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 69,
+      "name": "ARP Latch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "ARP Play",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Osc 1 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Osc 2 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "Osc 3 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "Osc 4 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "Hard Sync Enable",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "Osc 2 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "Osc 3 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "Osc 4 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "Glide Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "Gated Glide",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "Legato Glide",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "Delay Ping Pong",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "Delay Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "Square LFO Polarity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 91,
+      "name": "ARP Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "ARP Pattern",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "ARP Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "Paraphony Voice Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "Multi Trig",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "KB Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Moog Matriarch",
+  "device": {
+    "description": "Analog Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Matriarch",
+    "documentationResource": "www.moogmusic.com",
+    "identifier": "4",
+    "manufacturer": "Moog",
+    "model": "Matriarch",
+    "name": "Matriarch",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "04",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 04 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Moog Matriarch",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Moog Matriarch Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "additionalProperties": {}
+}

@@ -1,0 +1,287 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 12,
+      "name": "FineTune",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Tune",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "DCO Envelope Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "DCO LFO Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Source Mix",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "High Pass",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "Resonance",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "Cutoff Frequency",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "VCF Envelope Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "VCF LFO Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "Pitch Follow",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "VCA Level",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "LFO Rate",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "LFO Delay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Attack",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Decay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Sustain",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "Release",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "DCO-1 Range",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "DCO-1 Wave",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "DCO-2 Range",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "DCO-2 Wave",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "DCO-2 Cross Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "VCF Envelope Polarity",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "VCA Mode",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 79,
+      "name": "DCO-2 Envelope Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "DCO-2 LFO Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "DCO-1 Envelope Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "DCO-1 LFO Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "LFO Wave",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "DCO Envelope Polarity",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "Chorus",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for JX-3P Organix",
+  "device": {
+    "description": "JX-3P Organix Parameter Mappings",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "JX-3P Organix",
+    "documentationResource": "riversynths.com",
+    "identifier": "41",
+    "manufacturer": "Roland",
+    "model": "JX-3P Organix",
+    "name": "JX-3P Organix",
+    "version": "1.0.0"
+  },
+  "displayName": "JX-3P Organix",
+  "implementationVersion": "1.0.0",
+  "receives": [
+    "VELOCITY_NOTE_ON",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PITCH_BEND",
+    "NOTE_NUMBER"
+  ],
+  "schemaVersion": "0.0.1",
+  "title": "JX-3P Organix MIDI Implementation",
+  "transmits": [
+    "VELOCITY_NOTE_ON",
+    "NOTE_NUMBER"
+  ]
+}

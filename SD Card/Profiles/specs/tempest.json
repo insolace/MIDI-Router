@@ -1,0 +1,170 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 12,
+      "name": "Distortion",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Compression",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "Beat FX Reset",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "Beat FX All Osc Frequency",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "Beat FX Feedback",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "Beat FX LPF Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "Beat FX LPF Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "Beat FX LPF Filter Audio Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "Beat FX HPF Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Beat FX All Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Beat FX All Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the DSI Tempest",
+  "device": {
+    "description": "Analog Drum Machine",
+    "deviceType": "DRUM_MACHINE",
+    "displayName": "Tempest",
+    "documentationResource": "www.sequential.com",
+    "identifier": "01",
+    "manufacturer": "DSI/Sequential",
+    "model": "Tempest",
+    "name": "Tempest",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "manufacturer identifier",
+        "device identifier",
+        "request program transmit",
+        "Bank",
+        "Program",
+        "sysex end"
+      ],
+      "deviceIdentifier": "01",
+      "exampleDescription": "Program dump of program number 9 from bank 1",
+      "exampleMessage": "F0 01 2E 05 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Sequential Tempest",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "DSI/Sequential Tempest Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "CLOCK"
+  ],
+  "additionalProperties": {}
+}

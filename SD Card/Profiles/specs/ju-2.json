@@ -1,0 +1,1437 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Roland JU-2",
+  "device": {
+    "description": "6-voice DCO Analog Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "JU-1/JU-2/MKS-50",
+    "documentationResource": "www.roland.com",
+    "identifier": "41",
+    "manufacturer": "Roland",
+    "model": "JU-2",
+    "name": "Alpha-Juno 2",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "tone parameters",
+        "MIDI Channel",
+        "Format Type",
+        "Unknown",
+        "Unknown",
+        "parameter number",
+        "parameter value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "41",
+      "exampleDescription": "Sets the VCF resonance (param 11) to a value of 3 on MIDI channel 1",
+      "exampleMessage": "F0 41 36 00 23 20 01 11 03 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Roland JU-2",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CHANNEL_PRESSURE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [
+    {
+      "description": "(0\u003dNormal, 1\u003dInverted, 2\u003dNormal-Dynamic, 3\u003dInv.-Dynamic)",
+      "name": "DCO Env Mode",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 00 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "(0\u003dNormal, 1\u003dInverted, 2\u003dNormal-Dynamic, 3\u003dDynamic)",
+      "name": "VCF Env Mode",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 01 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "(0\u003dNormal, 1\u003dGate, 2\u003dNormal-Dynamic, 3\u003dGate-Dynamic)",
+      "name": "VCA Env Mode",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 02 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Pulse Shape",
+      "name": "DCO Wave Pulse",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 03 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Sawtooth Shape",
+      "name": "DCO Wave Saw",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 04 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "05",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Sub-Osc Wave Shape",
+      "name": "DCO Wave Sub",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 05 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "05",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "(0\u003d4\u0027, 1\u003d8\u0027, 2\u003d16\u0027, 3\u003d32\u0027)",
+      "name": "DCO Range",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 06 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Sub-OSC Level: 0 - 3",
+      "name": "DCO Sub Level",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 07 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Noise Level: 0 - 3",
+      "name": "DCO Noise",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 08 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0 - 3",
+      "name": "HPF Cutoff",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 09 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "03",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Toggle chorus effect on/off",
+      "name": "Chorus On/Off",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 0A dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "01",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "DCO LFO Depth",
+      "name": "DCO LFO Mod",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 0B dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "DCO ENV Depth",
+      "name": "DCO ENV Mod",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 0C dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "DCO Aftertouch Depth",
+      "name": "DCO After Mod",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 0D dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "DCO PWM Amount",
+      "name": "DCO PWM Depth",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 0E dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "DCO PWM Rate (0 \u003d manual)",
+      "name": "DCO PWM Rate",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 0F dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Filter Cutoff",
+      "name": "VCF Cutoff",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 10 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Filter Resonance",
+      "name": "VCF Resonance",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 11 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "LFO filter depth",
+      "name": "VCF LFO Mod",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 12 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "ENV filter depth",
+      "name": "VCF ENV Mod",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 13 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Filter key follow amount",
+      "name": "VCF Key Follow",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 14 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Filter aftertouch amount",
+      "name": "VCF Aftertouch",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 15 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Amp level",
+      "name": "VCA Level",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 16 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Amp aftertouch amount",
+      "name": "VCA Aftertouch",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 17 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "LFO frequency",
+      "name": "LFO Rate",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 18 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "LFO delay time",
+      "name": "LFO Delay",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 19 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "T1 Attack Time",
+      "name": "ENV T1",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 1A dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "L1 Attack Level",
+      "name": "ENV L1",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 1B dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "T2 Break Time",
+      "name": "ENV T2",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 1C dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "L2 Break Level",
+      "name": "ENV L2",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 1D dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "T3 Decay Time",
+      "name": "ENV T3",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 1E dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "L3 Sustain Level",
+      "name": "ENV L3",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 1F dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "T4 Release Time",
+      "name": "ENV T4",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 20 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "ENV Key follow amount",
+      "name": "ENV Key Follow",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 21 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Frequency of chorus effect",
+      "name": "Chorus Rate",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 22 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Pitch bend range",
+      "name": "Bender Range",
+      "substitutableMessage": "F0 41 36 cc 23 20 01 23 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "0C",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    }
+  ],
+  "title": "Roland JU-2 Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CHANNEL_PRESSURE"
+  ],
+  "additionalProperties": {}
+}

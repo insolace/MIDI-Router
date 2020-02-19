@@ -1,0 +1,263 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 3,
+      "name": "Track Note",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "Track Mute",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "Track Level",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 10,
+      "name": "Track Pan",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Track Pitch",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "Track Decay Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "Track Sample Start",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "Track Sample Length",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Track Cutoff",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Track Resonance",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Track Delay Send",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Track Reverb Send",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Track Volume + Dist",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "Track Swing",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Track Chance",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "Playback Loop",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "Playback Reverse",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "LFO Speed",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "LFO Multiplier",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "LFO Fade In/Out",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "LFO Destination",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "LFO Waveform",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "LFO Start Phase",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "LFO Reset",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "LFO Depth",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "FX Delay Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "FX Delay Feedback",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "FX Reverb Size",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "FX Reverb Tone",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for Model:Samples",
+  "device": {
+    "description": "Model:Samples Parameter Mappings",
+    "deviceType": "DRUM_MACHINE",
+    "displayName": "Model_Samples",
+    "documentationResource": "elektron.se",
+    "identifier": "00H 20H 3CH",
+    "manufacturer": "Elektron",
+    "model": "Model:Samples",
+    "name": "Model:Samples",
+    "version": "1.0.0"
+  },
+  "displayName": "Model:Samples",
+  "implementationVersion": "1.0.0",
+  "receives": [
+    "VELOCITY_NOTE_ON",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE",
+    "NOTE_NUMBER"
+  ],
+  "schemaVersion": "0.0.1",
+  "title": "Model:Samples MIDI Implementation",
+  "transmits": [
+    "VELOCITY_NOTE_ON",
+    "NOTE_NUMBER"
+  ]
+}

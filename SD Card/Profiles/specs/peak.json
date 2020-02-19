@@ -1,0 +1,2571 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Portamento Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 35,
+      "name": "Glide On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 3,
+      "name": "Osc 1 Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 9,
+      "name": "Osc 1 ModEnv2 Pitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Osc 1 Manual Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 119,
+      "name": "Osc 1 ModEnv1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 33,
+      "name": "Osc 1 LFO1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 34,
+      "name": "Osc 1 Vsync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 36,
+      "name": "Filter Post Drive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 37,
+      "name": "Osc 2 Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 38,
+      "name": "Osc 2 ModEnv2 Pitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 39,
+      "name": "Osc 2 Manual Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 40,
+      "name": "Osc 2 ModEnv1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 41,
+      "name": "Osc 2 LFO1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 42,
+      "name": "Osc 2 Vsync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 43,
+      "name": "Osc 3 ModEnv2 Pitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Osc 3 Manual Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "Osc 3 ModEnv1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "Osc 3 LFO1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 44,
+      "name": "Osc 3 Vsync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "Osc 3 Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Filter KBD Tracking",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 79,
+      "name": "Filter Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "Filter Osc3 Filter",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "Filter Amp Env Filter",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "Filter ModEnv1 Filter",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "Filter Overdrive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "Amp Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "Amp Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "Amp Env Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "Amp Env Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "Mod Env 1 Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 91,
+      "name": "Mod Env 1 Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "Mod Env 1 Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "Mod Env 1 Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "Mod Env 2 Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "Mod Env 2 Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "Mod Env 2 Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "Mod Env 2 Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "LFO1 Sync Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "LFO1 Fade Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "LFO2 Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "LFO2 Sync Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "LFO2 Fade Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Distortion Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "Delay Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "Delay Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "Delay Feedback",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "Reverb Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "Reverb Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "Chorus Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "Chorus Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "Chorus Feedback",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "Arp Clock/Gate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "Animate 1 Hold",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "Animate 2 Hold",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Novation Peak",
+  "device": {
+    "description": "Digital/Analog Hybrid Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Peak",
+    "documentationResource": "www.novationmusic.com",
+    "identifier": "00 20 29",
+    "manufacturer": "Novation",
+    "model": "Peak",
+    "name": "Peak",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "00 20 29",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 00 20 29 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Novation Peak",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [
+    {
+      "name": "Voice Mode",
+      "parameterNumber": 2,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice Unison",
+      "parameterNumber": 3,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice Unison Detune",
+      "parameterNumber": 4,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice Unison Spread",
+      "parameterNumber": 5,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice KBD Octave",
+      "parameterNumber": 6,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 67,
+        "min": 61,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice Pre-Glide",
+      "parameterNumber": 7,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 76,
+        "min": 52,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc Common Divergence",
+      "parameterNumber": 9,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc Common Drift",
+      "parameterNumber": 10,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc Common Noise LPF",
+      "parameterNumber": 11,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc Common Noise HPF",
+      "parameterNumber": 12,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Coarse",
+      "parameterNumber": 1838,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Fine",
+      "parameterNumber": 1967,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 228,
+        "min": 28,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 LFO2 Pitch",
+      "parameterNumber": 2096,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 1,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Wave",
+      "parameterNumber": 14,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Wave More",
+      "parameterNumber": 15,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 4,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Shape Source",
+      "parameterNumber": 16,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Saw Density",
+      "parameterNumber": 17,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Saw Density Detune",
+      "parameterNumber": 18,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Fixed Note",
+      "parameterNumber": 19,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 88,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Bend Range",
+      "parameterNumber": 20,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 88,
+        "min": 40,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Coarse",
+      "parameterNumber": 2225,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Fine",
+      "parameterNumber": 2354,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 228,
+        "min": 28,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 LFO2 Pitch",
+      "parameterNumber": 2483,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 1,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Wave",
+      "parameterNumber": 23,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Wave More",
+      "parameterNumber": 24,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 24,
+        "min": 8,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Shape Source",
+      "parameterNumber": 25,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 25,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Saw Density",
+      "parameterNumber": 26,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Saw Density Detune",
+      "parameterNumber": 3474,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Fixed Note",
+      "parameterNumber": 28,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 88,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Bend Range",
+      "parameterNumber": 29,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 88,
+        "min": 40,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Coarse",
+      "parameterNumber": 2612,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Fine",
+      "parameterNumber": 2741,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 228,
+        "min": 28,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 LFO2 Pitch",
+      "parameterNumber": 2870,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 1,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Wave",
+      "parameterNumber": 32,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Wave More",
+      "parameterNumber": 33,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 24,
+        "min": 8,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Shape Source",
+      "parameterNumber": 34,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 25,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Saw Density",
+      "parameterNumber": 35,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Saw Density Detune",
+      "parameterNumber": 36,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Fixed Note",
+      "parameterNumber": 37,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 88,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 3 Bend Range",
+      "parameterNumber": 38,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 88,
+        "min": 40,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Osc 1",
+      "parameterNumber": 2999,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Osc 2",
+      "parameterNumber": 3128,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Osc 3",
+      "parameterNumber": 3257,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Ring 1*2",
+      "parameterNumber": 3386,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Noise",
+      "parameterNumber": 3515,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Patch Level",
+      "parameterNumber": 41,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer VCA Gain",
+      "parameterNumber": 42,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Dry Level",
+      "parameterNumber": 43,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mixer Wet Level",
+      "parameterNumber": 44,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Filter Slope",
+      "parameterNumber": 45,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Filter Shape",
+      "parameterNumber": 46,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Filter Frequency",
+      "parameterNumber": 3773,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Filter LFO1 Filter",
+      "parameterNumber": 3644,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 1,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Filter Env Select",
+      "parameterNumber": 47,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Filter Divergence",
+      "parameterNumber": 48,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Amp Env Velocity",
+      "parameterNumber": 55,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Amp Env Trig",
+      "parameterNumber": 56,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Env Select",
+      "parameterNumber": 59,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Env 1 Velocity",
+      "parameterNumber": 60,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Env 1 Trig",
+      "parameterNumber": 61,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Env 2 Velocity",
+      "parameterNumber": 64,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Env 2 Trig",
+      "parameterNumber": 65,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Range",
+      "parameterNumber": 68,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Rate",
+      "parameterNumber": 3902,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Wave",
+      "parameterNumber": 69,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 3,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Phase",
+      "parameterNumber": 70,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 120,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Slew",
+      "parameterNumber": 71,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Fade In/Out",
+      "parameterNumber": 72,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 3,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 One Shot",
+      "parameterNumber": 75,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO1 Common",
+      "parameterNumber": 76,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 Rate",
+      "parameterNumber": 4031,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 Wave",
+      "parameterNumber": 78,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 3,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 Phase",
+      "parameterNumber": 79,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 120,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 Slew",
+      "parameterNumber": 80,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 Fade In/Out",
+      "parameterNumber": 10440,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 3,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 One Shot",
+      "parameterNumber": 84,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO2 Common",
+      "parameterNumber": 85,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX Master Bypass",
+      "parameterNumber": 88,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX Routing",
+      "parameterNumber": 89,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Delay Width",
+      "parameterNumber": 92,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Delay Sync",
+      "parameterNumber": 93,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Delay Sync Time",
+      "parameterNumber": 94,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 18,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Delay Low Pass",
+      "parameterNumber": 95,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Delay High Pass",
+      "parameterNumber": 96,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Delay Slew",
+      "parameterNumber": 97,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Type",
+      "parameterNumber": 101,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Damping LF",
+      "parameterNumber": 102,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Damping HF",
+      "parameterNumber": 103,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Size",
+      "parameterNumber": 104,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Mod",
+      "parameterNumber": 105,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Mod Rate",
+      "parameterNumber": 106,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Low Pass",
+      "parameterNumber": 107,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb High Pass",
+      "parameterNumber": 108,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Reverb Pre Delay",
+      "parameterNumber": 109,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Chorus Type",
+      "parameterNumber": 111,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Chorus Mod Depth",
+      "parameterNumber": 112,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Chorus LP",
+      "parameterNumber": 113,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Chorus HP",
+      "parameterNumber": 114,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Sync Rate",
+      "parameterNumber": 116,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 18,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Type",
+      "parameterNumber": 117,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Rhythm",
+      "parameterNumber": 118,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 32,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Octave",
+      "parameterNumber": 119,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 5,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Swing",
+      "parameterNumber": 120,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 80,
+        "min": 20,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock On",
+      "parameterNumber": 121,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Key Latch",
+      "parameterNumber": 122,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp/Clock Key Sync",
+      "parameterNumber": 123,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix Selection",
+      "parameterNumber": 125,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 15,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 1 Source 1",
+      "parameterNumber": 128,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 1 Source 2",
+      "parameterNumber": 129,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 1 Depth",
+      "parameterNumber": 130,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 1 Destination",
+      "parameterNumber": 131,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 2 Source 1",
+      "parameterNumber": 256,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 2 Source 2",
+      "parameterNumber": 257,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 2 Depth",
+      "parameterNumber": 258,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 2 Destination",
+      "parameterNumber": 259,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 3 Source 1",
+      "parameterNumber": 384,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 3 Source 2",
+      "parameterNumber": 385,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 3 Depth",
+      "parameterNumber": 386,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 3 Destination",
+      "parameterNumber": 387,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 4 Source 1",
+      "parameterNumber": 512,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 4 Source 2",
+      "parameterNumber": 513,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 4 Depth",
+      "parameterNumber": 514,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 4 Destination",
+      "parameterNumber": 515,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 5 Source 1",
+      "parameterNumber": 640,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 5 Source 2",
+      "parameterNumber": 641,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 5 Depth",
+      "parameterNumber": 642,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 5 Destination",
+      "parameterNumber": 643,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 6 Source 1",
+      "parameterNumber": 768,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 6 Source 2",
+      "parameterNumber": 769,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 6 Depth",
+      "parameterNumber": 770,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 6 Destination",
+      "parameterNumber": 771,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 7 Source 1",
+      "parameterNumber": 896,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 7 Source 2",
+      "parameterNumber": 897,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 7 Depth",
+      "parameterNumber": 898,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 7 Destination",
+      "parameterNumber": 899,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 8 Source 1",
+      "parameterNumber": 1024,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 8 Source 2",
+      "parameterNumber": 1025,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 8 Depth",
+      "parameterNumber": 1026,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 8 Destination",
+      "parameterNumber": 1027,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 9 Source 1",
+      "parameterNumber": 1152,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 9 Source 2",
+      "parameterNumber": 1153,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 9 Depth",
+      "parameterNumber": 1154,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 9 Destination",
+      "parameterNumber": 1155,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 10 Source 1",
+      "parameterNumber": 1280,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 10 Source 2",
+      "parameterNumber": 1281,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 10 Depth",
+      "parameterNumber": 1282,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 10 Destination",
+      "parameterNumber": 1283,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 11 Source 1",
+      "parameterNumber": 1408,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 11 Source 2",
+      "parameterNumber": 1409,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 11 Depth",
+      "parameterNumber": 1410,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 11 Destination",
+      "parameterNumber": 1411,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 12 Source 1",
+      "parameterNumber": 1536,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 12 Source 2",
+      "parameterNumber": 1537,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 12 Depth",
+      "parameterNumber": 1538,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod Matrix 12 Destination",
+      "parameterNumber": 1539,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 13 Source 1",
+      "parameterNumber": 1664,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 13 Source 2",
+      "parameterNumber": 1665,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 13 Depth",
+      "parameterNumber": 1666,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 13 Destination",
+      "parameterNumber": 1667,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 14 Source 1",
+      "parameterNumber": 1792,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 14 Source 2",
+      "parameterNumber": 1793,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 14 Depth",
+      "parameterNumber": 1794,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 14 Destination",
+      "parameterNumber": 1795,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 15 Source 1",
+      "parameterNumber": 1920,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 15 Source 2",
+      "parameterNumber": 1921,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 15 Depth",
+      "parameterNumber": 1922,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 15 Destination",
+      "parameterNumber": 1923,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 16 Source 1",
+      "parameterNumber": 2048,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 16 Source 2",
+      "parameterNumber": 2049,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 16 Depth",
+      "parameterNumber": 2050,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mot Matrix 16 Destination",
+      "parameterNumber": 2051,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 36,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Novation Peak Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "CLOCK",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE"
+  ],
+  "additionalProperties": {}
+}

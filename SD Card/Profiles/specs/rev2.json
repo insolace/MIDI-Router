@@ -1,0 +1,2753 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Mod Wheel",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 3,
+      "name": "FX Type",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Glide Mode",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Master Volume",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 8,
+      "name": "Sub Oscillator",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 9,
+      "name": "Osc Slop",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 10,
+      "name": "Pan Mod Mode",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "FX Param 1",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "FX Param 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "BPM",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "Clock Divide",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "FX On/Off",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "FX Mix",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "A/B Mode",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "Sequencer Type",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "Osc 1 Frequency",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "Osc 1 Fine Tune",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "Osc 1 Shape",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "Osc 1 Glide Rate/Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "Osc 2 Frequency",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "Osc 2 Fine Tune",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Osc 2 Shape",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Osc 2 Glide Rate/Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Osc Mix",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "Noise Level",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "Osc 1 Shape Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "Osc 2 Shape Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 33,
+      "name": "Arp On/Off",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 34,
+      "name": "Arp Mode",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 35,
+      "name": "Arp Range",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 36,
+      "name": "Arp Repeats",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 37,
+      "name": "Voice Volume",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 39,
+      "name": "Split Point",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Sustain Pedal",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "Glide On/Off",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Amp Sustain",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "Amp Release",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "Env 3 Sustain",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "Env 3 Release",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "Env 3 Destination",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "Env 3 Amount",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "Env 3 Velocity",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "Env 3 Delay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "Env 3 Attack",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "Env 3 Decay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "Filter Frequency",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "Resonance",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Filter Key Amount",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "Filter Audio Mod",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "Filter Env Amount",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "Filter Env Velocity",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "Filter Delay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "Filter Attack",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "Filter Decay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 111,
+      "name": "Filter Sustain",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "Filter Release",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "VCA Level",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "Pan Spread",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "Amp Env Amount",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "Amp Env Velocity",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "Amp Delay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "Amp Attack",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 119,
+      "name": "Amp Decay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for Prophet Rev2",
+  "device": {
+    "description": "Prophet Rev2 Parameter Mappings",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Prophet Rev2",
+    "documentationResource": "sequential.com",
+    "identifier": "01",
+    "manufacturer": "DSI/Sequential",
+    "model": "Prophet Rev2",
+    "name": "Prophet Rev2",
+    "version": "1.0.0"
+  },
+  "displayName": "Prophet Rev2",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [
+    {
+      "name": "Osc 1 Freq Layer A",
+      "parameterNumber": 0,
+      "valueRange": {
+        "max": 120,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Freq Layer B",
+      "parameterNumber": 2048,
+      "valueRange": {
+        "max": 120,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Freq Fine Layer A",
+      "parameterNumber": 1,
+      "valueRange": {
+        "max": 100,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Freq Fine Layer B",
+      "parameterNumber": 2049,
+      "valueRange": {
+        "max": 100,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Shape Layer A",
+      "parameterNumber": 2,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Shape Layer B",
+      "parameterNumber": 2050,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Glide Layer A",
+      "parameterNumber": 3,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Glide Layer B",
+      "parameterNumber": 2051,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 KBD On/Off Layer A",
+      "parameterNumber": 4,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 KBD On/Off Layer B",
+      "parameterNumber": 2052,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Freq Layer A",
+      "parameterNumber": 5,
+      "valueRange": {
+        "max": 120,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Freq Layer B",
+      "parameterNumber": 2053,
+      "valueRange": {
+        "max": 120,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Freq Fine Layer A",
+      "parameterNumber": 6,
+      "valueRange": {
+        "max": 100,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Freq Fine Layer B",
+      "parameterNumber": 2054,
+      "valueRange": {
+        "max": 100,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Shape Layer A",
+      "parameterNumber": 7,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Shape Layer B",
+      "parameterNumber": 2055,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Glide Layer A",
+      "parameterNumber": 8,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Glide Layer B",
+      "parameterNumber": 2056,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 KBD On/Off Layer A",
+      "parameterNumber": 9,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 KBD On/Off Layer B",
+      "parameterNumber": 2057,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Sync On/Off Layer A",
+      "parameterNumber": 10,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Sync On/Off Layer B",
+      "parameterNumber": 2058,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Glide Mode Layer A",
+      "parameterNumber": 11,
+      "valueRange": {
+        "max": 3,
+        "min": 0
+      }
+    },
+    {
+      "name": "Glide Mode Layer B",
+      "parameterNumber": 2059,
+      "valueRange": {
+        "max": 3,
+        "min": 0
+      }
+    },
+    {
+      "name": "Slop Layer A",
+      "parameterNumber": 12,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Slop Layer B",
+      "parameterNumber": 2060,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc Mix Layer A",
+      "parameterNumber": 13,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Noise Layer A",
+      "parameterNumber": 14,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Cutoff Layer A",
+      "parameterNumber": 15,
+      "valueRange": {
+        "max": 164,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Resonance Layer A",
+      "parameterNumber": 16,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Keyboard Tracking Layer A",
+      "parameterNumber": 17,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Audio Mod Layer A",
+      "parameterNumber": 18,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "2 pole/4 pole mode Layer A",
+      "parameterNumber": 19,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Envelope Amt Layer A",
+      "parameterNumber": 20,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Envelope Vel Layer A",
+      "parameterNumber": 21,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Envelope Dly Layer A",
+      "parameterNumber": 22,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Attack Layer A",
+      "parameterNumber": 23,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Decay Layer A",
+      "parameterNumber": 24,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Sustain Layer A",
+      "parameterNumber": 25,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Release Layer A",
+      "parameterNumber": 26,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pan Spread Layer A",
+      "parameterNumber": 28,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Program Volume Layer A",
+      "parameterNumber": 29,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env Amt Layer A",
+      "parameterNumber": 30,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env Velo Layer A",
+      "parameterNumber": 31,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env Del Layer A",
+      "parameterNumber": 32,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env A Layer A",
+      "parameterNumber": 33,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env D Layer A",
+      "parameterNumber": 34,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env S Layer A",
+      "parameterNumber": 35,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env R Layer A",
+      "parameterNumber": 36,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Freq Layer A",
+      "parameterNumber": 37,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Shape Layer A",
+      "parameterNumber": 38,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Amt Layer A",
+      "parameterNumber": 39,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Dest Layer A",
+      "parameterNumber": 40,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Clock Sync Layer A",
+      "parameterNumber": 41,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Freq Layer A",
+      "parameterNumber": 42,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Shape Layer A",
+      "parameterNumber": 43,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Amt Layer A",
+      "parameterNumber": 44,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Dest Layer A",
+      "parameterNumber": 45,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Clock Sync Layer A",
+      "parameterNumber": 46,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Freq Layer A",
+      "parameterNumber": 47,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Shape Layer A",
+      "parameterNumber": 48,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Amt Layer A",
+      "parameterNumber": 49,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Dest Layer A",
+      "parameterNumber": 50,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Clock Sync Layer A",
+      "parameterNumber": 51,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Freq Layer A",
+      "parameterNumber": 52,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Shape Layer A",
+      "parameterNumber": 53,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Amt Layer A",
+      "parameterNumber": 54,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Dest Layer A",
+      "parameterNumber": 55,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Clock Sync Layer A",
+      "parameterNumber": 56,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Dest Layer A",
+      "parameterNumber": 57,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Amt Layer A",
+      "parameterNumber": 58,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Velo Layer A",
+      "parameterNumber": 59,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Del Layer A",
+      "parameterNumber": 60,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 A Layer A",
+      "parameterNumber": 61,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 D Layer A",
+      "parameterNumber": 62,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 S Layer A",
+      "parameterNumber": 63,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 R Layer A",
+      "parameterNumber": 64,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 1 Source Layer A",
+      "parameterNumber": 65,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 1 Amount Layer A",
+      "parameterNumber": 66,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 1 Destination Layer A",
+      "parameterNumber": 67,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 2 Source Layer A",
+      "parameterNumber": 68,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 2 Amount Layer A",
+      "parameterNumber": 69,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 2 Destination Layer A",
+      "parameterNumber": 70,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 3 Source Layer A",
+      "parameterNumber": 71,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 3 Amount Layer A",
+      "parameterNumber": 72,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 3 Destination Layer A",
+      "parameterNumber": 73,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 4 Source Layer A",
+      "parameterNumber": 74,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 4 Amount Layer A",
+      "parameterNumber": 75,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 4 Destination Layer A",
+      "parameterNumber": 76,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 5 Source Layer A",
+      "parameterNumber": 77,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 5 Amount Layer A",
+      "parameterNumber": 78,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 5 Destination Layer A",
+      "parameterNumber": 79,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 6 Source Layer A",
+      "parameterNumber": 80,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 6 Amount Layer A",
+      "parameterNumber": 81,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 6 Destination Layer A",
+      "parameterNumber": 82,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 7 Source Layer A",
+      "parameterNumber": 83,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 7 Amount Layer A",
+      "parameterNumber": 84,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 7 Destination Layer A",
+      "parameterNumber": 85,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 8 Source Layer A",
+      "parameterNumber": 86,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 8 Amount Layer A",
+      "parameterNumber": 87,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 8 Destination Layer A",
+      "parameterNumber": 88,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Rpt On/Off Layer A",
+      "parameterNumber": 97,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Level Layer A",
+      "parameterNumber": 98,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Note Reset Layer A",
+      "parameterNumber": 99,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Shape Mod Layer A",
+      "parameterNumber": 102,
+      "valueRange": {
+        "max": 99,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Shape Mod Layer A",
+      "parameterNumber": 103,
+      "valueRange": {
+        "max": 99,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Note Reset Layer A",
+      "parameterNumber": 104,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Key Sync Layer A",
+      "parameterNumber": 105,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Key Sync Layer A",
+      "parameterNumber": 106,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Key Sync Layer A",
+      "parameterNumber": 107,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Key Sync Layer A",
+      "parameterNumber": 108,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Sub Osc Layer A",
+      "parameterNumber": 110,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Glide On/Off Layer A",
+      "parameterNumber": 111,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pitch Bend Range Layer A",
+      "parameterNumber": 113,
+      "valueRange": {
+        "max": 12,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pan Mode Layer A",
+      "parameterNumber": 114,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod Wheel Amt Layer A",
+      "parameterNumber": 116,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod Wheel Dest Layer A",
+      "parameterNumber": 117,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pressure Amt Layer A",
+      "parameterNumber": 118,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pressure Dest Layer A",
+      "parameterNumber": 119,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Breath Amt Layer A",
+      "parameterNumber": 120,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Breath Dest Layer A",
+      "parameterNumber": 121,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Velocity Amt Layer A",
+      "parameterNumber": 122,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Velocity Dest Layer A",
+      "parameterNumber": 123,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Foot Cntrl Amt Layer A",
+      "parameterNumber": 124,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Foot Cntrl Dest Layer A",
+      "parameterNumber": 125,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX On/Off Layer A",
+      "parameterNumber": 153,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX select Layer A",
+      "parameterNumber": 154,
+      "valueRange": {
+        "max": 13,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Mix Layer A",
+      "parameterNumber": 155,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Param 1 Layer A",
+      "parameterNumber": 156,
+      "valueRange": {
+        "max": 255,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Param 2 Layer A",
+      "parameterNumber": 157,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Clock Sync Layer A",
+      "parameterNumber": 158,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "A/B Mode",
+      "parameterNumber": 163,
+      "valueRange": {
+        "max": 2,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq Start/Stop Layer A",
+      "parameterNumber": 164,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Unison Detune Layer A",
+      "parameterNumber": 167,
+      "valueRange": {
+        "max": 16,
+        "min": 0
+      }
+    },
+    {
+      "name": "Unison On/Off Layer A",
+      "parameterNumber": 168,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Unison Mode Layer A",
+      "parameterNumber": 169,
+      "valueRange": {
+        "max": 16,
+        "min": 0
+      }
+    },
+    {
+      "name": "Keyboard Mode Layer A",
+      "parameterNumber": 170,
+      "valueRange": {
+        "max": 5,
+        "min": 0
+      }
+    },
+    {
+      "name": "Split Point",
+      "parameterNumber": 171,
+      "valueRange": {
+        "max": 120,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp On/Off Layer A",
+      "parameterNumber": 172,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Mode Layer A",
+      "parameterNumber": 173,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Range Layer A",
+      "parameterNumber": 174,
+      "valueRange": {
+        "max": 2,
+        "min": 0
+      }
+    },
+    {
+      "name": "Clock Divide Layer A",
+      "parameterNumber": 175,
+      "valueRange": {
+        "max": 12,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Repeats Layer A",
+      "parameterNumber": 177,
+      "valueRange": {
+        "max": 3,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Relatch Layer A",
+      "parameterNumber": 178,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "BPM Tempo Layer A",
+      "parameterNumber": 179,
+      "valueRange": {
+        "max": 250,
+        "min": 30
+      }
+    },
+    {
+      "name": "Gated Seq Mode Layer A",
+      "parameterNumber": 182,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Gated Seq On/Off Layer A",
+      "parameterNumber": 183,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 1 Destination Layer A",
+      "parameterNumber": 184,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 2 Destination Layer A",
+      "parameterNumber": 185,
+      "valueRange": {
+        "max": 53,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 3 Destination Layer A",
+      "parameterNumber": 186,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 4 Destination Layer A",
+      "parameterNumber": 187,
+      "valueRange": {
+        "max": 53,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq Play/Stop",
+      "parameterNumber": 1088,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq Rec On/Off",
+      "parameterNumber": 16383,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc Mix Layer B",
+      "parameterNumber": 2061,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Noise Layer B",
+      "parameterNumber": 2062,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Cutoff Layer B",
+      "parameterNumber": 2063,
+      "valueRange": {
+        "max": 164,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Resonance Layer B",
+      "parameterNumber": 2064,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Keyboard Tracking Layer B",
+      "parameterNumber": 2065,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Audio Mod Layer B",
+      "parameterNumber": 2066,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "2 pole/4 pole mode Layer B",
+      "parameterNumber": 2067,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Envelope Amt Layer B",
+      "parameterNumber": 2068,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Envelope Vel Layer B",
+      "parameterNumber": 2069,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filter Envelope Dly Layer B",
+      "parameterNumber": 2070,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Attack Layer B",
+      "parameterNumber": 2071,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Decay Layer B",
+      "parameterNumber": 2072,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Sustain Layer B",
+      "parameterNumber": 2073,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Filt Env Release Layer B",
+      "parameterNumber": 2074,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pan Spread Layer B",
+      "parameterNumber": 2076,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Program Volume Layer B",
+      "parameterNumber": 2077,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env Amt Layer B",
+      "parameterNumber": 2078,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env Velo Layer B",
+      "parameterNumber": 2079,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env Del Layer B",
+      "parameterNumber": 2080,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env A Layer B",
+      "parameterNumber": 2081,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env D Layer B",
+      "parameterNumber": 2082,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env S Layer B",
+      "parameterNumber": 2083,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Env R Layer B",
+      "parameterNumber": 2084,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Freq Layer B",
+      "parameterNumber": 2085,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Shape Layer B",
+      "parameterNumber": 2086,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Amt Layer B",
+      "parameterNumber": 2087,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Dest Layer B",
+      "parameterNumber": 2088,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Clock Sync Layer B",
+      "parameterNumber": 2089,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Freq Layer B",
+      "parameterNumber": 2090,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Shape Layer B",
+      "parameterNumber": 2091,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Amt Layer B",
+      "parameterNumber": 2092,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Dest Layer B",
+      "parameterNumber": 2093,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Clock Sync Layer B",
+      "parameterNumber": 2094,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Freq Layer B",
+      "parameterNumber": 2095,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Shape Layer B",
+      "parameterNumber": 2096,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Amt Layer B",
+      "parameterNumber": 2097,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Dest Layer B",
+      "parameterNumber": 2098,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Clock Sync Layer B",
+      "parameterNumber": 2099,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Freq Layer B",
+      "parameterNumber": 2100,
+      "valueRange": {
+        "max": 150,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Shape Layer B",
+      "parameterNumber": 2101,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Amt Layer B",
+      "parameterNumber": 2102,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Dest Layer B",
+      "parameterNumber": 2103,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Clock Sync Layer B",
+      "parameterNumber": 2104,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Dest Layer B",
+      "parameterNumber": 2105,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Amt Layer B",
+      "parameterNumber": 2106,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Velo Layer B",
+      "parameterNumber": 2107,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Del Layer B",
+      "parameterNumber": 2108,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 A Layer B",
+      "parameterNumber": 2109,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 D Layer B",
+      "parameterNumber": 2110,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 S Layer B",
+      "parameterNumber": 2111,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 R Layer B",
+      "parameterNumber": 2112,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 1 Source Layer B",
+      "parameterNumber": 2113,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 1 Amount Layer B",
+      "parameterNumber": 2114,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 1 Destination Layer B",
+      "parameterNumber": 2115,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 2 Source Layer B",
+      "parameterNumber": 2116,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 2 Amount Layer B",
+      "parameterNumber": 2117,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 2 Destination Layer B",
+      "parameterNumber": 2118,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 3 Source Layer B",
+      "parameterNumber": 2119,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 3 Amount Layer B",
+      "parameterNumber": 2120,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 3 Destination Layer B",
+      "parameterNumber": 2121,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 4 Source Layer B",
+      "parameterNumber": 2122,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 4 Amount Layer B",
+      "parameterNumber": 2123,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 4 Destination Layer B",
+      "parameterNumber": 2124,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 5 Source Layer B",
+      "parameterNumber": 2125,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 5 Amount Layer B",
+      "parameterNumber": 2126,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 5 Destination Layer B",
+      "parameterNumber": 2127,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 6 Source Layer B",
+      "parameterNumber": 2128,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 6 Amount Layer B",
+      "parameterNumber": 2129,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 6 Destination Layer B",
+      "parameterNumber": 2130,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 7 Source Layer B",
+      "parameterNumber": 2131,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 7 Amount Layer B",
+      "parameterNumber": 2132,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 7 Destination Layer B",
+      "parameterNumber": 2133,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 8 Source Layer B",
+      "parameterNumber": 2134,
+      "valueRange": {
+        "max": 22,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 8 Amount Layer B",
+      "parameterNumber": 2135,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod 8 Destination Layer B",
+      "parameterNumber": 2136,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Env 3 Rpt On/Off Layer B",
+      "parameterNumber": 2145,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "VCA Level Layer B",
+      "parameterNumber": 2146,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Note Reset Layer B",
+      "parameterNumber": 2147,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 1 Shape Mod Layer B",
+      "parameterNumber": 2150,
+      "valueRange": {
+        "max": 99,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Shape Mod Layer B",
+      "parameterNumber": 2151,
+      "valueRange": {
+        "max": 99,
+        "min": 0
+      }
+    },
+    {
+      "name": "Osc 2 Note Reset Layer B",
+      "parameterNumber": 2152,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 1 Key Sync Layer B",
+      "parameterNumber": 2153,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 2 Key Sync Layer B",
+      "parameterNumber": 2154,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 3 Key Sync Layer B",
+      "parameterNumber": 2155,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO 4 Key Sync Layer B",
+      "parameterNumber": 2156,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Sub Osc Layer B",
+      "parameterNumber": 2158,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Glide On/Off Layer B",
+      "parameterNumber": 2159,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pitch Bend Range Layer B",
+      "parameterNumber": 2161,
+      "valueRange": {
+        "max": 12,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pan Mode Layer B",
+      "parameterNumber": 2162,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod Wheel Amt Layer B",
+      "parameterNumber": 2164,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Mod Wheel Dest Layer B",
+      "parameterNumber": 2165,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pressure Amt Layer B",
+      "parameterNumber": 2166,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Pressure Dest Layer B",
+      "parameterNumber": 2167,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Breath Amt Layer B",
+      "parameterNumber": 2168,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Breath Dest Layer B",
+      "parameterNumber": 2169,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Velocity Amt Layer B",
+      "parameterNumber": 2170,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Velocity Dest Layer B",
+      "parameterNumber": 2171,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Foot Cntrl Amt Layer B",
+      "parameterNumber": 2172,
+      "valueRange": {
+        "max": 254,
+        "min": 0
+      }
+    },
+    {
+      "name": "Foot Cntrl Dest Layer B",
+      "parameterNumber": 2173,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX On/Off Layer B",
+      "parameterNumber": 2201,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX select Layer B",
+      "parameterNumber": 2202,
+      "valueRange": {
+        "max": 13,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Mix Layer B",
+      "parameterNumber": 2203,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Param 1 Layer B",
+      "parameterNumber": 2204,
+      "valueRange": {
+        "max": 255,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Param 2 Layer B",
+      "parameterNumber": 2205,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "FX Clock Sync Layer B",
+      "parameterNumber": 2206,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq Start/Stop Layer B",
+      "parameterNumber": 2212,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Unison Detune Layer B",
+      "parameterNumber": 2215,
+      "valueRange": {
+        "max": 16,
+        "min": 0
+      }
+    },
+    {
+      "name": "Unison On/Off Layer B",
+      "parameterNumber": 2216,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Unison Mode Layer B",
+      "parameterNumber": 2217,
+      "valueRange": {
+        "max": 16,
+        "min": 0
+      }
+    },
+    {
+      "name": "Keyboard Mode Layer B",
+      "parameterNumber": 2218,
+      "valueRange": {
+        "max": 5,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp On/Off Layer B",
+      "parameterNumber": 2220,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Mode Layer B",
+      "parameterNumber": 2221,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Range Layer B",
+      "parameterNumber": 2222,
+      "valueRange": {
+        "max": 2,
+        "min": 0
+      }
+    },
+    {
+      "name": "Clock Divide Layer B",
+      "parameterNumber": 2223,
+      "valueRange": {
+        "max": 12,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Repeats Layer B",
+      "parameterNumber": 2225,
+      "valueRange": {
+        "max": 3,
+        "min": 0
+      }
+    },
+    {
+      "name": "Arp Relatch Layer B",
+      "parameterNumber": 2226,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "BPM Tempo Layer B",
+      "parameterNumber": 2227,
+      "valueRange": {
+        "max": 250,
+        "min": 30
+      }
+    },
+    {
+      "name": "Gated Seq Mode Layer B",
+      "parameterNumber": 2230,
+      "valueRange": {
+        "max": 4,
+        "min": 0
+      }
+    },
+    {
+      "name": "Gated Seq On/Off Layer B",
+      "parameterNumber": 2231,
+      "valueRange": {
+        "max": 1,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 1 Destination Layer B",
+      "parameterNumber": 2232,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 2 Destination Layer B",
+      "parameterNumber": 2233,
+      "valueRange": {
+        "max": 53,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 3 Destination Layer B",
+      "parameterNumber": 2234,
+      "valueRange": {
+        "max": 52,
+        "min": 0
+      }
+    },
+    {
+      "name": "Seq 4 Destination Layer B",
+      "parameterNumber": 2235,
+      "valueRange": {
+        "max": 53,
+        "min": 0
+      }
+    }
+  ],
+  "receives": [
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "NOTE_NUMBER",
+    "PITCH_BEND",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Prophet Rev2 MIDI Implementation",
+  "transmits": [
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "NOTE_NUMBER",
+    "PITCH_BEND",
+    "CHANNEL_PRESSURE",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ]
+}

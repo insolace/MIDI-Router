@@ -1,0 +1,720 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 19,
+      "name": "Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 11,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "Value",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "Pre-Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "Mix",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 3,
+      "name": "Tone",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 9,
+      "name": "Param 1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Param 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "Boost",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 60,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "Persist On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 70,
+      "name": "Freeze/Infinite On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 60,
+      "name": "Expression On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Midi Clock On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 61,
+      "name": "Room - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 59,
+      "name": "Room - Size",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 58,
+      "name": "Room - Diffusion",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 39,
+      "name": "Hall - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 40,
+      "name": "Hall - Size",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 42,
+      "name": "Hall - Mid",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 69,
+      "name": "Plate - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 68,
+      "name": "Plate - Size",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Spring - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 63,
+      "name": "Spring - Dwell",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 3,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 62,
+      "name": "Spring - Num Springs",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "Swell - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 66,
+      "name": "Swell - Rise",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 67,
+      "name": "Swell - Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "Bloom - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 32,
+      "name": "Bloom - Length",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 17,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "Bloom - Feedback",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 17,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 38,
+      "name": "Cloud - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 37,
+      "name": "Cloud - Diffusion",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 33,
+      "name": "Chorale - Vowel",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 34,
+      "name": "Chorale - Reso",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "Shimmer - Shift 1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 27,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Shimmer - Shift 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 28,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Shimmer - Amount",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 18,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Shimmer - Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "Shimmer - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 55,
+      "name": "Magneto - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 56,
+      "name": "Magneto - Diffusion",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 57,
+      "name": "Magneto - Heads",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 54,
+      "name": "Magneto - Spacing",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 44,
+      "name": "Nonlinear - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 46,
+      "name": "Nonlinear - Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 5,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 45,
+      "name": "Nonlinear - Diffusion",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 47,
+      "name": "Nonlinear - Late Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 17,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 48,
+      "name": "Nonlinear - Late Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 18,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 43,
+      "name": "Nonlinear - Mod Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 17,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 52,
+      "name": "Reflections - Low End",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 20,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 50,
+      "name": "Reflections - Loc Y",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 49,
+      "name": "Reflections - Loc X",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 51,
+      "name": "Reflections - Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "A Footswitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "B Footswitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "C Footswitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 97,
+      "name": "Press/Hold Switch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "Remote Tap",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 100,
+      "name": "Expression",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "Bypass",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Strymon BigSky",
+  "device": {
+    "description": "Reverb Pedal",
+    "deviceType": "EFFECTS",
+    "displayName": "BigSky",
+    "documentationResource": "www.strymon.net",
+    "identifier": "00 01 7F",
+    "manufacturer": "Strymon",
+    "model": "Strymon BigSky",
+    "name": "Strymon BigSky",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "00 01 7F",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 00 01 7F 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Strymon BigSky",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "CLOCK",
+    "PROGRAM_CHANGE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Strymon BigSky Midi Implementation",
+  "transmits": [],
+  "additionalProperties": {}
+}

@@ -1,0 +1,1067 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation Wheel*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 2,
+      "name": "Breath Control*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 4,
+      "name": "Foot Control*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Glide Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 6,
+      "name": "Data Entry",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Channel Volume*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 8,
+      "name": "Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 10,
+      "name": "Pan*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 11,
+      "name": "Expression",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Arp Range",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 10,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Arp Length",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Arp Active",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "LFO 1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "LFO 1 Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "LFO 1 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "LFO 1 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "LFO 2 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "LFO 2 Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "LFO 2 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 22,
+      "name": "LFO 2 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "LFO 3 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "LFO 3 Speed",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "LFO 3 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "LFO 3 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Osc 1 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Osc 1 Semitone",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "Osc 1 Detune",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "Osc1 FM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "Osc 1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 32,
+      "name": "Bank Select LSB*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 33,
+      "name": "Osc1 PW",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 34,
+      "name": "Osc 1 PWM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 35,
+      "name": "Osc 2 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 36,
+      "name": "Osc 2 Semitone",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 37,
+      "name": "Osc 2 Detune",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 38,
+      "name": "Osc2 FM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 39,
+      "name": "Osc 2 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 40,
+      "name": "Osc2 PW",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 41,
+      "name": "Osc 2 PWM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 42,
+      "name": "Osc 3 Octave",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 43,
+      "name": "Osc 3 Semitone",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 44,
+      "name": "Osc 3 Detune",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 45,
+      "name": "Osc3FM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 46,
+      "name": "Osc 3 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 47,
+      "name": "Osc3PW",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 48,
+      "name": "Osc 3 PWM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 49,
+      "name": "Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 50,
+      "name": "Pitchmod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 51,
+      "name": "Glide Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 52,
+      "name": "Osc 1 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 53,
+      "name": "Osc 1 Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 54,
+      "name": "Ringmod Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 55,
+      "name": "Ringmod Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 56,
+      "name": "Osc 2 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 57,
+      "name": "Osc 2 Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 58,
+      "name": "Osc 3 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 59,
+      "name": "Osc 3 Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 60,
+      "name": "Noise Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 61,
+      "name": "Noise Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 62,
+      "name": "Noise Colour",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Sustain Pedal*",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "Glide Active",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 66,
+      "name": "Sostenuto",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 67,
+      "name": "Routing",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 68,
+      "name": "Filter 1 Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 69,
+      "name": "Filter 1 Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 70,
+      "name": "Filter 1 Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Filter 1 Drive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "Filter 1 Keytrack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "Filter 1 Env. Amount",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Filter 1 Env. Velocity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Filter 1 CutoffMod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "Filter 1 FM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "Filter 1 Pan",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "Filter 1 Panmod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 79,
+      "name": "Filter 2 Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "Filter 2 Cutoff",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "Filter 2 Resonance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "Filter 2 Drive",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "Filter 2 Keytrack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "Filter 2 Env. Amount",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "Filter 2 Env. Velocity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "Filter 2 CutoffMod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "Filter 2 FM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "Filter 2 Pan",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "Filter 2 Panmod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "Amp Volume",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 91,
+      "name": "Amp Velocity",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "Amp Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "FX1Mix",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "FX2Mix",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "FE Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 96,
+      "name": "FE Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 97,
+      "name": "FE Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 98,
+      "name": "FE Decay 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 99,
+      "name": "FE Sustain 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 100,
+      "name": "FE Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 101,
+      "name": "AE Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "AE Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "AE Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "AE Decay 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "AE Sustain 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "AE Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "E3 Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "E3 Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "E3 Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "E3 Decay 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 111,
+      "name": "E3 Sustain 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "E3 Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "E4 Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "E4 Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "E4 Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "E4 Decay 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "E4 Sustain 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "E4 Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0
+      }
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for Waldorf Blofeld",
+  "device": {
+    "description": "Waldorf Blofeld Parameter Mappings",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Blofeld",
+    "documentationResource": "https://support.waldorfmusic.com/products/Blofeld",
+    "identifier": "",
+    "manufacturer": "Waldorf",
+    "model": "Blofeld",
+    "name": "Blofeld",
+    "version": "1.0.0"
+  },
+  "displayName": "Waldorf Blofeld",
+  "implementationVersion": "1.0.0",
+  "receives": [
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "CHANNEL_PRESSURE",
+    "POLY_PRESSURE",
+    "PITCH_BEND",
+    "CLOCK"
+  ],
+  "schemaVersion": "0.0.1",
+  "title": "MIDI Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "PITCH_BEND"
+  ]
+}

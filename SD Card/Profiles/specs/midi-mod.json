@@ -1,0 +1,1317 @@
+{
+  "controlChangeCommands": [
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 3,
+      "description": "Sets the rate of LFO 1",
+      "name": "LFO 1 Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 9,
+      "description": "Sets the rate of LFO 2",
+      "name": "LFO 2 Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 12,
+      "description": "Sets the rate of LFO 3",
+      "name": "LFO 3 Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 13,
+      "description": "Sets the rate of LFO 4",
+      "name": "LFO 4 Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 14,
+      "description": "Sets the wave shape of LFO 1",
+      "name": "LFO 1 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 15,
+      "description": "Sets the wave shape of LFO 2",
+      "name": "LFO 2 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 16,
+      "description": "Sets the wave shape of LFO 3",
+      "name": "LFO 3 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 17,
+      "description": "Sets the wave shape of LFO 4",
+      "name": "LFO 4 Shape",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 18,
+      "description": "Toggles LFO 1 on/off",
+      "name": "LFO 1 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 19,
+      "description": "Toggles LFO 2 on/off",
+      "name": "LFO 2 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 20,
+      "description": "Toggles LFO 3 on/off",
+      "name": "LFO 3 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 21,
+      "description": "Toggles LFO 4 on/off",
+      "name": "LFO 4 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 22,
+      "description": "Toggles LFO 1 fast/slow",
+      "name": "LFO 1 Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 23,
+      "description": "Toggles LFO 2 fast/slow",
+      "name": "LFO 2 Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 24,
+      "description": "Toggles LFO 3 fast/slow",
+      "name": "LFO 3 Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 25,
+      "description": "Toggles LFO 4 fast/slow",
+      "name": "LFO 4 Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 26,
+      "description": "Toggles LFO 1 BPM sync",
+      "name": "LFO 1 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 27,
+      "description": "Toggles LFO 2 BPM sync",
+      "name": "LFO 2 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 28,
+      "description": "Toggles LFO 3 BPM sync",
+      "name": "LFO 3 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 29,
+      "description": "Toggles LFO 4 BPM sync",
+      "name": "LFO 4 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 30,
+      "description": "Sets the Delay for LFO 1",
+      "name": "LFO 1 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 31,
+      "description": "Sets the Delay for LFO 2",
+      "name": "LFO 2 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 32,
+      "description": "Sets the Delay for LFO 3",
+      "name": "LFO 3 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 33,
+      "description": "Sets the Delay for LFO 4",
+      "name": "LFO 4 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 34,
+      "description": "Toggles ENV 1 on/off",
+      "name": "ENV 1 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 35,
+      "description": "Toggles ENV 2 on/off",
+      "name": "ENV 2 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 36,
+      "description": "Toggles ENV 3 on/off",
+      "name": "ENV 3 Enabled",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 37,
+      "description": "Set auto trigger for ENV 1",
+      "name": "ENV 1 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 12,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 39,
+      "description": "Set auto trigger for ENV 2",
+      "name": "ENV 2 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 12,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 40,
+      "description": "Set auto trigger for ENV 3",
+      "name": "ENV 3 Sync",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 12,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 41,
+      "description": "Sets the depth of LFO 1",
+      "name": "LFO 1 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 42,
+      "description": "Sets the depth of LFO 2",
+      "name": "LFO 2 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 43,
+      "description": "Sets the depth of LFO 3",
+      "name": "LFO 3 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 44,
+      "description": "Sets the depth of LFO 4",
+      "name": "LFO 4 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 45,
+      "description": "Sets the depth of ENV 1",
+      "name": "ENV 1 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 46,
+      "description": "Sets the depth of ENV 2",
+      "name": "ENV 2 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 47,
+      "description": "Sets the depth of ENV 3",
+      "name": "ENV 3 Depth",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 48,
+      "description": "Sets the delay time of ENV 1",
+      "name": "ENV 1 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 49,
+      "description": "Sets the hold time of ENV 1",
+      "name": "ENV 1 Hold",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 50,
+      "description": "Sets the attack time of ENV 1",
+      "name": "ENV 1 Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 51,
+      "description": "Sets the decay time of ENV 1",
+      "name": "ENV 1 Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 52,
+      "description": "Sets the sustain level of ENV 1",
+      "name": "ENV 1 Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 53,
+      "description": "Sets the release time of ENV 1",
+      "name": "ENV 1 Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 54,
+      "description": "Sets the delay time of ENV 2",
+      "name": "ENV 2 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 55,
+      "description": "Sets the hold time of ENV 2",
+      "name": "ENV 2 Hold",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 56,
+      "description": "Sets the attack time of ENV 2",
+      "name": "ENV 2 Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 57,
+      "description": "Sets the decay time of ENV 2",
+      "name": "ENV 2 Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 58,
+      "description": "Sets the sustain level of ENV 2",
+      "name": "ENV 2 Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 59,
+      "description": "Sets the release time of ENV 2",
+      "name": "ENV 2 Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 60,
+      "description": "Sets the delay time of ENV 3",
+      "name": "ENV 3 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 61,
+      "description": "Sets the hold time of ENV 3",
+      "name": "ENV 3 Hold",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 62,
+      "description": "Sets the T1 time of ENV 3",
+      "name": "ENV 3 T1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 63,
+      "description": "Sets the L1 level of ENV 3",
+      "name": "ENV 3 L1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 66,
+      "description": "Sets the T2 time of ENV 3",
+      "name": "ENV 3 T2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 69,
+      "description": "Sets the L2 level of ENV 3",
+      "name": "ENV 3 L2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 70,
+      "description": "Sets the T3 time of ENV 3",
+      "name": "ENV 3 T3",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 71,
+      "description": "Sets the phase of LFO 1",
+      "name": "LFO 1 Phase",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 72,
+      "description": "Sets the phase of LFO 2",
+      "name": "LFO 2 Phase",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 73,
+      "description": "Sets the phase of LFO 3",
+      "name": "LFO 3 Phase",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 74,
+      "description": "Sets the phase of LFO 4",
+      "name": "LFO 4 Phase",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 75,
+      "description": "Sets the L3 sustain level of ENV 3",
+      "name": "ENV 3 L3",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 76,
+      "description": "Sets the T4 release time of ENV 3",
+      "name": "ENV 3 T4",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 77,
+      "description": "Toggles ARP on and off",
+      "name": "ARP On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 78,
+      "description": "Toggles ARP latch mode on and off",
+      "name": "ARP Latch On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 79,
+      "description": "Toggles ARP key transpose on and off",
+      "name": "ARP Trans On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 80,
+      "description": "Sets the number of ARP octaves",
+      "name": "ARP Octaves",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 81,
+      "description": "Sets the number of ARP note repeats",
+      "name": "ARP Note Repeat",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 7,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 82,
+      "description": "Sets the ARP clock subdivision",
+      "name": "ARP Clock Subdivision",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 5,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 83,
+      "description": "Sets the ARP gate length",
+      "name": "ARP Gate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 85,
+      "description": "Sets the ARP playback pattern for the notes",
+      "name": "ARP Playback Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 7,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 86,
+      "description": "Sets the ARP swing amount",
+      "name": "ARP Swing",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 87,
+      "description": "Sets the ARP velocity amount",
+      "name": "ARP Velocity Amount",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 88,
+      "description": "Sets the rate of ARP velocity decay",
+      "name": "ARP Velocity Decay Amount",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 89,
+      "description": "Sets the ARP auto transpose progression",
+      "name": "ARP Auto Trans Prog",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 90,
+      "description": "Sets the ARP auto transpose number of steps",
+      "name": "ARP Auto Trans Step",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 16,
+        "min": 1,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 91,
+      "description": "Sets the ARP auto transpose playback pattern",
+      "name": "ARP Auto Trans Pattern",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 12,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 92,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 93,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 94,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 3",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 95,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 4",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 102,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 5",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 103,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 6",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 104,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 7",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 105,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 8",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 106,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 9",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 107,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 10",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 108,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 11",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 109,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 12",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 110,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 13",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 111,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 14",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 112,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 15",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 113,
+      "description": "Sets ARP step for custom auto transpose pattern",
+      "name": "ARP Auto Trans Step 16",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 48,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 114,
+      "description": "Sets master tempo",
+      "name": "Tempo",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "External control only",
+      "controlChangeNumber": 115,
+      "description": "Toggles tempo sync to incoming clock",
+      "name": "Tempo Sync On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 116,
+      "description": "Fires trigger for envelope 1",
+      "name": "ENV 1 Trigger",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 117,
+      "description": "Fires trigger for envelope 2",
+      "name": "ENV 2 Trigger",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 118,
+      "description": "Fires trigger for envelope 3",
+      "name": "ENV 3 Trigger",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "additionalInfo": "",
+      "controlChangeNumber": 119,
+      "description": "Toggles ARP poly playback on and off",
+      "name": "ARP Chord On/Off",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the MIDI Mod iOS app",
+  "device": {
+    "description": "MIDI Expansion Utility",
+    "deviceType": "MULTI",
+    "displayName": "MIDI Mod",
+    "documentationResource": "www.eokuwwy.com",
+    "identifier": "00",
+    "manufacturer": "Eokuwwy Development",
+    "model": "MIDI Mod",
+    "name": "MIDI Mod",
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "MIDI Mod",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Eokuwwy Development MIDI Mod MIDI Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "additionalProperties": {}
+}

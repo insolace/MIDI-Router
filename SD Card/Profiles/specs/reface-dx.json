@@ -1,0 +1,745 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Volume",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 11,
+      "name": "Expression",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Hold",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "description": "Algorithm select",
+      "name": "ALGO",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "OP1 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "OP1 Feedback Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "OP1 Feedback Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "OP1 Freq Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "OP1 Ratio/Freq Coarse",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "OP1 Ratio/Freq Fine",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "OP2 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "OP2 Feedback Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "OP2 Feedback Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "OP2 Freq Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "OP2 Ratio/Freq Coarse",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "OP2 Ratio/Freq Fine",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "OP3 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "OP3 Feedback Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "OP3 Feedback Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 111,
+      "name": "OP3 Freq Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "OP3 Ratio/Freq Coarse",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "OP3 Ratio/Freq Fine",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "OP4 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "OP4 Feedback Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "OP4 Feedback Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "OP4 Freq Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "OP4 Ratio/Freq Coarse",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 119,
+      "name": "OP4 Ratio/Freq Fine",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Yamaha Reface DX",
+  "device": {
+    "description": "FM Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "Reface DX",
+    "documentationResource": "www.yamaha.com",
+    "identifier": "43",
+    "manufacturer": "Yamaha",
+    "model": "Reface DX",
+    "name": "Reface DX",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "43",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 43 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.3.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Yamaha Reface DX",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [
+    {
+      "description": "Portamento",
+      "name": "Portamento Time",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 0E dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Wave Shape",
+      "name": "LFO Wave",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 11 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "06",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Speed",
+      "name": "LFO Speed",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 12 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "Delay",
+      "name": "LFO Delay",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 13 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "LFO Pitch Mod Depth",
+      "name": "LFO PMD",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 14 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Rate 1",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 15 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Rate 2",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 16 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Rate 3",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 17 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Rate 4",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 18 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Level 1",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 19 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "70",
+            "min": "10",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Level 2",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 1A dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "70",
+            "min": "10",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Level 3",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 1B dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "70",
+            "min": "10",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitch EG Level 4",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 1C dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "70",
+            "min": "10",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Effect 1 Type",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 1D dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "07",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Effect 1 Param 1",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 1E dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Effect 1 Param 2",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 1F dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Effect 2 Type",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 20 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "07",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Effect 2 Param 1",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 21 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "name": "Effect 2 Param 2",
+      "substitutableMessage": "F0 43 10 7F 1C 03 30 00 22 dd F7",
+      "substitutableValues": [
+        {
+          "index": 9,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    }
+  ],
+  "title": "Yamaha Reface DX Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK"
+  ],
+  "additionalProperties": {}
+}

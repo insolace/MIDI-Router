@@ -1,0 +1,416 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 102,
+      "name": "Cutoff Partial 1/Analog",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "Cutoff Partial 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "Cutoff Partial 3",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "Resonance Partial 1/Analog",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "Resonance Partial 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "Resonance Partial 3",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "Partial Level 1/Analog",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 118,
+      "name": "Partial Level 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 119,
+      "name": "Partial Level 3",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "LFO Rate Partial 1/Analog",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "LFO Rate Partial 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "LFO Rate Partial 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 14,
+      "name": "Effect 1",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 15,
+      "name": "Effect 2",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Delay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Reverb",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "Vocoder Level",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Portamento Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Volume",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 10,
+      "name": "Panpot",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 11,
+      "name": "Expression",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Hold 1",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "Portamento",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "Resonance",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "Release Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "Attack Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "Cutoff",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "Decay Time",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "Vibrate Rate",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "Vibrate Depth",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "Vibrate Delay",
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for ",
+  "device": {
+    "description": " Parameter Mappings",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "JD-Xi",
+    "documentationResource": "roland.com",
+    "identifier": "41",
+    "manufacturer": "Roland",
+    "model": "JD-Xi",
+    "name": "JD-Xi",
+    "version": "1.0.0"
+  },
+  "displayName": "Roland JD-Xi",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [
+    {
+      "name": "Envelope Partial 1/Analog",
+      "parameterNumber": 124,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Envelope Partial 2",
+      "parameterNumber": 125,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Envelope Partial 3",
+      "parameterNumber": 126,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Shape Partial 1/Analog",
+      "parameterNumber": 3,
+      "valueRange": {
+        "max": 5,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Shape Partial 2",
+      "parameterNumber": 4,
+      "valueRange": {
+        "max": 5,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Shape Partial 3",
+      "parameterNumber": 5,
+      "valueRange": {
+        "max": 5,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Pitch Partial 1/Analog",
+      "parameterNumber": 15,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Pitch Partial 2",
+      "parameterNumber": 16,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Pitch Partial 3",
+      "parameterNumber": 17,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Filter Partial 1/Analog",
+      "parameterNumber": 18,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Filter Partial 2",
+      "parameterNumber": 19,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Filter Partial 3",
+      "parameterNumber": 20,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Amp Partial 1/Analog",
+      "parameterNumber": 21,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Amp Partial 2",
+      "parameterNumber": 22,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "LFO Amp Partial 3",
+      "parameterNumber": 23,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    },
+    {
+      "name": "Analog Pulse Width",
+      "parameterNumber": 37,
+      "valueRange": {
+        "max": 127,
+        "min": 0
+      }
+    }
+  ],
+  "receives": [
+    "NOTE_NUMBER",
+    "PITCH_BEND",
+    "VELOCITY_NOTE_ON"
+  ],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": " MIDI Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "PITCH_BEND"
+  ]
+}

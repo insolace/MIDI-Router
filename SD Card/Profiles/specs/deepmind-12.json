@@ -1,0 +1,3649 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 2,
+      "name": "Breath Controller",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 4,
+      "name": "Foot Controller",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 5,
+      "name": "Portamento Time",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 7,
+      "name": "Channel Volume",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 8,
+      "name": "Balance",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 10,
+      "name": "Pan",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 11,
+      "name": "Expression",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 12,
+      "name": "Arp Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 13,
+      "name": "Arp Gate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 16,
+      "name": "Lfo 1 Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 17,
+      "name": "Lfo 1 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 18,
+      "name": "Lfo 2 Rate",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 19,
+      "name": "Lfo 2 Delay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 20,
+      "name": "Osc 1 Pitch Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 21,
+      "name": "Osc 1 PWM",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 23,
+      "name": "Osc 2 Pitch Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 24,
+      "name": "Osc 2 Tone Mod",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 25,
+      "name": "Osc 2 Pitch",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 26,
+      "name": "Osc 2 Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 27,
+      "name": "Noise Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 28,
+      "name": "Unison Detune",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 29,
+      "name": "VCF Freq",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 30,
+      "name": "VCF Res",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 31,
+      "name": "VCF Env Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 33,
+      "name": "VCF LFO Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 34,
+      "name": "VCF Key Amt",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 35,
+      "name": "HPF Freq",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 36,
+      "name": "VCA Level",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 37,
+      "name": "VCA Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 39,
+      "name": "VCA Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 40,
+      "name": "VCA Env Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 41,
+      "name": "VCA Env Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 42,
+      "name": "VCF Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 43,
+      "name": "VCF Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 44,
+      "name": "VCF Env Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 45,
+      "name": "VCF Env Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 46,
+      "name": "MOD Env Attack",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 47,
+      "name": "MOD Env Decay",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 48,
+      "name": "MOD Env Sustain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 49,
+      "name": "MOD Env Release",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 50,
+      "name": "VCA Env Attack Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 51,
+      "name": "VCA Env Decay Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 52,
+      "name": "VCA Env Sustain Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 53,
+      "name": "VCA Env Release Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 54,
+      "name": "VCF Env Attack Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 55,
+      "name": "VCF Env Decay Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 56,
+      "name": "VCF Env Sustain Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 57,
+      "name": "VCF Env Release Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 58,
+      "name": "MOD Env Attack Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 59,
+      "name": "MOD Env Decay Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 60,
+      "name": "MOD Env Sustain Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 61,
+      "name": "MOD Env Release Curve",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 62,
+      "name": "FX 1 Param 1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 63,
+      "name": "FX 1 Param 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 64,
+      "name": "Sustain Pedal",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 65,
+      "name": "FX 1 Param 3",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 66,
+      "name": "FX 1 Param 4",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 67,
+      "name": "FX 1 Param 5",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 68,
+      "name": "FX 1 Param 6",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 69,
+      "name": "FX 1 Param 7",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 70,
+      "name": "FX 1 Param 8",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 71,
+      "name": "FX 1 Param 9",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 72,
+      "name": "FX 1 Param 10",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 73,
+      "name": "FX 1 Param 11",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 74,
+      "name": "FX 1 Param 12",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 75,
+      "name": "FX 2 Param 1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 76,
+      "name": "FX 2 Param 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 77,
+      "name": "FX 2 Param 3",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 78,
+      "name": "FX 2 Param 4",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 79,
+      "name": "FX 2 Param 5",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 80,
+      "name": "FX 2 Param 6",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 81,
+      "name": "FX 2 Param 7",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 82,
+      "name": "FX 2 Param 8",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 83,
+      "name": "FX 2 Param 9",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 84,
+      "name": "FX 2 Param 10",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 85,
+      "name": "FX 2 Param 11",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 86,
+      "name": "FX 2 Param 12",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 87,
+      "name": "FX 3 Param 1",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 88,
+      "name": "FX 3 Param 2",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 89,
+      "name": "FX 3 Param 3",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 90,
+      "name": "FX 3 Param 4",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 91,
+      "name": "FX 3 Param 5",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 92,
+      "name": "FX 3 Param 6",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 93,
+      "name": "FX 3 Param 7",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 94,
+      "name": "FX 3 Param 8",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 95,
+      "name": "FX 3 Param 9",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 102,
+      "name": "FX 3 Param 10",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 103,
+      "name": "FX 3 Param 11",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 104,
+      "name": "FX 3 Param 12",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 105,
+      "name": "FX Slot 1 Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 106,
+      "name": "FX Slot 2 Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 107,
+      "name": "FX Slot 3 Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 108,
+      "name": "FX Slot 4 Type",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 109,
+      "name": "FX Slot 1 Gain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 110,
+      "name": "FX Slot 2 Gain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 111,
+      "name": "FX Slot 3 Gain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 112,
+      "name": "FX Slot 4 Gain",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 113,
+      "name": "Analog Thru",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 114,
+      "name": "FX Mode",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 115,
+      "name": "3D Controller X-Axis",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 116,
+      "name": "3D Controller Y-Axis",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "controlChangeNumber": 117,
+      "name": "3D Controller Z-Axis",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Behringer DeepMind 12",
+  "device": {
+    "description": "DCO Analog Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "DeepMind 12",
+    "documentationResource": "www.behringer.com",
+    "identifier": "00, 20, 32",
+    "manufacturer": "Behringer",
+    "model": "DeepMind 12",
+    "name": "DeepMind 12",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "parameter type",
+        "prod ID 1",
+        "prod ID 2",
+        "prod ID 3",
+        "address high",
+        "address mid",
+        "address low",
+        "data value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "00, 20, 32",
+      "exampleDescription": "Sets the MIDI channel (00 00 01) to 10 (hex value of 10 is 09)",
+      "exampleMessage": "F0 00 20 32 10 7F 1C 03 00 00 01 09 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "DeepMind 12",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [
+    {
+      "name": "LFO 1 Rate",
+      "parameterNumber": 0,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 1 Delay",
+      "parameterNumber": 1,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 1 Shape",
+      "parameterNumber": 2,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 1 Key Sync",
+      "parameterNumber": 3,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 1 Arp Sync",
+      "parameterNumber": 4,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 1 Mono Mode",
+      "parameterNumber": 5,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 1 Slew Rate",
+      "parameterNumber": 6,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Rate",
+      "parameterNumber": 7,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Delay",
+      "parameterNumber": 8,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Shape",
+      "parameterNumber": 9,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Key Sync",
+      "parameterNumber": 10,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Arp Sync",
+      "parameterNumber": 11,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Mono Mode",
+      "parameterNumber": 12,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "LFO 2 Slew Rate",
+      "parameterNumber": 13,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Range",
+      "parameterNumber": 14,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Range",
+      "parameterNumber": 15,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 PWM Source",
+      "parameterNumber": 16,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 5,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Tone Mod Source",
+      "parameterNumber": 17,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 5,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Pulse Enable",
+      "parameterNumber": 18,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Saw Enable",
+      "parameterNumber": 19,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc Sync Enable",
+      "parameterNumber": 20,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Pitch Mod Depth",
+      "parameterNumber": 21,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Pitch Mod Select",
+      "parameterNumber": 22,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Aftertouch to Pitch Mod",
+      "parameterNumber": 23,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 MW to Pitch Mod",
+      "parameterNumber": 24,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 PWM Depth",
+      "parameterNumber": 25,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Level",
+      "parameterNumber": 26,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Pitch",
+      "parameterNumber": 27,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Tone Mod Depth",
+      "parameterNumber": 28,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Pitch Mod Depth",
+      "parameterNumber": 29,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Aftertouch to Pitch Mod",
+      "parameterNumber": 30,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 MW to Pitch Mod",
+      "parameterNumber": 31,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 2 Pitch Mod Select",
+      "parameterNumber": 32,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 6,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Noise Level",
+      "parameterNumber": 33,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Portamento Time",
+      "parameterNumber": 34,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Portamento Mode",
+      "parameterNumber": 35,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 13,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitchbend Up Depth",
+      "parameterNumber": 36,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 24,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Pitchbend Down Depth",
+      "parameterNumber": 37,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 24,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Osc 1 Pitchbend Mode",
+      "parameterNumber": 38,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Freq",
+      "parameterNumber": 39,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF HPF Freq",
+      "parameterNumber": 40,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Res",
+      "parameterNumber": 41,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Depth",
+      "parameterNumber": 42,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Velocity",
+      "parameterNumber": 43,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Pitch Bend Depth",
+      "parameterNumber": 44,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF LFO Depth",
+      "parameterNumber": 45,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF LFO Select",
+      "parameterNumber": 46,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Aftertouch to LFO",
+      "parameterNumber": 47,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF MW to LFO",
+      "parameterNumber": 48,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Key Track",
+      "parameterNumber": 49,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Polarity",
+      "parameterNumber": 50,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF 2-4 Pole Mode",
+      "parameterNumber": 51,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Boost",
+      "parameterNumber": 52,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Attack",
+      "parameterNumber": 53,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Decay",
+      "parameterNumber": 54,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Sustain",
+      "parameterNumber": 55,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Release",
+      "parameterNumber": 56,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Trigger",
+      "parameterNumber": 57,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Attack Curve",
+      "parameterNumber": 58,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Decay Curve",
+      "parameterNumber": 59,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Sustain Curve",
+      "parameterNumber": 60,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Release Curve",
+      "parameterNumber": 61,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Attack",
+      "parameterNumber": 62,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Decay",
+      "parameterNumber": 63,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Sustain",
+      "parameterNumber": 64,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Release",
+      "parameterNumber": 65,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Trigger",
+      "parameterNumber": 66,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Attack Curve",
+      "parameterNumber": 67,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Decay Curve",
+      "parameterNumber": 68,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Sustain Curve",
+      "parameterNumber": 69,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCF Env Release Curve",
+      "parameterNumber": 70,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Attack",
+      "parameterNumber": 71,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Decay",
+      "parameterNumber": 72,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Sustain",
+      "parameterNumber": 73,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Release",
+      "parameterNumber": 74,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Trigger",
+      "parameterNumber": 75,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 4,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Attack Curve",
+      "parameterNumber": 76,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Decay Curve",
+      "parameterNumber": 77,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Sustain Curve",
+      "parameterNumber": 78,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "MOD Env Release Curve",
+      "parameterNumber": 79,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Level",
+      "parameterNumber": 80,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Depth",
+      "parameterNumber": 81,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Env Velocity",
+      "parameterNumber": 82,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "VCA Pan Spread",
+      "parameterNumber": 83,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice Parity",
+      "parameterNumber": 84,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Polyphony Mode",
+      "parameterNumber": 85,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 12,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Env Trigger Mode",
+      "parameterNumber": 86,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 3,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Unison Detune",
+      "parameterNumber": 87,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Voice Drift",
+      "parameterNumber": 88,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Parameter Drift",
+      "parameterNumber": 89,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Drift Rate",
+      "parameterNumber": 90,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Portamento Balance",
+      "parameterNumber": 91,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "OSC Key Down Reset",
+      "parameterNumber": 92,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 1 Source",
+      "parameterNumber": 93,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 1 Destination",
+      "parameterNumber": 94,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 1 Depth",
+      "parameterNumber": 95,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 2 Source",
+      "parameterNumber": 96,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 2 Destination",
+      "parameterNumber": 97,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 2 Depth",
+      "parameterNumber": 98,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 3 Source",
+      "parameterNumber": 99,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 3 Destination",
+      "parameterNumber": 100,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 3 Depth",
+      "parameterNumber": 101,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 4 Source",
+      "parameterNumber": 102,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 4 Destination",
+      "parameterNumber": 103,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 4 Depth",
+      "parameterNumber": 104,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 5 Source",
+      "parameterNumber": 105,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 5 Destination",
+      "parameterNumber": 106,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 5 Depth",
+      "parameterNumber": 107,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 6 Source",
+      "parameterNumber": 108,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 6 Destination",
+      "parameterNumber": 109,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 6 Depth",
+      "parameterNumber": 110,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 7 Source",
+      "parameterNumber": 111,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 7 Destination",
+      "parameterNumber": 112,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 7 Depth",
+      "parameterNumber": 113,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 8 Source",
+      "parameterNumber": 114,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 22,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 8 Destination",
+      "parameterNumber": 115,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 129,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Mod 8 Depth",
+      "parameterNumber": 116,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Ctrl Seq Enable",
+      "parameterNumber": 117,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Ctrl Seq Clock Divider",
+      "parameterNumber": 118,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 15,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Seq Length",
+      "parameterNumber": 119,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 31,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Seq Swing",
+      "parameterNumber": 120,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 25,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Key Sync and Loop",
+      "parameterNumber": 121,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Slew Rate",
+      "parameterNumber": 122,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 1",
+      "parameterNumber": 123,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 2",
+      "parameterNumber": 124,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 3",
+      "parameterNumber": 125,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 4",
+      "parameterNumber": 126,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 5",
+      "parameterNumber": 127,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 6",
+      "parameterNumber": 128,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 7",
+      "parameterNumber": 129,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 8",
+      "parameterNumber": 130,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 9",
+      "parameterNumber": 131,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 10",
+      "parameterNumber": 132,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 11",
+      "parameterNumber": 133,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 12",
+      "parameterNumber": 134,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 13",
+      "parameterNumber": 135,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 14",
+      "parameterNumber": 136,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 15",
+      "parameterNumber": 137,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 16",
+      "parameterNumber": 138,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 17",
+      "parameterNumber": 139,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 18",
+      "parameterNumber": 140,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 19",
+      "parameterNumber": 141,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 20",
+      "parameterNumber": 142,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 21",
+      "parameterNumber": 143,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 22",
+      "parameterNumber": 144,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 23",
+      "parameterNumber": 145,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 24",
+      "parameterNumber": 146,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 25",
+      "parameterNumber": 147,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 26",
+      "parameterNumber": 148,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 27",
+      "parameterNumber": 149,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 28",
+      "parameterNumber": 150,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 29",
+      "parameterNumber": 151,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 30",
+      "parameterNumber": 152,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 31",
+      "parameterNumber": 153,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Step Seq Val 32",
+      "parameterNumber": 154,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp On/Off",
+      "parameterNumber": 155,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Mode",
+      "parameterNumber": 156,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 10,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Rate",
+      "parameterNumber": 157,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Clock",
+      "parameterNumber": 158,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 12,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Key Sync",
+      "parameterNumber": 159,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Gate Time",
+      "parameterNumber": 160,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Hold",
+      "parameterNumber": 161,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 1,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Pattern",
+      "parameterNumber": 162,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 64,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Swing",
+      "parameterNumber": 163,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 25,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "Arp Octaves",
+      "parameterNumber": 164,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 5,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX Routing",
+      "parameterNumber": 165,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 9,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Type",
+      "parameterNumber": 166,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 33,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 1",
+      "parameterNumber": 167,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 2",
+      "parameterNumber": 168,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 3",
+      "parameterNumber": 169,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 4",
+      "parameterNumber": 170,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 5",
+      "parameterNumber": 171,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 6",
+      "parameterNumber": 172,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 7",
+      "parameterNumber": 173,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 8",
+      "parameterNumber": 174,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 9",
+      "parameterNumber": 175,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 10",
+      "parameterNumber": 176,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 11",
+      "parameterNumber": 177,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Param 12",
+      "parameterNumber": 178,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Type",
+      "parameterNumber": 179,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 33,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 1",
+      "parameterNumber": 180,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 2",
+      "parameterNumber": 181,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 3",
+      "parameterNumber": 182,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 4",
+      "parameterNumber": 183,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 5",
+      "parameterNumber": 184,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 6",
+      "parameterNumber": 185,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 7",
+      "parameterNumber": 186,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 8",
+      "parameterNumber": 187,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 9",
+      "parameterNumber": 188,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 10",
+      "parameterNumber": 189,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 11",
+      "parameterNumber": 190,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Param 12",
+      "parameterNumber": 191,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Type",
+      "parameterNumber": 192,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 33,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 1",
+      "parameterNumber": 193,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 2",
+      "parameterNumber": 194,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 3",
+      "parameterNumber": 195,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 4",
+      "parameterNumber": 196,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 5",
+      "parameterNumber": 197,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 6",
+      "parameterNumber": 198,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 7",
+      "parameterNumber": 199,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 8",
+      "parameterNumber": 200,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 9",
+      "parameterNumber": 201,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 10",
+      "parameterNumber": 202,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 11",
+      "parameterNumber": 203,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Param 12",
+      "parameterNumber": 204,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Type",
+      "parameterNumber": 205,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 33,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 1",
+      "parameterNumber": 206,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 2",
+      "parameterNumber": 207,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 3",
+      "parameterNumber": 208,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 4",
+      "parameterNumber": 209,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 5",
+      "parameterNumber": 210,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 6",
+      "parameterNumber": 211,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 7",
+      "parameterNumber": 212,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 8",
+      "parameterNumber": 213,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 9",
+      "parameterNumber": 214,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 10",
+      "parameterNumber": 215,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 11",
+      "parameterNumber": 216,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Param 12",
+      "parameterNumber": 217,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 255,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 1 Output Gain",
+      "parameterNumber": 218,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 150,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 2 Output Gain",
+      "parameterNumber": 219,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 150,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 3 Output Gain",
+      "parameterNumber": 220,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 150,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Output Gain",
+      "parameterNumber": 221,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 150,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    },
+    {
+      "name": "FX 4 Mode",
+      "parameterNumber": 222,
+      "valueRange": {
+        "discreteValues": [],
+        "max": 2,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [],
+  "title": "Behringer DeepMind 12 Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "VELOCITY_NOTE_OFF",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CLOCK",
+    "CHANNEL_PRESSURE"
+  ],
+  "additionalProperties": {}
+}

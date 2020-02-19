@@ -1,0 +1,1741 @@
+{
+  "controlChangeCommands": [
+    {
+      "controlChangeNumber": 1,
+      "name": "Modulation",
+      "valueRange": {
+        "discreteValues": [],
+        "max": 127,
+        "min": 0,
+        "additionalProperties": {}
+      },
+      "additionalProperties": {}
+    }
+  ],
+  "description": "open-midi-rtc-schema specification for the Roland JX-8P",
+  "device": {
+    "description": "6-voice DCO Analog Synthesizer",
+    "deviceType": "SYNTHESIZER",
+    "displayName": "JX-8P",
+    "documentationResource": "www.roland.com",
+    "identifier": "41",
+    "manufacturer": "Roland",
+    "model": "JX-8P",
+    "name": "JX-8P",
+    "sysexMetadata": {
+      "bitDescriptions": [
+        "sysex start",
+        "device identifier",
+        "tone parameters",
+        "MIDI Channel",
+        "Format Type",
+        "Level",
+        "Group",
+        "parameter number",
+        "parameter value",
+        "sysex end"
+      ],
+      "deviceIdentifier": "41",
+      "exampleDescription": "Sets the DCO-1 Range to a value of 1 on MIDI channel 1",
+      "exampleMessage": "F0 41 36 00 01 20 01 0B 01 F7",
+      "additionalProperties": {}
+    },
+    "version": "1.0.0",
+    "additionalProperties": {}
+  },
+  "displayName": "Roland JX-8P",
+  "implementationVersion": "1.0.0",
+  "nrpnCommands": [],
+  "receives": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CHANNEL_PRESSURE"
+  ],
+  "rpnCommands": [],
+  "schemaVersion": "0.0.1",
+  "sysexCommands": [
+    {
+      "description": "0-127",
+      "name": "DCO-1 Range",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 0B dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-1 Waveform",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 0C dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-1 Tune",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 0D dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-1 LFO Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 0E dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-1 Env Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 0F dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 Range",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 10 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 Waveform",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 11 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 Cross Mod",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 12 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 Tune",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 13 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 Fine Tune",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 14 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 LFO Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 15 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO-2 Env Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 16 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO Dynamics",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 1A dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO Env Mode",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 1B dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO 1 Mixer Level",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 1C dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "DCO 2 Mixer Level",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 1D dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "Mixer Env Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 1E dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "Mixer Dynamics",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 1F dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "Mixer Env Mode",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 20 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "HPF Cutoff Freq",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 21 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF Cutoff Freq",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 22 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF Resonance",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 23 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF LFO Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 24 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF Env Mod Depth",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 25 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF Key Follow",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 26 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF Dynamics",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 27 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCF Env Mode",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 28 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCA Level",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 29 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCA Dynamics",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 2A dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "Chorus",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 2B dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "LFO Waveform",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 2C dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "LFO Delay Time",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 2D dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "LFO Rate",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 2E dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-1 Attack",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 2F dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-1 Decay",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 30 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-1 Sustain",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 31 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-1 Release",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 32 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-1 Key Follow",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 33 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-2 Attack",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 34 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-2 Decay",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 35 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-2 Sustain",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 36 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-2 Release",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 37 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "ENV-2 Key Follow",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 38 dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    },
+    {
+      "description": "0-127",
+      "name": "VCA Env Mode",
+      "substitutableMessage": "F0 41 36 cc 01 20 01 3A dd F7",
+      "substitutableValues": [
+        {
+          "index": 3,
+          "substituteFor": "cc",
+          "valueRange": {
+            "discreteValues": [
+              {
+                "name": "Omni",
+                "value": "0N",
+                "additionalProperties": {}
+              }
+            ],
+            "max": "0F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "MIDI_CHANNEL",
+          "additionalProperties": {}
+        },
+        {
+          "index": 8,
+          "substituteFor": "dd",
+          "valueRange": {
+            "discreteValues": [],
+            "max": "7F",
+            "min": "00",
+            "additionalProperties": {}
+          },
+          "valueType": "DATA_VALUE",
+          "additionalProperties": {}
+        }
+      ],
+      "additionalProperties": {}
+    }
+  ],
+  "title": "Roland JX-8P Midi Implementation",
+  "transmits": [
+    "NOTE_NUMBER",
+    "VELOCITY_NOTE_ON",
+    "PITCH_BEND",
+    "PROGRAM_CHANGE",
+    "CHANNEL_PRESSURE"
+  ],
+  "additionalProperties": {}
+}
