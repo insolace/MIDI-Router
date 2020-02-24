@@ -9,6 +9,8 @@ INSTALLATION:
 * Libraries - see “Library Info.txt” before attempting to compile!
 * First time compiling - Select Teensy 3.6 and port etc, set USB TYPE to "Serial + MIDIx16".
 
+Accessing the SD card:
+https://github.com/insolace/Arduino_ZModem
 
 Hardware:
 
