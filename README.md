@@ -2,6 +2,8 @@
 Created by Eric Bateman (eric@timeline85.com)
 Released under GPLv3
 
+![](Images/Collage%20LG.jpg)
+
 MIDIRouter is a hardware MIDI processor.  It routes and translates messages to/from hardware DIN, USB Devices, and a USB Host (DAW).  
 
 INSTALLATION:
