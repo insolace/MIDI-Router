@@ -13,7 +13,7 @@ void routeMidi() {
     const uint8_t *sys = MIDI1.getSysExArray();
     byte port = 0;
     
-    if (type != 0) {      
+    if (type != 240) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
       transmitSysEx(data1 + data2 * 256, sys, port);     
@@ -28,7 +28,7 @@ void routeMidi() {
     byte channel = MIDI2.getChannel();
     const uint8_t *sys = MIDI2.getSysExArray();
     byte port = 1;
-    if (type != 0) {      
+    if (type != 240) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
       transmitSysEx(data1 + data2 * 256, sys, port);     
@@ -42,7 +42,7 @@ void routeMidi() {
     byte channel = MIDI3.getChannel();
     const uint8_t *sys = MIDI3.getSysExArray();
     byte port = 2;
-    if (type != 0) {      
+    if (type != 240) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
       transmitSysEx(data1 + data2 * 256, sys, port);     
@@ -56,7 +56,7 @@ void routeMidi() {
     byte channel = MIDI4.getChannel();
     const uint8_t *sys = MIDI4.getSysExArray();
     byte port = 3;
-    if (type != 0) {      
+    if (type != 240) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
       transmitSysEx(data1 + data2 * 256, sys, port);     
@@ -70,7 +70,7 @@ void routeMidi() {
     byte channel = MIDI5.getChannel();
     const uint8_t *sys = MIDI5.getSysExArray();
     byte port = 4;
-    if (type != 0) {      
+    if (type != 240) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
       transmitSysEx(data1 + data2 * 256, sys, port);     
@@ -84,7 +84,7 @@ void routeMidi() {
     byte channel = MIDI6.getChannel();
     const uint8_t *sys = MIDI6.getSysExArray();
     byte port = 5;
-    if (type != 0) {      
+    if (type != 240) {      
       transmitMIDI(type, data1, data2, channel, port);
     } else {
       transmitSysEx(data1 + data2 * 256, sys, port);     
@@ -102,7 +102,7 @@ void routeMidi() {
       uint8_t data2 =      midilist[port]->getData2();
       uint8_t channel =    midilist[port]->getChannel();
       const uint8_t *sys = midilist[port]->getSysExArray();
-      if (type != 0) {
+      if (type != 240) {
 /*
         Serial.print("USB ");
         Serial.print("ch=");
@@ -111,9 +111,9 @@ void routeMidi() {
         Serial.print(type, DEC);
         Serial.print(", d1=");
         Serial.println(data1, DEC);
-        Serial.println((const char *)midi01.manufacturer());
-        Serial.println((const char *)midi01.product());
-        Serial.println((const char *)midi01.serialNumber());
+        Serial.print("MFG: "); Serial.println((const char *)midi01.manufacturer());
+        Serial.print("Prod: "); Serial.println((const char *)midi01.product());
+        Serial.print("Serial: "); Serial.println((const char *)midi01.serialNumber());
 */        
         transmitMIDI(type, data1, data2, channel, port + 6);
       } else {
@@ -135,10 +135,11 @@ void routeMidi() {
     byte data2 = usbMIDI.getData2();
     byte channel = usbMIDI.getChannel();
     byte cable = usbMIDI.getCable() + 18; // 18 is offset for USB Host
-    if (type != 0) {
+    if (type != 240) {
       transmitMIDI(type, data1, data2, channel, cable);
     } else {
       transmitSysEx(data1 + data2 * 256, usbMIDI.getSysExArray(), cable);     
+      Serial.println("DAW Sysex");
     }
   }
 }
@@ -151,8 +152,6 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   // Normal messages, first we must convert usbMIDI's type (an ordinary
   // byte) to the MIDI library's special MidiType.
   midi::MidiType mtype = (midi::MidiType)t;
-  
-  //Serial.print("mtype: "); Serial.println(mtype);
   
   // Route to 6 MIDI DIN Ports
   for (int outp = 0; outp < 6; outp++){
@@ -180,10 +179,6 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   for (int outp = 18; outp < 34; outp++){
     if (routing[inPort][outp] != 0) {
       usbMIDI.send(t, d1, d2, ch, outp - 18);
-      //midi::MidiType mtype = (midi::MidiType)t;
-      //MIDI1.send(mtype, d1, d2, ch);
-      //MIDI2.send(mtype, d1, d2, ch);
-      //MIDI3.send(mtype, d1, d2, ch);
     }
   }
 
@@ -231,10 +226,51 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
-  Serial.print("txSysex: len:");
-  Serial.print(len); Serial.print("array:"), Serial.print("xxx"); Serial.print("inp:"), Serial.print(inPort);
+  Serial.print("txSysex: len: ");
+  Serial.print(len); Serial.print(" array: "); 
 
-  // Route to USB Host 
+  for(int i = 0; i < len; i++) {
+    Serial.print(sysexarray[i]); Serial.print(", ");
+  }
+ 
+  Serial.print(" inp:"), Serial.println(inPort);
+
+  // Parse Universal sysex messages that we want to do something with
+  if (sysexarray[0] == 240 && sysexarray[1] == 126 && sysexarray[3] == 6 &&sysexarray[4] == 2) { // SysExID reply
+    if (sysexarray[5] != 0) {
+      matchSysExID(sysexarray[5], 0, 0);  // single byte ID     
+    } else {
+      matchSysExID(0, sysexarray[6], sysexarray[7]);  // three byte ID
+    }
+
+    String rc = mfg;
+    inputNames[inPort] = rc.substring(0, 6);    // shorten mfg name
+    outputNames[inPort] = rc.substring(0, 6);
+  }
+      
+  // Route to 6 MIDI DIN Ports
+  for (int outp = 0; outp < 6; outp++){
+    if (routing[inPort][outp] != 0) {
+      switch (outp) {
+        case  0: MIDI1.sendSysEx(len, sysexarray, true); break;
+        case  1: MIDI2.sendSysEx(len, sysexarray, true); break;
+        case  2: MIDI3.sendSysEx(len, sysexarray, true); break;
+        case  3: MIDI4.sendSysEx(len, sysexarray, true); break;
+        case  4: MIDI5.sendSysEx(len, sysexarray, true); break;
+        case  5: MIDI6.sendSysEx(len, sysexarray, true); break;
+        //default:
+      }
+    }
+  }
+
+  // Route to 10 USB Devices
+  for (int outp = 6; outp < 16; outp++){
+    if (routing[inPort][outp] != 0) {
+      midilist[outp - 6]->sendSysEx(len, sysexarray, true);
+    }
+  }
+  
+  // Route to 16 USB Host Ports
   for (int outp = 18; outp < 34; outp++){
     if (routing[inPort][outp] != 0) {
       usbMIDI.sendSysEx(len, sysexarray, true, outp - 18);
@@ -257,4 +293,44 @@ float CVparamCal(int data, int dac) {
 }
 void showADC(){
       Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
+}
+
+void profileInstruments() {
+  // send Sysex ID requests to all DIN and USB MIDI devices (not to DAW)
+  MIDI1.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
+  delay(150);
+  routeMidi();
+
+  MIDI2.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
+  delay(150);
+  routeMidi();
+
+  MIDI3.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
+  delay(150);
+  routeMidi();
+
+  MIDI4.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
+  delay(150);
+  routeMidi();
+
+  MIDI5.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
+  delay(150);
+  routeMidi();
+
+  MIDI6.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
+  delay(150);
+  routeMidi();
+  
+
+  for (int i = 0; i < 10; i++) {
+    //midilist[i]->sendSysEx(sizeof(sysexIDReq), sysexIDReq, true, 0); // request Sysex ID   
+    String prod = (const char *)midilist[i]->product();
+    if (prod != "") {
+      Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
+      inputNames[i+6] = prod.substring(0, 6);
+      outputNames[i+6] = prod.substring(0, 6);
+    }
+    //delay(150);
+    //routeMidi();
+  }
 }

@@ -171,6 +171,28 @@ void setup() {
   drawRows();
   drawColumns();
   drawRouting();
+
+  // ============================================================
+  // Sysex CSV stuff
+  // ============================================================
+  
+  if (!SD.chdir("sysexids")) {
+    Serial.println("chdir failed for Folder1.\n");
+  }
+  
+  // Open the file.
+  SysCsvFile = SD.open("sysexids.csv", FILE_WRITE);
+  if (!SysCsvFile) {
+    Serial.println("open failed");
+    return;
+  }
+
+
+
  
+  // sysex id req
+  delay(3000);  // allow send/receive buffers to settle, some MIDI devices are chatty when powered on 
+
+  profileInstruments();
 
 }
