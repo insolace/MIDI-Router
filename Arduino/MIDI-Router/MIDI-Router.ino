@@ -116,13 +116,14 @@ int led = 13;
 int backLight = 255;
 
 // Knob values
-int oldPosition = 0;
+long oldPosition = 0;
+long newPosition = 0;
 int knobVal = 0;
 int oldKnobVal = 0;
 unsigned long knobTimer = millis();
-unsigned long knobSlowdown = 4;
-int knobSpeedup = 4; // threshold, larger value = less sensitivty to fast turns
-int knobSpeedRate = 4;
+unsigned long knobSlowdown = 2;  // wait this many ms before checking the knob value
+int knobSpeedup = 3; // threshold for difference between old and new value to cause a speed up
+float knobSpeedRate = 2.8; // factor (exponent) to speed up by
 int knobMin = 0;
 int knobMax = 1024;
 

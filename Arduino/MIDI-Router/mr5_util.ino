@@ -5,7 +5,6 @@
 // ================================================================================
 
 void matchSysExID(int16_t b1, int16_t b2, int16_t b3) {
-    // Rewind the file for read.
   SysCsvFile.seek(156); // skip first 3 lines of Sysex Table
 
   while (SysCsvFile.available()) {

@@ -1,5 +1,6 @@
 void touchIO() {
-  if (digitalRead(INTRPT) == HIGH) {
+  if (digitalRead(INTRPT) == HIGH && ( (millis() - lastPress) > touchShort) ) {
+    lastPress = millis();
     //drawTouchPos();   
     fingers = TS.dataread();
     curFing = TS.readFingerID(0);  // touchscreen can read up to 10 fingers, 
@@ -17,10 +18,10 @@ void touchIO() {
 
       difX = newX - touchX;
       difY = newY - touchY;
-      if ( ( abs(difX) > tMargin || abs(difY) > tMargin) && ( (millis() - lastPress) > touchShort) ) {
+      if ( ( abs(difX) > tMargin || abs(difY) > tMargin)) {
         touchX = newX;
         touchY = newY;
-        lastPress = millis();
+
         //Serial.println("evaltouch");
         evaltouch();    
         //Serial.println("done eval");        
@@ -134,7 +135,7 @@ void drawMenu_Calibrate() {  // process touch events
   }
 
   if ( withinBox(touchX, touchY, menuCV_butDacNeg5_x, menuCV_butDacNeg5_y, menuCV_butDacNeg5_w, menuCV_butDacNeg5_h) ) {
-    actField = 1;  // -5 field selected
+    actField = 1;  // -5v (low) field selected
     oldPosition = (dacNeg[CVcalSelect] * 4);
     myEnc.write(oldPosition);  // update
     drawMenu_Calibrate_udcv();  // refresh values
@@ -142,7 +143,7 @@ void drawMenu_Calibrate() {  // process touch events
     setDAC(CVcalSelect, dacNeg[CVcalSelect]);
 
   } else if ( withinBox(touchX, touchY, menuCV_butDacPos5_x, menuCV_butDacPos5_y, menuCV_butDacPos5_w, menuCV_butDacPos5_h) ) {
-    actField = 2;
+    actField = 2;  // +5v (high) field selected
     oldPosition = (dacPos[CVcalSelect] * 4);
     myEnc.write(oldPosition);  // update
     drawMenu_Calibrate_udcv();
@@ -201,9 +202,10 @@ void readKnob() {
   
   if ( (millis() - knobTimer) > knobSlowdown) {  // slow down the knob updates
     knobTimer = millis();
-    long newPosition = myEnc.read();
+    newPosition = myEnc.read();
  
     if (newPosition != oldPosition) {  // filter out duplicate events
+      Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition); 
       if (newPosition < knobMin) { // limit minimum range
         newPosition = knobMin; 
         oldPosition = knobMin;
@@ -214,10 +216,20 @@ void readKnob() {
         myEnc.write(knobMax * 4);
       }
 
-      int kSpeed = newPosition-oldPosition;  // speed up value change if knob is turning fast
-      if (abs(kSpeed) > knobSpeedup) {   
-        newPosition = newPosition + (knobSpeedRate * kSpeed * (round(knobMax / 1000)+1)); 
+      // acceleration
+      float kSpeed = newPosition-oldPosition;  // speed up value change if knob is turning fast
+      if (kSpeed < 30 && abs(kSpeed) > knobSpeedup) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.  
+                                                          // Filter out anything greater than 30 (dirty fix)
+        Serial.print("kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));  
+ 
+        if (kSpeed < 0) {         
+          newPosition = newPosition - pow(abs(kSpeed), knobSpeedRate);
+        } else {
+          newPosition = newPosition + pow(abs(kSpeed), knobSpeedRate);
+        }
+        
         myEnc.write(newPosition);
+        Serial.print("myEnc: "); Serial.println(myEnc.read());
       }
 
       oldPosition = newPosition;
@@ -240,12 +252,22 @@ void readKnob() {
   encPush.update();
   if ( encPush.fell() ) {
     Serial.println("push");  // knob pushed, do something
-    if (knobVal > (knobMax/2) || knobVal == knobMin) { // change to max value
-        myEnc.write(knobMax * 4);
-    } else if (knobVal < (knobMax/2) || knobVal == knobMax) {  // change to min value
-        myEnc.write(knobMin * 4);
+
+    if (menu == 1) { // CV calibration
+      if (knobVal == 0) { // change to max value
+          myEnc.write(knobMax * 4);
+          oldPosition = knobMax * 4;
+          newPosition = knobMax * 4;
+      } else {  // change to min value
+          myEnc.write(knobMin * 4);
+          oldPosition = knobMin * 4;
+          newPosition = knobMin * 4;
+      }
+      knobVal = newPosition / 4;
+      knob_calCV();
     }
-    //Serial.println(myEnc.read());  // knob pushed, do something
+    
+   //Serial.println(myEnc.read());  // knob pushed, do something
   }
 }
 

@@ -171,6 +171,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   // Route to 10 USB Devices
   for (int outp = 6; outp < 16; outp++){
     if (routing[inPort][outp] != 0) {
+      Serial.print("tx u"); Serial.print(outp-5); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
       midilist[outp - 6]->send(t, d1, d2, ch);
     }
   }
@@ -178,6 +179,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   // Route to 16 USB Host Ports
   for (int outp = 18; outp < 34; outp++){
     if (routing[inPort][outp] != 0) {
+      Serial.print("tx h"); Serial.print(outp-17); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
       usbMIDI.send(t, d1, d2, ch, outp - 18);
     }
   }
@@ -186,30 +188,30 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   for (int outp = 36; outp < 42; outp++){
     if (routing[inPort][outp] != 0) {
       int curDac = outp-36;
-      if (curDac < 4) {
+      if (curDac < 4) {                     // A1-4 jacks get pitch for note on/off events, with gates going to the D1-4 jacks
         if (t == 144) {  // note on
           digitalWriteFast(dig1+(outp-36), HIGH);         // GATE on
-          setDAC(curDac, CVnoteCal(d1, curDac));     // send note value t CV, -5 to 5v
+          setDAC(curDac, CVnoteCal(d1, curDac));     // send note value to CV, -5 to 5v
         } else if (t == 128) {  // note off
           digitalWriteFast(dig1+(outp-36), LOW); // GATE off    
         }
-      } else if (curDac == 4) {
+      } else if (curDac == 4) {             // A5 gets velocity, D5 gets clock / 16 that starts/stops with realtime start/stop
         if (t == 250) {  // Realtime Start Transport
             digitalWriteFast(dig5, HIGH);  // pulse on at start  
         } else if (t == 248 and startCount < 16) { // clock
           if (startCount < 15) {
             startCount++;
           } else if (startCount = 15) {
-            digitalWriteFast(dig5, LOW);   // pulse off after 10 clocks     
+            digitalWriteFast(dig5, LOW);   // pulse off after 16 clocks     
             startCount++;       
           }
         } else if (t == 252) { // Realtime Stop Transport
           startCount = 0;
-          digitalWriteFast(dig5, LOW);   // pulse off after 10 clocks 
+          digitalWriteFast(dig5, LOW);   // pulse off after 16 clocks 
         } else if (t == 144) { // note on
           analogWrite(dac5, CVparamCal(d2, curDac) );  // send velocity to CV5, 0-5v
         }
-      } else if (curDac == 5) {
+      } else if (curDac == 5) {             // A6 gets mod wheel, D6 gets clock that starts/stops with realtime start/stop
         if (t == 250) {  // Realtime Start Transport
           clockPulse = 1;  // set high at start
         } else if (t == 252) { // stop
@@ -226,16 +228,18 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
-  Serial.print("txSysex: len: ");
+  Serial.print("rxSysex: len: ");
   Serial.print(len); Serial.print(" array: "); 
 
   for(int i = 0; i < len; i++) {
     Serial.print(sysexarray[i]); Serial.print(", ");
   }
- 
   Serial.print(" inp:"), Serial.println(inPort);
 
-  // Parse Universal sysex messages that we want to do something with
+  // =======================================================================
+  // Before we route the received sysex to an output...
+  // =======================================================================
+  // ...parse Universal sysex messages that we want to do something with
   if (sysexarray[0] == 240 && sysexarray[1] == 126 && sysexarray[3] == 6 &&sysexarray[4] == 2) { // SysExID reply
     if (sysexarray[5] != 0) {
       matchSysExID(sysexarray[5], 0, 0);  // single byte ID     
@@ -243,11 +247,12 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
       matchSysExID(0, sysexarray[6], sysexarray[7]);  // three byte ID
     }
 
-    String rc = mfg;
+    String rc = mfg;                          // consider optimizing / removing string type
     inputNames[inPort] = rc.substring(0, 6);    // shorten mfg name
     outputNames[inPort] = rc.substring(0, 6);
   }
-      
+  // =======================================================================
+        
   // Route to 6 MIDI DIN Ports
   for (int outp = 0; outp < 6; outp++){
     if (routing[inPort][outp] != 0) {
@@ -298,39 +303,21 @@ void showADC(){
 void profileInstruments() {
   // send Sysex ID requests to all DIN and USB MIDI devices (not to DAW)
   MIDI1.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
-  delay(150);
-  routeMidi();
-
   MIDI2.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
-  delay(150);
-  routeMidi();
-
   MIDI3.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
-  delay(150);
-  routeMidi();
-
   MIDI4.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
-  delay(150);
-  routeMidi();
-
   MIDI5.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
-  delay(150);
-  routeMidi();
-
   MIDI6.sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID   
-  delay(150);
+
   routeMidi();
   
-
+  // detect USB devices
   for (int i = 0; i < 10; i++) {
-    //midilist[i]->sendSysEx(sizeof(sysexIDReq), sysexIDReq, true, 0); // request Sysex ID   
     String prod = (const char *)midilist[i]->product();
     if (prod != "") {
       Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
       inputNames[i+6] = prod.substring(0, 6);
       outputNames[i+6] = prod.substring(0, 6);
     }
-    //delay(150);
-    //routeMidi();
   }
 }
