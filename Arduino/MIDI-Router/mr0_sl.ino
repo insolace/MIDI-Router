@@ -1,9 +1,10 @@
 void loop() {
 
 
+  routeMidi(); // check incoming MIDi and route it
   readKnob();  // check knob for turn/push
   touchIO();   // process touchscreen input
-  routeMidi(); // check incoming MIDi and route it
+
   
 //**************************
 
@@ -19,4 +20,3 @@ void loop() {
 */
   
 } // end main loop
-

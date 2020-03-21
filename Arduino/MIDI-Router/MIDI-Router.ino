@@ -11,6 +11,8 @@
 #include "SdFat.h"
 #define USE_SDIO 1
 SdFatSdioEX SD;
+File SysCsvFile; // create Sysex CSV object
+#define CSV_DELIM ','
 
 // Knob
 #define EncA 26
@@ -59,6 +61,15 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial4, MIDI4);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial5, MIDI5);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6);
 
+
+/* todo - can't seem to figure out the right class to reference when making this array of pointers.  
+   Arduino MIDI library is different than the Teensy USB (see below) 
+   
+midi::MidiInterface<HardwareSerial> * dinlist[5] = {
+  &MIDI1, &MIDI2, &MIDI3, &MIDI4, &MIDI5, &MIDI6
+};
+*/
+
 // Create the ports for USB devices plugged into Teensy's 2nd USB port (via hubs)
 USBHost myusb;
 USBHub hub1(myusb);
@@ -105,13 +116,14 @@ int led = 13;
 int backLight = 255;
 
 // Knob values
-int oldPosition = 0;
+long oldPosition = 0;
+long newPosition = 0;
 int knobVal = 0;
 int oldKnobVal = 0;
 unsigned long knobTimer = millis();
-unsigned long knobSlowdown = 4;
-int knobSpeedup = 4; // threshold, larger value = less sensitivty to fast turns
-int knobSpeedRate = 4;
+unsigned long knobSlowdown = 2;  // wait this many ms before checking the knob value
+int knobSpeedup = 3; // threshold for difference between old and new value to cause a speed up
+float knobSpeedRate = 2.8; // factor (exponent) to speed up by
 int knobMin = 0;
 int knobMax = 1024;
 
@@ -191,6 +203,9 @@ String  outputNames[] = {
   "Comp13", "Comp14", "Comp15", "Comp16", "", "",                 // page 5
   "CV1", "CV2", "CV3", "CV4", "CV5", "CV6"           // page 6
 }; 
+
+// Sysex
+uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247};
 
 // Menu options
 int menu = 0;  // which menu are we looking at?  0 = routing, 1 = CV calibration
@@ -337,3 +352,11 @@ bool routing[50][50] = {  // [input port][output port]
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
 };
+
+// CSV for SD
+char syIdHex[20];
+char mfg[80];
+int16_t idLen;
+int16_t idB1;
+int16_t idB2;
+int16_t idB3;
