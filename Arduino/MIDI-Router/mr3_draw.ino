@@ -106,6 +106,19 @@ void drawBGs() {
 }
 
 // =============================
+// draw homescreen
+// =============================
+
+void drawHomeScreen() {
+  drawBox();
+  drawBGs();
+  drawRows();
+  drawColumns();
+  drawRouting(); 
+}
+
+
+// =============================
 // Flash ins/outs
 // =============================
 

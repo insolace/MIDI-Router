@@ -164,13 +164,6 @@ void setup() {
 
   // end touchscreen setup
 
-  // setup homescreen
-
-  drawBox();
-  drawBGs();
-  drawRows();
-  drawColumns();
-  drawRouting();
 
   // ============================================================
   // MIDI interrupt timer
@@ -193,8 +186,14 @@ void setup() {
   }
 
   // sysex id req
-  delay(300);  // allow send/receive buffers to settle, some MIDI devices are chatty when powered on 
-
+  delay(250);  // allow send/receive buffers to settle, some MIDI devices are chatty when powered on 
   profileInstruments();
+  delay(250);  // wait for responses
+
+  
+  // draw homescreen
+  drawHomeScreen();
+  rdFlag = 0;
 
 }
+  

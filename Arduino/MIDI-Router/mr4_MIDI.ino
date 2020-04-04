@@ -228,13 +228,13 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
-  //Serial.print("rxSysex: len: ");
-  //Serial.print(len); Serial.print(" array: "); 
+  Serial.print("rxSysex: len: ");
+  Serial.print(len); Serial.print(" array: "); 
 
   for(int i = 0; i < len; i++) {
-    //Serial.print(sysexarray[i]); Serial.print(", ");
+    Serial.print(sysexarray[i]); Serial.print(", ");
   }
-  //Serial.print(" inp:"), Serial.println(inPort);
+  Serial.print(" inp:"), Serial.println(inPort);
 
   // =======================================================================
   // Before we route the received sysex to an output...
@@ -248,8 +248,10 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
     }
 
     String rc = mfg;                          // consider optimizing / removing string type
+    Serial.print("Rc: "); Serial.println(rc);
     inputNames[inPort] = rc.substring(0, 6);    // shorten mfg name
     outputNames[inPort] = rc.substring(0, 6);
+    rdFlag = 1; // flag to redraw screen
   }
   // =======================================================================
         
@@ -315,7 +317,7 @@ void profileInstruments() {
   for (int i = 0; i < 10; i++) {
     String prod = (const char *)midilist[i]->product();
     if (prod != "") {
-      //Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
+      Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
       inputNames[i+6] = prod.substring(0, 6);
       outputNames[i+6] = prod.substring(0, 6);
     }

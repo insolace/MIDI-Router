@@ -215,6 +215,8 @@ uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247};
 int menu = 0;  // which menu are we looking at?  0 = routing, 1 = CV calibration
 int actField = 1; // which data entry field on the page is active?
 
+boolean rdFlag = 0; // flag to redraw screen
+
 // Routing page 
 int inPages = 6;
 int outPages = 7;
