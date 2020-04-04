@@ -139,15 +139,15 @@ void routeMidi() {
       transmitMIDI(type, data1, data2, channel, cable);
     } else {
       transmitSysEx(data1 + data2 * 256, usbMIDI.getSysExArray(), cable);     
-      Serial.println("DAW Sysex");
+      //Serial.println("DAW Sysex");
     }
   }
 }
 
 void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 
-  Serial.print("rxMIDI: t");
-  Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
+  //Serial.print("rxMIDI: t");
+  //Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
 
   // Normal messages, first we must convert usbMIDI's type (an ordinary
   // byte) to the MIDI library's special MidiType.
@@ -157,12 +157,12 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   for (int outp = 0; outp < 6; outp++){
     if (routing[inPort][outp] != 0) {
       switch (outp) {
-        case  0: MIDI1.send(mtype, d1, d2, ch); Serial.print("tx m1: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  1: MIDI2.send(mtype, d1, d2, ch); Serial.print("tx m2: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  2: MIDI3.send(mtype, d1, d2, ch); Serial.print("tx m3: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  3: MIDI4.send(mtype, d1, d2, ch); Serial.print("tx m4: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  4: MIDI5.send(mtype, d1, d2, ch); Serial.print("tx m5: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  5: MIDI6.send(mtype, d1, d2, ch); Serial.print("tx m6: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  0: MIDI1.send(mtype, d1, d2, ch); //Serial.print("tx m1: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  1: MIDI2.send(mtype, d1, d2, ch); //Serial.print("tx m2: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  2: MIDI3.send(mtype, d1, d2, ch); //Serial.print("tx m3: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  3: MIDI4.send(mtype, d1, d2, ch); //Serial.print("tx m4: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  4: MIDI5.send(mtype, d1, d2, ch); //Serial.print("tx m5: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  5: MIDI6.send(mtype, d1, d2, ch); //Serial.print("tx m6: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
         //default:
       }
     }
@@ -171,7 +171,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   // Route to 10 USB Devices
   for (int outp = 6; outp < 16; outp++){
     if (routing[inPort][outp] != 0) {
-      Serial.print("tx u"); Serial.print(outp-5); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
+      //Serial.print("tx u"); Serial.print(outp-5); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
       midilist[outp - 6]->send(t, d1, d2, ch);
     }
   }
@@ -179,7 +179,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   // Route to 16 USB Host Ports
   for (int outp = 18; outp < 34; outp++){
     if (routing[inPort][outp] != 0) {
-      Serial.print("tx h"); Serial.print(outp-17); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
+      //Serial.print("tx h"); Serial.print(outp-17); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
       usbMIDI.send(t, d1, d2, ch, outp - 18);
     }
   }
@@ -228,13 +228,13 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
-  Serial.print("rxSysex: len: ");
-  Serial.print(len); Serial.print(" array: "); 
+  //Serial.print("rxSysex: len: ");
+  //Serial.print(len); Serial.print(" array: "); 
 
   for(int i = 0; i < len; i++) {
-    Serial.print(sysexarray[i]); Serial.print(", ");
+    //Serial.print(sysexarray[i]); Serial.print(", ");
   }
-  Serial.print(" inp:"), Serial.println(inPort);
+  //Serial.print(" inp:"), Serial.println(inPort);
 
   // =======================================================================
   // Before we route the received sysex to an output...
@@ -297,7 +297,7 @@ float CVparamCal(int data, int dac) {
     return(cvee);  
 }
 void showADC(){
-      Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
+      //Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
 }
 
 void profileInstruments() {
@@ -315,7 +315,7 @@ void profileInstruments() {
   for (int i = 0; i < 10; i++) {
     String prod = (const char *)midilist[i]->product();
     if (prod != "") {
-      Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
+      //Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
       inputNames[i+6] = prod.substring(0, 6);
       outputNames[i+6] = prod.substring(0, 6);
     }

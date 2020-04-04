@@ -63,7 +63,7 @@ void setup() {
   pinMode(dig5, OUTPUT);
   pinMode(dig6, OUTPUT);
   pinMode(dig1, OUTPUT);
-  //pinMode(adc1, INPUT);
+  //pinMode(adc1, INPUT);  // hardware is there but not implemented yet in software
   //pinMode(adc2, INPUT);
   
   
@@ -89,7 +89,7 @@ void setup() {
   // Wait 1.5 seconds before turning on TEENSY USB Host.  If connected USB devices
   // use too much power, Teensy at least completes USB enumeration, which
   // makes isolating the power issue easier.
-  delay(1500);
+  delay(150);
   //Serial.println("Interface_16x16 Example");
   //delay(10);
   myusb.begin();
@@ -173,6 +173,11 @@ void setup() {
   drawRouting();
 
   // ============================================================
+  // MIDI interrupt timer
+  // ============================================================
+  callMIDI.begin(routeMidi, INTERVALMIDI);
+
+  // ============================================================
   // Sysex CSV stuff
   // ============================================================
   
@@ -187,11 +192,8 @@ void setup() {
     return;
   }
 
-
-
- 
   // sysex id req
-  delay(3000);  // allow send/receive buffers to settle, some MIDI devices are chatty when powered on 
+  delay(300);  // allow send/receive buffers to settle, some MIDI devices are chatty when powered on 
 
   profileInstruments();
 

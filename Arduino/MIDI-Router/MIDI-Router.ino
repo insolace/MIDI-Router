@@ -90,6 +90,10 @@ MIDIDevice * midilist[10] = {
   &midi01, &midi02, &midi03, &midi04, &midi05, &midi06, &midi07, &midi08, &midi09, &midi10
 };
 
+// Create MIDI interval timer
+IntervalTimer callMIDI;
+#define INTERVALMIDI 250 // how often (in microseconds) we call routeMidi()
+
 // TFT Display pins
 #define RA8875_INT 15 // graphic interrupt
 #define RA8875_CS 14 //  chip select
