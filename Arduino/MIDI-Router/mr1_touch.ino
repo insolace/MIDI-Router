@@ -1,19 +1,19 @@
 void touchIO() {
   if (digitalRead(INTRPT) == HIGH && ( (millis() - lastPress) > touchShort) ) {
     lastPress = millis();
-    //drawTouchPos();   
+    //drawTouchPos();
     fingers = TS.dataread();
-    curFing = TS.readFingerID(0);  // touchscreen can read up to 10 fingers, 
+    curFing = TS.readFingerID(0);  // touchscreen can read up to 10 fingers,
     if (1) {
       switch (curRot) {
-          case 2:
-              newX = WIDE - TS.readFingerX(0);
-              newY = TALL - TS.readFingerY(0);
-              break;               
-          default:
-              newX = TS.readFingerX(0);
-              newY = TS.readFingerY(0);
-              break;  
+        case 2:
+          newX = WIDE - TS.readFingerX(0);
+          newY = TALL - TS.readFingerY(0);
+          break;
+        default:
+          newX = TS.readFingerX(0);
+          newY = TS.readFingerY(0);
+          break;
       }
 
       difX = newX - touchX;
@@ -23,8 +23,8 @@ void touchIO() {
         touchY = newY;
 
         //Serial.println("evaltouch");
-        evaltouch();    
-        //Serial.println("done eval");        
+        evaltouch();
+        //Serial.println("done eval");
       }
     }
   }
@@ -32,13 +32,13 @@ void touchIO() {
 
 void drawTouchPos() {
   itoa(touchX, xstr, 10);
-  itoa(touchY, ystr, 10);  
+  itoa(touchY, ystr, 10);
   tft.textMode();
-  tft.textSetCursor(20,40);  
+  tft.textSetCursor(20, 40);
   tft.textWrite(" X:");
   tft.textWrite(xstr);
   tft.textWrite(" Y:");
-  tft.textWrite(ystr);  
+  tft.textWrite(ystr);
 }
 
 void evaltouch() {
@@ -46,7 +46,7 @@ void evaltouch() {
   if (menu == 0) {
     drawMenu_Routing();
   } else if (menu != 0) {
-    //tft.fillScreen(newColor(touchX / 3, 0, touchY / 2));  
+    //tft.fillScreen(newColor(touchX / 3, 0, touchY / 2));
     drawMenu_Calibrate();
   }
 }
@@ -63,13 +63,13 @@ void drawMenu_Routing() {
   } else if (touchY >= rOffset && touchX <= cOffset) {
     // output selected
   } else if (touchY >= rOffset && touchX >= cOffset) {
-    // routing grid selected 
-    curGrid = routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)];
+    // routing grid selected
+    curGrid = routing[getTouchCol(touchX) - 1 + (pgIn * 6)][getTouchRow(touchY) - 1 + (pgOut * 6)];
     //Serial.print("curgrid: "); Serial.println(curGrid);
-    if (curGrid == 1){
-      routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = 0;      
+    if (curGrid == 1) {
+      routing[getTouchCol(touchX) - 1 + (pgIn * 6)][getTouchRow(touchY) - 1 + (pgOut * 6)] = 0;
     } else {
-      routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = 1;
+      routing[getTouchCol(touchX) - 1 + (pgIn * 6)][getTouchRow(touchY) - 1 + (pgOut * 6)] = 1;
     }
     drawRouting();
     saveEEPROM();
@@ -80,20 +80,20 @@ void drawMenu_Routing() {
   } else if (touchY <= tbOY && touchX >= tbOX) {
     // input page
     pgIn++;
-    pgIn = (pgIn == inPages) ? 0 : pgIn; 
-    drawColumns(); 
+    pgIn = (pgIn == inPages) ? 0 : pgIn;
+    drawColumns();
     drawRouting();
   } else if (touchX <= tbOX && touchY >= tbOY) {
     // output page
     pgOut++;
-    pgOut = (pgOut == outPages) ? 0 : pgOut; 
+    pgOut = (pgOut == outPages) ? 0 : pgOut;
     drawRows();
     drawRouting();
   } else {
     // setup/home box, go to CV Calibration
     menu = 1;
     refMenu_Calibrate();
-  }  
+  }
 }
 
 void refMenu_Routing() {  // refresh routing display
@@ -103,7 +103,7 @@ void refMenu_Routing() {  // refresh routing display
     drawBGs();
     drawRows();
     drawColumns();
-    drawRouting(); 
+    drawRouting();
   } else {
     tft.fillScreen(RA8875_BLACK);
   }
@@ -115,15 +115,15 @@ void refMenu_Routing() {  // refresh routing display
 
 void refMenu_Calibrate() {  // refresh cv calibration display
   //Serial.println("refmenu calib");
-  drawBox(); 
+  drawBox();
   drawColumns();
-  tft.fillRect(0,(rOffset+1),WIDE,(TALL-rOffset-1), newColor(gridColor));
+  tft.fillRect(0, (rOffset + 1), WIDE, (TALL - rOffset - 1), newColor(gridColor));
   curX = 300;
   curY = rOffset + 25;
   dPrint("CV Calibration");
   drawMenu_Calibrate_udcv();
   oldPosition = (dacNeg[CVcalSelect] * 4);
-  myEnc.write(oldPosition);  // update  
+  myEnc.write(oldPosition);  // update
   knobMax = 65535; // set knob Max for CV
 }
 
@@ -150,8 +150,8 @@ void drawMenu_Calibrate() {  // process touch events
     //Serial.println("Pos!");
     setDAC(CVcalSelect, dacPos[CVcalSelect]);
 
-  } else if ( withinBox(touchX, touchY, cOffset, 0, WIDE-cOffset, rOffset) ) {  // select CV
-    CVcalSelect = abs((touchX - cOffset) / ((WIDE-cOffset)/6) );
+  } else if ( withinBox(touchX, touchY, cOffset, 0, WIDE - cOffset, rOffset) ) { // select CV
+    CVcalSelect = abs((touchX - cOffset) / ((WIDE - cOffset) / 6) );
     //Serial.print("cvSel: "); Serial.println(CVcalSelect);
     actField = 1; // select neg field
     setDAC(CVcalSelect, dacNeg[CVcalSelect]);
@@ -164,7 +164,7 @@ void drawMenu_Calibrate() {  // process touch events
     myEnc.write(oldPosition);  // update
     drawColumns();
     drawMenu_Calibrate_udcv();
-    
+
   } else if ( withinBox(touchX, touchY, tbOX, tbOY, tbWidth, tbHeight) ) {  // green tempo box
     memset (routing, 0, sizeof(routing));  // clear routing table!
   }
@@ -178,18 +178,18 @@ void drawMenu_Calibrate_udcv() {
 
   } else {  //pos5
     posCol = newColor(actFieldBg);
-    negCol = newColor(fieldBg);   
+    negCol = newColor(fieldBg);
 
   }
   tft.fillRect(menuCV_butDacNeg5_x, menuCV_butDacNeg5_y, menuCV_butDacNeg5_w, menuCV_butDacNeg5_h, negCol);
-  tft.fillRect(menuCV_butDacPos5_x, menuCV_butDacPos5_y, menuCV_butDacPos5_w, menuCV_butDacPos5_h, posCol);  
+  tft.fillRect(menuCV_butDacPos5_x, menuCV_butDacPos5_y, menuCV_butDacPos5_w, menuCV_butDacPos5_h, posCol);
   curX = menuCV_butDacNeg5_x + 5;
-  curY = menuCV_butDacNeg5_y + 5; 
+  curY = menuCV_butDacNeg5_y + 5;
   dPrint(dacNeg[CVcalSelect]);
-  
+
   curX = menuCV_butDacPos5_x + 5;
-  curY = menuCV_butDacPos5_y + 5; 
-  dPrint(dacPos[CVcalSelect]);  
+  curY = menuCV_butDacPos5_y + 5;
+  dPrint(dacPos[CVcalSelect]);
 
 
 }
@@ -201,35 +201,35 @@ void drawMenu_Calibrate_udcv() {
 void readKnob() {
 
   // Decode knob turn activity
-  
+
   if ( (millis() - knobTimer) > knobSlowdown) {  // slow down the knob updates
     knobTimer = millis();
     newPosition = myEnc.read();
- 
+
     if (newPosition != oldPosition) {  // filter out duplicate events
-      Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition); 
+      Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition);
       if (newPosition < knobMin) { // limit minimum range
-        newPosition = knobMin; 
+        newPosition = knobMin;
         oldPosition = knobMin;
         myEnc.write(0);
       } else if (newPosition > (knobMax * 4)) { // limit maximum range
-        newPosition = knobMax * 4; 
+        newPosition = knobMax * 4;
         oldPosition = knobMax * 4;
         myEnc.write(knobMax * 4);
       }
 
       // acceleration
-      float kSpeed = newPosition-oldPosition;  // speed up value change if knob is turning fast
-      if (kSpeed < 30 && abs(kSpeed) > knobSpeedup) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.  
-                                                          // Filter out anything greater than 30 (dirty fix)
-        Serial.print("kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));  
- 
-        if (kSpeed < 0) {         
+      float kSpeed = newPosition - oldPosition; // speed up value change if knob is turning fast
+      if (kSpeed < 30 && abs(kSpeed) > knobSpeedup) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.
+        // Filter out anything greater than 30 (dirty fix)
+        Serial.print("kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));
+
+        if (kSpeed < 0) {
           newPosition = newPosition - pow(abs(kSpeed), knobSpeedRate);
         } else {
           newPosition = newPosition + pow(abs(kSpeed), knobSpeedRate);
         }
-        
+
         myEnc.write(newPosition);
         Serial.print("myEnc: "); Serial.println(myEnc.read());
       }
@@ -257,19 +257,19 @@ void readKnob() {
 
     if (menu == 1) { // CV calibration
       if (knobVal == 0) { // change to max value
-          myEnc.write(knobMax * 4);
-          oldPosition = knobMax * 4;
-          newPosition = knobMax * 4;
+        myEnc.write(knobMax * 4);
+        oldPosition = knobMax * 4;
+        newPosition = knobMax * 4;
       } else {  // change to min value
-          myEnc.write(knobMin * 4);
-          oldPosition = knobMin * 4;
-          newPosition = knobMin * 4;
+        myEnc.write(knobMin * 4);
+        oldPosition = knobMin * 4;
+        newPosition = knobMin * 4;
       }
       knobVal = newPosition / 4;
       knob_calCV();
     }
-    
-   //Serial.println(myEnc.read());  // knob pushed, do something
+
+    //Serial.println(myEnc.read());  // knob pushed, do something
   }
 }
 
@@ -285,22 +285,22 @@ void knob_calCV() {
     setDAC(CVcalSelect, dacNeg[CVcalSelect]);
   } else if (actField == 2) {
     //Serial.print("pos: "); Serial.println(dacPos[CVcalSelect]);
-    dacPos[CVcalSelect] = knobVal;  
+    dacPos[CVcalSelect] = knobVal;
     setDAC(CVcalSelect, dacPos[CVcalSelect]);
   }
   saveEEPROM();
   drawMenu_Calibrate_udcv();
-  
+
   //cveeKnobOffset = (knobVal - 128) * 10;
-  //Serial.println(cveeKnobOffset);   
+  //Serial.println(cveeKnobOffset);
   //menu = cveeKnobOffset;
 
 
-  
-  //tft.PWM1out(knobVal);  // dim screen 
+
+  //tft.PWM1out(knobVal);  // dim screen
   //setDAC(4, knobVal * 256);
-  //analogWrite(dac5, knobVal * 16);      
-  //analogWrite(dac6, knobVal * 16);  
+  //analogWrite(dac5, knobVal * 16);
+  //analogWrite(dac6, knobVal * 16);
 }
 
 // =================================
@@ -308,8 +308,8 @@ void knob_calCV() {
 // =================================
 
 boolean withinBox(int x, int y, int bx, int by, int bw, int bh) {
-  if (x >= bx && x <= (bx+bw)) {  // test if X is greater than the box origin x, and less than bx+width
-    if (y >= by && y <= (by+bh)) {
+  if (x >= bx && x <= (bx + bw)) { // test if X is greater than the box origin x, and less than bx+width
+    if (y >= by && y <= (by + bh)) {
       return 1;
     }
   }
@@ -318,35 +318,35 @@ boolean withinBox(int x, int y, int bx, int by, int bw, int bh) {
 
 
 // for any given X value of the touch, return the column of our grid
-int getTouchCol(long x){
-  if (x > (WIDE-3) - ((WIDE - cOffset) / columns)) {
-    return(6);
-  } else if (x > (WIDE-3) - (((WIDE - cOffset) / columns))*2) {
-    return(5);
-  } else if (x > (WIDE-3) - (((WIDE - cOffset) / columns))*3) {
-    return(4);
-  } else if (x > (WIDE-3) - (((WIDE - cOffset) / columns))*4) {
-    return(3);
-  } else if (x > (WIDE-3) - (((WIDE - cOffset) / columns))*5) {
-    return(2);
+int getTouchCol(long x) {
+  if (x > (WIDE - 3) - ((WIDE - cOffset) / columns)) {
+    return (6);
+  } else if (x > (WIDE - 3) - (((WIDE - cOffset) / columns)) * 2) {
+    return (5);
+  } else if (x > (WIDE - 3) - (((WIDE - cOffset) / columns)) * 3) {
+    return (4);
+  } else if (x > (WIDE - 3) - (((WIDE - cOffset) / columns)) * 4) {
+    return (3);
+  } else if (x > (WIDE - 3) - (((WIDE - cOffset) / columns)) * 5) {
+    return (2);
   } else {
-    return(1);
+    return (1);
   }
 }
 
 // for any given Y value of the touch, return the row of our grid
-int getTouchRow(long y){
-  if (y > (TALL+3) - ((TALL - rOffset) / rows)) {
-    return(6);
-  } else if (y > (TALL+3) - (((TALL - rOffset) / rows))*2) {
-    return(5);
-  } else if (y > (TALL+3) - (((TALL - rOffset) / rows))*3) {
-    return(4);
-  } else if (y > (TALL+3) - (((TALL - rOffset) / rows))*4) {
-    return(3);
-  } else if (y > (TALL+3) - (((TALL - rOffset) / rows))*5) {
-    return(2);
+int getTouchRow(long y) {
+  if (y > (TALL + 3) - ((TALL - rOffset) / rows)) {
+    return (6);
+  } else if (y > (TALL + 3) - (((TALL - rOffset) / rows)) * 2) {
+    return (5);
+  } else if (y > (TALL + 3) - (((TALL - rOffset) / rows)) * 3) {
+    return (4);
+  } else if (y > (TALL + 3) - (((TALL - rOffset) / rows)) * 4) {
+    return (3);
+  } else if (y > (TALL + 3) - (((TALL - rOffset) / rows)) * 5) {
+    return (2);
   } else {
-    return(1);
+    return (1);
   }
 }
