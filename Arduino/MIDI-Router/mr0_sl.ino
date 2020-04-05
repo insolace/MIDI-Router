@@ -8,7 +8,6 @@ void loop() {
   }
   readKnob();  // check knob for turn/push
   touchIO();   // process touchscreen input
-
   
 //**************************
 

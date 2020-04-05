@@ -254,13 +254,13 @@ int tBord = 5; // buffer/border from edge of screen to beginning of text
 // =================================
 
 // Rows
-int rOffset = 152;
-int rHeight = (TALL - rOffset) / rows;  // 40
+int rOffset = 119;  // was 152
+int rHeight = (TALL - rOffset) / rows;  // 60
 int tROffset = (rHeight/2)-(fHeight/2);  // text vertical offset in rows
 
 // Columns 
-int cOffset = 238;
-int cWidth = (WIDE - cOffset) / columns;  // 60
+int cOffset = 199;  // was 238
+int cWidth = (WIDE - cOffset) / columns;  // 100
 int tCOffset = (cWidth/2)-(fHeight/5);  // text horizontal offset in rows
 
 // Tempo Box

@@ -2,6 +2,7 @@ void touchIO() {
   if (digitalRead(INTRPT) == HIGH && ( (millis() - lastPress) > touchShort) ) {
     lastPress = millis();
     //drawTouchPos();   
+    
     fingers = TS.dataread();
     curFing = TS.readFingerID(0);  // touchscreen can read up to 10 fingers, 
     if (1) {
