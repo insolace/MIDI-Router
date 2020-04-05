@@ -3,17 +3,18 @@
   Created by Kurt R. Arnlund (Ingenious Arts & Technologies LLC), April 4, 2020.
   Released into the public domain.
 */
-#include "Arduino.h"
-
 #ifndef _MR_PORT_H
 #define _MR_PORT_H
+
+#include "Arduino.h"
+#include "MidiFilter.h"
 
 class MRPort {
 	public:
 	
   	char name[9];
 	unsigned int index;
-	MidiFilterLocation location;
+	ByteBitLocation location;
 	
 	MRPort(const char *displayName, unsigned int newindex);
 	

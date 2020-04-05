@@ -11,7 +11,7 @@
 MidiFilterType::MidiFilterType() {
 }
 
-void MidiFilterType::set(MidiFilterLocation location, bool state) {
+void MidiFilterType::set(ByteBitLocation location, bool state) {
 	unsigned char currentByte = settings[location.byte];
 	unsigned char bitMask = 0x01 << location.bit;
 	if (state == true) {
@@ -21,10 +21,10 @@ void MidiFilterType::set(MidiFilterLocation location, bool state) {
 	}
 }
 
-bool MidiFilterType::get(MidiFilterLocation location) {
+bool MidiFilterType::get(ByteBitLocation location) {
 	unsigned char currentByte = settings[location.byte];
 	unsigned char bitMask = 0x01 << location.bit;
-	return (settings[location.byte] & bitMask) > 0 ? true : false;
+	return (currentByte & bitMask) > 0 ? true : false;
 }
 
 // MidiFilter
@@ -37,42 +37,42 @@ MidiFilterType MidiFilter::midiclock = MidiFilterType();
 MidiFilter::MidiFilter() {
 }
 
-void MidiFilter::setRealtime(MidiFilterLocation location, bool state) {
+void MidiFilter::setRealtime(ByteBitLocation location, bool state) {
 	realtime.set(location, state);
 }
 
-void MidiFilter::setNotes(MidiFilterLocation location, bool state) {
+void MidiFilter::setNotes(ByteBitLocation location, bool state) {
 	notes.set(location, state);
 }
 
-void MidiFilter::setControllers(MidiFilterLocation location, bool state) {
+void MidiFilter::setControllers(ByteBitLocation location, bool state) {
 	controllers.set(location, state);
 }
 
-void MidiFilter::setSysex(MidiFilterLocation location, bool state) {
+void MidiFilter::setSysex(ByteBitLocation location, bool state) {
 	sysex.set(location, state);
 }
 
-void MidiFilter::setMidiclock(MidiFilterLocation location, bool state) {
+void MidiFilter::setMidiclock(ByteBitLocation location, bool state) {
 	midiclock.set(location, state);
 }
 
-bool MidiFilter::realtimeFiltered(MidiFilterLocation location) {
+bool MidiFilter::realtimeFiltered(ByteBitLocation location) {
 	return realtime.get(location);
 }
 
-bool MidiFilter::notesFiltered(MidiFilterLocation location) {
+bool MidiFilter::notesFiltered(ByteBitLocation location) {
 	return notes.get(location);
 }
 
-bool MidiFilter::controllersFiltered(MidiFilterLocation location) {
+bool MidiFilter::controllersFiltered(ByteBitLocation location) {
 	return controllers.get(location);
 }
 
-bool MidiFilter::sysexFiltered(MidiFilterLocation location) {
+bool MidiFilter::sysexFiltered(ByteBitLocation location) {
 	return sysex.get(location);
 }
 
-bool  MidiFilter::midiclockFiltered(MidiFilterLocation location) {
+bool  MidiFilter::midiclockFiltered(ByteBitLocation location) {
 	return midiclock.get(location);
 }
