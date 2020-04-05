@@ -60,7 +60,6 @@ void setup() {
   pinMode(dig4, OUTPUT);
   pinMode(dig5, OUTPUT);
   pinMode(dig6, OUTPUT);
-  pinMode(dig1, OUTPUT);
   //pinMode(adc1, INPUT);  // hardware is there but not implemented yet in software
   //pinMode(adc2, INPUT);
   
