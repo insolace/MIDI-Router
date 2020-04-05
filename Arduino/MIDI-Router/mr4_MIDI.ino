@@ -15,7 +15,7 @@ void routeMidi() {
 
     if (type != 240) {
       transmitMIDI(type, data1, data2, channel, port);
-    } else {†
+    } else {
       transmitSysEx(data1 + data2 * 256, sys, port);
     }
   }
