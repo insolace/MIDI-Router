@@ -1,7 +1,11 @@
 void loop() {
 
 
-  routeMidi(); // check incoming MIDi and route it
+  //routeMidi(); // check incoming MIDi and route it
+  if (rdFlag == 1) {
+    rdFlag = 0;
+    drawHomeScreen();
+  }
   readKnob();  // check knob for turn/push
   touchIO();   // process touchscreen input
 

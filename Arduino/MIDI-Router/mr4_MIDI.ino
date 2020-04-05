@@ -139,7 +139,7 @@ void routeMidi() {
       transmitMIDI(type, data1, data2, channel, cable);
     } else {
       transmitSysEx(data1 + data2 * 256, usbMIDI.getSysExArray(), cable);     
-      Serial.println("DAW Sysex");
+      //Serial.println("DAW Sysex");
     }
   }
 }
@@ -157,12 +157,18 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   for (int outp = 0; outp < 6; outp++){
     if (routing[inPort][outp] != 0) {
       switch (outp) {
-        case  0: MIDI1.send(mtype, d1, d2, ch); Serial.print("tx m1: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  1: MIDI2.send(mtype, d1, d2, ch); Serial.print("tx m2: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  2: MIDI3.send(mtype, d1, d2, ch); Serial.print("tx m3: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  3: MIDI4.send(mtype, d1, d2, ch); Serial.print("tx m4: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  4: MIDI5.send(mtype, d1, d2, ch); Serial.print("tx m5: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
-        case  5: MIDI6.send(mtype, d1, d2, ch); Serial.print("tx m6: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); break;
+        case  0: MIDI1.send(mtype, d1, d2, ch); Serial.print("tx m1: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
+                break;
+        case  1: MIDI2.send(mtype, d1, d2, ch); Serial.print("tx m2: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
+                break;
+        case  2: MIDI3.send(mtype, d1, d2, ch); Serial.print("tx m3: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
+                break;
+        case  3: MIDI4.send(mtype, d1, d2, ch); Serial.print("tx m4: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
+                break;
+        case  4: MIDI5.send(mtype, d1, d2, ch); Serial.print("tx m5: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
+                break;
+        case  5: MIDI6.send(mtype, d1, d2, ch); Serial.print("tx m6: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
+                break;
         //default:
       }
     }
@@ -201,7 +207,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
         } else if (t == 248 and startCount < 16) { // clock
           if (startCount < 15) {
             startCount++;
-          } else if (startCount = 15) {
+          } else if (startCount == 15) {
             digitalWriteFast(dig5, LOW);   // pulse off after 16 clocks     
             startCount++;       
           }
@@ -231,7 +237,7 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
   Serial.print("rxSysex: len: ");
   Serial.print(len); Serial.print(" array: "); 
 
-  for(int i = 0; i < len; i++) {
+  for(unsigned int i = 0; i < len; i++) {
     Serial.print(sysexarray[i]); Serial.print(", ");
   }
   Serial.print(" inp:"), Serial.println(inPort);
@@ -248,8 +254,10 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
     }
 
     String rc = mfg;                          // consider optimizing / removing string type
+    Serial.print("Rc: "); Serial.println(rc);
     inputNames[inPort] = rc.substring(0, 6);    // shorten mfg name
     outputNames[inPort] = rc.substring(0, 6);
+    rdFlag = 1; // flag to redraw screen
   }
   // =======================================================================
         
@@ -297,7 +305,7 @@ float CVparamCal(int data, int dac) {
     return(cvee);  
 }
 void showADC(){
-      Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
+      //Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
 }
 
 void profileInstruments() {
