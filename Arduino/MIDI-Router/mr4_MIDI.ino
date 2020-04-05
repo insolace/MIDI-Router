@@ -207,7 +207,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
         } else if (t == 248 and startCount < 16) { // clock
           if (startCount < 15) {
             startCount++;
-          } else if (startCount = 15) {
+          } else if (startCount == 15) {
             digitalWriteFast(dig5, LOW);   // pulse off after 16 clocks     
             startCount++;       
           }
@@ -237,7 +237,7 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
   Serial.print("rxSysex: len: ");
   Serial.print(len); Serial.print(" array: "); 
 
-  for(int i = 0; i < len; i++) {
+  for(unsigned int i = 0; i < len; i++) {
     Serial.print(sysexarray[i]); Serial.print(", ");
   }
   Serial.print(" inp:"), Serial.println(inPort);
