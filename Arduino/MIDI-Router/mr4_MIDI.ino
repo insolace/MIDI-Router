@@ -207,7 +207,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
         } else if (t == 248 and startCount < 16) { // clock
           if (startCount < 15) {
             startCount++;
-          } else if (startCount = 15) {
+          } else if (startCount == 15) {
             digitalWriteFast(dig5, LOW);   // pulse off after 16 clocks     
             startCount++;       
           }
