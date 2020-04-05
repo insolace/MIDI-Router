@@ -9,7 +9,6 @@ void setup() {
     Serial.println("SD initialization done.");
   }
 
-
   // knob
   pinMode(EncSwitch, INPUT_PULLUP);
   encPush.attach(EncSwitch);
@@ -19,7 +18,6 @@ void setup() {
   // EEPROM 
   // ============================================================
   loadEEPROM(); 
-  //Serial.print("dacNeg[0] = "); Serial.print(dacNeg[0]); Serial.print(" dacPos[0] = "); Serial.println(dacPos[0]); 
   
   // ============================================================
   // DAC 16bit SPI setup
@@ -90,8 +88,6 @@ void setup() {
   // use too much power, Teensy at least completes USB enumeration, which
   // makes isolating the power issue easier.
   delay(150);
-  //Serial.println("Interface_16x16 Example");
-  //delay(10);
   myusb.begin();
 
 // ============================================================
@@ -105,7 +101,7 @@ void setup() {
   //Serial.println("RA8875 start");
   while (!Serial && (millis() <= 1000));
 
-  /* Initialise the display using 'RA8875_480x272' or 'RA8875_800x480' */
+  // Initialise the display 
   while (!tft.begin(RA8875_800x480))  {
     Serial.println("RA8875 Not Found!");
     delay(100);
@@ -113,9 +109,9 @@ void setup() {
   Serial.println("Found RA8875");
 
   tft.displayOn(true);
-  tft.GPIOX(true);      // Enable TFT - display enable tied to GPIOX
+  tft.GPIOX(true);                              // Enable TFT - display enable tied to GPIOX
   tft.PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight
-  tft.PWM1out(255);
+  tft.PWM1out(255);                             // Set backlight brightness
 
   // Rotation
   tft.setRotation(curRot);
@@ -127,43 +123,11 @@ void setup() {
   bmpDraw("WELCOME.BMP", 0, 0);
   delay(1000);
   tft.fillScreen(RA8875_BLACK);
-/*
-  
- 
-  // Play with PWM
-  for (uint8_t i = 255; i != 0; i -= 5 ) {
-    tft.PWM1out(i);
-    delay(10);
-  }
-  for (uint8_t i = 0; i != 255; i += 5 )  {
-    tft.PWM1out(i);
-    delay(10);
-  }
-  tft.PWM1out(255);
-
-  //set rotate
-  curRot = 2;
-  tft.setRotation(curRot);
-
-  delay(200);
-  tft.fillScreen(RA8875_YELLOW);
-  delay(500);
-  tft.fillScreen(RA8875_GREEN);
-  delay(500);
-  tft.fillScreen(RA8875_CYAN);
-  delay(500);
-  tft.fillScreen(RA8875_MAGENTA);
-  delay(500);
-  tft.fillScreen(RA8875_BLACK);
-*/
   tft.touchEnable(false);
 
   randomSeed(analogRead(0));
   tft.textMode();
   tft.textEnlarge(2);
-
-  // end touchscreen setup
-
 
   // ============================================================
   // MIDI interrupt timer

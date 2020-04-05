@@ -1,13 +1,13 @@
-void dPrint(String s) {  // adapted from PJRC's Print.cpp
+void dPrint(String s, int sz) {  
   int len = s.length()+1;
   byte buff[len];
   s.getBytes(buff, len);
   for (int i = 0; i<len-1; i++) {
-    dWrite(buff[i]);
+    dWrite(buff[i], sz);
   }
 }
 
-void dWrite(unsigned char c) {
+void dWrite(unsigned char c, unsigned int s) {
   //curX = tft.getCursorX();
   //curY = tft.getCursorY();
   //Serial.println(c);
@@ -16,10 +16,11 @@ void dWrite(unsigned char c) {
   
   //if (curX+fWidth > WIDE) { curX = 0; curY = curY + fHeight; }  // wrap text horizontal
   //if (curY+fHeight > TALL) { curY = 0; curX = 0; }              // wrap text vertical
-  tft.graphicsMode();
-  tft.drawChar(curX, curY, c, 0xFFFF, 0, fSize);
 
-  curX = curX + (fSize*6) + 1;
+  tft.graphicsMode();
+  tft.drawChar(curX, curY, c, fColor, fBG, s);
+
+  curX = curX + (s*6) + 1;
   
 }
 

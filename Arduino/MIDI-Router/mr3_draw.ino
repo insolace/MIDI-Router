@@ -75,9 +75,27 @@ void drawRows() {
 void drawRouting() {
   for (int i = 0; i < rows; i++) {
     for (int c = 0; c < columns; c++) {
-      if (routing[c + (pgIn * 6)][i + (pgOut * 6)] == 1) {
+      curRoute = routing[c + (pgIn * 6)][i + (pgOut * 6)]; // store current routing point
+      if ((curRoute & B00000111) != 0) {  // draw routed
         tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, newColor(routColor)); 
-      } else {
+        curX = cOffset + (cWidth * c) + 4;
+        curY = rOffset + (rHeight * i) + 10;
+        fColor = 0; 
+        
+        if (curRoute & B00000001) { // keyboard
+          dPrint("K", 5);
+        } else { dPrint(" ", 5);
+        }
+        if (curRoute & B00000010) { // parameter
+          dPrint("P", 5);
+        } else { dPrint(" ", 5);
+        }
+        if (curRoute & B00000100) { // transport
+          dPrint("T", 5);
+        } else { dPrint(" ", 5);
+        }        
+        fColor = RA8875_WHITE;
+      } else {                                              // draw unrouted
         tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, newColor(gridColor)); 
       }          
     }  
@@ -174,6 +192,10 @@ void bmpDraw(const char *filename, int x, int y) {
   // Open requested file on SD card
   if ((bmpFile = SD.open(filename)) == false) {
     Serial.println(F("File not found"));
+    curX = x;
+    curY = y;
+    dPrint("BMP NOT FOUND", 9);
+    delay(2000);
     return;
   }
 

@@ -64,13 +64,8 @@ void drawMenu_Routing() {
     // output selected
   } else if (touchY >= rOffset && touchX >= cOffset) {
     // routing grid selected 
-    curGrid = routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)];
-    //Serial.print("curgrid: "); Serial.println(curGrid);
-    if (curGrid == 1){
-      routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = 0;      
-    } else {
-      routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = 1;
-    }
+    curRoute = routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)];
+    routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = reOrderR(curRoute);  // cycle through all routing options
     drawRouting();
     saveEEPROM();
   } else if (touchY >= tbOY && touchX >= tbOX) {
