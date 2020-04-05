@@ -255,8 +255,14 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
 
     String rc = mfg;                          // consider optimizing / removing string type
     Serial.print("Rc: "); Serial.println(rc);
-    inputNames[inPort] = rc.substring(0, 6);    // shorten mfg name
-    outputNames[inPort] = rc.substring(0, 6);
+    const char * shortName = rc.substring(0, 6).c_str();
+    
+    MRInputPort *inport = router.inputAt(inPort);
+    MROutputPort *outport = router.outputAt(inPort);
+    strncpy(inport->name, shortName, 6);
+    strncpy(outport->name, shortName, 6);
+//    inputNames[inPort] = rc.substring(0, 6);    // shorten mfg name
+//    outputNames[inPort] = rc.substring(0, 6);
     rdFlag = 1; // flag to redraw screen
   }
   // =======================================================================
@@ -324,8 +330,14 @@ void profileInstruments() {
     String prod = (const char *)midilist[i]->product();
     if (prod != "") {
       Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
-      inputNames[i + 6] = prod.substring(0, 6);
-      outputNames[i + 6] = prod.substring(0, 6);
+
+      char portIndex = (char)(i + 6);
+      const char * shortName = prod.substring(0, 6).c_str();
+      
+      MRInputPort *inport = router.inputAt(portIndex);
+      MROutputPort *outport = router.outputAt(portIndex);
+      strncpy(inport->name, shortName, 6);
+      strncpy(outport->name, shortName, 6);
     }
   }
 }

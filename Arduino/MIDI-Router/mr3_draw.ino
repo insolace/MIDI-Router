@@ -33,13 +33,16 @@ void drawColumns() {
   tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, newColor(insColor));
   tft.setTextColor(newColor(txColor), newColor(insColor));
 
+  MRInputPort *input;
+
   for (int i = 0; i < columns; i++) {
     curY = (i*cWidth) + tCOffset;
     curX = tBord;
     if (menu == 0) {  // routing
       tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, newColor(linClr));
       tft.setRotation(3);
-      dPrint(inputNames[(5-i)+(pgIn *6)]); 
+      input = router.inputAt((5-i)+(pgIn *6));
+      dPrint(input->name); 
       tft.setRotation(curRot);     
     } else if (menu == 1) { // cv calibrate
       tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, newColor(linClr));
@@ -49,6 +52,10 @@ void drawColumns() {
       }
       tft.setRotation(3);
       //Serial.println("dprint");  
+
+      // router could be used to obtain the CV names here
+      //input = router.inputAt((5-i)+(pgIn *6));
+
       dPrint("CV");
       dPrint(6-i); 
       tft.setRotation(curRot);
@@ -61,13 +68,16 @@ void drawColumns() {
 void drawRows() {
 
   tft.fillRect(0, rOffset, cOffset, TALL - rOffset, newColor(outsColor));
-  
+
+  MROutputPort *output;
+
   for (int i = 0; i < rows; i++) {
     //tft.textColor(newColor(txColor), newColor(outsColor));
     //tft.textSetCursor(0, rOffset + (i*rHeight));
     curX = tBord;
     curY = rOffset + (i*rHeight) + tROffset;
-    dPrint(outputNames[i+(pgOut *6)]); 
+    output = router.outputAt(i+(pgOut *6));
+    dPrint(output->name); 
     tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), newColor(linClr));
   }
 }

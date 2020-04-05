@@ -192,24 +192,24 @@ int curRot = 2;
 // devices
 int rows = 6;
 int columns = 6;
-String  inputNames[] = { 
-  "Midi1", "Midi2", "Midi3", "Midi4", "Midi5", "Midi6",    // page 0
-  "USB1", "USB2", "USB3", "USB4", "USB5", "USB6",         // page 1
-  "USB7", "USB8", "USB9", "USB10", "", "",               // page 2
-  "Comp1", "Comp2", "Comp3", "Comp4", "Comp5", "Comp6",           // page 3
-  "Comp7", "Comp8", "Comp9", "Comp10", "Comp11", "Comp12",           // page 4
-  "Comp13", "Comp14", "Comp15", "Comp16", "intClock", "extClock"                 // page 5
-}; 
-
-String  outputNames[] = { 
-  "Midi1", "Midi2", "Midi3", "Midi4", "Midi5", "Midi6",    // page 0
-  "USB1", "USB2", "USB3", "USB4", "USB5", "USB6",         // page 1
-  "USB7", "USB8", "USB9", "USB10", "", "",               // page 2
-  "Comp1", "Comp2", "Comp3", "Comp4", "Comp5", "Comp6",           // page 3
-  "Comp7", "Comp8", "Comp9", "Comp10", "Comp11", "Comp12",           // page 4
-  "Comp13", "Comp14", "Comp15", "Comp16", "", "",                 // page 5
-  "CV1", "CV2", "CV3", "CV4", "CV5", "CV6"           // page 6
-}; 
+//String  inputNames[] = { 
+//  "Midi1", "Midi2", "Midi3", "Midi4", "Midi5", "Midi6",    // page 0
+//  "USB1", "USB2", "USB3", "USB4", "USB5", "USB6",         // page 1
+//  "USB7", "USB8", "USB9", "USB10", "", "",               // page 2
+//  "Comp1", "Comp2", "Comp3", "Comp4", "Comp5", "Comp6",           // page 3
+//  "Comp7", "Comp8", "Comp9", "Comp10", "Comp11", "Comp12",           // page 4
+//  "Comp13", "Comp14", "Comp15", "Comp16", "intClock", "extClock"                 // page 5
+//}; 
+//
+//String  outputNames[] = { 
+//  "Midi1", "Midi2", "Midi3", "Midi4", "Midi5", "Midi6",    // page 0
+//  "USB1", "USB2", "USB3", "USB4", "USB5", "USB6",         // page 1
+//  "USB7", "USB8", "USB9", "USB10", "", "",               // page 2
+//  "Comp1", "Comp2", "Comp3", "Comp4", "Comp5", "Comp6",           // page 3
+//  "Comp7", "Comp8", "Comp9", "Comp10", "Comp11", "Comp12",           // page 4
+//  "Comp13", "Comp14", "Comp15", "Comp16", "", "",                 // page 5
+//  "CV1", "CV2", "CV3", "CV4", "CV5", "CV6"           // page 6
+//}; 
 
 // Sysex
 uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247};
