@@ -124,6 +124,8 @@ long oldPosition = 0;
 long newPosition = 0;
 int knobVal = 0;
 int oldKnobVal = 0;
+bool knobDir = 0;  // 0 = CCW, 1 = CW
+bool knobAccelEnable = 0;
 unsigned long knobTimer = millis();
 unsigned long knobSlowdown = 2;  // wait this many ms before checking the knob value
 int knobSpeedup = 3; // threshold for difference between old and new value to cause a speed up
@@ -304,6 +306,8 @@ float clearRouting = 0;
 float pi = 3.141592;
 
 int curRoute = 0;  // storage for current routing/filter value
+int curCol = 0;
+int curRow = 0;
 
 // Initial routing
 // matrix for routing

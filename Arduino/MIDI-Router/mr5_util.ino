@@ -161,14 +161,16 @@ void csvClose() {
 
 int reOrderR(int r) {
   switch (r) {                          // re-order the routing selection in a way that prioritizes early selection of common filtering
-    case  B00000111: return B00000100;  // 7 KPT -> __T 4 
-    case  B00000100: return B00000001;  // 4 __T -> K__ 1
-    case  B00000001: return B00000011;  // 1 K__ -> KP_ 3
-    case  B00000011: return B00000101;  // 3 KP_ -> K_T 5 
-    case  B00000101: return B00000110;  // 5 K_T -> _PT 6
-    case  B00000110: return B00000010;  // 6 _PT -> _P_ 2
-    case  B00000010: return B00000000;  // 2 _P_ -> ___ 0
-    case  B00000000: return B00000111;  // 0 ___ -> KPT 7
+    case  0: return B00000000;  // ___
+    case  1: return B00000111;  // KPT 
+    case  2: return B00000100;  // __T 
+    case  3: return B00000001;  // K__
+    case  4: return B00000011;  // KP_
+    case  5: return B00000101;  // K_T 
+    case  6: return B00000110;  // _PT
+    case  7: return B00000010;  // _P_
+
+
     default: return 0;
   }
 }

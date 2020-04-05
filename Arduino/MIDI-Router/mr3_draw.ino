@@ -128,11 +128,14 @@ void drawRouting() {
         fColor = RA8875_WHITE;
       } else {                                              // draw unrouted
         tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, newColor(gridColor)); 
-      }          
+      }    
+      if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == i) ) {
+        tft.drawRect(cOffset + (cWidth * c) + 1, rOffset + (rHeight * i) + 1, cWidth-2, rHeight-2, RA8875_GREEN);      
+      }
     }  
   }
   drawGLines();
-  drawPiano(5, 5);  // place this here for now
+  //drawPiano(5, 5);  // place this here for now
 }
 
 // Draw grid lines

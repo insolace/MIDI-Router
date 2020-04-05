@@ -64,9 +64,25 @@ void drawMenu_Routing() {
   } else if (touchY >= rOffset && touchX <= cOffset) {
     // output selected
   } else if (touchY >= rOffset && touchX >= cOffset) {
+    
     // routing grid selected 
-    curRoute = routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)];
-    routing[getTouchCol(touchX)-1 + (pgIn * 6)][getTouchRow(touchY)-1 + (pgOut * 6)] = reOrderR(curRoute);  // cycle through all routing options
+
+    curCol = (getTouchCol(touchX) - 1) + (pgIn * 6);
+    curRow = (getTouchRow(touchY) - 1) + (pgOut * 6);
+    curRoute = routing[curCol][curRow];
+
+    if (curRoute == 0){
+      routing[curCol][curRow] = 7; // route all  
+      knobSet(1);  
+    } else {
+      routing[curCol][curRow] = 0;  // close route
+      knobSet(0);
+    }
+
+    
+    //routing[curCol][curRow] = reOrderR(curRoute);  // cycle through all routing options
+
+    
     drawRouting();
     saveEEPROM();
   } else if (touchY >= tbOY && touchX >= tbOX) {
@@ -88,6 +104,7 @@ void drawMenu_Routing() {
   } else {
     // setup/home box, go to CV Calibration
     menu = 1;
+    knobAccelEnable = 1;
     refMenu_Calibrate();
   }  
 }
@@ -127,6 +144,9 @@ void drawMenu_Calibrate() {  // process touch events
   //refMenu_Calibrate();
   if (touchY <= hbHeight && touchX <= hbWidth) {  // home button returns to routing
     menu = 0;
+    knobMax = 8;
+    knobMin = 0;
+    knobAccelEnable = 0;
     refMenu_Routing();
   }
 
@@ -197,47 +217,67 @@ void drawMenu_Calibrate_udcv() {
 void readKnob() {
 
   // Decode knob turn activity
-  
   if ( (millis() - knobTimer) > knobSlowdown) {  // slow down the knob updates
     knobTimer = millis();
     newPosition = myEnc.read();
  
     if (newPosition != oldPosition) {  // filter out duplicate events
-      Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition); 
+      Serial.println(" RK::");
+      Serial.print(" oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.print(newPosition); 
       if (newPosition < knobMin) { // limit minimum range
-        newPosition = knobMin; 
-        oldPosition = knobMin;
-        myEnc.write(0);
+        if (menu == 1) {  // CV cal menu = stop at zero
+          knobZero();
+        } else if (menu == 0) { // routing menu = comes back around to max
+          knobFull();
+        }   
       } else if (newPosition > (knobMax * 4)) { // limit maximum range
-        newPosition = knobMax * 4; 
-        oldPosition = knobMax * 4;
-        myEnc.write(knobMax * 4);
+        if (menu == 1) { // CV cal menu = stop at max
+          knobFull();
+        } else if (menu == 0) { // routing menu = comes back around to min
+          knobZero();
+        }
       }
 
       // acceleration
       float kSpeed = newPosition-oldPosition;  // speed up value change if knob is turning fast
-      if (kSpeed < 30 && abs(kSpeed) > knobSpeedup) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.  
+      if ( ((kSpeed < 30) && (abs(kSpeed) > knobSpeedup)) && knobAccelEnable == 1 ) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.  
                                                           // Filter out anything greater than 30 (dirty fix)
-        Serial.print("kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));  
+        Serial.print(" kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));  
  
         if (kSpeed < 0) {         
           newPosition = newPosition - pow(abs(kSpeed), knobSpeedRate);
         } else {
           newPosition = newPosition + pow(abs(kSpeed), knobSpeedRate);
         }
-        
-        myEnc.write(newPosition);
-        Serial.print("myEnc: "); Serial.println(myEnc.read());
-      }
+      }  
+      myEnc.write(newPosition);
+      Serial.print(" myEnc: "); Serial.print(myEnc.read());
+      
 
       oldPosition = newPosition;
       knobVal = newPosition / 4; // four pulses per encoder click, scale down so 1 knob val = 1 click
       if (oldKnobVal != knobVal) { // is the scaled value new?
         // update knob value and DO SOMETHING
+        if (oldKnobVal < knobVal) {
+          knobDir = 1; // CW
+        } else {
+          knobDir = 0; // CCW
+        }
+        Serial.print(" newPos: "); Serial.print(newPosition); Serial.print(" knobVal: "); Serial.print(knobVal); Serial.print(" Dir: "); Serial.print(knobDir);
         oldKnobVal = knobVal;  // store for next comparison
 
         if (menu == 0) {
-          menu = 0; // do nothing on routing page
+          /*if (knobVal > 60000) {
+            knobSet(7);
+          } else if (knobVal > 7) {
+            knobZero();
+          }*/
+          //knobSet(reOrderR(knobVal));
+          routing[curCol][curRow] = reOrderR(knobVal); // routing page, change routing value
+
+          drawRouting();
+          Serial.print(" rout: "); Serial.println(routing[curCol][curRow]); 
+          
         } else if (menu == 1) {
           knob_calCV();  // calibrate CV
         }
@@ -253,13 +293,14 @@ void readKnob() {
 
     if (menu == 1) { // CV calibration
       if (knobVal == 0) { // change to max value
-          myEnc.write(knobMax * 4);
+
           oldPosition = knobMax * 4;
-          newPosition = knobMax * 4;
+          newPosition = oldPosition;
+          myEnc.write(newPosition);
       } else {  // change to min value
-          myEnc.write(knobMin * 4);
           oldPosition = knobMin * 4;
-          newPosition = knobMin * 4;
+          newPosition = oldPosition;
+          myEnc.write(newPosition);
       }
       knobVal = newPosition / 4;
       knob_calCV();
@@ -267,6 +308,26 @@ void readKnob() {
     
    //Serial.println(myEnc.read());  // knob pushed, do something
   }
+}
+
+void knobZero() {
+  newPosition = knobMin; 
+  oldPosition = knobMin;
+  myEnc.write(0);
+}
+
+void knobFull() {
+  newPosition = knobMax * 4; 
+  oldPosition = newPosition;
+  myEnc.write(newPosition);
+}
+
+void knobSet(int v) {
+  newPosition = (v) * 4;
+  oldPosition = newPosition;
+  myEnc.write(newPosition);
+  knobVal = v;
+  oldKnobVal = knobVal;
 }
 
 // =================================
