@@ -27,7 +27,7 @@ void matchSysExID(int16_t b1, int16_t b2, int16_t b3) {
       break;            
     }
     if ( (b1 == 0 && idB1 == 0 && idB2 == b2 && idB3 == b3) 
-      || b1 != 0 && b1 == idB1 ) {
+      || ((b1 != 0) && (b1 == idB1)) ) {
       printMatch();
       break;
     }

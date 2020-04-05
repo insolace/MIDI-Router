@@ -237,7 +237,7 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {
   Serial.print("rxSysex: len: ");
   Serial.print(len); Serial.print(" array: "); 
 
-  for(int i = 0; i < len; i++) {
+  for(unsigned int i = 0; i < len; i++) {
     Serial.print(sysexarray[i]); Serial.print(", ");
   }
   Serial.print(" inp:"), Serial.println(inPort);

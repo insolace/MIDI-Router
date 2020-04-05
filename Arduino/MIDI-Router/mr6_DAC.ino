@@ -1,5 +1,5 @@
 void setDAC(int dac, uint32_t data) {
-  int c1, c2, c3 = 0;
+  int c1 = 0, c2 = 0, c3 = 0;
   /* fix incorrect prototype wiring
    dacA = A3
    dacB = A2
