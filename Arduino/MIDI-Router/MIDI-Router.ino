@@ -90,6 +90,10 @@ MIDIDevice * midilist[10] = {
   &midi01, &midi02, &midi03, &midi04, &midi05, &midi06, &midi07, &midi08, &midi09, &midi10
 };
 
+// Create MIDI interval timer
+IntervalTimer callMIDI;
+#define INTERVALMIDI 250 // how often (in microseconds) we call routeMidi()
+
 // TFT Display pins
 #define RA8875_INT 15 // graphic interrupt
 #define RA8875_CS 14 //  chip select
@@ -210,6 +214,8 @@ uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247};
 // Menu options
 int menu = 0;  // which menu are we looking at?  0 = routing, 1 = CV calibration
 int actField = 1; // which data entry field on the page is active?
+
+boolean rdFlag = 0; // flag to redraw screen
 
 // Routing page 
 int inPages = 6;

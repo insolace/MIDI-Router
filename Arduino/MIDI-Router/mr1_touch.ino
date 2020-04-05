@@ -165,6 +165,8 @@ void drawMenu_Calibrate() {  // process touch events
     drawColumns();
     drawMenu_Calibrate_udcv();
     
+  } else if ( withinBox(touchX, touchY, tbOX, tbOY, tbWidth, tbHeight) ) {  // green tempo box
+    memset (routing, 0, sizeof(routing));  // clear routing table!
   }
 }
 
