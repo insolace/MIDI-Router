@@ -63,6 +63,8 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial5, MIDI5);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6);
 
 
+MIDIRouter_Lib router = MIDIRouter_Lib();
+
 /* todo - can't seem to figure out the right class to reference when making this array of pointers.  
    Arduino MIDI library is different than the Teensy USB (see below) 
    
