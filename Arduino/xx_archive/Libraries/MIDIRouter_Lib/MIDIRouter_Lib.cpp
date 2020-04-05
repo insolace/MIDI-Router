@@ -1,3 +1,10 @@
+/*
+  MidiRouter_Lib.cpp - Library for Midi Router Device Functions.
+  Created by Kurt R. Arnlund (Ingenious Arts & Technologies LLC), April 4, 2020.
+  Released into the public domain.
+*/
+#include "MIDIRouter_Lib.h"
+
 MRInputPort MIDIRouter_Lib::inputs[] = {
 	// page 0
 		MRInputPort("Midi1"),

@@ -1,7 +1,14 @@
+/*
+  MidiFilter.cpp - 
+  Created by Kurt R. Arnlund (Ingenious Arts & Technologies LLC), April 4, 2020.
+  Released into the public domain.
+*/
+#include "Arduino.h"
+#include "MidiFilter.h"
+
 // MidiFilterType
 
 MidiFilterType::MidiFilterType() {
-	//settings = {0};
 }
 
 void MidiFilterType::set(MidiFilterLocation location, bool state) {

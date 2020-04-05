@@ -1,3 +1,10 @@
+/*
+  MRPorts.h - Midi Router Port Wrapper
+  Created by Kurt R. Arnlund (Ingenious Arts & Technologies LLC), April 4, 2020.
+  Released into the public domain.
+*/
+#include "Arduino.h"
+
 #ifndef _MR_PORT_H
 #define _MR_PORT_H
 

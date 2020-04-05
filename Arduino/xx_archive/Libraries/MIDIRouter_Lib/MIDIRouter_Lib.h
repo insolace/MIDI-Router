@@ -1,8 +1,15 @@
+/*
+  MidiRouter_Lib.h - Library for Midi Router Device Functions.
+  Created by Kurt R. Arnlund (Ingenious Arts & Technologies LLC), April 4, 2020.
+  Released into the public domain.
+*/
+
 #ifndef _MIDIROUTER_LIB_H
 #define _MIDIROUTER_LIB_H
 
-#import "MRPorts.h"
-#import "MidiFilter.h"
+#include "Arduino.h"
+#include "MRPorts.h"
+#include "MidiFilter.h"
 
 class MIDIRouter_Lib {
 	public:
