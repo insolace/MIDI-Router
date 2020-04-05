@@ -154,3 +154,23 @@ int csvReadFloat(File* SysCsvFile, float* num, char delim) {
 void csvClose() {
   SysCsvFile.close();
 }
+
+// ================================================================================
+// Re-order routing filter sequence
+// ================================================================================
+
+int reOrderR(int r) {
+  switch (r) {                          // re-order the routing selection in a way that prioritizes early selection of common filtering
+    case  0: return B00000000;  // ___
+    case  1: return B00000111;  // KPT 
+    case  2: return B00000100;  // __T 
+    case  3: return B00000001;  // K__
+    case  4: return B00000011;  // KP_
+    case  5: return B00000101;  // K_T 
+    case  6: return B00000110;  // _PT
+    case  7: return B00000010;  // _P_
+
+
+    default: return 0;
+  }
+}

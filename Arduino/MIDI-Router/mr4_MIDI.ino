@@ -145,7 +145,7 @@ void routeMidi() {
 }
 
 void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
-
+  volatile int cR = 0;
   Serial.print("rxMIDI: t");
   Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
 
@@ -155,28 +155,30 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
   
   // Route to 6 MIDI DIN Ports
   for (int outp = 0; outp < 6; outp++){
-    if (routing[inPort][outp] != 0) {
-      switch (outp) {
-        case  0: MIDI1.send(mtype, d1, d2, ch); Serial.print("tx m1: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
-                break;
-        case  1: MIDI2.send(mtype, d1, d2, ch); Serial.print("tx m2: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
-                break;
-        case  2: MIDI3.send(mtype, d1, d2, ch); Serial.print("tx m3: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
-                break;
-        case  3: MIDI4.send(mtype, d1, d2, ch); Serial.print("tx m4: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
-                break;
-        case  4: MIDI5.send(mtype, d1, d2, ch); Serial.print("tx m5: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
-                break;
-        case  5: MIDI6.send(mtype, d1, d2, ch); Serial.print("tx m6: "); Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
-                break;
-        //default:
+    cR = routing[inPort][outp];
+    //Serial.print("cR: "); Serial.print(cR); Serial.print(" mt: "); Serial.print(mtype); Serial.print(" filtR: "); Serial.println(filtRoute(mtype, cR)); 
+    if (cR != 0) {
+      if ( (outp == 0) && (filtRoute(mtype, cR)) ) {
+        MIDI1.send(mtype, d1, d2, ch); Serial.print("tx m1: "); 
+      } else if ( (outp == 1) && (filtRoute(mtype, cR)) ) {
+        MIDI2.send(mtype, d1, d2, ch); Serial.print("tx m2: ");
+      } else if ( (outp == 2) && (filtRoute(mtype, cR)) ) {
+        MIDI3.send(mtype, d1, d2, ch); Serial.print("tx m3: ");
+      } else if ( (outp == 3) && (filtRoute(mtype, cR)) ) {
+        MIDI4.send(mtype, d1, d2, ch); Serial.print("tx m4: ");
+      } else if ( (outp == 4) && (filtRoute(mtype, cR)) ) {
+        MIDI5.send(mtype, d1, d2, ch); Serial.print("tx m5: ");
+      } else if ( (outp == 5) && (filtRoute(mtype, cR)) ) {
+        MIDI6.send(mtype, d1, d2, ch); Serial.print("tx m6: ");
       }
+      Serial.print(mtype); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch); 
     }
   }
       
   // Route to 10 USB Devices
   for (int outp = 6; outp < 16; outp++){
-    if (routing[inPort][outp] != 0) {
+    cR = routing[inPort][outp];
+    if (filtRoute(t, cR)) {
       Serial.print("tx u"); Serial.print(outp-5); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
       midilist[outp - 6]->send(t, d1, d2, ch);
     }
@@ -184,7 +186,8 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
  
   // Route to 16 USB Host Ports
   for (int outp = 18; outp < 34; outp++){
-    if (routing[inPort][outp] != 0) {
+    cR = routing[inPort][outp];
+    if (filtRoute(t, cR)) {
       Serial.print("tx h"); Serial.print(outp-17); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
       usbMIDI.send(t, d1, d2, ch, outp - 18);
     }
@@ -231,6 +234,19 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort) {
       }
     }
   }
+}
+
+bool filtRoute(int t, int f) { // evaluate MIDI type against filter setting
+  //Serial.println(t);
+  if ( (t == 0x80) || (t == 0x90) || (t == 0xA0) || (t == 0xD0) || (t == 0xE0) ) {         // note on, note off, polyAT, chanAT, pitch bend
+    if (f & B00000001) return true;  // keyboard events routed
+  } else if ( (t == 0xB0) || (t == 0xC0) || (t == 0xF3) || (t == 0xF0) || (t == 0xF7) ) {  // control change, program change, song select, SysEx
+    if (f & B00000010) return true;  // parameter events routed    
+  } else if (t) {                                                                      // common and realtime (transport/clock) events
+    if (f & B00000100) return true;  // transport/clock events routed 
+  }
+  //Serial.println("filter failed");
+  return false;
 }
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort) {

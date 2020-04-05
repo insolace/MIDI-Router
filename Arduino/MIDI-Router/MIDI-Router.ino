@@ -124,6 +124,8 @@ long oldPosition = 0;
 long newPosition = 0;
 int knobVal = 0;
 int oldKnobVal = 0;
+bool knobDir = 0;  // 0 = CCW, 1 = CW
+bool knobAccelEnable = 0;
 unsigned long knobTimer = millis();
 unsigned long knobSlowdown = 2;  // wait this many ms before checking the knob value
 int knobSpeedup = 3; // threshold for difference between old and new value to cause a speed up
@@ -237,8 +239,9 @@ elapsedMillis elapseIn6;
 unsigned int flashTime = 1000;
 int inFlag[5];
 
-// Font (deprecated?)
-int tSize = 16;
+// Font color
+uint16_t fColor = RA8875_WHITE;
+uint16_t fBG = 0;
 
 // Font dim
 int fSize = 3;
@@ -253,13 +256,13 @@ int tBord = 5; // buffer/border from edge of screen to beginning of text
 // =================================
 
 // Rows
-int rOffset = 152;
-int rHeight = (TALL - rOffset) / rows;  // 40
+int rOffset = 119;  // was 152
+int rHeight = (TALL - rOffset) / rows;  // 60
 int tROffset = (rHeight/2)-(fHeight/2);  // text vertical offset in rows
-int curGrid = 0;
+
 // Columns 
-int cOffset = 238;
-int cWidth = (WIDE - cOffset) / columns;  // 60
+int cOffset = 199;  // was 238
+int cWidth = (WIDE - cOffset) / columns;  // 100
 int tCOffset = (cWidth/2)-(fHeight/5);  // text horizontal offset in rows
 
 // Tempo Box
@@ -302,9 +305,22 @@ int tMargin = 5;       // pixel margin to filter out duplicate triggers for a si
 float clearRouting = 0;
 float pi = 3.141592;
 
+int curRoute = 0;  // storage for current routing/filter value
+int curCol = 0;
+int curRow = 0;
+
 // Initial routing
 // matrix for routing
-bool routing[50][50] = {  // [input port][output port]
+
+// Each byte in the routing matrix is decoded thusly:
+// -------------------------------------------------
+// bit 0 = keyboard (note on/off, pitchbend, aftertouch, etc)
+// bit 1 = parameters (CC, NRPN/RPN, Sysex parameters etc)
+// bit 3 = transport (clock, start/stop)
+// bit 4 = global channel flag (0 = pass all channels, 1 = filter using bits 5-8)
+// bits 5-8 = channel filter (only pass events matching this channel)
+
+uint8_t routing[50][50] = {  // [input port][output port]
  
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -366,3 +382,6 @@ int16_t idLen;
 int16_t idB1;
 int16_t idB2;
 int16_t idB3;
+
+// prototypes
+void dPrint(String s, int sz=fSize);
