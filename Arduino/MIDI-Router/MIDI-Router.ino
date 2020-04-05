@@ -5,6 +5,7 @@
 #include <SPI.h>
 #include "Adafruit_GFX.h"      // vvvvv
 #include "Adafruit_RA8875.h"   // both of these are modified, see github.com/insolace
+#include "MIDIRouter_Lib.h"
 
 // Memory/storage functions
 #include <EEPROM.h>
