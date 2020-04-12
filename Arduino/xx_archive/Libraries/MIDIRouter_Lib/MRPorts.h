@@ -38,4 +38,10 @@ class MROutputPort : public MRPort {
 		static unsigned int outputPortCount;		
 };
 
+class MRIOPort {
+	MRInputPort input;
+	MROutputPort output;
+	midi::MidiInterface<Type> instance((Type&)SerialPort);
+}
+
 #endif // _MR_PORT_H
