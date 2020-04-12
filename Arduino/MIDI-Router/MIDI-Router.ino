@@ -51,10 +51,12 @@ Bounce encPush = Bounce();
 
 
 // Hardware and USB Device MIDI
+// https://github.com/FortySevenEffects/arduino_midi_library
 #include <MIDI.h>        // access to serial (5 pin DIN) MIDI
 #include <USBHost_t36.h> // access to USB MIDI devices (plugged into 2nd USB port)
 
 // Create the Serial MIDI ports
+// MIDI_CREATE_INSTANCE(Type, SerialPort, Name) 
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI1);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial2, MIDI2);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial3, MIDI3);
