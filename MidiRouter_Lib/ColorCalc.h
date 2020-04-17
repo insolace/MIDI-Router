@@ -9,8 +9,24 @@
 #ifndef ColorCalc_h
 #define ColorCalc_h
 
-uint16_t newColor(uint8_t r, uint8_t g, uint8_t b) {
-    return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
-}
+class RGBColor {
+public:
+    
+    RGBColor(uint8_t r, uint8_t g, uint8_t b) {
+        _r = r;
+        _g = g;
+        _b = b;
+    }
+    
+    uint16_t asUint16() {
+        return ((_r & 0xF8) << 8) | ((_g & 0xFC) << 3) | (_b >> 3);
+    }
+    
+    
+private:
+    uint8_t _r;
+    uint8_t _g;
+    uint8_t _b;
+};
 
 #endif /* ColorCalc_h */

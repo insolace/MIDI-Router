@@ -240,20 +240,21 @@ long dacOffset[120];
 int eeprom_addr_offset = 0;
 
 // Colors
-#define   tbColor     0,150,0       // tempo/clock box
-#define   hbColor     102,102,102   // setup/home button
-#define   ibColor     0,0,150       // input page box
-#define   insColor    0,0,100       // inputs box color
-#define   insColFlash 0,0,255       // input flash color
-#define   obColor     150,0,0       // output page box
-#define   outsColor   100,0,0       // putputs box color
-#define   outColFlash 255,0,0       // output flash color
-#define   gridColor   102,102,102   // grid
-#define   linClr      0, 0, 0       // lines
-#define   txColor     255,255,255        // text
-#define   routColor   255,255,255   // routing
-#define   actFieldBg  0,0,255       // Active Field color
-#define   fieldBg     50,50,50      // inactive field color
+#include "ColorCalc.h"
+uint16_t tbColor     = RGBColor(0, 150, 0).asUint16();       // tempo/clock box
+uint16_t hbColor     = RGBColor(102, 102, 102).asUint16();   // setup/home button
+uint16_t ibColor     = RGBColor(0, 0, 150).asUint16();       // input page box
+uint16_t insColor    = RGBColor(0, 0, 100).asUint16();       // inputs box color
+uint16_t insColFlash = RGBColor(0, 0, 255).asUint16();       // input flash color
+uint16_t obColor     = RGBColor(150, 0, 0).asUint16();       // output page box
+uint16_t outsColor   = RGBColor(100, 0, 0).asUint16();       // putputs box color
+uint16_t outColFlash = RGBColor(255, 0, 0).asUint16();       // output flash color
+uint16_t gridColor   = RGBColor(102, 102, 102).asUint16();   // grid
+uint16_t linClr      = RGBColor(0, 0, 0).asUint16();         // lines
+uint16_t txColor     = RGBColor(255, 255, 255).asUint16();   // text
+uint16_t routColor   = RGBColor(255, 255, 255).asUint16();   // routing
+uint16_t actFieldBg  = RGBColor(0, 0, 255).asUint16();       // Active Field color
+uint16_t fieldBg     = RGBColor(50, 50, 50).asUint16();      // inactive field color
 
 
 uint16_t posCol;  // for CV calib
@@ -741,7 +742,7 @@ void loop()
      */
 }
 
-#include "ColorCalc.h"
+
 #include "MR_TOUCH.h"
 #include "MR_DRAW.h"
 #include "MR_MIDI.h"

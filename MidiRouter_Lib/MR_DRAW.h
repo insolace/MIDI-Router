@@ -15,22 +15,22 @@
 void drawBox() {
     
     // Settings/Home
-    tft.fillRect(hbOX, hbOY, hbWidth, hbHeight, newColor(hbColor));
+    tft.fillRect(hbOX, hbOY, hbWidth, hbHeight, hbColor);
     
     // inputs page select Background
-    tft.fillRect(tbOX, 0, tbWidth, hbHeight, newColor(ibColor));
+    tft.fillRect(tbOX, 0, tbWidth, hbHeight, ibColor);
     curX = tbOX + 1;
     curY = 5;
     dPrint("Inputs");
     
     // outputs page select Background
-    tft.fillRect(0, hbHeight, hbWidth, tbHeight, newColor(obColor));
+    tft.fillRect(0, hbHeight, hbWidth, tbHeight, obColor);
     curX = 0;
     curY = hbHeight * 1.6;
     dPrint("Outputs");
     
     // Clock/Tempo Box
-    tft.fillRect(tbOX, tbOY, tbWidth, tbHeight, newColor(tbColor));
+    tft.fillRect(tbOX, tbOY, tbWidth, tbHeight, tbColor);
     
 }
 
@@ -41,8 +41,8 @@ void drawBox() {
 
 
 void drawColumns() {
-    tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, newColor(insColor));
-    tft.setTextColor(newColor(txColor), newColor(insColor));
+    tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor);
+    tft.setTextColor(txColor, insColor);
     
     midiRouter::MRInputPort *input;
     
@@ -50,16 +50,16 @@ void drawColumns() {
         curY = (i*cWidth) + tCOffset;
         curX = tBord;
         if (menu == 0) {  // routing
-            tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, newColor(linClr));
+            tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, linClr);
             tft.setRotation(3);
             input = router.inputAt((5-i)+(pgIn *6));
             dPrint(input->name);
             tft.setRotation(curRot);
         } else if (menu == 1) { // cv calibrate
-            tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, newColor(linClr));
+            tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, linClr);
             if (i == 5-CVcalSelect) {
                 //Serial.println("fillrect");
-                tft.fillRect( cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, newColor(actFieldBg));
+                tft.fillRect( cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, actFieldBg);
             }
             tft.setRotation(3);
             //Serial.println("dprint");
@@ -78,18 +78,18 @@ void drawColumns() {
 
 void drawRows() {
     
-    tft.fillRect(0, rOffset, cOffset, TALL - rOffset, newColor(outsColor));
+    tft.fillRect(0, rOffset, cOffset, TALL - rOffset, outsColor);
     
     midiRouter::MROutputPort *output;
     
     for (int i = 0; i < rows; i++) {
-        //tft.textColor(newColor(txColor), newColor(outsColor));
+        //tft.textColor(txColor, outsColor);
         //tft.textSetCursor(0, rOffset + (i*rHeight));
         curX = tBord;
         curY = rOffset + (i*rHeight) + tROffset;
         output = router.outputAt(i+(pgOut *6));
         dPrint(output->name);
-        tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), newColor(linClr));
+        tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), linClr);
     }
 }
 
@@ -97,9 +97,9 @@ void drawRouting() {
     for (int i = 0; i < rows; i++) {
         for (int c = 0; c < columns; c++) {
             if (routing[c + (pgIn * 6)][i + (pgOut * 6)] == 1) {
-                tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, newColor(routColor));
+                tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, routColor);
             } else {
-                tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, newColor(gridColor));
+                tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, gridColor);
             }
         }
     }
@@ -109,10 +109,10 @@ void drawRouting() {
 // Draw grid lines
 void drawGLines() {
     for (int i = 0; i < rows; i++) {
-        tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), newColor(linClr));
+        tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), linClr);
     }
     for (int i = 0; i < columns; i++) {
-        tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, newColor(linClr));
+        tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, linClr);
     }
 }
 
@@ -121,9 +121,9 @@ void drawGLines() {
 // =============================
 
 void drawBGs() {
-    //tft.fillRect(cOffset, rOffset, WIDE,TALL, newColor(gridColor));  // grid bg
-    tft.fillRect(cOffset, 0, WIDE-cOffset, rOffset, newColor(insColor));  // inputs bg
-    tft.fillRect(0, rOffset, cOffset, TALL-rOffset, newColor(outsColor));  // outputs bg
+    //tft.fillRect(cOffset, rOffset, WIDE,TALL, gridColor);  // grid bg
+    tft.fillRect(cOffset, 0, WIDE-cOffset, rOffset, insColor);  // inputs bg
+    tft.fillRect(0, rOffset, cOffset, TALL-rOffset, outsColor);  // outputs bg
 }
 
 // =============================
@@ -149,16 +149,16 @@ void flashIn(int inp, int state) {
     }
     if (state != 0){
         // draw input background
-        tft.fillRect( cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, newColor(insColFlash));
+        tft.fillRect( cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColFlash);
         //(*elapsedIn+inp) = 0;
         inFlag[inp] = 1;
     } else {
         // draw input background
-        tft.fillRect( cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, newColor(insColor));
+        tft.fillRect( cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColor);
     }
     
     // redraw input name
-    tft.textColor(newColor(txColor), newColor(insColor));
+    tft.textColor(txColor, insColor);
     tft.textSetCursor(cOffset + (inp*cWidth) + tCOffset , rOffset - tROffset);
     
 }
