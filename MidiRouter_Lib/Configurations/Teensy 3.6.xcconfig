@@ -21,7 +21,7 @@ BOARD_TAG = teensy36
 // Port (optional)
 // most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
 //
-BOARD_PORT = /dev/tty.usbmodem*
+BOARD_PORT = /dev/cu.usbmodem*
 
 // References for Xcode code-sense
 // See Boards.txt for <tag>.build.mcu=<GCC_PREPROCESSOR_DEFINITIONS>
