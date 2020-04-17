@@ -57,7 +57,7 @@ void evaltouch() {
     if (menu == 0) {
         drawMenu_Routing();
     } else if (menu != 0) {
-        //tft.fillScreen(newColor(touchX / 3, 0, touchY / 2));
+        //tft.fillScreen(NEWCOLOR(touchX / 3, 0, touchY / 2));
         drawMenu_Calibrate();
     }
 }
@@ -128,13 +128,13 @@ void refMenu_Calibrate() {  // refresh cv calibration display
     //Serial.println("refmenu calib");
     drawBox();
     drawColumns();
-    tft.fillRect(0, (rOffset + 1), WIDE, (TALL - rOffset - 1), newColor(gridColor));
+    tft.fillRect(0, (rOffset + 1), WIDE, (TALL - rOffset - 1), gridColor);
     curX = 300;
     curY = rOffset + 25;
     dPrint("CV Calibration");
     drawMenu_Calibrate_udcv();
     oldPosition = (dacNeg[CVcalSelect] * 4);
-    myEnc.write(oldPosition);  // update
+    router.encoder().write(oldPosition);  // update
     knobMax = 65535; // set knob Max for CV
 }
 
@@ -148,7 +148,7 @@ void drawMenu_Calibrate() {  // process touch events
     if ( withinBox(touchX, touchY, menuCV_butDacNeg5_x, menuCV_butDacNeg5_y, menuCV_butDacNeg5_w, menuCV_butDacNeg5_h) ) {
         actField = 1;  // -5v (low) field selected
         oldPosition = (dacNeg[CVcalSelect] * 4);
-        myEnc.write(oldPosition);  // update
+        router.encoder().write(oldPosition);  // update
         drawMenu_Calibrate_udcv();  // refresh values
         //Serial.println("Neg!");
         setDAC(CVcalSelect, dacNeg[CVcalSelect]);
@@ -156,7 +156,7 @@ void drawMenu_Calibrate() {  // process touch events
     } else if ( withinBox(touchX, touchY, menuCV_butDacPos5_x, menuCV_butDacPos5_y, menuCV_butDacPos5_w, menuCV_butDacPos5_h) ) {
         actField = 2;  // +5v (high) field selected
         oldPosition = (dacPos[CVcalSelect] * 4);
-        myEnc.write(oldPosition);  // update
+        router.encoder().write(oldPosition);  // update
         drawMenu_Calibrate_udcv();
         //Serial.println("Pos!");
         setDAC(CVcalSelect, dacPos[CVcalSelect]);
@@ -172,7 +172,7 @@ void drawMenu_Calibrate() {  // process touch events
             knobMax = 65535;
         }
         oldPosition = (dacNeg[CVcalSelect] * 4);
-        myEnc.write(oldPosition);  // update
+        router.encoder().write(oldPosition);  // update
         drawColumns();
         drawMenu_Calibrate_udcv();
         
@@ -184,12 +184,12 @@ void drawMenu_Calibrate() {  // process touch events
 void drawMenu_Calibrate_udcv() {
     
     if (actField == 1) {  //neg5
-        negCol = newColor(actFieldBg);
-        posCol = newColor(fieldBg);
+        negCol = actFieldBg;
+        posCol = fieldBg;
         
     } else {  //pos5
-        posCol = newColor(actFieldBg);
-        negCol = newColor(fieldBg);
+        posCol = actFieldBg;
+        negCol = fieldBg;
         
     }
     tft.fillRect(menuCV_butDacNeg5_x, menuCV_butDacNeg5_y, menuCV_butDacNeg5_w, menuCV_butDacNeg5_h, negCol);
@@ -213,18 +213,18 @@ void readKnob() {
     
     if ( (millis() - knobTimer) > knobSlowdown) {  // slow down the knob updates
         knobTimer = millis();
-        newPosition = myEnc.read();
+        newPosition = router.encoder().read();
         
         if (newPosition != oldPosition) {  // filter out duplicate events
             Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition);
             if (newPosition < knobMin) { // limit minimum range
                 newPosition = knobMin;
                 oldPosition = knobMin;
-                myEnc.write(0);
+                router.encoder().write(0);
             } else if (newPosition > (knobMax * 4)) { // limit maximum range
                 newPosition = knobMax * 4;
                 oldPosition = knobMax * 4;
-                myEnc.write(knobMax * 4);
+                router.encoder().write(knobMax * 4);
             }
             
             // acceleration
@@ -239,8 +239,8 @@ void readKnob() {
                     newPosition = newPosition + pow(abs(kSpeed), knobSpeedRate);
                 }
                 
-                myEnc.write(newPosition);
-                Serial.print("myEnc: "); Serial.println(myEnc.read());
+                router.encoder().write(newPosition);
+                Serial.print("myEnc: "); Serial.println(router.encoder().read());
             }
             
             oldPosition = newPosition;
@@ -260,17 +260,17 @@ void readKnob() {
     }
     
     // encoder switch
-    encPush.update();
-    if ( encPush.fell() ) {
+    router.encPush().update();
+    if ( router.encPush().fell() ) {
         Serial.println("push");  // knob pushed, do something
         
         if (menu == 1) { // CV calibration
             if (knobVal == 0) { // change to max value
-                myEnc.write(knobMax * 4);
+                router.encoder().write(knobMax * 4);
                 oldPosition = knobMax * 4;
                 newPosition = knobMax * 4;
             } else {  // change to min value
-                myEnc.write(knobMin * 4);
+                router.encoder().write(knobMin * 4);
                 oldPosition = knobMin * 4;
                 newPosition = knobMin * 4;
             }
@@ -278,7 +278,7 @@ void readKnob() {
             knob_calCV();
         }
         
-        //Serial.println(myEnc.read());  // knob pushed, do something
+        //Serial.println(router.encoder().read());  // knob pushed, do something
     }
 }
 

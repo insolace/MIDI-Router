@@ -117,8 +117,8 @@ File SysCsvFile; // create Sysex CSV object
 #define EncA 26
 #define EncB 27
 #define EncSwitch 28
-Encoder myEnc(EncA, EncB);
-Bounce encPush = Bounce();
+//Encoder myEnc(EncA, EncB);
+//Bounce encPush = Bounce();
 
 // DAC 16bit SPI
 #define dacA B00010100 // cv 1
@@ -524,11 +524,8 @@ void setup()
         Serial.println("SD initialization done.");
     }
     
-    
     // knob
-    pinMode(EncSwitch, INPUT_PULLUP);
-    encPush.attach(EncSwitch);
-    encPush.interval(100);
+    router.SetupEncoder(EncA, EncB, EncSwitch);
     
     // ============================================================
     // EEPROM

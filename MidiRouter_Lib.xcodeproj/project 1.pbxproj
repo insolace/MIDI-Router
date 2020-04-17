@@ -1,0 +1,938 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C51EE21C2446B217007BCE31 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C51EE21B2446B217007BCE31 /* main.cpp */; };
+		C51EE21E2446B217007BCE31 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C51EE21D2446B217007BCE31 /* Makefile */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C51EE2182446B217007BCE31 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51EE21B2446B217007BCE31 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C51EE21D2446B217007BCE31 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		C51EE21F2446B217007BCE31 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+		C51EE2202446B217007BCE31 /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		C51EE2222446B217007BCE31 /* Glowdeck (Bluetooth).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Glowdeck (Bluetooth).xcconfig"; sourceTree = "<group>"; };
+		C51EE2232446B217007BCE31 /* Glowdeck (J-Link).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Glowdeck (J-Link).xcconfig"; sourceTree = "<group>"; };
+		C51EE2242446B217007BCE31 /* Glowdeck (USB).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Glowdeck (USB).xcconfig"; sourceTree = "<group>"; };
+		C51EE2252446B217007BCE31 /* Teensy 2.0.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 2.0.xcconfig"; sourceTree = "<group>"; };
+		C51EE2262446B217007BCE31 /* Teensy 3.0.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.0.xcconfig"; sourceTree = "<group>"; };
+		C51EE2272446B217007BCE31 /* Teensy 3.1.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.1.xcconfig"; sourceTree = "<group>"; };
+		C51EE2282446B217007BCE31 /* Teensy 3.2.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.2.xcconfig"; sourceTree = "<group>"; };
+		C51EE2292446B217007BCE31 /* Teensy 3.5.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.5.xcconfig"; sourceTree = "<group>"; };
+		C51EE22A2446B217007BCE31 /* Teensy 3.6.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.6.xcconfig"; sourceTree = "<group>"; };
+		C51EE22B2446B217007BCE31 /* Teensy 4.0.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 4.0.xcconfig"; sourceTree = "<group>"; };
+		C51EE22C2446B217007BCE31 /* Teensy LC.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy LC.xcconfig"; sourceTree = "<group>"; };
+		C51EE22D2446B217007BCE31 /* My Board.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "My Board.xcconfig"; sourceTree = "<group>"; };
+		C51EE22E2446B217007BCE31 /* MidiRouter_Lib.ino */ = {isa = PBXFileReference; lastKnownFileType = text; path = MidiRouter_Lib.ino; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		C51EE2022446B217007BCE31 = {
+			isa = PBXGroup;
+			children = (
+				C51EE21A2446B217007BCE31 /* MidiRouter_Lib */,
+				C51EE2192446B217007BCE31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C51EE2192446B217007BCE31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C51EE2182446B217007BCE31 /* Index */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C51EE21A2446B217007BCE31 /* MidiRouter_Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C51EE21B2446B217007BCE31 /* main.cpp */,
+				C51EE21D2446B217007BCE31 /* Makefile */,
+				C51EE21F2446B217007BCE31 /* Doxyfile */,
+				C51EE2202446B217007BCE31 /* ReadMe.txt */,
+				C51EE22E2446B217007BCE31 /* MidiRouter_Lib.ino */,
+				C51EE2212446B217007BCE31 /* Configurations */,
+			);
+			path = MidiRouter_Lib;
+			sourceTree = "<group>";
+		};
+		C51EE2212446B217007BCE31 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				C51EE2222446B217007BCE31 /* Glowdeck (Bluetooth).xcconfig */,
+				C51EE2232446B217007BCE31 /* Glowdeck (J-Link).xcconfig */,
+				C51EE2242446B217007BCE31 /* Glowdeck (USB).xcconfig */,
+				C51EE2252446B217007BCE31 /* Teensy 2.0.xcconfig */,
+				C51EE2262446B217007BCE31 /* Teensy 3.0.xcconfig */,
+				C51EE2272446B217007BCE31 /* Teensy 3.1.xcconfig */,
+				C51EE2282446B217007BCE31 /* Teensy 3.2.xcconfig */,
+				C51EE2292446B217007BCE31 /* Teensy 3.5.xcconfig */,
+				C51EE22A2446B217007BCE31 /* Teensy 3.6.xcconfig */,
+				C51EE22B2446B217007BCE31 /* Teensy 4.0.xcconfig */,
+				C51EE22C2446B217007BCE31 /* Teensy LC.xcconfig */,
+				C51EE22D2446B217007BCE31 /* My Board.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		C51EE2072446B217007BCE31 /* Build */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "build -C \"$(PROJECT)\" -j";
+			buildConfigurationList = C51EE2312446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Build" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Build;
+			passBuildSettingsInEnvironment = 1;
+			productName = Build;
+		};
+		C51EE2082446B217007BCE31 /* All */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "all -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2342446B217007BCE31 /* Build configuration list for PBXLegacyTarget "All" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = All;
+			passBuildSettingsInEnvironment = 1;
+			productName = All;
+		};
+		C51EE2092446B217007BCE31 /* Share */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "share -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2372446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Share" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Share;
+			passBuildSettingsInEnvironment = 1;
+			productName = Share;
+		};
+		C51EE20A2446B217007BCE31 /* Style */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "style -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE23A2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Style" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Style;
+			passBuildSettingsInEnvironment = 1;
+			productName = Style;
+		};
+		C51EE20B2446B217007BCE31 /* Document */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "document -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE23D2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Document" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Document;
+			passBuildSettingsInEnvironment = 1;
+			productName = Document;
+		};
+		C51EE20C2446B217007BCE31 /* Distribute */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "distribute -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2402446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Distribute" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Distribute;
+			passBuildSettingsInEnvironment = 1;
+			productName = Distribute;
+		};
+		C51EE20D2446B217007BCE31 /* Archive */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "archive -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2432446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Archive" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Archive;
+			passBuildSettingsInEnvironment = 1;
+			productName = Archive;
+		};
+		C51EE20E2446B217007BCE31 /* Unarchive */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "unarchive -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2462446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Unarchive" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Unarchive;
+			passBuildSettingsInEnvironment = 1;
+			productName = Unarchive;
+		};
+		C51EE20F2446B217007BCE31 /* Boards */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "boards -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2492446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Boards" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Boards;
+			passBuildSettingsInEnvironment = 1;
+			productName = Boards;
+		};
+		C51EE2102446B217007BCE31 /* Serial */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "serial -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE24C2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Serial" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Serial;
+			passBuildSettingsInEnvironment = 1;
+			productName = Serial;
+		};
+		C51EE2112446B217007BCE31 /* Upload */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "upload -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE24F2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Upload" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Upload;
+			passBuildSettingsInEnvironment = 1;
+			productName = Upload;
+		};
+		C51EE2122446B217007BCE31 /* Clean */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "clean -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2522446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Clean" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Clean;
+			passBuildSettingsInEnvironment = 1;
+			productName = Clean;
+		};
+		C51EE2132446B217007BCE31 /* Make */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "make -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2552446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Make" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Make;
+			passBuildSettingsInEnvironment = 1;
+			productName = Make;
+		};
+		C51EE2142446B217007BCE31 /* Fast */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "fast -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE2582446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Fast" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Fast;
+			passBuildSettingsInEnvironment = 1;
+			productName = Fast;
+		};
+		C51EE2152446B217007BCE31 /* Debug */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "debug -C \"$(PROJECT)\"";
+			buildConfigurationList = C51EE25B2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Debug" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Debug;
+			passBuildSettingsInEnvironment = 1;
+			productName = Debug;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		C51EE2172446B217007BCE31 /* Index */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C51EE25E2446B217007BCE31 /* Build configuration list for PBXNativeTarget "Index" */;
+			buildPhases = (
+				C51EE2162446B217007BCE31 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Index;
+			productName = Index;
+			productReference = C51EE2182446B217007BCE31 /* Index */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C51EE2032446B217007BCE31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Kurt Arnlund";
+				TargetAttributes = {
+					C51EE2072446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2082446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2092446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE20A2446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE20B2446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE20C2446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE20D2446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE20E2446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE20F2446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2102446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2112446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2122446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2132446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2142446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2152446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C51EE2172446B217007BCE31 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C51EE2062446B217007BCE31 /* Build configuration list for PBXProject "MidiRouter_Lib" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C51EE2022446B217007BCE31;
+			productRefGroup = C51EE2192446B217007BCE31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C51EE2072446B217007BCE31 /* Build */,
+				C51EE2082446B217007BCE31 /* All */,
+				C51EE2092446B217007BCE31 /* Share */,
+				C51EE20A2446B217007BCE31 /* Style */,
+				C51EE20B2446B217007BCE31 /* Document */,
+				C51EE20C2446B217007BCE31 /* Distribute */,
+				C51EE20D2446B217007BCE31 /* Archive */,
+				C51EE20E2446B217007BCE31 /* Unarchive */,
+				C51EE20F2446B217007BCE31 /* Boards */,
+				C51EE2102446B217007BCE31 /* Serial */,
+				C51EE2112446B217007BCE31 /* Upload */,
+				C51EE2122446B217007BCE31 /* Clean */,
+				C51EE2132446B217007BCE31 /* Make */,
+				C51EE2142446B217007BCE31 /* Fast */,
+				C51EE2152446B217007BCE31 /* Debug */,
+				C51EE2172446B217007BCE31 /* Index */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C51EE2162446B217007BCE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51EE21E2446B217007BCE31 /* Makefile in Sources */,
+				C51EE21C2446B217007BCE31 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C51EE22F2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C51EE22A2446B217007BCE31 /* Teensy 3.6.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PATH = "$(PATH):$(PROJECT_DIR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKETCHBOOK_DIR = "";
+			};
+			name = Debug;
+		};
+		C51EE2302446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PATH = "$(PATH):$(PROJECT_DIR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKETCHBOOK_DIR = "";
+			};
+			name = Release;
+		};
+		C51EE2322446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C51EE2332446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C51EE2352446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2362446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2382446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2392446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE23B2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE23C2446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE23E2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE23F2446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2412446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2422446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2442446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2452446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2472446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2482446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE24A2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE24B2446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE24D2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE24E2446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2502446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2512446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2532446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2542446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2562446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE2572446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE2592446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE25A2446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE25C2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C51EE25D2446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C51EE25F2446B217007BCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				ENABLE_HARDENED_RUNTIME = YES;
+			};
+			name = Debug;
+		};
+		C51EE2602446B217007BCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				ENABLE_HARDENED_RUNTIME = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C51EE2062446B217007BCE31 /* Build configuration list for PBXProject "MidiRouter_Lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE22F2446B217007BCE31 /* Debug */,
+				C51EE2302446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2312446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Build" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2322446B217007BCE31 /* Debug */,
+				C51EE2332446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2342446B217007BCE31 /* Build configuration list for PBXLegacyTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2352446B217007BCE31 /* Debug */,
+				C51EE2362446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2372446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2382446B217007BCE31 /* Debug */,
+				C51EE2392446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE23A2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Style" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE23B2446B217007BCE31 /* Debug */,
+				C51EE23C2446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE23D2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Document" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE23E2446B217007BCE31 /* Debug */,
+				C51EE23F2446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2402446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Distribute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2412446B217007BCE31 /* Debug */,
+				C51EE2422446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2432446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Archive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2442446B217007BCE31 /* Debug */,
+				C51EE2452446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2462446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Unarchive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2472446B217007BCE31 /* Debug */,
+				C51EE2482446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2492446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Boards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE24A2446B217007BCE31 /* Debug */,
+				C51EE24B2446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE24C2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Serial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE24D2446B217007BCE31 /* Debug */,
+				C51EE24E2446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE24F2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Upload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2502446B217007BCE31 /* Debug */,
+				C51EE2512446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2522446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Clean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2532446B217007BCE31 /* Debug */,
+				C51EE2542446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2552446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Make" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2562446B217007BCE31 /* Debug */,
+				C51EE2572446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE2582446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Fast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE2592446B217007BCE31 /* Debug */,
+				C51EE25A2446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE25B2446B217007BCE31 /* Build configuration list for PBXLegacyTarget "Debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE25C2446B217007BCE31 /* Debug */,
+				C51EE25D2446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51EE25E2446B217007BCE31 /* Build configuration list for PBXNativeTarget "Index" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51EE25F2446B217007BCE31 /* Debug */,
+				C51EE2602446B217007BCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C51EE2032446B217007BCE31 /* Project object */;
+}
