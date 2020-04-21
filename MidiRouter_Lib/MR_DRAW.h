@@ -31,7 +31,6 @@ void drawBox() {
     
     // Clock/Tempo Box
     tft.fillRect(tbOX, tbOY, tbWidth, tbHeight, tbColor);
-    
 }
 
 
@@ -71,9 +70,7 @@ void drawColumns() {
             dPrint(6-i);
             tft.setRotation(curRot);
         }
-        
     }
-    
 }
 
 void drawRows() {

@@ -55,7 +55,7 @@ APP_LIBS_LIST = Wire SPI USBHost_t36 Encoder Bounce2 EEPROM
 # USER = [M] MidiRouter_Lib 
 #
 # /Documents/Arduino/Libraries
-USER_LIBS_LIST = SdFat MidiRouter_Lib GSL1680 Adafruit-GFX-Library Adafruit_RA8875 arduino_midi_library
+USER_LIBS_LIST = SdFat GSL1680 Adafruit-GFX-Library Adafruit_RA8875 arduino_midi_library MidiRouter_Lib
 
 # List local libraries here
 # !!! Help: http://bit.ly/2juEP91
@@ -169,7 +169,7 @@ BOARD_PORT = /dev/cu.usbmodem*
 # !!! Help: http://bit.ly/2AUEcgp
 # Uncomment and specify another speed
 #
-#SERIAL_BAUDRATE = 115200
+SERIAL_BAUDRATE = 115200
 
 # OPTIMISATION for the optimisation and debugger levels
 # !!! Help: http://bit.ly/2kheSLz

@@ -33,8 +33,6 @@ void dWrite(unsigned char c) {
     curX = curX + (fSize*6) + 1;
 }
 
-
-
 /*
  
  // code below not used, for reference only
