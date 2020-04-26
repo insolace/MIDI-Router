@@ -1,0 +1,49 @@
+//
+//  Teensy 4.0.xcconfig
+//  Board configuration file
+//  ----------------------------------
+//  Developed with embedXcode
+//
+//  Part of embedXcode
+//  Embedded Computing on Xcode
+//
+//  Created by  Rei Vilo on 14 Aug 2019
+//  Copyright   (c) 2010-2020 https://embedXcode.weebly.com
+//  Licence     All rights reserved
+//
+// Last update: 26 Aug 2019 release 11.0.16
+
+// Board identifier
+// See Boards.txt for <tag>.name=Arduino Uno (16 MHz)
+//
+BOARD_TAG = teensy40
+//BOARD_TAG1 = teensy40.menu.opt.osstd // Smallest code
+BOARD_TAG1 = teensy40.menu.opt.o3std // Fastest code
+//BOARD_TAG1 = teensy40.menu.opt.ogstd // Debug
+
+// Port (optional)
+// most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
+//
+BOARD_PORT = /dev/tty.usbmodem*
+
+// References for Xcode code-sense
+// See Boards.txt for <tag>.build.mcu=<GCC_PREPROCESSOR_DEFINITIONS>
+//
+GCC_PREPROCESSOR_DEFINITIONS = __IMXRT1062__ TEENSYDUINO
+
+// Specify the full path and name of the application
+// with /Contents/Java/** after
+//
+APPLICATIONS_PATH = /Applications
+HEADER_SEARCH_PATHS = $(APPLICATIONS_PATH)/Teensyduino.app/Contents/Java/hardware/teensy/avr/*
+
+// Maximum RAM size in bytes
+// given by <tag>.upload.maximum_ram_size in boards.txt for Maple and Teensy
+//
+//MAX_RAM_SIZE =
+
+RESET_MESSAGE = 1
+
+WARNING_MESSAGE = BETA! Not yet tested against $(CONFIG_NAME).
+
+CONFIG_NAME = Teensy 4.0
