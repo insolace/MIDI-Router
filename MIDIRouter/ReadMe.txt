@@ -31,3 +31,11 @@ DMX not yet incorporated into prototype, but will share serial6 TX line with MID
 https://i.stack.imgur.com/0ZBnO.png
 
 Eurorack connections use TEENSY I/O and DAC with op-amps as appropriate.
+
+How to comment methods in Xcode:
+
+- Highlight the function line that you want to comment and press CMD-ALT-/
+
+/// @brief <#brief description #>
+/// @param <#parameter name#>  <# parameter description#>
+/// @return bool <# return value description #>

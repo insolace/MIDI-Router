@@ -29,13 +29,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /// @brief		Main sketch
 /// Project 	MIDIRouter Library
 ///
-/// @details	<#details#>
+/// @details	Main MIDI Router INO implementation
 /// @n @a		Developed with [embedXcode+](https://embedXcode.weebly.com)
 ///
 /// @author		Eric Bateman and Kurt Arnlund
 /// @author		Timeline85 / Ingenious Arts and Technologies LLC
 /// @date		4/25/20 6:04 PM
-/// @version	<#version#>
+/// @version	1.0.0
 ///
 /// @copyright	(c) 2020 Eric Bateman and Kurt Arnlund
 /// @copyright	GNU General Public Licence
@@ -81,10 +81,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif // end IDE
 
 // Set parameters
+/// MIDI_SERIAL_SUPPORT = add hardware serial support for midi ports
 #define MIDI_SERIAL_SUPPORT
+/// MIDI_USB_SUPPORT = add usb support for midi ports
 #define MIDI_USB_SUPPORT
+/// SDCARD_SUPPORT = add SD card support
 #define SDCARD_SUPPORT
+/// TFT_DISPLAY = add TFT display support
 #define TFT_DISPLAY
+/// STARTUP_PICTURE = show the startup picture loaded from the sd card
 #define STARTUP_PICTURE
 
 
@@ -116,51 +121,55 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Define variables and constants
+/// SdFatSdioEX - SD card object
+/// @brief [KURT] this will be moving into the MIDI Router library
 SdFatSdioEX SD;
+
+/// File - SysCsvFile csv file object
+/// @brief [KURT] this will be moving into the MIDI Router library
 File SysCsvFile; // create Sysex CSV object
+/// CSV_DELIM CSV file field delimiter
 #define CSV_DELIM ','
 
 // Knob
-#define EncA 26
-#define EncB 27
-#define EncSwitch 28
-//Encoder myEnc(EncA, EncB);
-//Bounce encPush = Bounce();
+#define EncA 26         ///< Encoder pin 1 input
+#define EncB 27         ///< Encoder pin 2 input
+#define EncSwitch 28    ///< Encoder push button pin input
 
 // DAC 16bit SPI
-#define dacA B00010100 // cv 1
-#define dacB B00010010
-#define dacC B00010110
-#define dacD B00010000
-#define dALL B00110100
+#define dacA B00010100 ///< DAC 1 address
+#define dacB B00010010 ///< DAC 2 address
+#define dacC B00010110 ///< DAC 3 address
+#define dacD B00010000 ///< DAC 4 address
+#define dALL B00110100 ///< DAC ALL address
 
-#define CS 43 // chip select
+#define CS 43   ///< SPI chip select pin
 
 // DAC 12bit internal
-#define dac5 A22
-#define dac6 A21
+#define dac5 A22    ///< DAC 5 pin
+#define dac6 A21    ///< DAC 6 pin
 
-// D1-6 setup
-#define dig1 3  // teensy pins
-#define dig2 4
-#define dig3 5
-#define dig4 6
-#define dig5 22
-#define dig6 21
-#define adc1 A9
-#define adc2 A6
+// DOUT Gate 1-6 setup
+#define dig1 3      ///< DOUT 1 pin
+#define dig2 4      ///< DOUT 2 pin
+#define dig3 5      ///< DOUT 3 pin
+#define dig4 6      ///< DOUT 4 pin
+#define dig5 22     ///< DOUT 5 pin
+#define dig6 21     ///< DOUT 6 pin
+#define adc1 A9     ///< Analog to Digital Converter 1 pin
+#define adc2 A6     ///< Analog to Digital Converter 2 pin
 
 // Hardware and USB Device MIDI
 // https://github.com/FortySevenEffects/arduino_midi_library
 // Create the Serial MIDI ports
 // MIDI_CREATE_INSTANCE(Type, SerialPort, Name)
 #ifdef MIDI_SERIAL_SUPPORT
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI1);
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial2, MIDI2);
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial3, MIDI3);
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial4, MIDI4);
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial5, MIDI5);
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6);
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI1); ///< Create MIDI 1 interace instance
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial2, MIDI2); ///< Create MIDI 2 interace instance
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial3, MIDI3); ///< Create MIDI 3 interace instance
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial4, MIDI4); ///< Create MIDI 4 interace instance
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial5, MIDI5); ///< Create MIDI 5 interace instance
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6); ///< Create MIDI 6 interace instance
 #endif // MIDI_SERIAL_SUPPORT
 
 /* todo - can't seem to figure out the right class to reference when making this array of pointers.
@@ -172,232 +181,238 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6);
  */
 
 // Create the ports for USB devices plugged into Teensy's 2nd USB port (via hubs)
-USBHost myusb;
-USBHub hub1(myusb);
-USBHub hub2(myusb);
-USBHub hub3(myusb);
-USBHub hub4(myusb);
+USBHost myusb;              ///< @return USBHost USB Host
+USBHub hub1(myusb);         ///< @return USBHub USB Hub 1
+USBHub hub2(myusb);         ///< @return USBHub USB Hub 2
+USBHub hub3(myusb);         ///< @return USBHub USB Hub 3
+USBHub hub4(myusb);         ///< @return USBHub USB Hub 4
 #ifdef MIDI_USB_SUPPORT
-MIDIDevice midi01(myusb);
-MIDIDevice midi02(myusb);
-MIDIDevice midi03(myusb);
-MIDIDevice midi04(myusb);
-MIDIDevice midi05(myusb);
-MIDIDevice midi06(myusb);
-MIDIDevice midi07(myusb);
-MIDIDevice midi08(myusb);
-MIDIDevice midi09(myusb);
-MIDIDevice midi10(myusb);
+MIDIDevice midi01(myusb);   ///< @return MIDIDevice USB MIDI 1
+MIDIDevice midi02(myusb);   ///< @return MIDIDevice USB MIDI 2
+MIDIDevice midi03(myusb);   ///< @return MIDIDevice USB MIDI 3
+MIDIDevice midi04(myusb);   ///< @return MIDIDevice USB MIDI 4
+MIDIDevice midi05(myusb);   ///< @return MIDIDevice USB MIDI 5
+MIDIDevice midi06(myusb);   ///< @return MIDIDevice USB MIDI 6
+MIDIDevice midi07(myusb);   ///< @return MIDIDevice USB MIDI 7
+MIDIDevice midi08(myusb);   ///< @return MIDIDevice USB MIDI 8
+MIDIDevice midi09(myusb);   ///< @return MIDIDevice USB MIDI 9
+MIDIDevice midi10(myusb);   ///< @return MIDIDevice USB MIDI 10
+/// a  list of usb midi devices for easy array access
 MIDIDevice * midilist[10] = {
     &midi01, &midi02, &midi03, &midi04, &midi05, &midi06, &midi07, &midi08, &midi09, &midi10
 };
 #endif // MIDI_USB_SUPPORT
 
 // Create MIDI interval timer
-IntervalTimer callMIDI;
-#define INTERVALMIDI 250 // how often (in microseconds) we call routeMidi()
+IntervalTimer callMIDI; ///< Interval timer for midi io scheduling
+#define INTERVALMIDI 250 ///< how often (in microseconds) we call routeMidi()
 
 // TFT Display pins
-#define RA8875_INT 15 // graphic interrupt
-#define RA8875_CS 14 //  chip select
-#define RA8875_RESET 35 // reset
+#define RA8875_INT 15 ///< graphic interrupt
+#define RA8875_CS 14 ///<  chip select
+#define RA8875_RESET 35 ///< reset
 
 // Initialize graphics
-Adafruit_RA8875 tft = Adafruit_RA8875(RA8875_CS, RA8875_RESET);
+Adafruit_RA8875 tft = Adafruit_RA8875(RA8875_CS, RA8875_RESET); ///< TFT Display Driver Instance
 
 // Touch Pins
-#define WAKE 16 // wakeup! (is this used?)
-#define INTRPT 17 // touch interrupt
+#define WAKE 16 ///< wakeup! (is this used?)
+#define INTRPT 17 ///< touch interrupt
 
 // touch
-GSL1680 TS = GSL1680();
+GSL1680 TS = GSL1680(); ///< Touch screen driver
 
 // clock stuff
-boolean clockPulse = 0;
-int startCount = 0;
+boolean clockPulse = 0; ///< clock pulse boolean
+int startCount = 0; ///< clock pulse start count
 
 // Teensy LED
-int led = 13;
+int led = 13; ///< LED pin
 
 // Screen Backlight Intensity
-int backLight = 255;
+int backLight = 255; ///< backlight intensity
 
 // Knob values
-long oldPosition = 0;
-long newPosition = 0;
-int knobVal = 0;
-int oldKnobVal = 0;
-bool knobDir = 0;  // 0 = CCW, 1 = CW
-bool knobAccelEnable = 0;
-unsigned long knobTimer = millis();
-unsigned long knobSlowdown = 2;  // wait this many ms before checking the knob value
-int knobSpeedup = 3; // threshold for difference between old and new value to cause a speed up
-float knobSpeedRate = 2.8; // factor (exponent) to speed up by
-int knobMin = 0;
-int knobMax = 8;
+long oldPosition = 0; ///< encoder old position
+long newPosition = 0; ///< encoder new position
+int knobVal = 0; ///< encoder knob value
+int oldKnobVal = 0; ///< encoder old knob value
+bool knobDir = 0;  ///< encoder knob direction 0 = CCW, 1 = CW
+bool knobAccelEnable = 0; ///< encoder knob acceleration
+unsigned long knobTimer = millis(); ///< encoder knob timer
+unsigned long knobSlowdown = 2;  ///< wait this many ms before checking the knob value
+int knobSpeedup = 3; ///< threshold for difference between old and new value to cause a speed up
+float knobSpeedRate = 2.8; ///< factor (exponent) to speed up by
+int knobMin = 0; ///< encoder knob min value
+int knobMax = 8; ///< encoder knob max value
 
 // DAC stuff
-float cvee = 0;
-long cveeKnobOffset = 0;
+float cvee = 0; ///< [Eric] - document me
+long cveeKnobOffset = 0; ///< [Eric] - document me
 
-long dacNeg[6];
-long dacPos[6];
-long dacOffset[120];
+long dacNeg[6]; ///< [Eric] - document me
+long dacPos[6]; ///< [Eric] - document me
+long dacOffset[120]; ///< [Eric] - document me
 
-
-//Create address offset so Array2 is located after dacOffset in EEPROM
-int eeprom_addr_offset = 0;
+int eeprom_addr_offset = 0; ///< Create address offset so Array2 is located after dacOffset in EEPROM
 
 // Colors
 #include "ColorCalc.h"
-uint16_t tbColor     = RGBColor(0, 150, 0).asUint16();       // tempo/clock box
-uint16_t hbColor     = RGBColor(102, 102, 102).asUint16();   // setup/home button
-uint16_t ibColor     = RGBColor(0, 0, 150).asUint16();       // input page box
-uint16_t insColor    = RGBColor(0, 0, 100).asUint16();       // inputs box color
-uint16_t insColFlash = RGBColor(0, 0, 255).asUint16();       // input flash color
-uint16_t obColor     = RGBColor(150, 0, 0).asUint16();       // output page box
-uint16_t outsColor   = RGBColor(100, 0, 0).asUint16();       // putputs box color
-uint16_t outColFlash = RGBColor(255, 0, 0).asUint16();       // output flash color
-uint16_t gridColor   = RGBColor(102, 102, 102).asUint16();   // grid
-uint16_t linClr      = RGBColor(0, 0, 0).asUint16();         // lines
-uint16_t txColor     = RGBColor(255, 255, 255).asUint16();   // text
-uint16_t routColor   = RGBColor(255, 255, 255).asUint16();   // routing
-uint16_t actFieldBg  = RGBColor(0, 0, 255).asUint16();       // Active Field color
-uint16_t fieldBg     = RGBColor(50, 50, 50).asUint16();      // inactive field color
+uint16_t tbColor     = RGBColor(0, 150, 0).asUint16();       ///< tempo/clock box
+uint16_t hbColor     = RGBColor(102, 102, 102).asUint16();   ///< setup/home button
+uint16_t ibColor     = RGBColor(0, 0, 150).asUint16();       ///< input page box
+uint16_t insColor    = RGBColor(0, 0, 100).asUint16();       ///< inputs box color
+uint16_t insColFlash = RGBColor(0, 0, 255).asUint16();       ///< input flash color
+uint16_t obColor     = RGBColor(150, 0, 0).asUint16();       ///< output page box
+uint16_t outsColor   = RGBColor(100, 0, 0).asUint16();       ///< putputs box color
+uint16_t outColFlash = RGBColor(255, 0, 0).asUint16();       ///< output flash color
+uint16_t gridColor   = RGBColor(102, 102, 102).asUint16();   ///< grid
+uint16_t linClr      = RGBColor(0, 0, 0).asUint16();         ///< lines
+uint16_t txColor     = RGBColor(255, 255, 255).asUint16();   ///< text
+uint16_t routColor   = RGBColor(255, 255, 255).asUint16();   ///< routing
+uint16_t actFieldBg  = RGBColor(0, 0, 255).asUint16();       ///< Active Field color
+uint16_t fieldBg     = RGBColor(50, 50, 50).asUint16();      ///< inactive field color
 
 
-uint16_t posCol;  // for CV calib
-uint16_t negCol;  // for CV calib
+uint16_t posCol;  ///< for CV calib
+uint16_t negCol;  ///< for CV calib
 
-#define SPEED 4
+#define SPEED 4     ///< [Eric] -document me
 
-long fingers, curFing, x, y;
+long fingers = 0,   ///< [Eric] -document me
+    curFing = 0,    ///< [Eric] -document me
+    x = 0,          ///< [Eric] -document me
+    y = 0;          ///< [Eric] -document me
 
 // ============================================================
 // variables begin here
 // ============================================================
 
 // Screen
-int WIDE = 799;
-int TALL = 479;
+int WIDE = 799; ///< [Eric] -document me
+int TALL = 479; ///< [Eric] -document me
 
 // Rotation, 0 = normal, 2 = 180
-int curRot = 2;
+int curRot = 2; ///< [Eric] -document me
 
 // devices
-int rows = 6;
-int columns = 6;
+int rows = 6; ///< [Eric] -document me
+int columns = 6; ///< [Eric] -document me
 
 // Sysex
-uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247};
+uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247}; ///< [Eric] -document me
 
 // Menu options
-int menu = 0;  // which menu are we looking at?  0 = routing, 1 = CV calibration
-int actField = 1; // which data entry field on the page is active?
+int menu = 0;  ///< which menu are we looking at?  0 = routing, 1 = CV calibration
+int actField = 1; ///< which data entry field on the page is active?
 
-boolean rdFlag = 0; // flag to redraw screen
+boolean rdFlag = 0; ///< flag to redraw screen
 
 // Routing page
-int inPages = 6;
-int outPages = 7;
-//int devices = pages * 6;
-int pgOut = 0;
-int pgIn = 0;
+int inPages = 6; ///< [Eric] -document me
+int outPages = 7; ///< [Eric] -document me
+//int devices = pages * 6; ///< [Eric] -document me
+int pgOut = 0; ///< [Eric] -document me
+int pgIn = 0; ///< [Eric] -document me
 //
 
 // timers to flash inputs
-elapsedMillis elapseIn;
-elapsedMillis elapseIn1;
-elapsedMillis elapseIn2;
-elapsedMillis elapseIn3;
-elapsedMillis elapseIn4;
-elapsedMillis elapseIn5;
-elapsedMillis elapseIn6;
-// delay in milliseconds between activity flashes
-unsigned int flashTime = 1000;
-int inFlag[5];
+elapsedMillis elapseIn; ///< [Eric] -document me
+elapsedMillis elapseIn1; ///< [Eric] -document me
+elapsedMillis elapseIn2; ///< [Eric] -document me
+elapsedMillis elapseIn3; ///< [Eric] -document me
+elapsedMillis elapseIn4; ///< [Eric] -document me
+elapsedMillis elapseIn5; ///< [Eric] -document me
+elapsedMillis elapseIn6; ///< [Eric] -document me
+
+unsigned int flashTime = 1000; ///< delay in milliseconds between activity flashes
+int inFlag[5]; ///< [Eric] -document me
 
 // Font color
-uint16_t fColor = RA8875_WHITE;
-uint16_t fBG = 0;
+uint16_t fColor = RA8875_WHITE; ///< [Eric] -document me
+uint16_t fBG = 0; ///< [Eric] -document me
 
 // Font dim
-int fSize = 3;
-int fWidth = 18;
-int fHeight = 25;
-uint16_t curX = 20;
-uint16_t curY = 20;
-int tBord = 5; // buffer/border from edge of screen to beginning of text
+int fSize = 3; ///< [Eric] -document me
+int fWidth = 18; ///< [Eric] -document me
+int fHeight = 25; ///< [Eric] -document me
+uint16_t curX = 20; ///< [Eric] -document me
+uint16_t curY = 20; ///< [Eric] -document me
+int tBord = 5; ///< buffer/border from edge of screen to beginning of text
 
 // =================================
 // Routing menu definitions
 // =================================
 
 // Rows
-int rOffset = 119;  // was 152
-int rHeight = (TALL - rOffset) / rows;  // 60
-int tROffset = (rHeight/2)-(fHeight/2);  // text vertical offset in rows
+int rOffset = 119;  ///< was 152 - [Eric] -document me
+int rHeight = (TALL - rOffset) / rows;  ///< 60 -  [Eric] -document me
+int tROffset = (rHeight/2)-(fHeight/2);  ///< text vertical offset in rows
 
 // Columns
-int cOffset = 199;  // was 238
-int cWidth = (WIDE - cOffset) / columns;  // 100
-int tCOffset = (cWidth/2)-(fHeight/5);  // text horizontal offset in rows
+int cOffset = 199;  ///< was 238 - [Eric] -document me
+int cWidth = (WIDE - cOffset) / columns;  ///< 100 - [Eric] -document me
+int tCOffset = (cWidth/2)-(fHeight/5);  ///< text horizontal offset in rows
 
 // Tempo Box
-float tbWidth = cOffset/2;
-float tbHeight = rOffset/2;
-float  tbOX = (cOffset - tbWidth);    // origin X
-float  tbOY = (rOffset - tbHeight);  // origin Y
-int  tbText = 60;
-int  tempo = 120;
+float tbWidth = cOffset/2; ///< [Eric] -document me
+float tbHeight = rOffset/2; ///< [Eric] -document me
+float  tbOX = (cOffset - tbWidth);    ///< origin X
+float  tbOY = (rOffset - tbHeight);  ///< origin Y
+int  tbText = 60; ///< [Eric] -document me
+int  tempo = 120; ///< [Eric] -document me
 
 // Settings/Home box
-float hbWidth = (cOffset - tbWidth);
-float hbHeight = (rOffset - tbHeight);
-int hbOX = 0;    // origin X
-int hbOY = 0;    // origin Y
+float hbWidth = (cOffset - tbWidth); ///< [Eric] -document me
+float hbHeight = (rOffset - tbHeight); ///< [Eric] -document me
+int hbOX = 0;    ///< origin X
+int hbOY = 0;    ///< origin Y
 
 // =================================
 // CV Calibration menu definitions
 // =================================
 
-int menuCV_butDacNeg5_x = 150 , menuCV_butDacNeg5_y = rOffset+100, menuCV_butDacNeg5_w = 125, menuCV_butDacNeg5_h = 50;
-int menuCV_butDacPos5_x = 460 , menuCV_butDacPos5_y = rOffset+100, menuCV_butDacPos5_w = 125, menuCV_butDacPos5_h = 50;
-int CVcalSelect = 0;
+int menuCV_butDacNeg5_x = 150,  ///< [Eric] -document me
+    menuCV_butDacNeg5_y = rOffset+100,  ///< [Eric] -document me
+    menuCV_butDacNeg5_w = 125,  ///< [Eric] -document me
+    menuCV_butDacNeg5_h = 50;   ///< [Eric] -document me
+int menuCV_butDacPos5_x = 460,  ///< [Eric] -document me
+    menuCV_butDacPos5_y = rOffset+100,  ///< [Eric] -document me
+    menuCV_butDacPos5_w = 125,  ///< [Eric] -document me
+    menuCV_butDacPos5_h = 50;   ///< [Eric] -document me
+int CVcalSelect = 0; ///< [Eric] -document me
 
 // touch
-char ystr[16];
-char xstr[16];
-long touchX = 0;
-long touchY = 0;
-long lastPress = 0;
-long newX = 0;
-long newY = 0;
-int difX = 0;
-int difY = 0;
+char ystr[16];///< [Eric] -document me
+char xstr[16];///< [Eric] -document me
+long touchX = 0;///< [Eric] -document me
+long touchY = 0;///< [Eric] -document me
+long lastPress = 0;///< [Eric] -document me
+long newX = 0;///< [Eric] -document me
+long newY = 0;///< [Eric] -document me
+int difX = 0;///< [Eric] -document me
+int difY = 0;///< [Eric] -document me
 
-unsigned long touchShort = 300;     // (ms) must touch this long to trigger
-int tMargin = 5;       // pixel margin to filter out duplicate triggers for a single touch
+unsigned long touchShort = 300;     ///< (ms) must touch this long to trigger
+int tMargin = 5;       ///< pixel margin to filter out duplicate triggers for a single touch
 
-float clearRouting = 0;
-float pi = 3.141592;
+float clearRouting = 0; ///< [Eric] -document me
+float pi = 3.141592; ///< [Eric] -document me
 
-int curRoute = 0;  // storage for current routing/filter value
-int curCol = 0;
-int curRow = 0;
+int curRoute = 0;  ///< storage for current routing/filter value
+int curCol = 0; ///< [Eric] -document me
+int curRow = 0; ///< [Eric] -document me
 
-// Initial routing
-// matrix for routing
-
-// Each byte in the routing matrix is decoded thusly:
-// -------------------------------------------------
-// bit 0 = keyboard (note on/off, pitchbend, aftertouch, etc)
-// bit 1 = parameters (CC, NRPN/RPN, Sysex parameters etc)
-// bit 3 = transport (clock, start/stop)
-// bit 4 = global channel flag (0 = pass all channels, 1 = filter using bits 5-8)
-// bits 5-8 = channel filter (only pass events matching this channel)
-
-uint8_t routing[50][50] = {  // [input port][output port]
+/// Initial routing
+/// matrix for routing
+/// Each byte in the routing matrix is decoded thusly:
+/// -------------------------------------------------
+/// bit 0 = keyboard (note on/off, pitchbend, aftertouch, etc)
+/// bit 1 = parameters (CC, NRPN/RPN, Sysex parameters etc)
+/// bit 3 = transport (clock, start/stop)
+/// bit 4 = global channel flag (0 = pass all channels, 1 = filter using bits 5-8)
+/// bits 5-8 = channel filter (only pass events matching this channel)
+uint8_t routing[50][50] = {  ///< [input port][output port]
  
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -449,99 +464,217 @@ uint8_t routing[50][50] = {  // [input port][output port]
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-
 };
 
 // CSV for SD
-char syIdHex[20];
-char mfg[80];
-int16_t idLen;
-int16_t idB1;
-int16_t idB2;
-int16_t idB3;
+char syIdHex[20]; ///< [Eric] -document me
+char mfg[80]; ///< [Eric] -document me
+int16_t idLen; ///< [Eric] -document me
+int16_t idB1; ///< [Eric] -document me
+int16_t idB2; ///< [Eric] -document me
+int16_t idB3; ///< [Eric] -document me
 
 
 // Prototypes
 // !!! Help: http://bit.ly/2TAbgoI
 // CalcColor
+/// Color Calculation
+/// @param r red 0-255
+/// @param g green 0-255
+/// @param b blue 0-255
+/// @return uint16_t 16 bit color
 uint16_t newColor(uint8_t r, uint8_t g, uint8_t b);
 
 // EEPROM
-void saveEEPROM();
-void loadEEPROM();
+void saveEEPROM(); ///< save to eeprom
+void loadEEPROM(); ///< load from eeprom
 
 // DAC
+/// set DAC output value
+/// @param dac DAC identifier
+/// @param data 32 bit output value
 void setDAC(int dac, uint32_t data);
 
 // TOUCH
-void touchIO();
-void drawTouchPos();
-void evaltouch();
-void drawMenu_Routing();
-void refMenu_Routing();
-void refMenu_Calibrate();
-void drawMenu_Calibrate();
-void drawMenu_Calibrate_udcv();
-void readKnob();
-void knobZero();
-void knobFull();
+void touchIO(); ///< perform touch i/o
+void drawTouchPos(); ///< [Eric] -document me
+void evaltouch(); ///< [Eric] -document me
+void drawMenu_Routing(); ///< [Eric] -document me
+void refMenu_Routing(); ///< [Eric] -document me
+void refMenu_Calibrate(); ///< [Eric] -document me
+void drawMenu_Calibrate(); ///< [Eric] -document me
+void drawMenu_Calibrate_udcv(); ///< [Eric] -document me
+void readKnob(); ///< [Eric] -document me
+void knobZero(); ///< [Eric] -document me
+void knobFull(); ///< [Eric] -document me
+/// @param v  [Eric] = comment on what V is
 void knobSet(int v);
-void knob_calCV();
+void knob_calCV(); ///< [Eric] -document me
+/// @param x x location
+/// @param y y location
+/// @param bx box x location
+/// @param by box y location
+/// @param bw box width
+/// @param bh box height
+/// @return boolean true if x,y location is inside the box
 boolean withinBox(int x, int y, int bx, int by, int bw, int bh);
+/// using location x determine what column it is in
+/// @param x location x
+/// @return column
 int getTouchCol(long x);
+/// using location x determine what row it is in
+/// @param y location y
+/// @return row
 int getTouchRow(long y);
 
 // DRAW
-void drawBox();
-void drawColumns();
-void drawRows();
-void drawRouting();
-void drawGLines();
-void drawBGs();
-void drawHomeScreen();
+void drawBox(); ///< [Eric] -document me
+void drawColumns(); ///< [Eric] -document me
+void drawRows(); ///< [Eric] -document me
+void drawRouting(); ///< [Eric] -document me
+void drawGLines(); ///< [Eric] -document me
+void drawBGs(); ///< [Eric] -document me
+void drawHomeScreen(); ///< [Eric] -document me
+/// [Eric] -document me
+/// @param c  [Eric] -document me
+/// @param r [Eric] -document me
 void drawPiano(int c, int r);
+/// [Eric] -document me
+/// @param inp [Eric] -document me
+/// @param state [Eric] -document me
 void flashIn(int inp, int state);
+/// [Eric] -document me
+/// @param filename [Eric] -document me
+/// @param x [Eric] -document me
+/// @param y [Eric] -document me
 void bmpDraw(const char *filename, int x, int y);
-uint16_t read16(File& f);
-uint32_t read32(File& f);
+/// [Eric] -document me
+/// @param f [Eric] -document me
+/// @return uint16_t 16 bit value
+uint16_t read16(File &f);
+/// [Eric] -document me
+/// @param f [Eric] -document me
+/// @return uint32_t 32 bit value
+uint32_t read32(File &f);
+/// create a 565 color
+/// @param r red 0-255
+/// @param g green 0-255
+/// @param b blue 0-255
+/// @return uint16_t 16 bit 565 color value
 uint16_t color565(uint8_t r, uint8_t g, uint8_t b);
 
 // MIDI
+/// [Eric] -document me
 void routeMidi();
+/// [Eric] -document me
+/// @param t [Eric] -document me
+/// @param d1 [Eric] -document me
+/// @param d2 [Eric] -document me
+/// @param ch [Eric] -document me
+/// @param inPort [Eric] -document me
 void transmitMIDI(int t, int d1, int d2, int ch, byte inPort);
+/// [Eric] -document me
+/// @param len [Eric] -document me
+/// @param sysexarray [Eric] -document me
+/// @param inPort [Eric] -document me
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort);
+/// [Eric] -document me
+/// @param note [Eric] -document me
+/// @param dac [Eric] -document me
+/// @return float value
 float CVnoteCal(int note, int dac);
+/// [Eric] -document me
+/// @param data [Eric] -document me
+/// @param dac [Eric] -document me
+/// @return float value
 float CVparamCal(int data, int dac);
+/// [Eric] -document me
 void showADC();
+/// [Eric] -document me
 void profileInstruments();
+/// [Eric] -document me
+/// @param t [Eric] -document me
+/// @param f [Eric] -document me
+/// @return bool true/false
 bool filtRoute(int t, int f);
 
 // UTIL
+/// matchSysExID
+/// @param b1 [Eric] -document me
+/// @param b2 [Eric] -document me
+/// @param b3 [Eric] -document me
 void matchSysExID(int16_t b1, int16_t b2, int16_t b3);
+/// [Eric] -document me
 void printMatch();
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param str [Eric] -document me
+/// @param size [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadText(File* SysCsvFile, char* str, size_t size, char delim);
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param num [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadInt32(File* SysCsvFile, int32_t* num, char delim);
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param num [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadInt16(File* SysCsvFile, int16_t* num, char delim);
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param num [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadUint32(File* SysCsvFile, uint32_t* num, char delim);
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param num [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadUint16(File* SysCsvFile, uint16_t* num, char delim);
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param num [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadDouble(File* SysCsvFile, double* num, char delim);
+/// [Eric] -document me
+/// @param SysCsvFile [Eric] -document me
+/// @param num [Eric] -document me
+/// @param delim [Eric] -document me
+/// @return int value
 int csvReadFloat(File* SysCsvFile, float* num, char delim);
+/// Close CSV File
 void csvClose();
+/// [Eric] -document me
+/// @param r [Eric] -document me
+/// @return int value
 int reOrderR(int r);
 
 // TXT
-void dPrint(String s, int sz=fSize);
+/// debug print
+/// @param s [Eric] -document me
+/// @param sz [Eric] -document me
+void dPrint(String s, int sz = fSize);
+/// debug write
+/// @param c [Eric] -document me
+/// @param s [Eric] -document me
 void dWrite(unsigned char c, unsigned int s);
 
 
 // Utilities
 USING_NAMESPACE_MIDIROUTER
-MIDIRouter_Lib router = MIDIRouter_Lib();
+MIDIRouter_Lib router = MIDIRouter_Lib(); ///< Create MIDI Router Object
 
 // Functions
 
 
-// Add setup code
+///! Add setup code
 void setup()
 {
     Serial.begin(115200);
@@ -713,7 +846,7 @@ void setup()
 #endif // TFT_DISPLAY
 }
 
-// Add loop code
+///! Add loop code
 void loop()
 {
     //routeMidi(); // check incoming MIDi and route it
