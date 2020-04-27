@@ -1,0 +1,42 @@
+//
+//  Teensy 3.2.xcconfig
+//  Board configuration file
+//  ----------------------------------
+//  Developed with embedXcode
+//
+//  Part of embedXcode
+//  Embedded Computing on Xcode
+//
+//  Created by  Rei Vilo on 04 Nov 2012
+//  Copyright   (c) 2010-2020 https://embedXcode.weebly.com
+//  Licence     All rights reserved
+//
+// Last update: 25 Sep 2018 release 10.0.6
+
+// Board identifier
+// See Boards.txt for <tag>.name=Arduino Uno (16 MHz)
+//
+BOARD_TAG = teensy31
+
+// Port (optional)
+// most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
+//
+BOARD_PORT = /dev/tty.usbmodem*
+
+// References for Xcode code-sense
+// See Boards.txt for <tag>.build.mcu=<GCC_PREPROCESSOR_DEFINITIONS>
+//
+GCC_PREPROCESSOR_DEFINITIONS = __MK20DX256__ TEENSYDUINO
+
+// Specify the full path and name of the application
+// with /Contents/Java/** after
+//
+APPLICATIONS_PATH = /Applications
+HEADER_SEARCH_PATHS = $(APPLICATIONS_PATH)/Teensyduino.app/Contents/Java/hardware/teensy/avr/*
+
+// Maximum RAM size in bytes
+// given by <tag>.upload.maximum_ram_size in boards.txt for Maple and Teensy
+//
+//MAX_RAM_SIZE =
+
+CONFIG_NAME = Teensy 3.2

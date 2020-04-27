@@ -1,0 +1,49 @@
+//
+//  Glowdeck (J-Link).xcconfig
+//  Board configuration file
+//  ----------------------------------
+//  Developed with embedXcode
+//
+//  Part of embedXcode
+//  Embedded Computing on Xcode
+//
+//  Created by  Rei Vilo on 08 Nov 2016
+//  Copyright   (c) 2010-2020 https://embedXcode.weebly.com
+//  Licence     All rights reserved
+//
+// Last update: 06 Jan 2016 release 6.0.2
+
+// Board identifier
+// See Boards.txt for <tag>.name=Arduino Uno (16 MHz)
+//
+BOARD_TAG = glowdeck
+
+// Port (optional)
+// most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
+//
+BOARD_PORT = /dev/cu.usbmodem*
+
+// References for Xcode code-sense
+// See Boards.txt for <tag>.build.mcu=<GCC_PREPROCESSOR_DEFINITIONS>
+//
+GCC_PREPROCESSOR_DEFINITIONS = __MK20DX256__ TEENSYDUINO GLOWDECK
+
+// Specify the full path and name of the application
+// with /Contents/Java/** after
+//
+APPLICATIONS_PATH = /Applications
+HEADER_SEARCH_PATHS = $(APPLICATIONS_PATH)/Teensyduino.app/Contents/Java/hardware/teensy/avr/** $(APPLICATIONS_PATH)/Arduino.app/Contents/Java/hardware/teensy/avr/**
+
+// Maximum RAM size in bytes
+// given by <tag>.upload.maximum_ram_size in boards.txt for Maple and Teensy
+//
+MAX_RAM_SIZE = 65536
+
+NO_SERIAL_CONSOLE = 1
+
+RESET_MESSAGE = 1
+//POST_RESET_MESSAGE = 1
+
+UPLOADER = jlink
+
+CONFIG_NAME = Glowdeck (J-Link)

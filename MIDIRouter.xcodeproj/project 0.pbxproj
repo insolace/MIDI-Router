@@ -1,0 +1,944 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C50FE597245515AE00371593 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50FE596245515AE00371593 /* main.cpp */; };
+		C50FE599245515AE00371593 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C50FE598245515AE00371593 /* Makefile */; };
+		C50FE5AB245515AE00371593 /* MIDIRouter_Library.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50FE5AA245515AE00371593 /* MIDIRouter_Library.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C50FE593245515AE00371593 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50FE596245515AE00371593 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C50FE598245515AE00371593 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		C50FE59A245515AE00371593 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+		C50FE59B245515AE00371593 /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		C50FE59D245515AE00371593 /* Glowdeck (Bluetooth).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Glowdeck (Bluetooth).xcconfig"; sourceTree = "<group>"; };
+		C50FE59E245515AE00371593 /* Glowdeck (J-Link).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Glowdeck (J-Link).xcconfig"; sourceTree = "<group>"; };
+		C50FE59F245515AE00371593 /* Glowdeck (USB).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Glowdeck (USB).xcconfig"; sourceTree = "<group>"; };
+		C50FE5A0245515AE00371593 /* Teensy 2.0.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 2.0.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A1245515AE00371593 /* Teensy 3.0.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.0.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A2245515AE00371593 /* Teensy 3.1.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.1.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A3245515AE00371593 /* Teensy 3.2.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.2.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A4245515AE00371593 /* Teensy 3.5.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.5.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A5245515AE00371593 /* Teensy 3.6.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 3.6.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A6245515AE00371593 /* Teensy 4.0.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy 4.0.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A7245515AE00371593 /* Teensy LC.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Teensy LC.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A8245515AE00371593 /* My Board.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "My Board.xcconfig"; sourceTree = "<group>"; };
+		C50FE5A9245515AE00371593 /* MIDIRouter_Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDIRouter_Library.h; sourceTree = "<group>"; };
+		C50FE5AA245515AE00371593 /* MIDIRouter_Library.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MIDIRouter_Library.cpp; sourceTree = "<group>"; };
+		C50FE5AC245515AE00371593 /* MIDIRouter.ino */ = {isa = PBXFileReference; lastKnownFileType = text; path = MIDIRouter.ino; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		C50FE57D245515AE00371593 = {
+			isa = PBXGroup;
+			children = (
+				C50FE595245515AE00371593 /* MIDIRouter */,
+				C50FE594245515AE00371593 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C50FE594245515AE00371593 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C50FE593245515AE00371593 /* Index */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C50FE595245515AE00371593 /* MIDIRouter */ = {
+			isa = PBXGroup;
+			children = (
+				C50FE596245515AE00371593 /* main.cpp */,
+				C50FE598245515AE00371593 /* Makefile */,
+				C50FE59A245515AE00371593 /* Doxyfile */,
+				C50FE59B245515AE00371593 /* ReadMe.txt */,
+				C50FE5A9245515AE00371593 /* MIDIRouter_Library.h */,
+				C50FE5AA245515AE00371593 /* MIDIRouter_Library.cpp */,
+				C50FE5AC245515AE00371593 /* MIDIRouter.ino */,
+				C50FE59C245515AE00371593 /* Configurations */,
+			);
+			path = MIDIRouter;
+			sourceTree = "<group>";
+		};
+		C50FE59C245515AE00371593 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				C50FE59D245515AE00371593 /* Glowdeck (Bluetooth).xcconfig */,
+				C50FE59E245515AE00371593 /* Glowdeck (J-Link).xcconfig */,
+				C50FE59F245515AE00371593 /* Glowdeck (USB).xcconfig */,
+				C50FE5A0245515AE00371593 /* Teensy 2.0.xcconfig */,
+				C50FE5A1245515AE00371593 /* Teensy 3.0.xcconfig */,
+				C50FE5A2245515AE00371593 /* Teensy 3.1.xcconfig */,
+				C50FE5A3245515AE00371593 /* Teensy 3.2.xcconfig */,
+				C50FE5A4245515AE00371593 /* Teensy 3.5.xcconfig */,
+				C50FE5A5245515AE00371593 /* Teensy 3.6.xcconfig */,
+				C50FE5A6245515AE00371593 /* Teensy 4.0.xcconfig */,
+				C50FE5A7245515AE00371593 /* Teensy LC.xcconfig */,
+				C50FE5A8245515AE00371593 /* My Board.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		C50FE582245515AE00371593 /* Build */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "build -C \"$(PROJECT)\" -j";
+			buildConfigurationList = C50FE5AF245515AE00371593 /* Build configuration list for PBXLegacyTarget "Build" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Build;
+			passBuildSettingsInEnvironment = 1;
+			productName = Build;
+		};
+		C50FE583245515AE00371593 /* All */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "all -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5B2245515AE00371593 /* Build configuration list for PBXLegacyTarget "All" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = All;
+			passBuildSettingsInEnvironment = 1;
+			productName = All;
+		};
+		C50FE584245515AE00371593 /* Share */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "share -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5B5245515AE00371593 /* Build configuration list for PBXLegacyTarget "Share" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Share;
+			passBuildSettingsInEnvironment = 1;
+			productName = Share;
+		};
+		C50FE585245515AE00371593 /* Style */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "style -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5B8245515AE00371593 /* Build configuration list for PBXLegacyTarget "Style" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Style;
+			passBuildSettingsInEnvironment = 1;
+			productName = Style;
+		};
+		C50FE586245515AE00371593 /* Document */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "document -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5BB245515AE00371593 /* Build configuration list for PBXLegacyTarget "Document" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Document;
+			passBuildSettingsInEnvironment = 1;
+			productName = Document;
+		};
+		C50FE587245515AE00371593 /* Distribute */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "distribute -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5BE245515AE00371593 /* Build configuration list for PBXLegacyTarget "Distribute" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Distribute;
+			passBuildSettingsInEnvironment = 1;
+			productName = Distribute;
+		};
+		C50FE588245515AE00371593 /* Archive */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "archive -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5C1245515AE00371593 /* Build configuration list for PBXLegacyTarget "Archive" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Archive;
+			passBuildSettingsInEnvironment = 1;
+			productName = Archive;
+		};
+		C50FE589245515AE00371593 /* Unarchive */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "unarchive -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5C4245515AE00371593 /* Build configuration list for PBXLegacyTarget "Unarchive" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Unarchive;
+			passBuildSettingsInEnvironment = 1;
+			productName = Unarchive;
+		};
+		C50FE58A245515AE00371593 /* Boards */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "boards -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5C7245515AE00371593 /* Build configuration list for PBXLegacyTarget "Boards" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Boards;
+			passBuildSettingsInEnvironment = 1;
+			productName = Boards;
+		};
+		C50FE58B245515AE00371593 /* Serial */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "serial -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5CA245515AE00371593 /* Build configuration list for PBXLegacyTarget "Serial" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Serial;
+			passBuildSettingsInEnvironment = 1;
+			productName = Serial;
+		};
+		C50FE58C245515AE00371593 /* Upload */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "upload -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5CD245515AE00371593 /* Build configuration list for PBXLegacyTarget "Upload" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Upload;
+			passBuildSettingsInEnvironment = 1;
+			productName = Upload;
+		};
+		C50FE58D245515AE00371593 /* Clean */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "clean -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5D0245515AE00371593 /* Build configuration list for PBXLegacyTarget "Clean" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Clean;
+			passBuildSettingsInEnvironment = 1;
+			productName = Clean;
+		};
+		C50FE58E245515AE00371593 /* Make */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "make -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5D3245515AE00371593 /* Build configuration list for PBXLegacyTarget "Make" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Make;
+			passBuildSettingsInEnvironment = 1;
+			productName = Make;
+		};
+		C50FE58F245515AE00371593 /* Fast */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "fast -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5D6245515AE00371593 /* Build configuration list for PBXLegacyTarget "Fast" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Fast;
+			passBuildSettingsInEnvironment = 1;
+			productName = Fast;
+		};
+		C50FE590245515AE00371593 /* Debug */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "debug -C \"$(PROJECT)\"";
+			buildConfigurationList = C50FE5D9245515AE00371593 /* Build configuration list for PBXLegacyTarget "Debug" */;
+			buildPhases = (
+			);
+			buildToolPath = make;
+			dependencies = (
+			);
+			name = Debug;
+			passBuildSettingsInEnvironment = 1;
+			productName = Debug;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		C50FE592245515AE00371593 /* Index */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C50FE5DC245515AE00371593 /* Build configuration list for PBXNativeTarget "Index" */;
+			buildPhases = (
+				C50FE591245515AE00371593 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Index;
+			productName = Index;
+			productReference = C50FE593245515AE00371593 /* Index */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C50FE57E245515AE00371593 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Isolace / Ingenious Arts and Technologies LLC";
+				TargetAttributes = {
+					C50FE582245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE583245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE584245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE585245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE586245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE587245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE588245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE589245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE58A245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE58B245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE58C245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE58D245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE58E245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE58F245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE590245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					C50FE592245515AE00371593 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C50FE581245515AE00371593 /* Build configuration list for PBXProject "MIDIRouter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C50FE57D245515AE00371593;
+			productRefGroup = C50FE594245515AE00371593 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C50FE582245515AE00371593 /* Build */,
+				C50FE583245515AE00371593 /* All */,
+				C50FE584245515AE00371593 /* Share */,
+				C50FE585245515AE00371593 /* Style */,
+				C50FE586245515AE00371593 /* Document */,
+				C50FE587245515AE00371593 /* Distribute */,
+				C50FE588245515AE00371593 /* Archive */,
+				C50FE589245515AE00371593 /* Unarchive */,
+				C50FE58A245515AE00371593 /* Boards */,
+				C50FE58B245515AE00371593 /* Serial */,
+				C50FE58C245515AE00371593 /* Upload */,
+				C50FE58D245515AE00371593 /* Clean */,
+				C50FE58E245515AE00371593 /* Make */,
+				C50FE58F245515AE00371593 /* Fast */,
+				C50FE590245515AE00371593 /* Debug */,
+				C50FE592245515AE00371593 /* Index */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C50FE591245515AE00371593 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C50FE599245515AE00371593 /* Makefile in Sources */,
+				C50FE597245515AE00371593 /* main.cpp in Sources */,
+				C50FE5AB245515AE00371593 /* MIDIRouter_Library.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C50FE5AD245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C50FE5A5245515AE00371593 /* Teensy 3.6.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PATH = "$(PATH):$(PROJECT_DIR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKETCHBOOK_DIR = "";
+			};
+			name = Debug;
+		};
+		C50FE5AE245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PATH = "$(PATH):$(PROJECT_DIR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKETCHBOOK_DIR = "";
+			};
+			name = Release;
+		};
+		C50FE5B0245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C50FE5B1245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C50FE5B3245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5B4245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5B6245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5B7245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5B9245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5BA245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5BC245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5BD245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5BF245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5C0245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5C2245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5C3245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5C5245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5C6245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5C8245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5C9245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5CB245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5CC245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5CE245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5CF245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5D1245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5D2245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5D4245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5D5245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5D7245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5D8245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5DA245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Debug;
+		};
+		C50FE5DB245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+			};
+			name = Release;
+		};
+		C50FE5DD245515AE00371593 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				ENABLE_HARDENED_RUNTIME = YES;
+			};
+			name = Debug;
+		};
+		C50FE5DE245515AE00371593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8E2LSZV55;
+				ENABLE_HARDENED_RUNTIME = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C50FE581245515AE00371593 /* Build configuration list for PBXProject "MIDIRouter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5AD245515AE00371593 /* Debug */,
+				C50FE5AE245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5AF245515AE00371593 /* Build configuration list for PBXLegacyTarget "Build" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5B0245515AE00371593 /* Debug */,
+				C50FE5B1245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5B2245515AE00371593 /* Build configuration list for PBXLegacyTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5B3245515AE00371593 /* Debug */,
+				C50FE5B4245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5B5245515AE00371593 /* Build configuration list for PBXLegacyTarget "Share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5B6245515AE00371593 /* Debug */,
+				C50FE5B7245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5B8245515AE00371593 /* Build configuration list for PBXLegacyTarget "Style" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5B9245515AE00371593 /* Debug */,
+				C50FE5BA245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5BB245515AE00371593 /* Build configuration list for PBXLegacyTarget "Document" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5BC245515AE00371593 /* Debug */,
+				C50FE5BD245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5BE245515AE00371593 /* Build configuration list for PBXLegacyTarget "Distribute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5BF245515AE00371593 /* Debug */,
+				C50FE5C0245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5C1245515AE00371593 /* Build configuration list for PBXLegacyTarget "Archive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5C2245515AE00371593 /* Debug */,
+				C50FE5C3245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5C4245515AE00371593 /* Build configuration list for PBXLegacyTarget "Unarchive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5C5245515AE00371593 /* Debug */,
+				C50FE5C6245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5C7245515AE00371593 /* Build configuration list for PBXLegacyTarget "Boards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5C8245515AE00371593 /* Debug */,
+				C50FE5C9245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5CA245515AE00371593 /* Build configuration list for PBXLegacyTarget "Serial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5CB245515AE00371593 /* Debug */,
+				C50FE5CC245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5CD245515AE00371593 /* Build configuration list for PBXLegacyTarget "Upload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5CE245515AE00371593 /* Debug */,
+				C50FE5CF245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5D0245515AE00371593 /* Build configuration list for PBXLegacyTarget "Clean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5D1245515AE00371593 /* Debug */,
+				C50FE5D2245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5D3245515AE00371593 /* Build configuration list for PBXLegacyTarget "Make" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5D4245515AE00371593 /* Debug */,
+				C50FE5D5245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5D6245515AE00371593 /* Build configuration list for PBXLegacyTarget "Fast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5D7245515AE00371593 /* Debug */,
+				C50FE5D8245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5D9245515AE00371593 /* Build configuration list for PBXLegacyTarget "Debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5DA245515AE00371593 /* Debug */,
+				C50FE5DB245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C50FE5DC245515AE00371593 /* Build configuration list for PBXNativeTarget "Index" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C50FE5DD245515AE00371593 /* Debug */,
+				C50FE5DE245515AE00371593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C50FE57E245515AE00371593 /* Project object */;
+}
