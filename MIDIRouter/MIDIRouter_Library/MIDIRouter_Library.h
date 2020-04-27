@@ -56,7 +56,8 @@
 BEGIN_MIDIROUTER_NAMESPACE
 
 /// Structure that describes the pins used for a midi router setup
-struct MIDIRouterSetup {
+struct MIDIRouterSetup
+{
     /// Encoder pin 1
     uint8_t encpin1;
     /// Encoder pin 2
@@ -66,11 +67,12 @@ struct MIDIRouterSetup {
 };
 
 /// MIDI Router Library object
-class MIDIRouter_Lib {
-    public:
-    
+class MIDIRouter_Lib
+{
+  public:
+
     MIDIRouter_Lib();
-    
+
     /// Locate a midi input port
     /// @param index index of port
     /// @return pointer to MRInputPort object
@@ -81,7 +83,7 @@ class MIDIRouter_Lib {
     MROutputPort *outputAt(int index);
     /// Input port filter object
     static MidiFilter inputPortFilter;
-    
+
     /// Setup an encoder
     /// @brief [KURT] this may possibly be changed in the future to us a MIDIRouterSetup structure for input
     /// @param encpin1 encoder pin 1 input
@@ -94,11 +96,11 @@ class MIDIRouter_Lib {
     /// Encoder push button object
     /// @return Bounce button debouncing object reference
     Bounce &encPush();
-    
-    private:
+
+  private:
     static MRInputPort inputs[];
     static MROutputPort outputs[];
-    
+
     Encoder *_encoder;
     Bounce *_encPush;
 };

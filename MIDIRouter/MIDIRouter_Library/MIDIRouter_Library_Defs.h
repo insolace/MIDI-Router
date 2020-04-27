@@ -69,10 +69,10 @@ BEGIN_MIDIROUTER_NAMESPACE
 
 
 /*
-#define MIDIROUTER_ADD_HARDWARE_IO_INSTANCE(SerialPort, Name)                               \
-{                                                                                           \
+    #define MIDIROUTER_ADD_HARDWARE_IO_INSTANCE(SerialPort, Name)                               \
+    {                                                                                           \
     midiRouter::MRIO_MidiHardwareSerialInterface<HardwareSerial> Name((Type&)SerialPort);   \
-}
+    }
 */
 
 END_MIDIROUTER_NAMESPACE
