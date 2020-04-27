@@ -39,3 +39,21 @@ How to comment methods in Xcode:
 /// @brief <#brief description #>
 /// @param <#parameter name#>  <# parameter description#>
 /// @return bool <# return value description #>
+
+
+The targets for embedXcode (left) and embedXcode+ (right)
+- *All* cleans the files from a previous compilation, compiles and links, uploads and opens a serial window in Terminal.
+- *Build* cleans the files from a previous compilation, compiles and links.
+- *Boards* lists all the boards with their tags and their names.
+- *Serial* open the serial console in a Terminal window.
+- *Upload* uploads the resulting HEX or BIN executable file to the board.
+- *Clean* erases the files generated from a previous compilation.
+- *Fast* compiles only the main sketch and the local libraries, links, uploads and opens a serial window in Terminal.
+- *Make* compiles only the main sketch and the local libraries, and links.
+- *Debug* compiles only the main sketch and the local libraries, links and uploads them, and opens a debugging session in a Terminal window.
+- *Style* improves the presentation of the code.
+- *Document* builds the documentation.
+- *Distribute* prepares a folder for distribution.
+- *Share* performs the Style, Document and Distribute targets.
+- *Archive* prepares archives for the local libraries.
+- *Unarchive* erases the archives for the local libraries.

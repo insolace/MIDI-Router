@@ -59,7 +59,7 @@ USER_LIBS_LIST = SdFat GSL1680 Adafruit-GFX-Library Adafruit_RA8875 arduino_midi
 # !!! Help: http://bit.ly/2juEP91
 # default = empty = all
 #
-LOCAL_LIBS_LIST = MIDIRouter_Library
+LOCAL_LIBS_LIST = 
 
 # List core, application and user's libraries to be excluded
 # !!! Help: http://bit.ly/2AijUOI
