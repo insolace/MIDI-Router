@@ -7,7 +7,7 @@
 /// @n @a		Developed with embedXcode+: https://embedXcode.weebly.com
 ///
 /// @author		Kurt Arnlund
-/// @author		Isolace / Ingenious Arts and Technologies LLC
+/// @author		Timeline85 / Ingenious Arts and Technologies LLC
 ///
 /// @date		4/25/20 6:04 PM
 /// @version	<#version#>
@@ -30,7 +30,7 @@
 /// @n @a		Developed with embedXcode+: https://embedXcode.weebly.com
 ///
 /// @author		Kurt Arnlund
-/// @author		Isolace / Ingenious Arts and Technologies LLC
+/// @author		Timeline85 / Ingenious Arts and Technologies LLC
 ///
 /// @date		4/25/20 6:04 PM
 /// @version	<#version#>

@@ -1,10 +1,15 @@
-//
-//  ColorCalc.h
-//  MidiRouter_Lib
-//
-//  Created by Kurt Arnlund on 4/16/20.
-//  Copyright © 2020 Kurt Arnlund. All rights reserved.
-//
+/*
+
+MIDI Router
+Created by Eric Bateman (eric at timeline85 dot com)
+http://www.midirouter.com
+ 
+ColorCalc.h - MIDI Router color calculations
+Source code written by Kurt Arnlund
+Copyright © Kurt Arnlund. All rights reserved.
+
+*/
+
 
 #ifndef ColorCalc_h
 #define ColorCalc_h

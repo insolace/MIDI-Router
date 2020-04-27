@@ -3,7 +3,7 @@
 //  MIDIRouter
 //
 //  Created by Kurt Arnlund on 4/25/20.
-//  Copyright © 2020 Isolace / Ingenious Arts and Technologies LLC. All rights reserved.
+//  Copyright © 2020 Timeline85 / Ingenious Arts and Technologies LLC. All rights reserved.
 //
 
 #pragma once

@@ -1,10 +1,28 @@
-//
-//  MR_TOUCH.h
-//  MidiRouter_Lib
-//
-//  Created by Kurt Arnlund on 4/16/20.
-//  Copyright © 2020 Kurt Arnlund. All rights reserved.
-//
+/*
+
+MIDI Router
+Created by Eric Bateman (eric at timeline85 dot com)
+http://www.midirouter.com
+ 
+MR_TOUCH.h - MIDI Router input processing
+Source code written by Eric Bateman with contributions from Kurt Arnlund
+Copyright © 2020 Eric Bateman and Kurt Arnlund. All rights reserved.
+
+License:GNU General Public License v3.0
+ 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #ifndef MR_TOUCH_h
 #define MR_TOUCH_h
@@ -75,13 +93,19 @@ void drawMenu_Routing() {
         // output selected
     } else if (touchY >= rOffset && touchX >= cOffset) {
         // routing grid selected
-        curGrid = routing[getTouchCol(touchX) - 1 + (pgIn * 6)][getTouchRow(touchY) - 1 + (pgOut * 6)];
-        //Serial.print("curgrid: "); Serial.println(curGrid);
-        if (curGrid == 1) {
-            routing[getTouchCol(touchX) - 1 + (pgIn * 6)][getTouchRow(touchY) - 1 + (pgOut * 6)] = 0;
+        
+        curCol = (getTouchCol(touchX) - 1) + (pgIn * 6);
+        curRow = (getTouchRow(touchY) - 1) + (pgOut * 6);
+        curRoute = routing[curCol][curRow];
+        
+        if (curRoute == 0){
+            routing[curCol][curRow] = 7; // route all
+            knobSet(1);
         } else {
-            routing[getTouchCol(touchX) - 1 + (pgIn * 6)][getTouchRow(touchY) - 1 + (pgOut * 6)] = 1;
+            routing[curCol][curRow] = 0;  // close route
+            knobSet(0);
         }
+        
         drawRouting();
         saveEEPROM();
     } else if (touchY >= tbOY && touchX >= tbOX) {
@@ -103,6 +127,7 @@ void drawMenu_Routing() {
     } else {
         // setup/home box, go to CV Calibration
         menu = 1;
+        knobAccelEnable = 1;
         refMenu_Calibrate();
     }
 }
@@ -142,6 +167,9 @@ void drawMenu_Calibrate() {  // process touch events
     //refMenu_Calibrate();
     if (touchY <= hbHeight && touchX <= hbWidth) {  // home button returns to routing
         menu = 0;
+        knobMax = 8;
+        knobMin = 0;
+        knobAccelEnable = 0;
         refMenu_Routing();
     }
     
@@ -210,7 +238,6 @@ void drawMenu_Calibrate_udcv() {
 void readKnob() {
     
     // Decode knob turn activity
-    
     if ( (millis() - knobTimer) > knobSlowdown) {  // slow down the knob updates
         knobTimer = millis();
         newPosition = router.encoder().read();
@@ -218,44 +245,59 @@ void readKnob() {
         if (newPosition != oldPosition) {  // filter out duplicate events
             Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition);
             if (newPosition < knobMin) { // limit minimum range
-                newPosition = knobMin;
-                oldPosition = knobMin;
-                router.encoder().write(0);
+                if (menu == 1) {  // CV cal menu = stop at zero
+                    knobZero();
+                } else if (menu == 0) { // routing menu = comes back around to max
+                    knobFull();
+                }
             } else if (newPosition > (knobMax * 4)) { // limit maximum range
-                newPosition = knobMax * 4;
-                oldPosition = knobMax * 4;
-                router.encoder().write(knobMax * 4);
+                if (menu == 1) { // CV cal menu = stop at max
+                    knobFull();
+                } else if (menu == 0) { // routing menu = comes back around to min
+                    knobZero();
+                }
             }
-            
             // acceleration
-            float kSpeed = newPosition - oldPosition; // speed up value change if knob is turning fast
-            if (kSpeed < 30 && abs(kSpeed) > knobSpeedup) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.
+            float kSpeed = newPosition-oldPosition;  // speed up value change if knob is turning fast
+            if ( ((kSpeed < 30) && (abs(kSpeed) > knobSpeedup)) && knobAccelEnable == 1 ) {     // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.
                 // Filter out anything greater than 30 (dirty fix)
-                Serial.print("kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));
+                Serial.print(" kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));
                 
                 if (kSpeed < 0) {
                     newPosition = newPosition - pow(abs(kSpeed), knobSpeedRate);
                 } else {
                     newPosition = newPosition + pow(abs(kSpeed), knobSpeedRate);
                 }
-                
-                router.encoder().write(newPosition);
-                Serial.print("myEnc: "); Serial.println(router.encoder().read());
             }
-            
-            oldPosition = newPosition;
-            knobVal = newPosition / 4; // four pulses per encoder click, scale down so 1 knob val = 1 click
-            if (oldKnobVal != knobVal) { // is the scaled value new?
-                // update knob value and DO SOMETHING
-                oldKnobVal = knobVal;  // store for next comparison
-                
-                if (menu == 0) {
-                    menu = 0; // do nothing on routing page
-                } else if (menu == 1) {
-                    knob_calCV();  // calibrate CV
-                }
+            router.encoder().write(newPosition);
+            Serial.print("myEnc: "); Serial.println(router.encoder().read());
+        }
+        oldPosition = newPosition;
+        knobVal = newPosition / 4; // four pulses per encoder click, scale down so 1 knob val = 1 click
+        if (oldKnobVal != knobVal) { // is the scaled value new?
+            // update knob value and DO SOMETHING
+            if (oldKnobVal < knobVal) {
+                knobDir = 1; // CW
+            } else {
+                knobDir = 0; // CCW
             }
+            Serial.print(" newPos: "); Serial.print(newPosition); Serial.print(" knobVal: "); Serial.print(knobVal); Serial.print(" Dir: "); Serial.print(knobDir);
+            oldKnobVal = knobVal;  // store for next comparison
             
+            if (menu == 0) {
+                /*if (knobVal > 60000) {
+                 knobSet(7);
+                 } else if (knobVal > 7) {
+                 knobZero();
+                 }*/
+                //knobSet(reOrderR(knobVal));
+                routing[curCol][curRow] = reOrderR(knobVal); // routing page, change routing value
+                drawRouting();
+                Serial.print(" rout: "); Serial.println(routing[curCol][curRow]);
+                
+            } else if (menu == 1) {
+                knob_calCV();  // calibrate CV
+            }
         }
     }
     
@@ -266,22 +308,41 @@ void readKnob() {
         
         if (menu == 1) { // CV calibration
             if (knobVal == 0) { // change to max value
-                router.encoder().write(knobMax * 4);
+                
                 oldPosition = knobMax * 4;
-                newPosition = knobMax * 4;
+                newPosition = oldPosition;
+                router.encoder().write(newPosition);
             } else {  // change to min value
-                router.encoder().write(knobMin * 4);
                 oldPosition = knobMin * 4;
-                newPosition = knobMin * 4;
+                newPosition = oldPosition;
+                router.encoder().write(newPosition);
             }
             knobVal = newPosition / 4;
             knob_calCV();
         }
         
-        //Serial.println(router.encoder().read());  // knob pushed, do something
     }
 }
 
+void knobZero() {
+    newPosition = knobMin;
+    oldPosition = knobMin;
+    router.encoder().write(0);
+}
+
+void knobFull() {
+    newPosition = knobMax * 4;
+    oldPosition = newPosition;
+    router.encoder().write(newPosition);
+}
+
+void knobSet(int v) {
+    newPosition = (v) * 4;
+    oldPosition = newPosition;
+    router.encoder().write(newPosition);
+    knobVal = v;
+    oldKnobVal = knobVal;
+}
 // =================================
 // Knob functions
 // =================================

@@ -1,10 +1,28 @@
-//
-//  MR_UTIL.h
-//  MidiRouter_Lib
-//
-//  Created by Kurt Arnlund on 4/16/20.
-//  Copyright © 2020 Kurt Arnlund. All rights reserved.
-//
+/*
+
+MIDI Router
+Created by Eric Bateman (eric at timeline85 dot com)
+http://www.midirouter.com
+ 
+MR_UTIL.h - MIDI Router utility functions
+Source code written by Eric Bateman with contributions from Kurt Arnlund
+Copyright © 2020 Eric Bateman and Kurt Arnlund. All rights reserved.
+
+License:GNU General Public License v3.0
+ 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #ifndef MR_UTIL_h
 #define MR_UTIL_h
@@ -166,6 +184,26 @@ int csvReadFloat(File* SysCsvFile, float* num, char delim) {
 
 void csvClose() {
     SysCsvFile.close();
+}
+
+// ================================================================================
+// Re-order routing filter sequence
+// ================================================================================
+
+int reOrderR(int r) {
+  switch (r) {                          // re-order the routing selection in a way that prioritizes early selection of common filtering
+    case  0: return B00000000;  // ___
+    case  1: return B00000111;  // KPT
+    case  2: return B00000100;  // __T
+    case  3: return B00000001;  // K__
+    case  4: return B00000011;  // KP_
+    case  5: return B00000101;  // K_T
+    case  6: return B00000110;  // _PT
+    case  7: return B00000010;  // _P_
+
+
+    default: return 0;
+  }
 }
 
 #endif /* MR_UTIL_h */
