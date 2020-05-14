@@ -444,16 +444,7 @@ void knob_calCV()
     saveEEPROM();
     drawMenu_Calibrate_udcv();
 
-    //cveeKnobOffset = (knobVal - 128) * 10;
-    //Serial.println(cveeKnobOffset);
-    //menu = cveeKnobOffset;
 
-
-
-    //tft.PWM1out(knobVal);  // dim screen
-    //setDAC(4, knobVal * 256);
-    //analogWrite(dac5, knobVal * 16);
-    //analogWrite(dac6, knobVal * 16);
 }
 
 // =================================

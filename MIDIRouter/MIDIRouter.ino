@@ -248,12 +248,10 @@ int knobMin = 0; ///< encoder knob min value
 int knobMax = 8; ///< encoder knob max value
 
 // DAC stuff
-float cvee = 0; ///< [Eric] - document me
-long cveeKnobOffset = 0; ///< [Eric] - document me
 
-long dacNeg[6]; ///< [Eric] - document me
-long dacPos[6]; ///< [Eric] - document me
-long dacOffset[120]; ///< [Eric] - document me
+long dacNeg[6]; ///< Calibrated value for -5VDC at dac output
+long dacPos[6]; ///< Calibrated value for +5VDC at dac output
+long dacOffset[120]; ///< Stored array for custom offsets per note (not yet implemented)
 
 int eeprom_addr_offset = 0; ///< Create address offset so Array2 is located after dacOffset in EEPROM
 
@@ -274,34 +272,29 @@ uint16_t routColor   = RGBColor(255, 255, 255).asUint16();   ///< routing
 uint16_t actFieldBg  = RGBColor(0, 0, 255).asUint16();       ///< Active Field color
 uint16_t fieldBg     = RGBColor(50, 50, 50).asUint16();      ///< inactive field color
 
-
 uint16_t posCol;  ///< for CV calib
 uint16_t negCol;  ///< for CV calib
 
-#define SPEED 4     ///< [Eric] -document me
-
-long fingers = 0,   ///< [Eric] -document me
-     curFing = 0,    ///< [Eric] -document me
-     x = 0,          ///< [Eric] -document me
-     y = 0;          ///< [Eric] -document me
+long fingers = 0,   ///< Number of simultaneous touchpoints (0 = 1)
+    curFing = 0;     ///< Current touchpoint
 
 // ============================================================
 // variables begin here
 // ============================================================
 
 // Screen
-int WIDE = 799; ///< [Eric] -document me
-int TALL = 479; ///< [Eric] -document me
+int WIDE = 799; ///< Width of touchscreen (0-799)
+int TALL = 479; ///< Height of touchscreen (0-479)
 
 // Rotation, 0 = normal, 2 = 180
-int curRot = 2; ///< [Eric] -document me
+int curRot = 2; ///< Current screen rotation (2 = 180 degrees);
 
 // devices
-int rows = 6; ///< [Eric] -document me
-int columns = 6; ///< [Eric] -document me
+int rows = 6; ///< Number of rows in routing UI
+int columns = 6; ///< Number of columns in routing UI
 
 // Sysex
-uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247}; ///< [Eric] -document me
+uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247}; ///< SysEx ID Request
 
 // Menu options
 int menu = 0;  ///< which menu are we looking at?  0 = routing, 1 = CV calibration
@@ -310,35 +303,35 @@ int actField = 1; ///< which data entry field on the page is active?
 boolean rdFlag = 0; ///< flag to redraw screen
 
 // Routing page
-int inPages = 6; ///< [Eric] -document me
-int outPages = 7; ///< [Eric] -document me
-//int devices = pages * 6; ///< [Eric] -document me
-int pgOut = 0; ///< [Eric] -document me
-int pgIn = 0; ///< [Eric] -document me
+int inPages = 6; ///< Number of input pages in routing UI
+int outPages = 7; ///< Number of output pages in routing UI
+
+int pgOut = 0; ///< Current output page displayed in routing UI
+int pgIn = 0; ///< Current input page displayed in routing UI
 //
 
 // timers to flash inputs
-elapsedMillis elapseIn; ///< [Eric] -document me
-elapsedMillis elapseIn1; ///< [Eric] -document me
-elapsedMillis elapseIn2; ///< [Eric] -document me
-elapsedMillis elapseIn3; ///< [Eric] -document me
-elapsedMillis elapseIn4; ///< [Eric] -document me
-elapsedMillis elapseIn5; ///< [Eric] -document me
-elapsedMillis elapseIn6; ///< [Eric] -document me
+elapsedMillis elapseIn; ///< Timer for flashing inputs
+elapsedMillis elapseIn1; ///< Timer for flashing input column 1
+elapsedMillis elapseIn2; ///< Timer for flashing input column 2
+elapsedMillis elapseIn3; ///< Timer for flashing input column 3
+elapsedMillis elapseIn4; ///< Timer for flashing input column 4
+elapsedMillis elapseIn5; ///< Timer for flashing input column 5
+elapsedMillis elapseIn6; ///< Timer for flashing input column 6
 
 unsigned int flashTime = 1000; ///< delay in milliseconds between activity flashes
-int inFlag[5]; ///< [Eric] -document me
+int inFlag[5]; ///< Flag to flash an input column
 
 // Font color
-uint16_t fColor = RA8875_WHITE; ///< [Eric] -document me
-uint16_t fBG = 0; ///< [Eric] -document me
+uint16_t fColor = RA8875_WHITE; ///< Font Color
+uint16_t fBG = 0; ///< Font Backgeround Color
 
 // Font dim
-int fSize = 3; ///< [Eric] -document me
-int fWidth = 18; ///< [Eric] -document me
-int fHeight = 25; ///< [Eric] -document me
-uint16_t curX = 20; ///< [Eric] -document me
-uint16_t curY = 20; ///< [Eric] -document me
+int fSize = 3; ///< Font Size
+int fWidth = 18; ///< Font Width
+int fHeight = 25; ///< Font Height
+uint16_t curX = 20; ///< Current X coordinate to draw to
+uint16_t curY = 20; ///< Current Y coordinate to draw to
 int tBord = 5; ///< buffer/border from edge of screen to beginning of text
 
 // =================================
@@ -346,63 +339,62 @@ int tBord = 5; ///< buffer/border from edge of screen to beginning of text
 // =================================
 
 // Rows
-int rOffset = 119;  ///< was 152 - [Eric] -document me
-int rHeight = (TALL - rOffset) / rows;  ///< 60 -  [Eric] -document me
-int tROffset = (rHeight / 2) - (fHeight / 2); ///< text vertical offset in rows
+int rOffset = 119;  ///< was 152 - Offset from top of screen to first row
+int rHeight = (TALL - rOffset) / rows;  ///< 60 -  Row height
+int tROffset = (rHeight / 2) - (fHeight / 2); ///< text vertical offset for rows
 
 // Columns
-int cOffset = 199;  ///< was 238 - [Eric] -document me
-int cWidth = (WIDE - cOffset) / columns;  ///< 100 - [Eric] -document me
-int tCOffset = (cWidth / 2) - (fHeight / 5); ///< text horizontal offset in rows
+int cOffset = 199;  ///< was 238 - Offset from left side of screen to first column
+int cWidth = (WIDE - cOffset) / columns;  ///< 100 - Column width
+int tCOffset = (cWidth / 2) - (fHeight / 5); ///< text horizontal offset for columns
 
 // Tempo Box
-float tbWidth = cOffset / 2; ///< [Eric] -document me
-float tbHeight = rOffset / 2; ///< [Eric] -document me
-float  tbOX = (cOffset - tbWidth);    ///< origin X
-float  tbOY = (rOffset - tbHeight);  ///< origin Y
-int  tbText = 60; ///< [Eric] -document me
-int  tempo = 120; ///< [Eric] -document me
+float tbWidth = cOffset / 2; ///< Tempo box width
+float tbHeight = rOffset / 2; ///< Tempo box height
+float  tbOX = (cOffset - tbWidth);    ///< Tempo box origin X
+float  tbOY = (rOffset - tbHeight);  ///< Tempo box origin Y
+int  tempo = 120; ///< Current tempo - not implemented
 
 // Settings/Home box
-float hbWidth = (cOffset - tbWidth); ///< [Eric] -document me
-float hbHeight = (rOffset - tbHeight); ///< [Eric] -document me
-int hbOX = 0;    ///< origin X
-int hbOY = 0;    ///< origin Y
+float hbWidth = (cOffset - tbWidth); ///< Home box width
+float hbHeight = (rOffset - tbHeight); ///< Home box height
+int hbOX = 0;    ///< Home box origin X
+int hbOY = 0;    ///< Home box origin Y
 
 // =================================
 // CV Calibration menu definitions
 // =================================
 
-int menuCV_butDacNeg5_x = 150,  ///< [Eric] -document me
-    menuCV_butDacNeg5_y = rOffset + 100, ///< [Eric] -document me
-    menuCV_butDacNeg5_w = 125,  ///< [Eric] -document me
-    menuCV_butDacNeg5_h = 50;   ///< [Eric] -document me
-int menuCV_butDacPos5_x = 460,  ///< [Eric] -document me
-    menuCV_butDacPos5_y = rOffset + 100, ///< [Eric] -document me
-    menuCV_butDacPos5_w = 125,  ///< [Eric] -document me
-    menuCV_butDacPos5_h = 50;   ///< [Eric] -document me
-int CVcalSelect = 0; ///< [Eric] -document me
+int menuCV_butDacNeg5_x = 150,  ///< X coordinate for -5VDC calibration box
+    menuCV_butDacNeg5_y = rOffset + 100, ///< Y coordinate for -5V calibration box
+    menuCV_butDacNeg5_w = 125,  ///< Width for -5V calibration box
+    menuCV_butDacNeg5_h = 50;   ///< Height for -5V calibration box
+int menuCV_butDacPos5_x = 460,  ///< X coordinate for +5VDC calibration box
+    menuCV_butDacPos5_y = rOffset + 100, ///< Y coordinate for +5VDC calibration box
+    menuCV_butDacPos5_w = 125,  ///< Width for +5VDC calibration box
+    menuCV_butDacPos5_h = 50;   ///< Height for +5VDC calibration box
+int CVcalSelect = 0; ///< Current CV/DAC output selected for calibration
 
 // touch
-char ystr[16];///< [Eric] -document me
-char xstr[16];///< [Eric] -document me
-long touchX = 0;///< [Eric] -document me
-long touchY = 0;///< [Eric] -document me
-long lastPress = 0;///< [Eric] -document me
-long newX = 0;///< [Eric] -document me
-long newY = 0;///< [Eric] -document me
-int difX = 0;///< [Eric] -document me
-int difY = 0;///< [Eric] -document me
+char ystr[16];///< Array to convert touchY from a string for debugging
+char xstr[16];///< Array to convert touchX from a string for debugging
+long touchX = 0;///< X coordinate of last touchpoint
+long touchY = 0;///< Y coordinate of last touchpoint
+long lastPress = 0;///< Timer for the last time we received a touch interrupt. Filters out duplicate events.
+long newX = 0;///< X coordinate of newly received touchpoint
+long newY = 0;///< Y coordinate of newly received touchpoint
+int difX = 0;///< The difference between the last touch X coordinate and the one just received. Filters out duplicate events.
+int difY = 0;///< The difference between the last touch Y coordinate and the one just received. Filters out duplicate events.
 
 unsigned long touchShort = 300;     ///< (ms) must touch this long to trigger
 int tMargin = 5;       ///< pixel margin to filter out duplicate triggers for a single touch
 
-float clearRouting = 0; ///< [Eric] -document me
-float pi = 3.141592; ///< [Eric] -document me
+float clearRouting = 0; ///< Flag to clear all routings
+float pi = 3.141592; ///< Store this in EEPROM to indicate that this isn't the first time we've turned on the MIDI Router. If EEPROM doesn't contain this value, write Zero's to all routing points (EEPROM factory default values are -1)
 
-int curRoute = 0;  ///< storage for current routing/filter value
-int curCol = 0; ///< [Eric] -document me
-int curRow = 0; ///< [Eric] -document me
+int curRoute = 0;  ///< Storage for current routing/filter value
+int curCol = 0; ///< Current selected column
+int curRow = 0; ///< Current selected row
 
 /// Initial routing
 /// matrix for routing
@@ -468,13 +460,13 @@ uint8_t routing[50][50] =    ///< [input port][output port]
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
-// CSV for SD
-char syIdHex[20]; ///< [Eric] -document me
-char mfg[80]; ///< [Eric] -document me
-int16_t idLen; ///< [Eric] -document me
-int16_t idB1; ///< [Eric] -document me
-int16_t idB2; ///< [Eric] -document me
-int16_t idB3; ///< [Eric] -document me
+// Variables for storing and reading SysEx/CSV from SD card
+char syIdHex[20]; ///< Column 1, SysEx ID header in HEX
+char mfg[80]; ///< Column 2, manufacturer name (text/ASCII)
+int16_t idLen; ///< Column 3, the length of the SysEx ID in bytes
+int16_t idB1; ///< Column 4, ID byte 1
+int16_t idB2; ///< Column 5, ID byte 2
+int16_t idB3; ///< Column 6, ID byte 3
 
 
 // Prototypes
@@ -494,24 +486,24 @@ void loadEEPROM(); ///< load from eeprom
 // DAC
 /// set DAC output value
 /// @param dac DAC identifier
-/// @param data 32 bit output value
+/// @param data 16 bit output value for DAC1-4, 12 bit output value for DAC5-6
 void setDAC(int dac, uint32_t data);
 
 // TOUCH
 void touchIO(); ///< perform touch i/o
-void drawTouchPos(); ///< [Eric] -document me
-void evaltouch(); ///< [Eric] -document me
-void drawMenu_Routing(); ///< [Eric] -document me
-void refMenu_Routing(); ///< [Eric] -document me
-void refMenu_Calibrate(); ///< [Eric] -document me
-void drawMenu_Calibrate(); ///< [Eric] -document me
-void drawMenu_Calibrate_udcv(); ///< [Eric] -document me
-void readKnob(); ///< [Eric] -document me
-void knobZero(); ///< [Eric] -document me
-void knobFull(); ///< [Eric] -document me
-/// @param v  [Eric] = comment on what V is
+void drawTouchPos(); ///< Display current touch position on the screen
+void evaltouch(); ///< Evaluate current touch coordinates
+void drawMenu_Routing(); ///< Draw the routing menu/page
+void refMenu_Routing(); ///< Refresh routing menu/page
+void refMenu_Calibrate(); ///< Refresh calibration menu/page
+void drawMenu_Calibrate(); ///< Draw the calibration menu
+void drawMenu_Calibrate_udcv(); ///< Update CV calibration values
+void readKnob(); ///< Process knob input
+void knobZero(); ///< Zero out the knob value
+void knobFull(); ///< Set knob value to max
+/// @param v  Value to set knob to
 void knobSet(int v);
-void knob_calCV(); ///< [Eric] -document me
+void knob_calCV(); ///< Process knob input in CV calibration menu/page
 /// @param x x location
 /// @param y y location
 /// @param bx box x location
@@ -530,32 +522,32 @@ int getTouchCol(long x);
 int getTouchRow(long y);
 
 // DRAW
-void drawBox(); ///< [Eric] -document me
-void drawColumns(); ///< [Eric] -document me
-void drawRows(); ///< [Eric] -document me
-void drawRouting(); ///< [Eric] -document me
-void drawGLines(); ///< [Eric] -document me
-void drawBGs(); ///< [Eric] -document me
-void drawHomeScreen(); ///< [Eric] -document me
-/// [Eric] -document me
-/// @param c  [Eric] -document me
-/// @param r [Eric] -document me
+void drawBox(); ///< Draw the four boxes in the upper left of the display
+void drawColumns(); ///< Draw columns
+void drawRows(); ///< Draw rows
+void drawRouting(); ///< Draw the current routing grid
+void drawGLines(); ///< Draw the routing grid lines
+void drawBGs(); ///< Draw backgrounds
+void drawHomeScreen(); ///< Draw the home screen
+/// Draw a piano at the given row/column routing point
+/// @param c  Column
+/// @param r Row
 void drawPiano(int c, int r);
-/// [Eric] -document me
-/// @param inp [Eric] -document me
-/// @param state [Eric] -document me
+/// Flash an input column
+/// @param inp Input Column
+/// @param state State of flashing input
 void flashIn(int inp, int state);
-/// [Eric] -document me
-/// @param filename [Eric] -document me
-/// @param x [Eric] -document me
-/// @param y [Eric] -document me
+/// Draw a bitmap
+/// @param filename Filename on the SD card
+/// @param x X coordinate to draw the BMP
+/// @param y Y coordinate to draw the BMP
 void bmpDraw(const char *filename, int x, int y);
-/// [Eric] -document me
-/// @param f [Eric] -document me
+/// Read a 16 bit value from the current open file
+/// @param f File location
 /// @return uint16_t 16 bit value
 uint16_t read16(File &f);
-/// [Eric] -document me
-/// @param f [Eric] -document me
+/// Read a 32 bit value from the current open file
+/// @param f File location
 /// @return uint32_t 32 bit value
 uint32_t read32(File &f);
 /// create a 565 color
@@ -566,106 +558,106 @@ uint32_t read32(File &f);
 uint16_t color565(uint8_t r, uint8_t g, uint8_t b);
 
 // MIDI
-/// [Eric] -document me
+/// Route the MIDI
 void routeMidi();
-/// [Eric] -document me
-/// @param t [Eric] -document me
-/// @param d1 [Eric] -document me
-/// @param d2 [Eric] -document me
-/// @param ch [Eric] -document me
-/// @param inPort [Eric] -document me
+/// Transmit MIDI
+/// @param t Type (noteon, CC, sysex, etc.)
+/// @param d1 Data byte 1
+/// @param d2 Data byte 2
+/// @param ch Channel
+/// @param inPort Input port (DIN1, USB, DAW etc)
 void transmitMIDI(int t, int d1, int d2, int ch, byte inPort);
-/// [Eric] -document me
-/// @param len [Eric] -document me
-/// @param sysexarray [Eric] -document me
-/// @param inPort [Eric] -document me
+/// Transmit SysEx
+/// @param len Length of the SysEx array to transmit
+/// @param sysexarray Sysex Array
+/// @param inPort Input port (DIN, USB, DAW etc)
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort);
-/// [Eric] -document me
-/// @param note [Eric] -document me
-/// @param dac [Eric] -document me
+/// Set DAC/CV output to a calibrated 1v/oct
+/// @param note MIDI note (0-119, 10 octaves over 10v)
+/// @param dac DAC output to set (1-6)
 /// @return float value
 float CVnoteCal(int note, int dac);
-/// [Eric] -document me
-/// @param data [Eric] -document me
-/// @param dac [Eric] -document me
+/// Set DAC/CV to a calibrated CC value (0-127)
+/// @param data Data to send (0-127)
+/// @param dac DAC output to set
 /// @return float value
 float CVparamCal(int data, int dac);
-/// [Eric] -document me
+/// Print ADC values to Serial port
 void showADC();
-/// [Eric] -document me
+/// Profile instruments connected to DIN ports using SysEx ID Request
 void profileInstruments();
-/// [Eric] -document me
-/// @param t [Eric] -document me
-/// @param f [Eric] -document me
+/// Evaluate MIDI type against filter
+/// @param t MIDI Type (noteon, cc, etc)
+/// @param f Filter value
 /// @return bool true/false
 bool filtRoute(int t, int f);
 
 // UTIL
 /// matchSysExID
-/// @param b1 [Eric] -document me
-/// @param b2 [Eric] -document me
-/// @param b3 [Eric] -document me
+/// @param b1 Byte 1
+/// @param b2 Byte 2
+/// @param b3 Byte 3
 void matchSysExID(int16_t b1, int16_t b2, int16_t b3);
-/// [Eric] -document me
+/// Debugging - print the matched SysEx ID to the Serial port
 void printMatch();
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param str [Eric] -document me
-/// @param size [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read text from CSV
+/// @param SysCsvFile File
+/// @param str Pointer to store/return text
+/// @param size Size
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadText(File* SysCsvFile, char* str, size_t size, char delim);
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param num [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read 32 bit value from CSV
+/// @param SysCsvFile File
+/// @param num Pointer to store data
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadInt32(File* SysCsvFile, int32_t* num, char delim);
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param num [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read 16 bit value from CSV
+/// @param SysCsvFile File
+/// @param num Pointer to store data
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadInt16(File* SysCsvFile, int16_t* num, char delim);
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param num [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read uint 32 bit value from CSV
+/// @param SysCsvFile File
+/// @param num Pointer to store data
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadUint32(File* SysCsvFile, uint32_t* num, char delim);
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param num [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read uint 16 bit value from CSV
+/// @param SysCsvFile File
+/// @param num Pointer to store data
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadUint16(File* SysCsvFile, uint16_t* num, char delim);
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param num [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read double value from CSV
+/// @param SysCsvFile File
+/// @param num Pointer to store data
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadDouble(File* SysCsvFile, double* num, char delim);
-/// [Eric] -document me
-/// @param SysCsvFile [Eric] -document me
-/// @param num [Eric] -document me
-/// @param delim [Eric] -document me
+/// Read floating point value from CSV
+/// @param SysCsvFile File
+/// @param num Pointer to store data
+/// @param delim Character separator (",")
 /// @return int value
 int csvReadFloat(File* SysCsvFile, float* num, char delim);
 /// Close CSV File
 void csvClose();
-/// [Eric] -document me
-/// @param r [Eric] -document me
+/// Re-order the filtering options so that the most convinient filters come up first
+/// @param r Value to be re-ordered
 /// @return int value
 int reOrderR(int r);
 
 // TXT
-/// debug print
-/// @param s [Eric] -document me
-/// @param sz [Eric] -document me
+/// Print string to display
+/// @param s String to print
+/// @param sz Font size
 void dPrint(String s, int sz = fSize);
-/// debug write
-/// @param c [Eric] -document me
-/// @param s [Eric] -document me
+/// Print character to display
+/// @param c Character
+/// @param s Font size
 void dWrite(unsigned char c, unsigned int s);
 
 

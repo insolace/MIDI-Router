@@ -452,17 +452,14 @@ void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort)
 float CVnoteCal(int note, int dac)
 {
     float cvrange = (dacPos[dac] - dacNeg[dac]);
-    cvee = ((note * (cvrange / 120)) + dacNeg[dac]);
-    return (cvee);
-    //analogWrite(dac5, d1 * 34.133);
-    //analogWrite(dac6, d1 * 34.133);
+    return ((note * (cvrange / 120)) + dacNeg[dac]);
+
 }
 
 float CVparamCal(int data, int dac)
 {
     float cvrange = ((dacPos[dac] - dacNeg[dac]) / 2);
-    cvee = ((data * (cvrange / 127)) + dacNeg[dac]) + cvrange;
-    return (cvee);
+    return (((data * (cvrange / 127)) + dacNeg[dac]) + cvrange);
 }
 
 void showADC()
