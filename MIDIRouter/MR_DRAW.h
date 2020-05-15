@@ -30,8 +30,9 @@
 // =============================
 // draw globals box
 // =============================
-void drawBox() {
-    
+void drawBox()
+{
+
     // Settings/Home
     tft.fillRect(hbOX, hbOY, hbWidth, hbHeight, hbColor);
     tft.setCursor(cOffset * .25 - 12, rOffset * .25, 1);
@@ -47,14 +48,14 @@ void drawBox() {
     if (menu == 0) {
         tft.print("IN");
     }
-    
+
     // outputs page select Background
     tft.fillRect(0, hbHeight, hbWidth, tbHeight, obColor);
     tft.setCursor(cOffset * .25 - 8, rOffset * .75, 1);
     if (menu == 0) {
         tft.print("OUT");
     }
-    
+
     // Clock/Tempo Box
     tft.fillRect(tbOX, tbOY, tbWidth, tbHeight, tbColor);
     tft.setCursor(cOffset * .75, rOffset * .75, 1);
@@ -76,7 +77,8 @@ void drawBox() {
 // =============================
 
 
-void drawColumns() {
+void drawColumns()
+{
     tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor);
     tft.setTextColor(txColor);
     
@@ -85,45 +87,37 @@ void drawColumns() {
     for (int i = 0; i < columns; i++) {
         if (menu == 0) {  // routing
             tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, linClr);
-            //tft.setRotation(1);
             tft.setActiveWindow(cOffset + (i*cWidth) + tBord, cOffset + ((i+1)*cWidth) - tBord, tBord, rOffset - tBord );
             input = router.inputAt(i+(pgIn *6));
             tft.setCursor(cOffset + (i*cWidth) + tBord, tBord);
-            
             tft.print(input->name);
-            //printVert(input->name);
-            //tft.setRotation(curRot);
             
         } else if (menu == 1) { // cv calibrate
             tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, linClr);
             tft.setActiveWindow(cOffset + (i*cWidth) + tBord, cOffset + ((i+1)*cWidth) - tBord, tBord, rOffset - tBord );
             if (i == CVcalSelect) {
-                //Serial.println("fillrect");
-                tft.fillRect( cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, actFieldBg);
+                tft.fillRect(cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, actFieldBg);
             }
-            //tft.setRotation(1);
-            //Serial.println("tft.print");
             
             // router could be used to obtain the CV names here
             //input = router.inputAt((5-i)+(pgIn *6));
             tft.setCursor(cOffset + (i*cWidth) + tBord, tBord);
             tft.print("A");
             tft.print(i+1);
-            //tft.setRotation(curRot);
         }
         tft.setActiveWindow();
     }
 }
 
-void drawRows() {
-    
+void drawRows()
+{
+
     tft.fillRect(0, rOffset, cOffset, TALL - rOffset, outsColor);
-    
+
     MROutputPort *output;
-    
-    for (int i = 0; i < rows; i++) {
-        //tft.textColor(txColor, outsColor);
-        //tft.textSetCursor(0, rOffset + (i*rHeight));
+
+    for (int i = 0; i < rows; i++)
+    {
         tft.setCursor(tBord, rOffset + (i*rHeight) + tROffset);
         output = router.outputAt(i+(pgOut *6));
         tft.print(output->name);
@@ -168,11 +162,14 @@ void drawRouting() {
 }
 
 // Draw grid lines
-void drawGLines() {
-    for (int i = 0; i < rows; i++) {
+void drawGLines()
+{
+    for (int i = 0; i < rows; i++)
+    {
         tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), linClr);
     }
-    for (int i = 0; i < columns; i++) {
+    for (int i = 0; i < columns; i++)
+    {
         tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, linClr);
     }
 }
@@ -181,17 +178,19 @@ void drawGLines() {
 // draw backgrounds; grid, inputs and outputs
 // =============================
 
-void drawBGs() {
+void drawBGs()
+{
     //tft.fillRect(cOffset, rOffset, WIDE,TALL, gridColor);  // grid bg
-    tft.fillRect(cOffset, 0, WIDE-cOffset, rOffset, insColor);  // inputs bg
-    tft.fillRect(0, rOffset, cOffset, TALL-rOffset, outsColor);  // outputs bg
+    tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor); // inputs bg
+    tft.fillRect(0, rOffset, cOffset, TALL - rOffset, outsColor); // outputs bg
 }
 
 // =============================
 // draw homescreen
 // =============================
 
-void drawHomeScreen() {
+void drawHomeScreen()
+{
     drawBox();
     drawBGs();
     drawRows();
@@ -245,24 +244,28 @@ void drawPiano(int c, int r) {
 // Flash ins/outs
 // =============================
 
-void flashIn(int inp, int state) {
-    if (pgIn * 6 >= inp){             // don't flash if not on correct page
+void flashIn(int inp, int state)
+{
+    if (pgIn * 6 >= inp)              // don't flash if not on correct page
+    {
         return;
     }
-    if (state != 0){
+    if (state != 0)
+    {
         // draw input background
-        tft.fillRect( cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColFlash);
+        tft.fillRect(cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColFlash);
         //(*elapsedIn+inp) = 0;
         inFlag[inp] = 1;
-    } else {
-        // draw input background
-        tft.fillRect( cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColor);
     }
-    
+    else
+    {
+        // draw input background
+        tft.fillRect(cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColor);
+    }
+
     // redraw input name
     tft.setTextColor(txColor);
     tft.setCursor(cOffset + (inp*cWidth) + tCOffset , rOffset - tROffset);
-    
 }
 
 // =============================
@@ -271,13 +274,14 @@ void flashIn(int inp, int state) {
 
 #define BUFFPIXEL 85
 
-void bmpDraw(const char *filename, int x, int y) {
+void bmpDraw(const char *filename, int x, int y)
+{
     File     bmpFile;
     int      bmpWidth, bmpHeight;   // W+H in pixels
     uint8_t  bmpDepth;              // Bit depth (currently must be 24)
     uint32_t bmpImageoffset;        // Start of image data in file
     uint32_t rowSize;               // Not always = bmpWidth; may have padding
-    uint8_t  sdbuffer[3*BUFFPIXEL]; // pixel in buffer (R+G+B per pixel)
+    uint8_t  sdbuffer[3 * BUFFPIXEL]; // pixel in buffer (R+G+B per pixel)
     uint16_t lcdbuffer[BUFFPIXEL];  // pixel out buffer (16-bit per pixel)
     uint8_t  buffidx = sizeof(sdbuffer); // Current position in sdbuffer
     boolean  goodBmp = false;       // Set to true on valid header parse
@@ -286,104 +290,128 @@ void bmpDraw(const char *filename, int x, int y) {
     uint8_t  r, g, b;
     uint32_t pos = 0, startTime = millis();
     uint8_t  lcdidx = 0;
-    
-    if((x >= tft.width()) || (y >= tft.height())) return;
-    
+
+    if ((x >= tft.width()) || (y >= tft.height()))
+    {
+        return;
+    }
+
     Serial.println();
     Serial.print(F("Loading image '"));
     Serial.print(filename);
     Serial.println('\'');
-    
+
     // Open requested file on SD card
-    if ((bmpFile = SD.open(filename)) == false) {
+    if ((bmpFile = SD.open(filename)) == false)
+    {
         Serial.println(F("File not found"));
         tft.setCursor(x,y);
         tft.print("BMP NOT FOUND");
         delay(2000);
         return;
     }
-    
+
     // Parse BMP header
-    if(read16(bmpFile) == 0x4D42) { // BMP signature
+    if (read16(bmpFile) == 0x4D42)  // BMP signature
+    {
         Serial.println(F("File size: "));
         Serial.println(read32(bmpFile));
         (void)read32(bmpFile); // Read & ignore creator bytes
         bmpImageoffset = read32(bmpFile); // Start of image data
         Serial.print(F("Image Offset: "));
         Serial.println(bmpImageoffset, DEC);
-        
+
         // Read DIB header
         Serial.print(F("Header size: "));
         Serial.println(read32(bmpFile));
         bmpWidth  = read32(bmpFile);
         bmpHeight = read32(bmpFile);
-        
-        if(read16(bmpFile) == 1) { // # planes -- must be '1'
+
+        if (read16(bmpFile) == 1)  // # planes -- must be '1'
+        {
             bmpDepth = read16(bmpFile); // bits per pixel
             Serial.print(F("Bit Depth: "));
             Serial.println(bmpDepth);
-            if((bmpDepth == 24) && (read32(bmpFile) == 0)) { // 0 = uncompressed
+            if ((bmpDepth == 24) && (read32(bmpFile) == 0))  // 0 = uncompressed
+            {
                 goodBmp = true; // Supported BMP format -- proceed!
                 Serial.print(F("Image size: "));
                 Serial.print(bmpWidth);
                 Serial.print('x');
                 Serial.println(bmpHeight);
-                
+
                 // BMP rows are padded (if needed) to 4-byte boundary
                 rowSize = (bmpWidth * 3 + 3) & ~3;
-                
+
                 // If bmpHeight is negative, image is in top-down order.
                 // This is not canon but has been observed in the wild.
-                if(bmpHeight < 0) {
+                if (bmpHeight < 0)
+                {
                     bmpHeight = -bmpHeight;
                     flip      = false;
                 }
-                
+
                 // Crop area to be loaded
                 w = bmpWidth;
                 h = bmpHeight;
-                if((x+w-1) >= tft.width())  w = tft.width()  - x;
-                if((y+h-1) >= tft.height()) h = tft.height() - y;
-                
+                if ((x + w - 1) >= tft.width())
+                {
+                    w = tft.width()  - x;
+                }
+                if ((y + h - 1) >= tft.height())
+                {
+                    h = tft.height() - y;
+                }
+
                 // Set TFT address window to clipped image bounds
                 ypos = y;
-                for (row=0; row<h; row++) { // For each scanline...
+                for (row = 0; row < h; row++) // For each scanline...
+                {
                     // Seek to start of scan line.  It might seem labor-
                     // intensive to be doing this on every line, but this
                     // method covers a lot of gritty details like cropping
                     // and scanline padding.  Also, the seek only takes
                     // place if the file position actually needs to change
                     // (avoids a lot of cluster math in SD library).
-                    if(flip) // Bitmap is stored bottom-to-top order (normal BMP)
+                    if (flip) // Bitmap is stored bottom-to-top order (normal BMP)
+                    {
                         pos = bmpImageoffset + (bmpHeight - 1 - row) * rowSize;
+                    }
                     else     // Bitmap is stored top-to-bottom
+                    {
                         pos = bmpImageoffset + row * rowSize;
-                    
-                    if (bmpFile.position() != pos) { // Need seek?
+                    }
+
+                    if (bmpFile.position() != pos)   // Need seek?
+                    {
                         bmpFile.seek(pos);
                         buffidx = sizeof(sdbuffer); // Force buffer reload
                     }
                     xpos = x;
-                    for (col=0; col<w; col++) { // For each column...
+                    for (col = 0; col < w; col++) // For each column...
+                    {
                         // Time to read more pixel data?
-                        if (buffidx >= sizeof(sdbuffer)) { // Indeed
+                        if (buffidx >= sizeof(sdbuffer))   // Indeed
+                        {
                             // Push LCD buffer to the display first
-                            if(lcdidx > 0) {
+                            if (lcdidx > 0)
+                            {
                                 tft.drawPixels(lcdbuffer, lcdidx, xpos, ypos);
                                 xpos += lcdidx;
                                 lcdidx = 0;
                             }
-                            
+
                             bmpFile.read(sdbuffer, sizeof(sdbuffer));
                             buffidx = 0; // Set index to beginning
                         }
-                        
+
                         // Convert pixel from BMP to TFT format
                         b = sdbuffer[buffidx++];
                         g = sdbuffer[buffidx++];
                         r = sdbuffer[buffidx++];
-                        lcdbuffer[lcdidx++] = color565(r,g,b);
-                        if (lcdidx >= sizeof(lcdbuffer) || (xpos - x + lcdidx) >= w) {
+                        lcdbuffer[lcdidx++] = color565(r, g, b);
+                        if (lcdidx >= sizeof(lcdbuffer) || (xpos - x + lcdidx) >= w)
+                        {
                             tft.drawPixels(lcdbuffer, lcdidx, xpos, ypos);
                             lcdidx = 0;
                             xpos += lcdidx;
@@ -391,36 +419,42 @@ void bmpDraw(const char *filename, int x, int y) {
                     } // end pixel
                     ypos++;
                 } // end scanline
-                
+
                 // Write any remaining data to LCD
-                if(lcdidx > 0) {
+                if (lcdidx > 0)
+                {
                     tft.drawPixels(lcdbuffer, lcdidx, xpos, ypos);
                     xpos += lcdidx;
                 }
-                
+
                 Serial.print(F("Loaded in "));
                 Serial.print(millis() - startTime);
                 Serial.println(" ms");
-                
+
             } // end goodBmp
         }
     }
-    
+
     bmpFile.close();
-    if(!goodBmp) Serial.println(F("BMP format not recognized."));
-    
+    if (!goodBmp)
+    {
+        Serial.println(F("BMP format not recognized."));
+    }
+
 }
 
 // These read 16- and 32-bit types from the SD card file.
 
-uint16_t read16(File& f) {
+uint16_t read16(File& f)
+{
     uint16_t result;
     ((uint8_t *)&result)[0] = f.read(); // LSB
     ((uint8_t *)&result)[1] = f.read(); // MSB
     return result;
 }
 
-uint32_t read32(File& f) {
+uint32_t read32(File& f)
+{
     uint32_t result;
     ((uint8_t *)&result)[0] = f.read(); // LSB
     ((uint8_t *)&result)[1] = f.read();
@@ -429,7 +463,8 @@ uint32_t read32(File& f) {
     return result;
 }
 
-uint16_t color565(uint8_t r, uint8_t g, uint8_t b) {
+uint16_t color565(uint8_t r, uint8_t g, uint8_t b)
+{
     return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
 }
 

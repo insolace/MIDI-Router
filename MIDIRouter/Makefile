@@ -58,7 +58,7 @@ USER_LIBS_LIST = SdFat GSL1680 arduino_midi_library
 # !!! Help: http://bit.ly/2juEP91
 # default = empty = all
 #
-LOCAL_LIBS_LIST = MIDIRouter_Library
+LOCAL_LIBS_LIST = 
 
 # List core, application and user's libraries to be excluded
 # !!! Help: http://bit.ly/2AijUOI

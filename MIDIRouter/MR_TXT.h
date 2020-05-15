@@ -64,59 +64,59 @@ void printVert(String s) {
 }
 
 /*
- 
- // code below not used, for reference only
- 
- void textSubs() {
- //testRot();
- 
- tft.graphicsMode();
- tft.setRotation(2);
- //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
- 
- tft.setCursor(10,10);
- tft.drawChar(10, 10, 'E', 0xFFFF, 0x0000, 2);
- 
- tft.setTextRotation(1);
- 
- tft.textMode();
- tft.textColor(RA8875_RED, RA8875_BLACK);
- tft.textSetCursor(0,16);
- tft.textEnlarge(3);
- tft.textWrite("HELLOWORLD");
- 
- 
- delay(2000);
- tft.fillScreen(RA8875_BLACK);
- delay(1000);
- tft.fillScreen(RA8875_YELLOW);
- delay(1000);
- 
- tft.graphicsMode();
- tft.setRotation(1);
- //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
- 
- 
- tft.setCursor(10,10);
- tft.drawChar(10, 10, 'E', 0xFFFF, 0x0000, 2);
- 
- tft.setTextRotation(0);
- 
- tft.textMode();
- tft.textColor(RA8875_RED, RA8875_BLACK);
- tft.textSetCursor(0,16);
- tft.textEnlarge(3);
- tft.textWrite("HELLOWORLD");
- 
- //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
- delay(2000);
- tft.fillScreen(RA8875_BLACK);
- delay(1000);
- tft.fillScreen(RA8875_YELLOW);
- delay(1000);
- 
- }
- 
- */
+
+    // code below not used, for reference only
+
+    void textSubs() {
+    //testRot();
+
+    tft.graphicsMode();
+    tft.setRotation(2);
+    //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
+
+    tft.setCursor(10,10);
+    tft.drawChar(10, 10, 'E', 0xFFFF, 0x0000, 2);
+
+    tft.setTextRotation(1);
+
+    tft.textMode();
+    tft.textColor(RA8875_RED, RA8875_BLACK);
+    tft.textSetCursor(0,16);
+    tft.textEnlarge(3);
+    tft.textWrite("HELLOWORLD");
+
+
+    delay(2000);
+    tft.fillScreen(RA8875_BLACK);
+    delay(1000);
+    tft.fillScreen(RA8875_YELLOW);
+    delay(1000);
+
+    tft.graphicsMode();
+    tft.setRotation(1);
+    //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
+
+
+    tft.setCursor(10,10);
+    tft.drawChar(10, 10, 'E', 0xFFFF, 0x0000, 2);
+
+    tft.setTextRotation(0);
+
+    tft.textMode();
+    tft.textColor(RA8875_RED, RA8875_BLACK);
+    tft.textSetCursor(0,16);
+    tft.textEnlarge(3);
+    tft.textWrite("HELLOWORLD");
+
+    //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
+    delay(2000);
+    tft.fillScreen(RA8875_BLACK);
+    delay(1000);
+    tft.fillScreen(RA8875_YELLOW);
+    delay(1000);
+
+    }
+
+*/
 
 #endif /* MR_TXT_h */
