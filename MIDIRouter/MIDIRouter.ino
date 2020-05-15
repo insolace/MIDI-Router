@@ -110,8 +110,7 @@
 // User Libraries
 #include "SdFat.h"
 #include "GSL1680.h"            // modified firmware, see github.com/insolace
-#include "Adafruit_GFX.h"       // vvvvv
-#include "Adafruit_RA8875.h"    // both of these are modified, see github.com/insolace
+#include "RA8875.h"     
 #include "MIDI.h"
 
 #include "MIDIRouter_Library.h"
@@ -214,7 +213,7 @@ IntervalTimer callMIDI; ///< Interval timer for midi io scheduling
 #define RA8875_RESET 35 ///< reset
 
 // Initialize graphics
-Adafruit_RA8875 tft = Adafruit_RA8875(RA8875_CS, RA8875_RESET); ///< TFT Display Driver Instance
+RA8875 tft = RA8875(RA8875_CS, RA8875_RESET);
 
 // Touch Pins
 #define WAKE 16 ///< wakeup! (is this used?)
@@ -257,26 +256,28 @@ int eeprom_addr_offset = 0; ///< Create address offset so Array2 is located afte
 
 // Colors
 #include "ColorCalc.h"
-uint16_t tbColor     = RGBColor(0, 150, 0).asUint16();       ///< tempo/clock box
-uint16_t hbColor     = RGBColor(102, 102, 102).asUint16();   ///< setup/home button
-uint16_t ibColor     = RGBColor(0, 0, 150).asUint16();       ///< input page box
-uint16_t insColor    = RGBColor(0, 0, 100).asUint16();       ///< inputs box color
-uint16_t insColFlash = RGBColor(0, 0, 255).asUint16();       ///< input flash color
-uint16_t obColor     = RGBColor(150, 0, 0).asUint16();       ///< output page box
-uint16_t outsColor   = RGBColor(100, 0, 0).asUint16();       ///< putputs box color
-uint16_t outColFlash = RGBColor(255, 0, 0).asUint16();       ///< output flash color
-uint16_t gridColor   = RGBColor(102, 102, 102).asUint16();   ///< grid
-uint16_t linClr      = RGBColor(0, 0, 0).asUint16();         ///< lines
-uint16_t txColor     = RGBColor(255, 255, 255).asUint16();   ///< text
-uint16_t routColor   = RGBColor(255, 255, 255).asUint16();   ///< routing
-uint16_t actFieldBg  = RGBColor(0, 0, 255).asUint16();       ///< Active Field color
-uint16_t fieldBg     = RGBColor(50, 50, 50).asUint16();      ///< inactive field color
+uint16_t tbColor     = tft.Color565(0, 150, 0);       // tempo/clock box
+uint16_t hbColor     = tft.Color565(102, 102, 102);   // setup/home button
+uint16_t ibColor     = tft.Color565(0, 0, 150);       // input page box
+uint16_t insColor    = tft.Color565(0, 0, 100);       // inputs box color
+uint16_t insColFlash = tft.Color565(0, 0, 255);       // input flash color
+uint16_t obColor     = tft.Color565(150, 0, 0);       // output page box
+uint16_t outsColor   = tft.Color565(100, 0, 0);       // putputs box color
+uint16_t outColFlash = tft.Color565(255, 0, 0);       // output flash color
+uint16_t gridColor   = tft.Color565(102, 102, 102);   // grid
+uint16_t linClr      = tft.Color565(0, 0, 0);         // lines
+uint16_t txColor     = tft.Color565(255, 255, 255);   // text
+uint16_t routColor   = tft.Color565(255, 255, 255);   // routing
+uint16_t actFieldBg  = tft.Color565(0, 0, 255);       // Active Field color
+uint16_t fieldBg     = tft.Color565(50, 50, 50);      // inactive field color
 
-uint16_t posCol;  ///< for CV calib
-uint16_t negCol;  ///< for CV calib
 
-long fingers = 0,   ///< Number of simultaneous touchpoints (0 = 1)
-    curFing = 0;     ///< Current touchpoint
+uint16_t posCol;  // for CV calib
+uint16_t negCol;  // for CV calib
+
+#define SPEED 4
+
+long fingers, curFing, x, y;
 
 // ============================================================
 // variables begin here
@@ -659,7 +660,7 @@ void dPrint(String s, int sz = fSize);
 /// @param c Character
 /// @param s Font size
 void dWrite(unsigned char c, unsigned int s);
-
+void printVert(String s);
 
 // Utilities
 USING_NAMESPACE_MIDIROUTER
@@ -775,35 +776,45 @@ void setup()
     while (!Serial && (millis() <= 1000));
 
     // Initialise the display
-    while (!tft.begin(RA8875_800x480))
-    {
+    tft.begin(RA8875_800x480);
+    if (tft.errorCode() != 0)  {
         Serial.println("RA8875 Not Found!");
         delay(100);
-    }
+    } else {
     Serial.println("Found RA8875");
+    }
 
-    tft.displayOn(true);
-    tft.GPIOX(true);      // Enable TFT - display enable tied to GPIOX
-    tft.PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight
-    tft.PWM1out(255);
-
+    //tft.displayOn(true);
+    //tft.GPIOX(true);      // Enable TFT - display enable tied to GPIOX
+    //tft.backlight(1);     // backlight on
+    //tft.brightness(255);
+    
     // Rotation
     tft.setRotation(curRot);
-
+    
+    // External fonts
+    tft.setExternalFontRom(ER3304_1, ASCII);
+    tft.setFont(EXTFONT);//enable external ROM
+    tft.setExtFontFamily(ARIAL);
+    tft.setFontSize(X16);
+    tft.setFontScale(1);
+    tft.setTextColor(txColor);
+    
     // With hardware accelleration this is instant
-    tft.graphicsMode();
-    tft.fillScreen(RA8875_BLACK);
+    //tft.graphicsMode();
+    tft.clearScreen(RA8875_BLACK);
+    
 #ifdef STARTUP_PICTURE
     bmpDraw("WELCOME.BMP", 0, 0);
     delay(1000);
-    tft.fillScreen(RA8875_BLACK);
+    tft.clearScreen(RA8875_BLACK);
 #endif //STARTUP_PICTURE
 
-    tft.touchEnable(false);
-
+    //tft.touchEnable(false);
+    
     randomSeed(analogRead(0));
-    tft.textMode();
-    tft.textEnlarge(2);
+    //tft.textMode();
+    //tft.setFontScale(2);
 #endif // TFT_DISPLAY
     // end touchscreen setup
 
@@ -839,10 +850,12 @@ void setup()
     delay(250);  // wait for responses
 
 #ifdef TFT_DISPLAY
+
     // draw homescreen
     drawHomeScreen();
     rdFlag = 0;
 #endif // TFT_DISPLAY
+
 }
 
 ///! Add loop code

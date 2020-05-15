@@ -3411,6 +3411,7 @@
 		C50FE5EE2455237200371593 /* name.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = name.c; sourceTree = "<group>"; };
 		C50FE5EF2455237200371593 /* MR_MIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MR_MIDI.h; sourceTree = "<group>"; };
 		C50FE5F02455237200371593 /* MR_UTIL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MR_UTIL.h; sourceTree = "<group>"; };
+		F6BE15132456BC9800374F8D /* RA8875 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RA8875; path = ../../../../../../Applications/Teensyduino.app/Contents/Java/hardware/teensy/avr/libraries/RA8875; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -7202,6 +7203,7 @@
 				C50FE5ED2455237100371593 /* MR_TXT.h */,
 				C50FE5F02455237200371593 /* MR_UTIL.h */,
 				C50FE5EE2455237200371593 /* name.c */,
+				F6BE15132456BC9800374F8D /* RA8875 */,
 				AAAA200425180510AA000000 /* Resources */,
 				C50FE59C245515AE00371593 /* Configurations */,
 			);

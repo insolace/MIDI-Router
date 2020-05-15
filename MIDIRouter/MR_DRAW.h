@@ -1,28 +1,28 @@
 /*
-
-    MIDI Router
-    Created by Eric Bateman (eric at timeline85 dot com)
-    http://www.midirouter.com
-
-    MR_DRAW.h - MIDI Router graphics
-    Source code written by Eric Bateman with contributions from Kurt Arnlund
-    Copyright © 2020 Eric Bateman and Kurt Arnlund. All rights reserved.
-
-    License:GNU General Public License v3.0
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ 
+ MIDI Router
+ Created by Eric Bateman (eric at timeline85 dot com)
+ http://www.midirouter.com
+ 
+ MR_DRAW.h - MIDI Router graphics
+ Source code written by Eric Bateman with contributions from Kurt Arnlund
+ Copyright © 2020 Eric Bateman and Kurt Arnlund. All rights reserved.
+ 
+ License:GNU General Public License v3.0
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #ifndef MR_DRAW_h
 #define MR_DRAW_h
@@ -35,52 +35,39 @@ void drawBox()
 
     // Settings/Home
     tft.fillRect(hbOX, hbOY, hbWidth, hbHeight, hbColor);
-    curX = 30;
-    curY = (rOffset * .25) - 8;
-    if (menu == 0)
-    {
-        dPrint("CV");
+    tft.setCursor(cOffset * .25 - 12, rOffset * .25, 1);
+    if (menu == 0) {
+        tft.print("CV");
+    } else if (menu == 1) {
+        tft.print("BACK");
     }
-    else if (menu == 1)
-    {
-        curX = 8;
-        dPrint("BACK");
-    }
-
+    
     // inputs page select Background
     tft.fillRect(tbOX, 0, tbWidth, hbHeight, ibColor);
-    curX = tbOX + 30;
-    curY = (rOffset * .25) - 8;
-    if (menu == 0)
-    {
-        dPrint("IN");
+    tft.setCursor(cOffset * .75, rOffset * .25, 1);
+    if (menu == 0) {
+        tft.print("IN");
     }
 
     // outputs page select Background
     tft.fillRect(0, hbHeight, hbWidth, tbHeight, obColor);
-    curX = 25;
-    curY = rOffset * .75 - 8;
-    if (menu == 0)
-    {
-        dPrint("OUT");
+    tft.setCursor(cOffset * .25 - 8, rOffset * .75, 1);
+    if (menu == 0) {
+        tft.print("OUT");
     }
 
     // Clock/Tempo Box
     tft.fillRect(tbOX, tbOY, tbWidth, tbHeight, tbColor);
-    curX = tbOX + 30;
-    curY = rOffset * .75 - 8;
-    if (menu == 0)
-    {
-        dPrint("ID");
-    }
-    else if (menu == 1)
-    {
-        curX = tbOX + 13;
-        curY = curY - 8;
-        dPrint("CLEAR", 2);
-        curY = curY + 16;
-        curX = tbOX + 13;
-        dPrint("ROUTES", 2);
+    tft.setCursor(cOffset * .75, rOffset * .75, 1);
+    if (menu == 0) {
+        tft.print("ID");
+    } else if (menu == 1) {
+        tft.setFontScale(0);
+        tft.setCursor(tbOX + 13, tft.getCursorY() - 8);
+        tft.print("CLEAR");
+        tft.setCursor(tbOX + 13, tft.getCursorY() + 16);
+        tft.print("ROUTES");
+        tft.setFontScale(1);
     }
 }
 
@@ -93,40 +80,32 @@ void drawBox()
 void drawColumns()
 {
     tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor);
-    tft.setTextColor(txColor, insColor);
-
+    tft.setTextColor(txColor);
+    
     MRInputPort *input;
-
-    for (int i = 0; i < columns; i++)
-    {
-        curY = (i * cWidth) + tCOffset;
-        curX = tBord;
-        if (menu == 0)    // routing
-        {
+    
+    for (int i = 0; i < columns; i++) {
+        if (menu == 0) {  // routing
             tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, linClr);
-            tft.setRotation(3);
-            input = router.inputAt((5 - i) + (pgIn * 6));
-            dPrint(input->name);
-            tft.setRotation(curRot);
-        }
-        else if (menu == 1)     // cv calibrate
-        {
+            tft.setActiveWindow(cOffset + (i*cWidth) + tBord, cOffset + ((i+1)*cWidth) - tBord, tBord, rOffset - tBord );
+            input = router.inputAt(i+(pgIn *6));
+            tft.setCursor(cOffset + (i*cWidth) + tBord, tBord);
+            tft.print(input->name);
+            
+        } else if (menu == 1) { // cv calibrate
             tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, linClr);
-            if (i == 5 - CVcalSelect)
-            {
-                //Serial.println("fillrect");
+            tft.setActiveWindow(cOffset + (i*cWidth) + tBord, cOffset + ((i+1)*cWidth) - tBord, tBord, rOffset - tBord );
+            if (i == CVcalSelect) {
                 tft.fillRect(cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, actFieldBg);
             }
-            tft.setRotation(3);
-            //Serial.println("dprint");
-
+            
             // router could be used to obtain the CV names here
             //input = router.inputAt((5-i)+(pgIn *6));
-
-            dPrint("CV");
-            dPrint(6 - i);
-            tft.setRotation(curRot);
+            tft.setCursor(cOffset + (i*cWidth) + tBord, tBord);
+            tft.print("A");
+            tft.print(i+1);
         }
+        tft.setActiveWindow();
     }
 }
 
@@ -139,68 +118,43 @@ void drawRows()
 
     for (int i = 0; i < rows; i++)
     {
-        //tft.textColor(txColor, outsColor);
-        //tft.textSetCursor(0, rOffset + (i*rHeight));
-        curX = tBord;
-        curY = rOffset + (i * rHeight) + tROffset;
-        output = router.outputAt(i + (pgOut * 6));
-        dPrint(output->name);
+        tft.setCursor(tBord, rOffset + (i*rHeight) + tROffset);
+        output = router.outputAt(i+(pgOut *6));
+        tft.print(output->name);
         tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), linClr);
     }
 }
 
-void drawRouting()
-{
-    for (int i = 0; i < rows; i++)
-    {
-        for (int c = 0; c < columns; c++)
-        {
+void drawRouting() {
+    for (int i = 0; i < rows; i++) {
+        for (int c = 0; c < columns; c++) {
             curRoute = routing[c + (pgIn * 6)][i + (pgOut * 6)]; // store current routing point
-            if ((curRoute & B00000111) != 0)    // draw routed
-            {
+            if ((curRoute & B00000111) != 0) {  // draw routed
                 tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, routColor);
-                curX = cOffset + (cWidth * c) + 5;
-                curY = rOffset + (rHeight * i) + 10;
-                fColor = 0;
+                tft.setCursor(cOffset + (cWidth * c) + 5, rOffset + (rHeight * i) + 10);
+                tft.setTextColor(RA8875_BLACK);
+                tft.setFontScale(0);
                 int x = cOffset + (cWidth * c) + 1;
                 int y = rOffset + (rHeight * i) + 1;
-                if (curRoute & B00000001)   // keyboard
-                {
-                    //dPrint("K", 5);
+                if (curRoute & B00000001) { // keyboard
                     drawPiano(c, i);
                 }
-                else     //dPrint(" ", 5);
-                {
+
+                if (curRoute & B00000010) { // parameter
+                    tft.setCursor(x + 7, y + 8);
+                    tft.print("CC");
                 }
-                if (curRoute & B00000010)   // parameter
-                {
-                    //dPrint("P", 5);
-                    curX = x + 2;
-                    curY = y + 8;
-                    dPrint("CC", 2);
+                if (curRoute & B00000100) { // transport
+                    tft.setCursor(x + 45, y + 8);
+                    tft.print("Clock");
                 }
-                else     //dPrint(" ", 5);
-                {
-                }
-                if (curRoute & B00000100)   // transport
-                {
-                    //dPrint("T", 5);
-                    curY = y + 8;
-                    curX = x + 37;
-                    dPrint("Clock", 2);
-                }
-                else     //dPrint(" ", 5);
-                {
-                }
-                fColor = RA8875_WHITE;
-            }
-            else                                                  // draw unrouted
-            {
+                tft.setTextColor(txColor);
+                tft.setFontScale(1);
+            } else {                                              // draw unrouted
                 tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, gridColor);
             }
-            if ((curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == i))
-            {
-                tft.drawRect(cOffset + (cWidth * c) + 1, rOffset + (rHeight * i) + 1, cWidth - 2, rHeight - 2, RA8875_GREEN);
+            if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == i) ) {
+                tft.drawRect(cOffset + (cWidth * c) + 1, rOffset + (rHeight * i) + 1, cWidth-2, rHeight-2, RA8875_GREEN);
             }
         }
     }
@@ -249,41 +203,40 @@ void drawHomeScreen()
 // =============================
 
 
-void drawPiano(int c, int r)
-{
+void drawPiano(int c, int r) {
     int KeyW = 5;
     int bKeyH = 20;
     int x = cOffset + (cWidth * c) + 1;
     int y = rOffset + (rHeight * r) + 1;
-
+    
     // draw keybed/border
-
-    tft.fillRect(x, y + 30, 99, 29, RA8875_WHITE);
+    
+    tft.fillRect(x, y+30, 99, 29, RA8875_WHITE);
     tft.drawLine(x, y + 29, x + 99, y + 29, RA8875_BLACK);
-
+    
     // draw e/f and b/c gaps
-    tft.drawLine(x + KeyW * 5, y + 30, x + KeyW * 5, y + 59, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 12, y + 30, x + KeyW * 12, y + 59, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 17, y + 30, x + KeyW * 17, y + 59, RA8875_BLACK);
-
+    tft.drawLine(x+KeyW*5, y+30, x+KeyW*5, y+59, RA8875_BLACK);
+    tft.drawLine(x+KeyW*12, y+30, x+KeyW*12, y+59, RA8875_BLACK);
+    tft.drawLine(x+KeyW*17, y+30, x+KeyW*17, y+59, RA8875_BLACK);
+    
     // draw black keys with gaps
-    tft.fillRect(x + KeyW, y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW + 2, y + 50, x + KeyW + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 3), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 3 + 2, y + 50, x + KeyW * 3 + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 6), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 6 + 2, y + 50, x + KeyW * 6 + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 8), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 8 + 2, y + 50, x + KeyW * 8 + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 10), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 10 + 2, y + 50, x + KeyW * 10 + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 13), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 13 + 2, y + 50, x + KeyW * 13 + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 15), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 15 + 2, y + 50, x + KeyW * 15 + 2, y + 59, RA8875_BLACK);
-    tft.fillRect(x + (KeyW * 18), y + 30, KeyW, bKeyH, RA8875_BLACK);
-    tft.drawLine(x + KeyW * 18 + 2, y + 50, x + KeyW * 18 + 2, y + 59, RA8875_BLACK);
-
+    tft.fillRect(x+KeyW, y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW+2, y+50, x+KeyW+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*3), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*3+2, y+50, x+KeyW*3+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*6), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*6+2, y+50, x+KeyW*6+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*8), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*8+2, y+50, x+KeyW*8+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*10), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*10+2, y+50, x+KeyW*10+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*13), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*13+2, y+50, x+KeyW*13+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*15), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*15+2, y+50, x+KeyW*15+2, y+59, RA8875_BLACK);
+    tft.fillRect(x+(KeyW*18), y+30, KeyW, bKeyH, RA8875_BLACK);
+    tft.drawLine(x+KeyW*18+2, y+50, x+KeyW*18+2, y+59, RA8875_BLACK);
+    
 }
 
 
@@ -311,9 +264,8 @@ void flashIn(int inp, int state)
     }
 
     // redraw input name
-    tft.textColor(txColor, insColor);
-    tft.textSetCursor(cOffset + (inp * cWidth) + tCOffset, rOffset - tROffset);
-
+    tft.setTextColor(txColor);
+    tft.setCursor(cOffset + (inp*cWidth) + tCOffset , rOffset - tROffset);
 }
 
 // =============================
@@ -353,9 +305,8 @@ void bmpDraw(const char *filename, int x, int y)
     if ((bmpFile = SD.open(filename)) == false)
     {
         Serial.println(F("File not found"));
-        curX = x;
-        curY = y;
-        dPrint("BMP NOT FOUND", 9);
+        tft.setCursor(x,y);
+        tft.print("BMP NOT FOUND");
         delay(2000);
         return;
     }

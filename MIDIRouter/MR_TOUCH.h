@@ -68,12 +68,12 @@ void drawTouchPos()
 {
     itoa(touchX, xstr, 10);
     itoa(touchY, ystr, 10);
-    tft.textMode();
-    tft.textSetCursor(20, 40);
-    tft.textWrite(" X:");
-    tft.textWrite(xstr);
-    tft.textWrite(" Y:");
-    tft.textWrite(ystr);
+    //tft.textMode();
+    tft.setCursor(20, 40);
+    tft.print(" X:");
+    tft.print(xstr);
+    tft.print(" Y:");
+    tft.print(ystr);
 }
 
 void evaltouch()
@@ -169,10 +169,8 @@ void refMenu_Routing()    // refresh routing display
         drawRows();
         drawColumns();
         drawRouting();
-    }
-    else
-    {
-        tft.fillScreen(RA8875_BLACK);
+    } else {
+        tft.clearScreen(RA8875_BLACK);
     }
 }
 
@@ -186,9 +184,8 @@ void refMenu_Calibrate()    // refresh cv calibration display
     drawBox();
     drawColumns();
     tft.fillRect(0, (rOffset + 1), WIDE, (TALL - rOffset - 1), gridColor);
-    curX = 300;
-    curY = rOffset + 25;
-    dPrint("CV Calibration");
+    tft.setCursor(300, rOffset + 25);
+    tft.print("CV Calibration");
     drawMenu_Calibrate_udcv();
     oldPosition = (dacNeg[CVcalSelect] * 4);
     router.encoder().write(oldPosition);  // update
@@ -270,13 +267,11 @@ void drawMenu_Calibrate_udcv()
     }
     tft.fillRect(menuCV_butDacNeg5_x, menuCV_butDacNeg5_y, menuCV_butDacNeg5_w, menuCV_butDacNeg5_h, negCol);
     tft.fillRect(menuCV_butDacPos5_x, menuCV_butDacPos5_y, menuCV_butDacPos5_w, menuCV_butDacPos5_h, posCol);
-    curX = menuCV_butDacNeg5_x + 5;
-    curY = menuCV_butDacNeg5_y + 5;
-    dPrint(dacNeg[CVcalSelect]);
-
-    curX = menuCV_butDacPos5_x + 5;
-    curY = menuCV_butDacPos5_y + 5;
-    dPrint(dacPos[CVcalSelect]);
+    tft.setCursor(menuCV_butDacNeg5_x + 5, menuCV_butDacNeg5_y + 5);
+    tft.print(dacNeg[CVcalSelect]);
+    
+    tft.setCursor(menuCV_butDacPos5_x + 5, menuCV_butDacPos5_y + 5);
+    tft.print(dacPos[CVcalSelect]);
 }
 
 // =================================
