@@ -64,7 +64,7 @@ void touchIO()
     }
 }
 
-void drawTouchPos()
+void drawTouchPos() // debug, show current touch position
 {
     itoa(touchX, xstr, 10);
     itoa(touchY, ystr, 10);
@@ -85,7 +85,6 @@ void evaltouch()
     }
     else if (menu != 0)
     {
-        //tft.fillScreen(NEWCOLOR(touchX / 3, 0, touchY / 2));
         drawMenu_Calibrate();
     }
 }
@@ -97,6 +96,7 @@ void evaltouch()
 
 void drawMenu_Routing()
 {
+    blankSelect(); // clear last selected routing point
     //Serial.println("dm rout");
     if (touchY <= rOffset && touchX >= cOffset)
     {
@@ -109,9 +109,10 @@ void drawMenu_Routing()
     else if (touchY >= rOffset && touchX >= cOffset)
     {
         // routing grid selected
-
-        curCol = (getTouchCol(touchX) - 1) + (pgIn * 6);
-        curRow = (getTouchRow(touchY) - 1) + (pgOut * 6);
+        int c = getTouchCol(touchX) - 1;
+        int r = getTouchRow(touchY) - 1;
+        curCol = c + (pgIn * 6);
+        curRow = r + (pgOut * 6);
         curRoute = routing[curCol][curRow];
 
         if (curRoute == 0)
@@ -124,8 +125,7 @@ void drawMenu_Routing()
             routing[curCol][curRow] = 0;  // close route
             knobSet(0);
         }
-
-        drawRouting();
+        drawRoute(c, r);
         saveEEPROM();
     }
     else if (touchY >= tbOY && touchX >= tbOX)
@@ -165,7 +165,7 @@ void refMenu_Routing()    // refresh routing display
     if (menu == 0)
     {
         drawBox();
-        drawBGs();
+        //drawBGs();
         drawRows();
         drawColumns();
         drawRouting();
@@ -183,7 +183,8 @@ void refMenu_Calibrate()    // refresh cv calibration display
     //Serial.println("refmenu calib");
     drawBox();
     drawColumns();
-    tft.fillRect(0, (rOffset + 1), WIDE, (TALL - rOffset - 1), gridColor);
+    blankSelect();
+    tft.fillRect(0, (rOffset + 3), WIDE, (TALL - rOffset - 1), gridColor); // blank out routing grid
     tft.setCursor(300, rOffset + 25);
     tft.print("CV Calibration");
     drawMenu_Calibrate_udcv();
@@ -192,7 +193,7 @@ void refMenu_Calibrate()    // refresh cv calibration display
     knobMax = 65535; // set knob Max for CV
 }
 
-void drawMenu_Calibrate()    // process touch events
+void drawMenu_Calibrate()    // process touch events for calibration screen
 {
     //refMenu_Calibrate();
     if (touchY <= hbHeight && touchX <= hbWidth)    // home button returns to routing
@@ -356,7 +357,7 @@ void readKnob()
                     }*/
                 //knobSet(reOrderR(knobVal));
                 routing[curCol][curRow] = reOrderR(knobVal); // routing page, change routing value
-                drawRouting();
+                drawRoute(curCol - (pgIn * 6), curRow - (pgOut * 6));
                 Serial.print(" rout: "); Serial.println(routing[curCol][curRow]);
 
             }

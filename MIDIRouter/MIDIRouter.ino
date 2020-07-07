@@ -118,6 +118,28 @@
 
 // Define structures and classes
 
+// Class that describes a GUI element
+class guiElem
+{
+public:
+    /// x/y origin and width/height of element on layer 2
+    uint16_t x, y, w, h;
+
+    guiElem (uint16_t, uint16_t, uint16_t, uint16_t);
+    void draw(uint16_t destX, uint16_t destY, bool transp);
+};
+
+/// Constructor
+/// @param a x origin of element
+/// @param b y origin of element
+/// @param c width of element
+/// @param d height of element
+guiElem::guiElem(uint16_t a, uint16_t b, uint16_t c, uint16_t d)
+{
+    x = a; y = b; w = c; h = d;
+}
+
+
 
 // Define variables and constants
 /// SdFatSdioEX - SD card object
@@ -222,6 +244,10 @@ RA8875 tft = RA8875(RA8875_CS, RA8875_RESET);
 // touch
 GSL1680 TS = GSL1680(); ///< Touch screen driver
 
+// ============================================================
+// variables begin here
+// ============================================================
+
 // clock stuff
 boolean clockPulse = 0; ///< clock pulse boolean
 int startCount = 0; ///< clock pulse start count
@@ -247,12 +273,45 @@ int knobMin = 0; ///< encoder knob min value
 int knobMax = 8; ///< encoder knob max value
 
 // DAC stuff
-
 long dacNeg[6]; ///< Calibrated value for -5VDC at dac output
 long dacPos[6]; ///< Calibrated value for +5VDC at dac output
 long dacOffset[120]; ///< Stored array for custom offsets per note (not yet implemented)
 
+uint16_t posCol;  // for CV calib
+uint16_t negCol;  // for CV calib
+
+// EEPROM
 int eeprom_addr_offset = 0; ///< Create address offset so Array2 is located after dacOffset in EEPROM
+
+// =====================================================
+// Touchscreen and GUI elements begin here
+// =====================================================
+
+// GUI Elements read from BMP on SD card
+
+// Utility
+guiElem empty (0, 0, 0, 0);
+// backgrounds
+guiElem bg_homebox (0, 0, 200, 121);
+guiElem bg_inputs (200, 0, 100, 121);
+guiElem bg_outputs (0, 121, 201, 60);
+
+// routing grid
+guiElem grid_routed (201, 241, 98, 60);
+guiElem grid_unrouted (201, 121, 100, 60);
+guiElem grid_notes (201, 326, 50, 32);
+guiElem grid_param (201, 300, 50, 26);
+guiElem grid_trans (251, 300, 48, 26);
+
+// icons
+guiElem ic_routing (0, 240, 198, 119);
+guiElem ic_calib_back (0, 360, 98, 60);
+guiElem ic_calib_clear (101, 360, 98, 60);
+guiElem ic_din (0, 181, 62, 60);
+guiElem ic_usb (69, 181, 62, 60);
+guiElem ic_daw (139, 181, 62, 60);
+guiElem ic_eur (219, 181, 62, 58);
+
 
 // Colors
 #include "ColorCalc.h"
@@ -270,18 +329,7 @@ uint16_t txColor     = tft.Color565(255, 255, 255);   // text
 uint16_t routColor   = tft.Color565(255, 255, 255);   // routing
 uint16_t actFieldBg  = tft.Color565(0, 0, 255);       // Active Field color
 uint16_t fieldBg     = tft.Color565(50, 50, 50);      // inactive field color
-
-
-uint16_t posCol;  // for CV calib
-uint16_t negCol;  // for CV calib
-
-#define SPEED 4
-
-long fingers, curFing, x, y;
-
-// ============================================================
-// variables begin here
-// ============================================================
+uint16_t transp      = tft.Color565(36, 0, 0);         // Transparent key color
 
 // Screen
 int WIDE = 799; ///< Width of touchscreen (0-799)
@@ -293,9 +341,6 @@ int curRot = 2; ///< Current screen rotation (2 = 180 degrees);
 // devices
 int rows = 6; ///< Number of rows in routing UI
 int columns = 6; ///< Number of columns in routing UI
-
-// Sysex
-uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247}; ///< SysEx ID Request
 
 // Menu options
 int menu = 0;  ///< which menu are we looking at?  0 = routing, 1 = CV calibration
@@ -309,7 +354,6 @@ int outPages = 7; ///< Number of output pages in routing UI
 
 int pgOut = 0; ///< Current output page displayed in routing UI
 int pgIn = 0; ///< Current input page displayed in routing UI
-//
 
 // timers to flash inputs
 elapsedMillis elapseIn; ///< Timer for flashing inputs
@@ -336,7 +380,7 @@ uint16_t curY = 20; ///< Current Y coordinate to draw to
 int tBord = 5; ///< buffer/border from edge of screen to beginning of text
 
 // =================================
-// Routing menu definitions
+// Routing menu graphic definitions
 // =================================
 
 // Rows
@@ -362,10 +406,7 @@ float hbHeight = (rOffset - tbHeight); ///< Home box height
 int hbOX = 0;    ///< Home box origin X
 int hbOY = 0;    ///< Home box origin Y
 
-// =================================
 // CV Calibration menu definitions
-// =================================
-
 int menuCV_butDacNeg5_x = 150,  ///< X coordinate for -5VDC calibration box
     menuCV_butDacNeg5_y = rOffset + 100, ///< Y coordinate for -5V calibration box
     menuCV_butDacNeg5_w = 125,  ///< Width for -5V calibration box
@@ -390,6 +431,10 @@ int difY = 0;///< The difference between the last touch Y coordinate and the one
 unsigned long touchShort = 300;     ///< (ms) must touch this long to trigger
 int tMargin = 5;       ///< pixel margin to filter out duplicate triggers for a single touch
 
+long fingers, curFing, x, y;
+
+// =====================================================
+// Routing
 float clearRouting = 0; ///< Flag to clear all routings
 float pi = 3.141592; ///< Store this in EEPROM to indicate that this isn't the first time we've turned on the MIDI Router. If EEPROM doesn't contain this value, write Zero's to all routing points (EEPROM factory default values are -1)
 
@@ -461,6 +506,9 @@ uint8_t routing[50][50] =    ///< [input port][output port]
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
+// Sysex
+uint8_t sysexIDReq[] = {240, 126, 127, 6, 1, 247}; ///< SysEx ID Request
+
 // Variables for storing and reading SysEx/CSV from SD card
 char syIdHex[20]; ///< Column 1, SysEx ID header in HEX
 char mfg[80]; ///< Column 2, manufacturer name (text/ASCII)
@@ -469,7 +517,7 @@ int16_t idB1; ///< Column 4, ID byte 1
 int16_t idB2; ///< Column 5, ID byte 2
 int16_t idB3; ///< Column 6, ID byte 3
 
-
+// =====================================================
 // Prototypes
 // !!! Help: http://bit.ly/2TAbgoI
 // CalcColor
@@ -527,6 +575,11 @@ void drawBox(); ///< Draw the four boxes in the upper left of the display
 void drawColumns(); ///< Draw columns
 void drawRows(); ///< Draw rows
 void drawRouting(); ///< Draw the current routing grid
+/// Draw the current routing point
+/// @param c  Column
+/// @param r Row
+void drawRoute(int c, int r);
+void blankSelect(); ///< Blank the last selection
 void drawGLines(); ///< Draw the routing grid lines
 void drawBGs(); ///< Draw backgrounds
 void drawHomeScreen(); ///< Draw the home screen
@@ -557,6 +610,11 @@ uint32_t read32(File &f);
 /// @param b blue 0-255
 /// @return uint16_t 16 bit 565 color value
 uint16_t color565(uint8_t r, uint8_t g, uint8_t b);
+/// Draw an array
+/// @param PImage  name/address of the array
+/// @param x X coordinate to draw the array
+/// @param y Y coordinate to draw the array
+// void drawArray(uint16_t x, uint16_t y);
 
 // MIDI
 /// Route the MIDI
@@ -797,24 +855,28 @@ void setup()
     tft.setFont(EXTFONT);//enable external ROM
     tft.setExtFontFamily(ARIAL);
     tft.setFontSize(X16);
-    tft.setFontScale(1);
+    tft.setFontScale(0);
     tft.setTextColor(txColor);
     
     // With hardware accelleration this is instant
     //tft.graphicsMode();
     tft.clearScreen(RA8875_BLACK);
-    
-#ifdef STARTUP_PICTURE
-    bmpDraw("WELCOME.BMP", 0, 0);
-    delay(1000);
-    tft.clearScreen(RA8875_BLACK);
-#endif //STARTUP_PICTURE
 
-    //tft.touchEnable(false);
+#ifdef STARTUP_PICTURE
+
+    bmpDraw("WELCOME.BMP", 0, 0);
+    delay(2000);
+    tft.clearScreen(RA8875_BLACK);
+    
+#endif //STARTUP_PICTURE
+    
+    tft.layerEffect(LAYER1); // layer 1, 8bit color
+    tft.writeTo(L2);
+    bmpDraw("Skins/default/skin_default.bmp", 0, 0);
+    tft.writeTo(L1); // layer 1
     
     randomSeed(analogRead(0));
-    //tft.textMode();
-    //tft.setFontScale(2);
+
 #endif // TFT_DISPLAY
     // end touchscreen setup
 
