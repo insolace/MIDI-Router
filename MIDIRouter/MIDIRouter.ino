@@ -908,7 +908,7 @@ void setup()
     tft.backlight(0);     // backlight off, avoid bright flashes at startup
     
     // Set screen brightness
-    tft.brightness(5);
+    tft.brightness(255);
     
     // Rotation
     tft.setRotation(curRot);
