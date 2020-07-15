@@ -36,9 +36,11 @@ void drawBox()
     
     // home box background
     bg_homebox.draw(0, 0, false); // draw hbbg
-    
+
     // home icons
     if (menu == 0) { // routing screen
+        printCenter("Output PG", (bg_homebox.w*.25), (bg_homebox.h/2) + (tBord/2), X16);
+        printCenter("Input PG", (bg_homebox.w*.75), tBord/2, X16);
         ic_routing.draw(0, 0, true);
     } else if (menu == 1) { // cv calibrate screen
         ic_calib_back.draw(0, 0, true); // back icon
@@ -59,7 +61,7 @@ void drawColumns()
     for (int c = 0; c < columns; c++) {
         if (menu == 0) {  // routing screen
 
-            bg_inputs.draw(201 + (c * 100), 0, false); // background
+            bg_inputs.draw(cOffset + (c * cWidth), 0, false); // background
             
             int p = (pgIn * 10) + c;
             guiElem * icon = &empty;
@@ -72,13 +74,13 @@ void drawColumns()
                 icon = &ic_daw;
             }
             
-            icon->draw(201 + 18 + (c * 100), 0, true); // icon
+            // draw icon
+            icon->draw(cOffset + (c * cWidth) + ((cWidth/2) - (icon->w/2)), 0, true);
             
-            // draw names
-            tft.setActiveWindow(cOffset + (c * cWidth) + tBord, cOffset + ((c + 1) * cWidth) - tBord + 60, tBord, rOffset - tBord );
+            // draw name
+            tft.setActiveWindow(cOffset + (c * cWidth) + tBord, cOffset + ((c + 1) * cWidth) - tBord + icon->w, tBord, rOffset - tBord );
             input = router.inputAt(c + (pgIn * 6));
-            tft.setCursor(cOffset + (c * cWidth) + tBord, 60 + tBord);
-            tft.print(input->name);
+            printCenter(input->name, cOffset + (c * cWidth) + (cWidth/2), icon->h + tBord);
             
         } else if (menu == 1) { // cv calibrate screen
             if (c == CVcalSelect)
@@ -87,7 +89,7 @@ void drawColumns()
             } else {
                 curColor = insColor;
             }
-            tft.fillRect(cOffset + (cWidth * c) + 3, 0, cWidth - 2, rOffset + 2, curColor);
+            tft.fillRect(cOffset + (cWidth * c) + 1, 0, cWidth - 2, rOffset, curColor);
             
             tft.setTextColor(txColor);
             tft.setActiveWindow(cOffset + (c * cWidth) + tBord, cOffset + ((c + 1) * cWidth) - tBord, tBord, rOffset - tBord );
@@ -107,7 +109,7 @@ void drawRows()
     MROutputPort *output;
     for (int r = 0; r < 6; r++)
     {
-        bg_outputs.draw(0, 121 + (r * 60), false); // background
+        bg_outputs.draw(0, rOffset + (r * rHeight), false); // background
 
         int p = (pgOut * 10) + r;
         guiElem * icon = &empty;
@@ -122,10 +124,10 @@ void drawRows()
             icon = &ic_eur;
         }
         
-        icon->draw(0, 121 + (r * 60), true); // icon
+        icon->draw(0, rOffset + (r * rHeight), true); // icon
         
         // draw names
-        tft.setCursor(64 + tBord, rOffset + (r * rHeight) + tROffset);
+        tft.setCursor(icon->w, rOffset + (r * rHeight) + tROffset);
         output = router.outputAt(r + (pgOut *6));
         tft.print(output->name);
     }
@@ -143,34 +145,34 @@ void drawRoute(int c, int r)
 {
     curRoute = routing[c + (pgIn * 6)][r + (pgOut * 6)]; // store current routing point
     if ((curRoute & B00000111) != 0) {  // draw routed
-        grid_routed.draw(201 + (c * 100), 122 + (r * 60), false); // bg
+        grid_routed.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false); // bg
 
         // draw piano
         if (curRoute & B00000001) {
-            grid_notes.draw(201 + (c * 100), 122 + (r * 60) + 26, true);
+            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + 28, true);
         }
         // draw parameter
         if (curRoute & B00000010) {
-            grid_param.draw(201 + (c * 100), 122 + (r * 60), true);
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
         }
         // transport
         if (curRoute & B00000100) {
-            grid_trans.draw(201 + (c * 100) + 50, 122 + (r * 60), true);
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
         }
     } else {
         // draw unrouted
-        grid_unrouted.draw(201 + (c * 100), 121 + (r * 60), false);
+        grid_unrouted.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false);
 
     }
     // draw green rectangle around current selected route
     if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == r) ) {
-        tft.drawRect(cOffset + (cWidth * c) + 2, rOffset + (rHeight * r) + 2, cWidth, rHeight, RA8875_GREEN);
+        tft.drawRect(cOffset + (cWidth * c), rOffset + (rHeight * r), cWidth-1, rHeight-1, RA8875_GREEN);
     }
 }
 
 void blankSelect()
 {
-    tft.drawRect(cOffset + (cWidth * (curCol - (pgIn * 6))) + 2, rOffset + (rHeight * (curRow - (pgOut * 6))) + 2, cWidth, rHeight, RA8875_BLACK); // clear last green rectangle
+    tft.drawRect(cOffset + (cWidth * (curCol - (pgIn * 6))), rOffset + (rHeight * (curRow - (pgOut * 6))), cWidth-1, rHeight-1, RA8875_BLACK); // clear last green rectangle
 }
 
 // Draw grid lines
@@ -187,29 +189,6 @@ void drawGLines()
 }
 
 // =============================
-// draw backgrounds; grid, inputs and outputs - likeley deprecated
-// =============================
-
-void drawBGs()
-{
-    tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor); // inputs bg
-    tft.fillRect(0, rOffset, cOffset, TALL - rOffset, outsColor); // outputs bg
-}
-
-// =============================
-// draw homescreen
-// =============================
-
-void drawHomeScreen()
-{
-    drawBox();
-    //drawBGs();
-    drawRows();
-    drawColumns();
-    drawRouting();
-}
-
-// =============================
 // Routing Graphics
 // =============================
 
@@ -217,11 +196,10 @@ void drawHomeScreen()
 void drawPiano(int c, int r) {
     int KeyW = 5;
     int bKeyH = 20;
-    int x = cOffset + (cWidth * c) + 1;
-    int y = rOffset + (rHeight * r) + 1;
+    int x = cOffset + (cWidth * c);
+    int y = rOffset + (rHeight * r);
     
     // draw keybed/border
-    
     tft.fillRect(x, y+30, 99, 29, RA8875_WHITE);
     tft.drawLine(x, y + 29, x + 99, y + 29, RA8875_BLACK);
     
@@ -252,7 +230,7 @@ void drawPiano(int c, int r) {
 
 
 // =============================
-// Flash ins/outs
+// Flash ins/outs - NOT IMPLEMENTED YET
 // =============================
 
 void flashIn(int inp, int state)
@@ -264,14 +242,14 @@ void flashIn(int inp, int state)
     if (state != 0)
     {
         // draw input background
-        tft.fillRect(cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColFlash);
+        tft.fillRect(cOffset + (cWidth * 6), 0, cWidth - 1, rOffset - 1, insColFlash);
         //(*elapsedIn+inp) = 0;
         inFlag[inp] = 1;
     }
     else
     {
         // draw input background
-        tft.fillRect(cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColor);
+        tft.fillRect(cOffset + (cWidth * 6), 0, cWidth - 1, rOffset - 1, insColor);
     }
 
     // redraw input name
@@ -478,35 +456,6 @@ uint16_t color565(uint8_t r, uint8_t g, uint8_t b)
     return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
 }
 
-//-----------------------
-/* This code tested if the bmp bottleneck was the SD card and if drawing from program memory would be faster. The result proved the SD card was not the bottleneck. -eb
-void drawArray(uint16_t x, uint16_t y)
-{
-  int      w, h, row, col;
-  uint8_t  r, g, b;
-  uint32_t pos = 0;
-  uint8_t  sdbuffer[3*BUFFPIXEL]; // pixel buffer (R+G+B per pixel)
-  uint8_t  buffidx = sizeof(sdbuffer); // Current position in sdbuffer
-
-  // Crop area to be loaded
-  w = in_midi.width;
-  h = in_midi.height;
-  if((x+w-1) >= WIDE) w = WIDE - x;
-  if((y+h-1) >= TALL) h = TALL - y;
-    for (int row = 0; row < w; row++)
-    {
-        for (int column = 0; column < h; column++)
-        {
-            tft.drawPixel(x + column, y + row, in_midi.pixel_data[(column * w) + row]);
-            //Serial.print(row); Serial.print(" ");
-        }
-        //Serial.println("/");
-    }
-}
-*/
-//-----------------------
-
-
 // draw GUI element at destX/destY, true = transparent
 void guiElem::draw(uint16_t destX, uint16_t destY, bool transp)
 {
@@ -519,4 +468,72 @@ void guiElem::draw(uint16_t destX, uint16_t destY, bool transp)
         tft.BTE_move(x, y, w, h, destX, destY, 2);
     }
 }
+
+// draw keyboard
+void drawKeyboard (int x, int y)
+{
+    tft.clearScreen(RA8875_BLACK); // clear screen
+    
+    // draw alphanumeric keys
+    int kX, kY;
+    int kb_count = 0;
+    
+    for (int r = 0; r < kb_rows; r++) {
+        for (int c = 0; c < kb_rowKeys[r]; c++){
+            kX = x + kb_rowOffset[r] + (c * (kb_lt.w + kb_Bord));
+            kY = y + (r * (kb_lt.h + kb_Bord));
+            kb_lt.draw(kX, kY, true);
+            printCenter(kb_alphaNum[kb_count][kb_shift],
+                            kX + (kb_lt.w/2), kY + (kb_lt.h/2) - (tft.getFontHeight()/2) );
+            kb_count++;
+        }
+    }
+    
+    // row 4 non-alphanumeric
+    kX = x;
+    kY = y + ((kb_lt.h + kb_Bord) * 3);
+    kb_dk_long.draw(kX, kY, true); // left shift
+    printCenter("shift", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_rowOffset[3] + ((kb_lt.w + kb_Bord) * 7);
+    kb_dk_long.draw(kX, kY, true); // Right backsp
+    printCenter("delete", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    kY = y + ((kb_dk_long.h + kb_Bord) * 4);
+
+    // row 5 non-alphanumeric
+    kX = x;
+    kY = y + ((kb_lt.h + kb_Bord) * 4);
+
+    kb_dk_long.draw(kX, kY, true); // left punct
+    printCenter("?&123", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_dk_long.w + kb_Bord; // left
+    kb_dk.draw(kX, kY, true);
+    printCenter("<-", kX + (kb_dk.w/2),
+                kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_lt.w + kb_Bord; // right
+    kb_dk.draw(kX, kY, true);
+    printCenter("->", kX + (kb_dk.w/2),
+                kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_lt.w + kb_Bord; // space bar
+    kb_sp.draw(kX, kY, true);
+
+    kX += kb_sp.w + kb_Bord; // period/comma
+    kb_dk.draw(kX, kY, true);
+    printCenter(".", kX + (kb_dk.w/2),
+                kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_lt.w + kb_Bord; // Right return
+    kb_dk_long.draw(kX, kY, true);
+    tft.setCursor(kX + (kb_dk_long.w/2), kY + ((kb_dk_long.h + kb_Bord)/2), true);
+    printCenter("return", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+}
+
 #endif /* MR_DRAW_h */

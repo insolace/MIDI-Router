@@ -273,4 +273,27 @@ int reOrderR(int r)
     }
 }
 
+// print font character widths to serial port
+void printCharWidths()
+{
+    tft.setCursor(0,0);
+    int16_t ascX = 0, ascY = 0;
+    int aCount = 0;
+    int lastaX = 0;
+    for (int i = 32; i < 127; i++)
+    {
+        tft.print(char(i));
+        tft.getCursor(ascX, ascY);
+        Serial.print(ascX - lastaX); Serial.print(", ");
+        lastaX = ascX;
+        if (aCount > 20) {
+            tft.print("\n");
+            aCount = 0;
+            lastaX = 0;
+        }
+        aCount++;
+    }
+}
+
+
 #endif /* MR_UTIL_h */

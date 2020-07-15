@@ -27,7 +27,8 @@
 #ifndef MR_TXT_h
 #define MR_TXT_h
 
-void dPrint(String s, int sz) {
+void dPrint(String s, int sz)
+{
     int len = s.length()+1;
     byte buff[len];
     s.getBytes(buff, len);
@@ -36,87 +37,58 @@ void dPrint(String s, int sz) {
     }
 }
 
-void dWrite(unsigned char c, unsigned int s) {
-    //curX = tft.getCursorX();
-    //curY = tft.getCursorY();
-    //Serial.println(c);
-    //Serial.println(curX);
-    //Serial.println(curY);
-    
-    //if (curX+fWidth > WIDE) { curX = 0; curY = curY + fHeight; }  // wrap text horizontal
-    //if (curY+fHeight > TALL) { curY = 0; curX = 0; }              // wrap text vertical
-    
-    //tft.graphicsMode();
-    //tft.drawChar(curX, curY, c, fColor, fBG, s);
-    //curX = curX + (s*6) + 1;
+void dWrite(unsigned char c, unsigned int s)
+{
     tft.setFontScale(s);
     tft.print("c");
 }
 
-void printVert(String s) {
+void printVert(String s)
+{
     int x = tft.getCursorX();
     int y = tft.getCursorY();
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++)
+    {
         tft.print(s.charAt(i));
         y = y + tft.getFontHeight();
         tft.setCursor(x, y);
     }
 }
 
-/*
+void fontSize(enum RA8875tsize ts)
+{
+    pfSize = fSize;
+    fSize = ts;
+    tft.setFontSize(ts);
+}
 
-    // code below not used, for reference only
-
-    void textSubs() {
-    //testRot();
-
-    tft.graphicsMode();
-    tft.setRotation(2);
-    //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
-
-    tft.setCursor(10,10);
-    tft.drawChar(10, 10, 'E', 0xFFFF, 0x0000, 2);
-
-    tft.setTextRotation(1);
-
-    tft.textMode();
-    tft.textColor(RA8875_RED, RA8875_BLACK);
-    tft.textSetCursor(0,16);
-    tft.textEnlarge(3);
-    tft.textWrite("HELLOWORLD");
-
-
-    delay(2000);
-    tft.fillScreen(RA8875_BLACK);
-    delay(1000);
-    tft.fillScreen(RA8875_YELLOW);
-    delay(1000);
-
-    tft.graphicsMode();
-    tft.setRotation(1);
-    //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
-
-
-    tft.setCursor(10,10);
-    tft.drawChar(10, 10, 'E', 0xFFFF, 0x0000, 2);
-
-    tft.setTextRotation(0);
-
-    tft.textMode();
-    tft.textColor(RA8875_RED, RA8875_BLACK);
-    tft.textSetCursor(0,16);
-    tft.textEnlarge(3);
-    tft.textWrite("HELLOWORLD");
-
-    //tft.fillRect(11, 11, 398, 198, RA8875_BLUE);
-    delay(2000);
-    tft.fillScreen(RA8875_BLACK);
-    delay(1000);
-    tft.fillScreen(RA8875_YELLOW);
-    delay(1000);
-
+void printCenter(String s, int x, int y, enum RA8875tsize ts)
+{
+    fontSize(ts); // set the current font size to ts
+    switch (ts)
+    {
+        case X16:
+            tft.setCursor(x - (getWidthAX24(s, arial16CW))/2, y);
+            break;
+        case X24:
+            tft.setCursor(x - (getWidthAX24(s, arial24CW))/2, y);
+            break;
+        case X32:
+            tft.setCursor(x - (getWidthAX24(s, arial32CW))/2, y);
+            break;
     }
+    tft.print(s);
+    fontSize(pfSize); // restore font size to previous
+}
 
-*/
+int getWidthAX24(String s, int * wArray)
+{
+    int sLen = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        sLen += wArray[(char(s[i])-32)];
+    }
+    return sLen;
+}
 
 #endif /* MR_TXT_h */

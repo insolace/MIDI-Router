@@ -139,8 +139,6 @@ guiElem::guiElem(uint16_t a, uint16_t b, uint16_t c, uint16_t d)
     x = a; y = b; w = c; h = d;
 }
 
-
-
 // Define variables and constants
 /// SdFatSdioEX - SD card object
 /// @brief [KURT] this will be moving into the MIDI Router library
@@ -191,15 +189,13 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial3, MIDI3); ///< Create MIDI 3 interac
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial4, MIDI4); ///< Create MIDI 4 interace instance
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial5, MIDI5); ///< Create MIDI 5 interace instance
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6); ///< Create MIDI 6 interace instance
+
+midi::MidiInterface<midi::SerialMIDI<HardwareSerial>> *dinlist[6] =
+{
+        &MIDI1, &MIDI2, &MIDI3, &MIDI4, &MIDI5, &MIDI6
+};
+
 #endif // MIDI_SERIAL_SUPPORT
-
-/*  todo - can't seem to figure out the right class to reference when making this array of pointers.
-    Arduino MIDI library is different than the Teensy USB (see below)
-
-    midi::MidiInterface<HardwareSerial> * dinlist[5] = {
-    &MIDI1, &MIDI2, &MIDI3, &MIDI4, &MIDI5, &MIDI6
-    };
-*/
 
 // Create the ports for USB devices plugged into Teensy's 2nd USB port (via hubs)
 USBHost myusb;              ///< @return USBHost USB Host
@@ -297,11 +293,11 @@ guiElem bg_inputs (200, 0, 100, 121);
 guiElem bg_outputs (0, 121, 201, 60);
 
 // routing grid
-guiElem grid_routed (201, 241, 98, 60);
+guiElem grid_routed (201, 240, 98, 60);
 guiElem grid_unrouted (201, 121, 100, 60);
-guiElem grid_notes (201, 326, 50, 32);
-guiElem grid_param (201, 300, 50, 26);
-guiElem grid_trans (251, 300, 48, 26);
+guiElem grid_notes (201, 327, 50, 32);
+guiElem grid_param (201, 299, 49, 29);
+guiElem grid_trans (252, 299, 48, 26);
 
 // icons
 guiElem ic_routing (0, 240, 198, 119);
@@ -310,8 +306,62 @@ guiElem ic_calib_clear (101, 360, 98, 60);
 guiElem ic_din (0, 181, 62, 60);
 guiElem ic_usb (69, 181, 62, 60);
 guiElem ic_daw (139, 181, 62, 60);
-guiElem ic_eur (219, 181, 62, 58);
+guiElem ic_eur (217, 181, 57, 55);
 
+// keyboard
+guiElem kb_dk_long (522, 361, 116, 56); // dark long key
+guiElem kb_dk (641, 361, 76, 56);       // dark key
+guiElem kb_lt (720, 361, 76, 56);       // light key
+guiElem kb_hl (720, 421, 76, 56);       // highlighted key
+guiElem kb_sp (403, 421, 314, 56);      // space bar
+
+
+int kb_rows = 4;
+int kb_Bord = 3;
+int kb_x = 6, kb_y = 178;
+int kb_rowOffset[4] = {0, 0, 40, 119};
+int kb_rowKeys[4] = {10, 10, 9, 7};
+
+enum KBshift {kCaps=0, kLower, kSym}; // 0, 1, 2
+int kb_shift = 0;
+char kb_alphaNum[36][3] = {
+    {'1','1','!'},
+    {'2','2','@'},
+    {'3','3','#'},
+    {'4','4','$'},
+    {'5','5','%'},
+    {'6','6','^'},
+    {'7','7','&'},
+    {'8','8','*'},
+    {'9','9','('},
+    {'0','0',')'},
+    {'Q','q','`'},
+    {'W','w','~'},
+    {'E','e',' '},
+    {'R','r',' '},
+    {'T','t','-'},
+    {'Y','y','_'},
+    {'U','u','='},
+    {'I','i','+'},
+    {'O','o','|'},
+    {'P','p','\\'},
+    {'A','a',' '},
+    {'S','s',' '},
+    {'D','d','{'},
+    {'F','f','}'},
+    {'G','g',' '},
+    {'H','h',';'},
+    {'J','j',':'},
+    {'K','k','\''},
+    {'L','l','"'},
+    {'Z','z','<'},
+    {'X','x','>'},
+    {'C','c','['},
+    {'V','v',']'},
+    {'B','b',' '},
+    {'N','n',','},
+    {'M','m','?'}
+};
 
 // Colors
 #include "ColorCalc.h"
@@ -325,7 +375,7 @@ uint16_t outsColor   = tft.Color565(100, 0, 0);       // putputs box color
 uint16_t outColFlash = tft.Color565(255, 0, 0);       // output flash color
 uint16_t gridColor   = tft.Color565(102, 102, 102);   // grid
 uint16_t linClr      = tft.Color565(0, 0, 0);         // lines
-uint16_t txColor     = tft.Color565(255, 255, 255);   // text
+uint16_t txColor     = tft.Color565(182, 182, 170);   // text
 uint16_t routColor   = tft.Color565(255, 255, 255);   // routing
 uint16_t actFieldBg  = tft.Color565(0, 0, 255);       // Active Field color
 uint16_t fieldBg     = tft.Color565(50, 50, 50);      // inactive field color
@@ -372,24 +422,34 @@ uint16_t fColor = RA8875_WHITE; ///< Font Color
 uint16_t fBG = 0; ///< Font Backgeround Color
 
 // Font dim
-int fSize = 3; ///< Font Size
+int fSize = X24; ///< Font size X16, X24, X32
+int pfSize = 0; ///< Previous font size
 int fWidth = 18; ///< Font Width
 int fHeight = 25; ///< Font Height
 uint16_t curX = 20; ///< Current X coordinate to draw to
 uint16_t curY = 20; ///< Current Y coordinate to draw to
-int tBord = 5; ///< buffer/border from edge of screen to beginning of text
+int tBord = 10; ///< buffer/border from edge of screen to beginning of text
+
+int arial16CW[95] = {
+    4, 4, 8, 9, 9, 16, 12, 4, 5, 5, 6, 9, 4, 5, 4, 4, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 6, 6, 9, 9, 9, 10, 16, 11, 12, 12, 12, 11, 10, 12, 12, 4, 9, 12, 10, 13, 12, 12, 11, 12, 12, 11, 10, 12, 11, 15, 11, 10, 9, 5, 4, 5, 9, 9, 5, 9, 10, 9, 10, 9, 5, 10, 10, 4, 4, 9, 4, 14, 10, 10, 10, 10, 6, 9, 5, 10, 9, 13, 9, 9, 9, 6, 4, 6, 9};
+
+int arial24CW[95] = { ///< Character width for Arial X24 ROM font, starts at ASCII 32 (space)
+    7, 7, 11, 13, 13, 18, 17, 6, 8, 8, 9, 14, 7, 8, 7, 7, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 7, 7, 14, 14, 14, 15, 23, 17, 17, 17, 17, 16, 15, 19, 17, 7, 13, 17, 15, 21, 17, 18, 16, 18, 17, 16, 15, 17, 16, 23, 16, 15, 14, 8, 7, 8, 14, 13, 8, 13, 15, 13, 15, 13, 8, 15, 15, 7, 7, 13, 7, 21, 15, 15, 15, 15, 9, 13, 8, 15, 13, 19, 13, 13, 12, 9, 7, 9, 14};
+
+int arial32CW[95] = {
+    9, 10, 15, 18, 18, 26, 23, 8, 11, 11, 12, 19, 9, 11, 9, 9, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 10, 10, 19, 19, 19, 20, 31, 23, 22, 23, 23, 21, 20, 25, 22, 8, 17, 23, 20, 27, 22, 24, 20, 24, 22, 21, 20, 22, 21, 31, 21, 20, 20, 11, 9, 11, 19, 18, 11, 18, 19, 18, 19, 18, 11, 19, 19, 10, 10, 18, 10, 28, 19, 19, 19, 19, 13, 18, 11, 19, 17, 25, 18, 17, 16, 12, 9, 12, 19};
 
 // =================================
 // Routing menu graphic definitions
 // =================================
 
 // Rows
-int rOffset = 119;  ///< was 152 - Offset from top of screen to first row
+int rOffset = 121;  ///< was 152 - Offset from top of screen to first row
 int rHeight = (TALL - rOffset) / rows;  ///< 60 -  Row height
 int tROffset = (rHeight / 2) - (fHeight / 2); ///< text vertical offset for rows
 
 // Columns
-int cOffset = 199;  ///< was 238 - Offset from left side of screen to first column
+int cOffset = 201;  ///< was 238 - Offset from left side of screen to first column
 int cWidth = (WIDE - cOffset) / columns;  ///< 100 - Column width
 int tCOffset = (cWidth / 2) - (fHeight / 5); ///< text horizontal offset for columns
 
@@ -542,11 +602,11 @@ void setDAC(int dac, uint32_t data);
 void touchIO(); ///< perform touch i/o
 void drawTouchPos(); ///< Display current touch position on the screen
 void evaltouch(); ///< Evaluate current touch coordinates
-void drawMenu_Routing(); ///< Draw the routing menu/page
+void update_Routing(); ///< Update the routing menu/page
 void refMenu_Routing(); ///< Refresh routing menu/page
 void refMenu_Calibrate(); ///< Refresh calibration menu/page
-void drawMenu_Calibrate(); ///< Draw the calibration menu
-void drawMenu_Calibrate_udcv(); ///< Update CV calibration values
+void update_Calibrate(); ///< Update the calibration menu
+void update_Cal_Values(); ///< Update CV calibration values
 void readKnob(); ///< Process knob input
 void knobZero(); ///< Zero out the knob value
 void knobFull(); ///< Set knob value to max
@@ -581,8 +641,6 @@ void drawRouting(); ///< Draw the current routing grid
 void drawRoute(int c, int r);
 void blankSelect(); ///< Blank the last selection
 void drawGLines(); ///< Draw the routing grid lines
-void drawBGs(); ///< Draw backgrounds
-void drawHomeScreen(); ///< Draw the home screen
 /// Draw a piano at the given row/column routing point
 /// @param c  Column
 /// @param r Row
@@ -615,6 +673,10 @@ uint16_t color565(uint8_t r, uint8_t g, uint8_t b);
 /// @param x X coordinate to draw the array
 /// @param y Y coordinate to draw the array
 // void drawArray(uint16_t x, uint16_t y);
+/// Draw Touchscreen Keyboard
+/// @param x X coordinate to draw the keyboard at
+/// @param y Y coordinate to draw the keyboard at
+void drawKeyboard(int x, int y);
 
 // MIDI
 /// Route the MIDI
@@ -708,6 +770,8 @@ void csvClose();
 /// @param r Value to be re-ordered
 /// @return int value
 int reOrderR(int r);
+/// Print font character widths to serial port
+void printCharWidths();
 
 // TXT
 /// Print string to display
@@ -718,7 +782,21 @@ void dPrint(String s, int sz = fSize);
 /// @param c Character
 /// @param s Font size
 void dWrite(unsigned char c, unsigned int s);
+/// Print vertical text (deprecated)
+/// @param s String to print
 void printVert(String s);
+/// Change the font size and store previous size
+/// @param ts Font size X16, X24, X32
+void fontSize(enum RA8875tsize ts);
+/// Print centered text (for ROM fonts that aren't accurate in RA8875.cpp)
+/// @param s String to print
+/// @param x X coordinate
+/// @param y Y coordinate
+/// @param ts Font size to print at (if blank then default to current font size). Restores the previous font size after print.
+void printCenter(String s, int x, int y, enum RA8875tsize ts = fSize);
+/// Get the pixel width of a string printed with ARIEL X24 font ROM
+/// @param s String to measure
+int getWidthAX24(String s, int * wArray);
 
 // Utilities
 USING_NAMESPACE_MIDIROUTER
@@ -731,11 +809,9 @@ MIDIRouter_Lib router = MIDIRouter_Lib(); ///< Create MIDI Router Object
 void setup()
 {
     Serial.begin(115200);
-    //  delay(1000);
     if (!SD.begin())
     {
         Serial.println("SD initialization failed!");
-        //return;
     }
     else
     {
@@ -815,60 +891,61 @@ void setup()
     MIDI6.turnThruOff();
 #endif //MIDI_SERIAL_SUPPORT
 
-    // USB Devices hosted by TEENSY
-    // Wait 1.5 seconds before turning on TEENSY USB Host.  If connected USB devices
-    // use too much power, Teensy at least completes USB enumeration, which
-    // makes isolating the power issue easier.
-    delay(150);
-    myusb.begin();
-
     // ============================================================
-    // Touchscreen setup
+    // Display and Touchscreen setup
     // ============================================================
 #ifdef TFT_DISPLAY
-    // Setup Touch
-    TS.begin(WAKE, INTRPT);                 // Startup sequence CONTROLER part
-    pinMode(led, OUTPUT);
 
-    //Serial.println("RA8875 start");
-    while (!Serial && (millis() <= 1000));
-
-    // Initialise the display
+    // Initialise the TFT display
     tft.begin(RA8875_800x480);
+    
     if (tft.errorCode() != 0)  {
         Serial.println("RA8875 Not Found!");
         delay(100);
     } else {
     Serial.println("Found RA8875");
     }
-
-    //tft.displayOn(true);
-    //tft.GPIOX(true);      // Enable TFT - display enable tied to GPIOX
-    //tft.backlight(1);     // backlight on
-    //tft.brightness(255);
+    tft.backlight(0);     // backlight off, avoid bright flashes at startup
+    
+    // Set screen brightness
+    tft.brightness(5);
     
     // Rotation
     tft.setRotation(curRot);
     
     // External fonts
     tft.setExternalFontRom(ER3304_1, ASCII);
-    tft.setFont(EXTFONT);//enable external ROM
+    tft.setFont(EXTFONT);
     tft.setExtFontFamily(ARIAL);
-    tft.setFontSize(X16);
+    fontSize(X24);
     tft.setFontScale(0);
     tft.setTextColor(txColor);
-    
-    // With hardware accelleration this is instant
-    //tft.graphicsMode();
-    tft.clearScreen(RA8875_BLACK);
+    tft.clearScreen(RA8875_BLACK); // clear screen
 
+#endif // TFT_DISPLAY
+    
+    // Turn on USB port, and profile DIN instruments with SysEx
+    // Do this before loading WELCOME.BMP, allowing time for
+    // USB enumeration and for MIDI devices to boot before being polled
+    myusb.begin();
+
+    // sysex id req
+    profileInstruments();
+    
+#ifdef TFT_DISPLAY
+    
 #ifdef STARTUP_PICTURE
-
-    bmpDraw("WELCOME.BMP", 0, 0);
-    delay(2000);
-    tft.clearScreen(RA8875_BLACK);
     
+    bmpDraw("WELCOME.BMP", 0, 0);
+
 #endif //STARTUP_PICTURE
+
+    tft.backlight(1);     // backlight on
+    delay(2000);
+    
+    // Setup Touch
+    TS.begin(WAKE, INTRPT);       // touch firmware takes approx 2.8s to load
+    tft.clearScreen(RA8875_BLACK);
     
     tft.layerEffect(LAYER1); // layer 1, 8bit color
     tft.writeTo(L2);
@@ -876,7 +953,31 @@ void setup()
     tft.writeTo(L1); // layer 1
     
     randomSeed(analogRead(0));
+    
+    /*
+    kb_shift = kCaps;
+    drawKeyboard(kb_x, kb_y);
 
+    delay(1000);
+    
+    kb_shift = kLower;
+    drawKeyboard(kb_x, kb_y);
+    
+    delay(1000);
+    
+    kb_shift = kSym;
+    drawKeyboard(kb_x, kb_y);
+    
+    delay(1000);
+    
+
+    tft.setFontSize(X32);
+    printCharWidths();
+    tft.setFontSize(X24);
+    Serial.println("\n end widths");
+    delay(5000);
+     */
+    
 #endif // TFT_DISPLAY
     // end touchscreen setup
 
@@ -906,15 +1007,10 @@ void setup()
     }
 #endif // SDCARD_SUPPORT
 
-    // sysex id req
-    delay(250);  // allow send/receive buffers to settle, some MIDI devices are chatty when powered on
-    profileInstruments();
-    delay(250);  // wait for responses
-
 #ifdef TFT_DISPLAY
 
     // draw homescreen
-    drawHomeScreen();
+    refMenu_Routing();
     rdFlag = 0;
 #endif // TFT_DISPLAY
 
@@ -923,11 +1019,10 @@ void setup()
 ///! Add loop code
 void loop()
 {
-    //routeMidi(); // check incoming MIDi and route it
     if (rdFlag == 1)
     {
         rdFlag = 0;
-        drawHomeScreen();
+        refMenu_Routing();
     }
     readKnob();  // check knob for turn/push
     touchIO();   // process touchscreen input
