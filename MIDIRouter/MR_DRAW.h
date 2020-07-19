@@ -32,42 +32,19 @@
 // =============================
 void drawBox()
 {
-
-    // Settings/Home
-    tft.fillRect(hbOX, hbOY, hbWidth, hbHeight, hbColor);
-    tft.setCursor(cOffset * .25 - 12, rOffset * .25, 1);
-    if (menu == 0) {
-        tft.print("CV");
-    } else if (menu == 1) {
-        tft.print("BACK");
-    }
+    tft.clearScreen(RA8875_BLACK);
     
-    // inputs page select Background
-    tft.fillRect(tbOX, 0, tbWidth, hbHeight, ibColor);
-    tft.setCursor(cOffset * .75, rOffset * .25, 1);
-    if (menu == 0) {
-        tft.print("IN");
-    }
+    // home box background
+    bg_homebox.draw(0, 0, false); // draw hbbg
 
-    // outputs page select Background
-    tft.fillRect(0, hbHeight, hbWidth, tbHeight, obColor);
-    tft.setCursor(cOffset * .25 - 8, rOffset * .75, 1);
-    if (menu == 0) {
-        tft.print("OUT");
-    }
-
-    // Clock/Tempo Box
-    tft.fillRect(tbOX, tbOY, tbWidth, tbHeight, tbColor);
-    tft.setCursor(cOffset * .75, rOffset * .75, 1);
-    if (menu == 0) {
-        tft.print("ID");
-    } else if (menu == 1) {
-        tft.setFontScale(0);
-        tft.setCursor(tbOX + 13, tft.getCursorY() - 8);
-        tft.print("CLEAR");
-        tft.setCursor(tbOX + 13, tft.getCursorY() + 16);
-        tft.print("ROUTES");
-        tft.setFontScale(1);
+    // home icons
+    if (menu == 0) { // routing screen
+        printCenter("Output PG", (bg_homebox.w*.25), (bg_homebox.h/2) + (tBord/2), X16);
+        printCenter("Input PG", (bg_homebox.w*.75), tBord/2, X16);
+        ic_routing.draw(0, 0, true);
+    } else if (menu == 1) { // cv calibrate screen
+        ic_calib_back.draw(0, 0, true); // back icon
+        ic_calib_clear.draw(101, 61, true); // clear icon
     }
 }
 
@@ -79,31 +56,49 @@ void drawBox()
 
 void drawColumns()
 {
-    tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor);
-    tft.setTextColor(txColor);
-    
     MRInputPort *input;
-    
-    for (int i = 0; i < columns; i++) {
-        if (menu == 0) {  // routing
-            tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), TALL, linClr);
-            tft.setActiveWindow(cOffset + (i*cWidth) + tBord, cOffset + ((i+1)*cWidth) - tBord, tBord, rOffset - tBord );
-            input = router.inputAt(i+(pgIn *6));
-            tft.setCursor(cOffset + (i*cWidth) + tBord, tBord);
-            tft.print(input->name);
+    uint16_t curColor;
+    for (int c = 0; c < columns; c++) {
+        if (menu == 0) {  // routing screen
+
+            bg_inputs.draw(cOffset + (c * cWidth), 0, false); // background
             
-        } else if (menu == 1) { // cv calibrate
-            tft.drawLine(cOffset + ((i)*cWidth), 0, cOffset + ((i)*cWidth), rOffset, linClr);
-            tft.setActiveWindow(cOffset + (i*cWidth) + tBord, cOffset + ((i+1)*cWidth) - tBord, tBord, rOffset - tBord );
-            if (i == CVcalSelect) {
-                tft.fillRect(cOffset + (cWidth * CVcalSelect) + 1, 0, cWidth - 2, rOffset, actFieldBg);
+            int p = (pgIn * 10) + c;
+            guiElem * icon = &empty;
+            
+            if (p < 6) {         // pg0, din
+                icon = &ic_din;
+            } else if (p < 24) { // pg1-2, usb
+                icon = &ic_usb;
+            } else if (p > 25 && p < 54) { // pg3-5, daw
+                icon = &ic_daw;
             }
             
+            // draw icon
+            icon->draw(cOffset + (c * cWidth) + ((cWidth/2) - (icon->w/2)), 0, true);
+            
+            // draw name
+            tft.setActiveWindow(cOffset + (c * cWidth) + tBord, cOffset + ((c + 1) * cWidth) - tBord + icon->w, tBord, rOffset - tBord );
+            input = router.inputAt(c + (pgIn * 6));
+            printCenter(input->name, cOffset + (c * cWidth) + (cWidth/2), icon->h + tBord);
+            
+        } else if (menu == 1) { // cv calibrate screen
+            if (c == CVcalSelect)
+            {
+                curColor = actFieldBg;
+            } else {
+                curColor = insColor;
+            }
+            tft.fillRect(cOffset + (cWidth * c) + 1, 0, cWidth - 2, rOffset, curColor);
+            
+            tft.setTextColor(txColor);
+            tft.setActiveWindow(cOffset + (c * cWidth) + tBord, cOffset + ((c + 1) * cWidth) - tBord, tBord, rOffset - tBord );
+
             // router could be used to obtain the CV names here
             //input = router.inputAt((5-i)+(pgIn *6));
-            tft.setCursor(cOffset + (i*cWidth) + tBord, tBord);
+            tft.setCursor(cOffset + (c * cWidth) + tBord, tBord);
             tft.print("A");
-            tft.print(i+1);
+            tft.print(c + 1);
         }
         tft.setActiveWindow();
     }
@@ -111,54 +106,73 @@ void drawColumns()
 
 void drawRows()
 {
-
-    tft.fillRect(0, rOffset, cOffset, TALL - rOffset, outsColor);
-
     MROutputPort *output;
-
-    for (int i = 0; i < rows; i++)
+    for (int r = 0; r < 6; r++)
     {
-        tft.setCursor(tBord, rOffset + (i*rHeight) + tROffset);
-        output = router.outputAt(i+(pgOut *6));
+        bg_outputs.draw(0, rOffset + (r * rHeight), false); // background
+
+        int p = (pgOut * 10) + r;
+        guiElem * icon = &empty;
+        
+        if (p < 6) {         // pg0, din
+            icon = &ic_din;
+        } else if (p < 24) { // pg1-2, usb
+            icon = &ic_usb;
+        } else if (p > 25 && p < 54) { // pg3-5, daw
+            icon = &ic_daw;
+        } else if (p > 56) {
+            icon = &ic_eur;
+        }
+        
+        icon->draw(0, rOffset + (r * rHeight), true); // icon
+        
+        // draw names
+        tft.setCursor(icon->w, rOffset + (r * rHeight) + tROffset);
+        output = router.outputAt(r + (pgOut *6));
         tft.print(output->name);
-        tft.drawLine(0, rOffset + ((i)*rHeight), WIDE, rOffset + ((i)*rHeight), linClr);
     }
 }
 
 void drawRouting() {
-    for (int i = 0; i < rows; i++) {
+    for (int r = 0; r < rows; r++) {
         for (int c = 0; c < columns; c++) {
-            curRoute = routing[c + (pgIn * 6)][i + (pgOut * 6)]; // store current routing point
-            if ((curRoute & B00000111) != 0) {  // draw routed
-                tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, routColor);
-                tft.setCursor(cOffset + (cWidth * c) + 5, rOffset + (rHeight * i) + 10);
-                tft.setTextColor(RA8875_BLACK);
-                tft.setFontScale(0);
-                int x = cOffset + (cWidth * c) + 1;
-                int y = rOffset + (rHeight * i) + 1;
-                if (curRoute & B00000001) { // keyboard
-                    drawPiano(c, i);
-                }
-
-                if (curRoute & B00000010) { // parameter
-                    tft.setCursor(x + 7, y + 8);
-                    tft.print("CC");
-                }
-                if (curRoute & B00000100) { // transport
-                    tft.setCursor(x + 45, y + 8);
-                    tft.print("Clock");
-                }
-                tft.setTextColor(txColor);
-                tft.setFontScale(1);
-            } else {                                              // draw unrouted
-                tft.fillRect(cOffset + (cWidth * c), rOffset + (rHeight * i), cWidth, rHeight, gridColor);
-            }
-            if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == i) ) {
-                tft.drawRect(cOffset + (cWidth * c) + 1, rOffset + (rHeight * i) + 1, cWidth-2, rHeight-2, RA8875_GREEN);
-            }
+            drawRoute(c, r);
         }
     }
-    drawGLines();
+}
+
+void drawRoute(int c, int r)
+{
+    curRoute = routing[c + (pgIn * 6)][r + (pgOut * 6)]; // store current routing point
+    if ((curRoute & B00000111) != 0) {  // draw routed
+        grid_routed.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false); // bg
+
+        // draw piano
+        if (curRoute & B00000001) {
+            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + 28, true);
+        }
+        // draw parameter
+        if (curRoute & B00000010) {
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+        }
+        // transport
+        if (curRoute & B00000100) {
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+        }
+    } else {
+        // draw unrouted
+        grid_unrouted.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false);
+
+    }
+    // draw green rectangle around current selected route
+    if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == r) ) {
+        tft.drawRect(cOffset + (cWidth * c), rOffset + (rHeight * r), cWidth-1, rHeight-1, RA8875_GREEN);
+    }
+}
+
+void blankSelect()
+{
+    tft.drawRect(cOffset + (cWidth * (curCol - (pgIn * 6))), rOffset + (rHeight * (curRow - (pgOut * 6))), cWidth-1, rHeight-1, RA8875_BLACK); // clear last green rectangle
 }
 
 // Draw grid lines
@@ -175,42 +189,17 @@ void drawGLines()
 }
 
 // =============================
-// draw backgrounds; grid, inputs and outputs
-// =============================
-
-void drawBGs()
-{
-    //tft.fillRect(cOffset, rOffset, WIDE,TALL, gridColor);  // grid bg
-    tft.fillRect(cOffset, 0, WIDE - cOffset, rOffset, insColor); // inputs bg
-    tft.fillRect(0, rOffset, cOffset, TALL - rOffset, outsColor); // outputs bg
-}
-
-// =============================
-// draw homescreen
-// =============================
-
-void drawHomeScreen()
-{
-    drawBox();
-    drawBGs();
-    drawRows();
-    drawColumns();
-    drawRouting();
-}
-
-// =============================
 // Routing Graphics
 // =============================
 
-
+// likely deprecated with BMP skins
 void drawPiano(int c, int r) {
     int KeyW = 5;
     int bKeyH = 20;
-    int x = cOffset + (cWidth * c) + 1;
-    int y = rOffset + (rHeight * r) + 1;
+    int x = cOffset + (cWidth * c);
+    int y = rOffset + (rHeight * r);
     
     // draw keybed/border
-    
     tft.fillRect(x, y+30, 99, 29, RA8875_WHITE);
     tft.drawLine(x, y + 29, x + 99, y + 29, RA8875_BLACK);
     
@@ -241,7 +230,7 @@ void drawPiano(int c, int r) {
 
 
 // =============================
-// Flash ins/outs
+// Flash ins/outs - NOT IMPLEMENTED YET
 // =============================
 
 void flashIn(int inp, int state)
@@ -253,14 +242,14 @@ void flashIn(int inp, int state)
     if (state != 0)
     {
         // draw input background
-        tft.fillRect(cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColFlash);
+        tft.fillRect(cOffset + (cWidth * 6), 0, cWidth - 1, rOffset - 1, insColFlash);
         //(*elapsedIn+inp) = 0;
         inFlag[inp] = 1;
     }
     else
     {
         // draw input background
-        tft.fillRect(cOffset + (cWidth * 6) + 1, 0, cWidth - 1, rOffset - 1, insColor);
+        tft.fillRect(cOffset + (cWidth * 6), 0, cWidth - 1, rOffset - 1, insColor);
     }
 
     // redraw input name
@@ -307,7 +296,6 @@ void bmpDraw(const char *filename, int x, int y)
         Serial.println(F("File not found"));
         tft.setCursor(x,y);
         tft.print("BMP NOT FOUND");
-        delay(2000);
         return;
     }
 
@@ -466,6 +454,86 @@ uint32_t read32(File& f)
 uint16_t color565(uint8_t r, uint8_t g, uint8_t b)
 {
     return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
+}
+
+// draw GUI element at destX/destY, true = transparent
+void guiElem::draw(uint16_t destX, uint16_t destY, bool transp)
+{
+    if (transp = true)
+    {
+        tft.setTextColor(tft.Color565(36, 0, 0)); // transparent, (transp) doesn't currently work
+        tft.BTE_move(x, y, w, h, destX, destY, 2, 1, transp);
+        tft.setTextColor(txColor);
+    } else {
+        tft.BTE_move(x, y, w, h, destX, destY, 2);
+    }
+}
+
+// draw keyboard
+void drawKeyboard (int x, int y)
+{
+    tft.clearScreen(RA8875_BLACK); // clear screen
+    
+    // draw alphanumeric keys
+    int kX, kY;
+    int kb_count = 0;
+    
+    for (int r = 0; r < kb_rows; r++) {
+        for (int c = 0; c < kb_rowKeys[r]; c++){
+            kX = x + kb_rowOffset[r] + (c * (kb_lt.w + kb_Bord));
+            kY = y + (r * (kb_lt.h + kb_Bord));
+            kb_lt.draw(kX, kY, true);
+            printCenter(kb_alphaNum[kb_count][kb_shift],
+                            kX + (kb_lt.w/2), kY + (kb_lt.h/2) - (tft.getFontHeight()/2) );
+            kb_count++;
+        }
+    }
+    
+    // row 4 non-alphanumeric
+    kX = x;
+    kY = y + ((kb_lt.h + kb_Bord) * 3);
+    kb_dk_long.draw(kX, kY, true); // left shift
+    printCenter("shift", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_rowOffset[3] + ((kb_lt.w + kb_Bord) * 7);
+    kb_dk_long.draw(kX, kY, true); // Right backsp
+    printCenter("delete", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    kY = y + ((kb_dk_long.h + kb_Bord) * 4);
+
+    // row 5 non-alphanumeric
+    kX = x;
+    kY = y + ((kb_lt.h + kb_Bord) * 4);
+
+    kb_dk_long.draw(kX, kY, true); // left punct
+    printCenter("?&123", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_dk_long.w + kb_Bord; // left
+    kb_dk.draw(kX, kY, true);
+    printCenter("<-", kX + (kb_dk.w/2),
+                kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_lt.w + kb_Bord; // right
+    kb_dk.draw(kX, kY, true);
+    printCenter("->", kX + (kb_dk.w/2),
+                kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_lt.w + kb_Bord; // space bar
+    kb_sp.draw(kX, kY, true);
+
+    kX += kb_sp.w + kb_Bord; // period/comma
+    kb_dk.draw(kX, kY, true);
+    printCenter(".", kX + (kb_dk.w/2),
+                kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    kX += kb_lt.w + kb_Bord; // Right return
+    kb_dk_long.draw(kX, kY, true);
+    tft.setCursor(kX + (kb_dk_long.w/2), kY + ((kb_dk_long.h + kb_Bord)/2), true);
+    printCenter("return", kX + (kb_dk_long.w/2),
+                kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
 }
 
 #endif /* MR_DRAW_h */

@@ -48,7 +48,6 @@ void touchIO()
                     newY = TS.readFingerY(0);
                     break;
             }
-
             difX = newX - touchX;
             difY = newY - touchY;
             if ((abs(difX) > tMargin || abs(difY) > tMargin))
@@ -56,19 +55,16 @@ void touchIO()
                 touchX = newX;
                 touchY = newY;
 
-                //Serial.println("evaltouch");
                 evaltouch();
-                //Serial.println("done eval");
             }
         }
     }
 }
 
-void drawTouchPos()
+void drawTouchPos() // debug, show current touch position
 {
     itoa(touchX, xstr, 10);
     itoa(touchY, ystr, 10);
-    //tft.textMode();
     tft.setCursor(20, 40);
     tft.print(" X:");
     tft.print(xstr);
@@ -78,25 +74,24 @@ void drawTouchPos()
 
 void evaltouch()
 {
-
     if (menu == 0)
     {
-        drawMenu_Routing();
+        update_Routing();
     }
     else if (menu != 0)
     {
-        //tft.fillScreen(NEWCOLOR(touchX / 3, 0, touchY / 2));
-        drawMenu_Calibrate();
+        update_Calibrate();
     }
 }
 
 
 // =================================
-// Routing Table
+// Update routing table UI
 // =================================
 
-void drawMenu_Routing()
+void update_Routing()
 {
+    blankSelect(); // clear last selected routing point
     //Serial.println("dm rout");
     if (touchY <= rOffset && touchX >= cOffset)
     {
@@ -109,9 +104,10 @@ void drawMenu_Routing()
     else if (touchY >= rOffset && touchX >= cOffset)
     {
         // routing grid selected
-
-        curCol = (getTouchCol(touchX) - 1) + (pgIn * 6);
-        curRow = (getTouchRow(touchY) - 1) + (pgOut * 6);
+        int c = getTouchCol(touchX) - 1;
+        int r = getTouchRow(touchY) - 1;
+        curCol = c + (pgIn * 6);
+        curRow = r + (pgOut * 6);
         curRoute = routing[curCol][curRow];
 
         if (curRoute == 0)
@@ -124,14 +120,12 @@ void drawMenu_Routing()
             routing[curCol][curRow] = 0;  // close route
             knobSet(0);
         }
-
-        drawRouting();
+        drawRoute(c, r);
         saveEEPROM();
     }
     else if (touchY >= tbOY && touchX >= tbOX)
     {
         // tempo box!
-        //drawRows();
         profileInstruments();
     }
     else if (touchY <= tbOY && touchX >= tbOX)
@@ -161,17 +155,17 @@ void drawMenu_Routing()
 
 void refMenu_Routing()    // refresh routing display
 {
-    //Serial.println("refmenu rout");
+    tft.backlight(0); // clean transitions
     if (menu == 0)
     {
         drawBox();
-        drawBGs();
         drawRows();
         drawColumns();
         drawRouting();
     } else {
         tft.clearScreen(RA8875_BLACK);
     }
+    tft.backlight(1); // clean transitions
 }
 
 // =================================
@@ -180,21 +174,23 @@ void refMenu_Routing()    // refresh routing display
 
 void refMenu_Calibrate()    // refresh cv calibration display
 {
-    //Serial.println("refmenu calib");
+    tft.backlight(0); // clean transitions
     drawBox();
     drawColumns();
-    tft.fillRect(0, (rOffset + 1), WIDE, (TALL - rOffset - 1), gridColor);
+    blankSelect();
+    tft.fillRect(0, (rOffset + 3), WIDE, (TALL - rOffset - 1), gridColor); // blank out routing grid
     tft.setCursor(300, rOffset + 25);
     tft.print("CV Calibration");
-    drawMenu_Calibrate_udcv();
+    update_Cal_Values();
+    tft.backlight(1); // clean transitions
+    
     oldPosition = (dacNeg[CVcalSelect] * 4);
     router.encoder().write(oldPosition);  // update
     knobMax = 65535; // set knob Max for CV
 }
 
-void drawMenu_Calibrate()    // process touch events
+void update_Calibrate()    // process touch events for calibration screen
 {
-    //refMenu_Calibrate();
     if (touchY <= hbHeight && touchX <= hbWidth)    // home button returns to routing
     {
         menu = 0;
@@ -209,7 +205,7 @@ void drawMenu_Calibrate()    // process touch events
         actField = 1;  // -5v (low) field selected
         oldPosition = (dacNeg[CVcalSelect] * 4);
         router.encoder().write(oldPosition);  // update
-        drawMenu_Calibrate_udcv();  // refresh values
+        update_Cal_Values();  // refresh values
         //Serial.println("Neg!");
         setDAC(CVcalSelect, dacNeg[CVcalSelect]);
 
@@ -219,7 +215,7 @@ void drawMenu_Calibrate()    // process touch events
         actField = 2;  // +5v (high) field selected
         oldPosition = (dacPos[CVcalSelect] * 4);
         router.encoder().write(oldPosition);  // update
-        drawMenu_Calibrate_udcv();
+        update_Cal_Values();
         //Serial.println("Pos!");
         setDAC(CVcalSelect, dacPos[CVcalSelect]);
 
@@ -241,7 +237,7 @@ void drawMenu_Calibrate()    // process touch events
         oldPosition = (dacNeg[CVcalSelect] * 4);
         router.encoder().write(oldPosition);  // update
         drawColumns();
-        drawMenu_Calibrate_udcv();
+        update_Cal_Values();
 
     }
     else if (withinBox(touchX, touchY, tbOX, tbOY, tbWidth, tbHeight))        // green tempo box
@@ -250,7 +246,7 @@ void drawMenu_Calibrate()    // process touch events
     }
 }
 
-void drawMenu_Calibrate_udcv()
+void update_Cal_Values()
 {
 
     if (actField == 1)    //neg5
@@ -356,7 +352,7 @@ void readKnob()
                     }*/
                 //knobSet(reOrderR(knobVal));
                 routing[curCol][curRow] = reOrderR(knobVal); // routing page, change routing value
-                drawRouting();
+                drawRoute(curCol - (pgIn * 6), curRow - (pgOut * 6));
                 Serial.print(" rout: "); Serial.println(routing[curCol][curRow]);
 
             }
@@ -437,7 +433,7 @@ void knob_calCV()
         setDAC(CVcalSelect, dacPos[CVcalSelect]);
     }
     saveEEPROM();
-    drawMenu_Calibrate_udcv();
+    update_Cal_Values();
 
 
 }

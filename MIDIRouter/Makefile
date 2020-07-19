@@ -44,7 +44,7 @@
 #   XPT2046_Touchscreen [a] arduino_midi_library [i] i2c_t3 
 #   [k] ks0108 [o] openGLCD [s] ssd1351 [x] x10 
 #
-APP_LIBS_LIST = Wire SPI USBHost_t36 Encoder Bounce2 EEPROM RA8875
+APP_LIBS_LIST = Wire SPI USBHost_t36 Encoder Bounce2 EEPROM RA8875 MIDI
 
 # List user's libraries here
 # !!! Help: http://bit.ly/2AEscDx
@@ -52,7 +52,7 @@ APP_LIBS_LIST = Wire SPI USBHost_t36 Encoder Bounce2 EEPROM RA8875
 #
 # USER = [G] GSL1680 [M] MIDIRouter_Lib [R] RA8875[S] SdFat [a] arduino_midi_library 
 #
-USER_LIBS_LIST = SdFat GSL1680 arduino_midi_library
+USER_LIBS_LIST = SdFat GSL1680 # arduino_midi_library
 
 # List local libraries here
 # !!! Help: http://bit.ly/2juEP91
