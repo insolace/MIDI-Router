@@ -494,6 +494,11 @@ int tMargin = 5;       ///< pixel margin to filter out duplicate triggers for a 
 long fingers, curFing, x, y;
 
 // =====================================================
+// USB Devices
+bool usbActive[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+bool usbWasActive[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+// =====================================================
 // Routing
 float clearRouting = 0; ///< Flag to clear all routings
 float pi = 3.141592; ///< Store this in EEPROM to indicate that this isn't the first time we've turned on the MIDI Router. If EEPROM doesn't contain this value, write Zero's to all routing points (EEPROM factory default values are -1)
@@ -707,6 +712,8 @@ float CVparamCal(int data, int dac);
 void showADC();
 /// Profile instruments connected to DIN ports using SysEx ID Request
 void profileInstruments();
+/// Check for added/removed USB devices
+void updateUSB();
 /// Evaluate MIDI type against filter
 /// @param t MIDI Type (noteon, cc, etc)
 /// @param f Filter value
@@ -930,7 +937,7 @@ void setup()
     myusb.begin();
 
     // sysex id req
-    profileInstruments();
+    //profileInstruments();
     
 #ifdef TFT_DISPLAY
     
@@ -1026,7 +1033,7 @@ void loop()
     }
     readKnob();  // check knob for turn/push
     touchIO();   // process touchscreen input
-
+    updateUSB(); // check for new/removed USB devices
 
     //**************************
 

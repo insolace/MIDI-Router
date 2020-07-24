@@ -338,22 +338,42 @@ void profileInstruments()
     {
         dinlist[i]->sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID
     }
-    
-    // detect USB devices
+    updateUSB();
+}
+
+void updateUSB()
+{
+    // gather status
+    //Serial.println("updateUSB");
     for (int i = 0; i < 10; i++)
     {
-        String prod = (const char *)midilist[i]->product();
-        if (prod != "")
+        //Serial.print("U: "); Serial.println(i);
+        if (usbWasActive[i] != *midilist[i])
         {
-            Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
+            int tst = *midilist[i];
+            //Serial.print("ML: "); Serial.println(tst);
+            //Serial.print("Change USB"); Serial.println(i+1);
             
+            String prod = (const char *)midilist[i]->product();
+            
+            if (prod == "") {
+                prod = "USB ";
+                prod.append(i+1);
+            }
+            Serial.print("USB Device detected: "); Serial.println(prod);
+
             char portIndex = (char)(i + 6);
             const char * shortName = prod.substring(0, 6).c_str();
-            
+
             MRInputPort *inport = router.inputAt(portIndex);
             MROutputPort *outport = router.outputAt(portIndex);
             strncpy(inport->name, shortName, 6);
             strncpy(outport->name, shortName, 6);
+            
+            usbWasActive[i] = tst;
+            
+            drawColumns();
+            drawRows();
         }
     }
 }
