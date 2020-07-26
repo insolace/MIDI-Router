@@ -76,4 +76,24 @@ void setDAC(int dac, uint32_t data)
     digitalWriteFast(CS, HIGH);
 }
 
+void setDIG(int dig, bool s) // iterated adjustment of eurorack digital outs
+{
+    switch (dig)
+    {
+        case 0:
+            dig = dig1;
+        case 1:
+            dig = dig2;
+        case 2:
+            dig = dig3;
+        case 3:
+            dig = dig4;
+        case 4:
+            dig = dig5;
+        case 5:
+            dig = dig6;
+    }
+    digitalWriteFast(dig, s);
+}
+
 #endif /* MR_DAC_h */

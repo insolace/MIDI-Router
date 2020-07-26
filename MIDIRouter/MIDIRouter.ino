@@ -245,7 +245,7 @@ GSL1680 TS = GSL1680(); ///< Touch screen driver
 // ============================================================
 
 // clock stuff
-boolean clockPulse = 0; ///< clock pulse boolean
+boolean clockPulse[6] = {0, 0, 0, 0, 0, 0}; ///< clock pulse boolean for 6 digital outputs
 int startCount = 0; ///< clock pulse start count
 
 // Teensy LED
@@ -259,6 +259,7 @@ long oldPosition = 0; ///< encoder old position
 long newPosition = 0; ///< encoder new position
 int knobVal = 0; ///< encoder knob value
 int oldKnobVal = 0; ///< encoder old knob value
+int knobSave = 0; ///< store a knob value for later (sub selection)
 bool knobDir = 0;  ///< encoder knob direction 0 = CCW, 1 = CW
 bool knobAccelEnable = 0; ///< encoder knob acceleration
 unsigned long knobTimer = millis(); ///< encoder knob timer
@@ -266,7 +267,7 @@ unsigned long knobSlowdown = 2;  ///< wait this many ms before checking the knob
 int knobSpeedup = 3; ///< threshold for difference between old and new value to cause a speed up
 float knobSpeedRate = 2.8; ///< factor (exponent) to speed up by
 int knobMin = 0; ///< encoder knob min value
-int knobMax = 8; ///< encoder knob max value
+int knobMax = 7; ///< encoder knob max value
 
 // DAC stuff
 long dacNeg[6]; ///< Calibrated value for -5VDC at dac output
@@ -275,6 +276,8 @@ long dacOffset[120]; ///< Stored array for custom offsets per note (not yet impl
 
 uint16_t posCol;  // for CV calib
 uint16_t negCol;  // for CV calib
+
+enum cvFilt { cvF_UNR = 0, cvF_NOT, cvF_VEL, cvF_PW, cvF_MOD, cvF_CCs, cvF_CC74, cvF_AT};
 
 // EEPROM
 int eeprom_addr_offset = 0; ///< Create address offset so Array2 is located after dacOffset in EEPROM
@@ -295,7 +298,7 @@ guiElem bg_outputs (0, 121, 201, 60);
 // routing grid
 guiElem grid_routed (201, 240, 98, 60);
 guiElem grid_unrouted (201, 121, 100, 60);
-guiElem grid_notes (201, 327, 50, 32);
+guiElem grid_notes (201, 328, 50, 31);
 guiElem grid_param (201, 299, 49, 29);
 guiElem grid_trans (252, 299, 48, 26);
 
@@ -504,8 +507,12 @@ float clearRouting = 0; ///< Flag to clear all routings
 float pi = 3.141592; ///< Store this in EEPROM to indicate that this isn't the first time we've turned on the MIDI Router. If EEPROM doesn't contain this value, write Zero's to all routing points (EEPROM factory default values are -1)
 
 int curRoute = 0;  ///< Storage for current routing/filter value
-int curCol = 0; ///< Current selected column
-int curRow = 0; ///< Current selected row
+int curCol = 0; ///< Current selected column of routing point (0-49)
+int curRow = 0; ///< Current selected row of routing point (0-49
+
+int selCol = 0; ///< Current selected displayed column (0-5, -1 = nothing);
+int selRow = 0; ///< Current selected displayed row (0-5, -1 = nothing);
+bool subSelect = 0; /// < Flag for selecting sub-element
 
 /// Initial routing
 /// matrix for routing
@@ -513,9 +520,8 @@ int curRow = 0; ///< Current selected row
 /// -------------------------------------------------
 /// bit 0 = keyboard (note on/off, pitchbend, aftertouch, etc)
 /// bit 1 = parameters (CC, NRPN/RPN, Sysex parameters etc)
-/// bit 3 = transport (clock, start/stop)
-/// bit 4 = global channel flag (0 = pass all channels, 1 = filter using bits 5-8)
-/// bits 5-8 = channel filter (only pass events matching this channel)
+/// bit 2 = transport (clock, start/stop)
+/// bits 3-7 = channel filter (0 = all, 1-16 = 0-15 binary)
 uint8_t routing[50][50] =    ///< [input port][output port]
 {
 
@@ -644,7 +650,15 @@ void drawRouting(); ///< Draw the current routing grid
 /// @param c  Column
 /// @param r Row
 void drawRoute(int c, int r);
-void blankSelect(); ///< Blank the last selection
+/// Highlight the current routing point/selection
+/// @param c  Column
+/// @param r Row
+void highlightSelect(int c, int r, bool s);
+/// Clear highlight for routing point/selection
+/// @param c  Column
+/// @param r Row
+/// @param s State (on/off)
+void blankSelect(int c, int r); ///< Blank the last selection
 void drawGLines(); ///< Draw the routing grid lines
 /// Draw a piano at the given row/column routing point
 /// @param c  Column
@@ -708,6 +722,11 @@ float CVnoteCal(int note, int dac);
 /// @param dac DAC output to set
 /// @return float value
 float CVparamCal(int data, int dac);
+/// Set DAC/CV to a calibrated 14bit value (0-16384))
+/// @param data Data to send (0-16384))
+/// @param dac DAC output to set
+/// @return float value
+float CV14bitCal(int16_t data, int dac);
 /// Print ADC values to Serial port
 void showADC();
 /// Profile instruments connected to DIN ports using SysEx ID Request
@@ -716,9 +735,10 @@ void profileInstruments();
 void updateUSB();
 /// Evaluate MIDI type against filter
 /// @param t MIDI Type (noteon, cc, etc)
+/// @param ch Channel
 /// @param f Filter value
 /// @return bool true/false
-bool filtRoute(int t, int f);
+bool filtRoute(int t, int ch, int f);
 
 // UTIL
 /// matchSysExID

@@ -141,20 +141,43 @@ void drawRouting() {
     }
 }
 
-void drawRoute(int c, int r)
+void drawRoute(int c, int r) // c and r = column/row of current displayed grid
 {
+    Serial.print("drawroute! c:"); Serial.print(c); Serial.print(" r:"); Serial.println(r);
     curRoute = routing[c + (pgIn * 6)][r + (pgOut * 6)]; // store current routing point
     if ((curRoute & B00000111) != 0) {  // draw routed
         grid_routed.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false); // bg
-
+        
+        bool drawCh = 0;
         // draw piano
         if (curRoute & B00000001) {
-            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + 28, true);
+            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + grid_param.h, true); // draw piano roll
+            drawCh = 1;
         }
         // draw parameter
         if (curRoute & B00000010) {
             grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+            drawCh = 1;
         }
+        // draw channel if parameter or piano are active
+        if (drawCh == 1)
+        {
+            tft.setTextColor(routColor);
+            String chText = "ch ";
+            if (curRoute >> 3 != 0)
+            {
+                uint8_t filtChan = curRoute >> 3; // bits 3-7 are our filtered channel
+                chText.append(String(filtChan));
+            } else {
+                chText.append("*");
+            }
+            
+            printCenter(chText,
+                        cOffset + (c * cWidth) + (cWidth/2) + (grid_trans.w/2),
+                        rOffset + (r * rHeight) + grid_param.h + tBord/2, X16);
+            tft.setTextColor(txColor);
+        }
+        
         // transport
         if (curRoute & B00000100) {
             grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
@@ -164,15 +187,41 @@ void drawRoute(int c, int r)
         grid_unrouted.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false);
 
     }
-    // draw green rectangle around current selected route
+
     if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == r) ) {
-        tft.drawRect(cOffset + (cWidth * c), rOffset + (rHeight * r), cWidth-1, rHeight-1, RA8875_GREEN);
+        highlightSelect(c, r, 1); // draw green rectangle around current selected route
     }
 }
 
-void blankSelect()
+void highlightSelect(int c, int r, bool s)
 {
-    tft.drawRect(cOffset + (cWidth * (curCol - (pgIn * 6))), rOffset + (rHeight * (curRow - (pgOut * 6))), cWidth-1, rHeight-1, RA8875_BLACK); // clear last green rectangle
+    if (c == -1) { return; }  // current route is not on this page
+    uint16_t colr;
+    if (s == 1)
+    {
+        colr = RA8875_GREEN;
+    } else {
+        colr = RA8875_BLACK;
+        knobMax = 7; // subselect off
+    }
+    if (subSelect == 0) // select current route
+    {
+        tft.drawRect(cOffset + (cWidth * c), rOffset + (rHeight * r), cWidth-1, rHeight-1, colr);
+    } else { // sub selection (channel filtering for routing screen)
+        
+        
+        tft.drawRect(cOffset + (cWidth * c) + grid_notes.w,
+                     rOffset + (rHeight * r) + grid_param.h,
+                     grid_trans.w-1,
+                     grid_trans.h-1,
+                     colr);
+    }
+}
+
+void blankSelect(int c, int r)
+{
+    if (c == -1) { return; }  // current route is not on this page
+    tft.drawRect(cOffset + (cWidth * (c - (pgIn * 6))), rOffset + (rHeight * (r - (pgOut * 6))), cWidth-1, rHeight-1, RA8875_BLACK); // clear last green rectangle
 }
 
 // Draw grid lines

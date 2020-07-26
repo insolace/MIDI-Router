@@ -91,7 +91,9 @@ void evaltouch()
 
 void update_Routing()
 {
-    blankSelect(); // clear last selected routing point
+    subSelect = 0; // remove sub selection
+    drawRoute(selCol, selRow); // update previous routing point (clean up sub selection)
+    highlightSelect(selCol, selRow, 0); // clear last selected routing point highlight
     //Serial.println("dm rout");
     if (touchY <= rOffset && touchX >= cOffset)
     {
@@ -104,10 +106,10 @@ void update_Routing()
     else if (touchY >= rOffset && touchX >= cOffset)
     {
         // routing grid selected
-        int c = getTouchCol(touchX) - 1;
-        int r = getTouchRow(touchY) - 1;
-        curCol = c + (pgIn * 6);
-        curRow = r + (pgOut * 6);
+        selCol = getTouchCol(touchX) - 1;
+        selRow = getTouchRow(touchY) - 1;
+        curCol = selCol + (pgIn * 6);
+        curRow = selRow + (pgOut * 6);
         curRoute = routing[curCol][curRow];
 
         if (curRoute == 0)
@@ -120,7 +122,7 @@ void update_Routing()
             routing[curCol][curRow] = 0;  // close route
             knobSet(0);
         }
-        drawRoute(c, r);
+        drawRoute(selCol, selRow);
         saveEEPROM();
     }
     else if (touchY >= tbOY && touchX >= tbOX)
@@ -131,6 +133,9 @@ void update_Routing()
     else if (touchY <= tbOY && touchX >= tbOX)
     {
         // input page
+        //selCol = -1; // clear selected col/row
+        //selRow = -1;
+        
         pgIn++;
         pgIn = (pgIn == inPages) ? 0 : pgIn;
         drawColumns();
@@ -139,6 +144,9 @@ void update_Routing()
     else if (touchX <= tbOX && touchY >= tbOY)
     {
         // output page
+        //selCol = -1; // clear selected col/row
+        //selRow = -1;
+        
         pgOut++;
         pgOut = (pgOut == outPages) ? 0 : pgOut;
         drawRows();
@@ -177,7 +185,7 @@ void refMenu_Calibrate()    // refresh cv calibration display
     tft.backlight(0); // clean transitions
     drawBox();
     drawColumns();
-    blankSelect();
+    //highlightSelect(selCol, selRow, 0); // clear last selected routing point
     tft.fillRect(0, (rOffset + 3), WIDE, (TALL - rOffset - 1), gridColor); // blank out routing grid
     tft.setCursor(300, rOffset + 25);
     tft.print("CV Calibration");
@@ -194,7 +202,7 @@ void update_Calibrate()    // process touch events for calibration screen
     if (touchY <= hbHeight && touchX <= hbWidth)    // home button returns to routing
     {
         menu = 0;
-        knobMax = 8;
+        knobMax = 7;
         knobMin = 0;
         knobAccelEnable = 0;
         refMenu_Routing();
@@ -274,7 +282,7 @@ void update_Cal_Values()
 // Knobs
 // =================================
 
-void readKnob()
+void readKnob() // TODO: 4 clicks per knob, plus acceleration, = slippage. This whole routine may need to be redone.
 {
 
     // Decode knob turn activity
@@ -286,7 +294,7 @@ void readKnob()
         if (newPosition != oldPosition)    // filter out duplicate events
         {
             Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition);
-            if (newPosition < knobMin)   // limit minimum range
+            if (newPosition < (knobMin * 4))   // limit minimum range
             {
                 if (menu == 1)    // CV cal menu = stop at zero
                 {
@@ -297,7 +305,7 @@ void readKnob()
                     knobFull();
                 }
             }
-            else if (newPosition > (knobMax * 4))     // limit maximum range
+            else if (newPosition >= ((knobMax+1) * 4))     // limit maximum range
             {
                 if (menu == 1)   // CV cal menu = stop at max
                 {
@@ -313,7 +321,7 @@ void readKnob()
             if (((kSpeed < 30) && (abs(kSpeed) > knobSpeedup)) && knobAccelEnable == 1)         // Counter clockwise rotation spits out occasional +80 errors due to interrupt optimization.
             {
                 // Filter out anything greater than 30 (dirty fix)
-                Serial.print(" kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));
+                //Serial.print(" kSpeed: "); Serial.print(kSpeed); Serial.print(" #to chg: "); Serial.println(pow(knobSpeedRate, abs(kSpeed)));
 
                 if (kSpeed < 0)
                 {
@@ -324,8 +332,8 @@ void readKnob()
                     newPosition = newPosition + pow(abs(kSpeed), knobSpeedRate);
                 }
             }
-            router.encoder().write(newPosition);
-            Serial.print("myEnc: "); Serial.println(router.encoder().read());
+            //router.encoder().write(newPosition);
+            //Serial.print("myEnc: "); Serial.println(router.encoder().read());
         }
         oldPosition = newPosition;
         knobVal = newPosition / 4; // four pulses per encoder click, scale down so 1 knob val = 1 click
@@ -340,21 +348,28 @@ void readKnob()
             {
                 knobDir = 0; // CCW
             }
-            Serial.print(" newPos: "); Serial.print(newPosition); Serial.print(" knobVal: "); Serial.print(knobVal); Serial.print(" Dir: "); Serial.print(knobDir);
+            Serial.print(" newPos: "); Serial.print(newPosition);
+            Serial.print(" knobVal: "); Serial.println(knobVal);
+            Serial.print(" oldKnobVal: "); Serial.println(oldKnobVal);
+            Serial.print(" Dir: "); Serial.println(knobDir);
             oldKnobVal = knobVal;  // store for next comparison
 
             if (menu == 0)
             {
-                /*  if (knobVal > 60000) {
-                    knobSet(7);
-                    } else if (knobVal > 7) {
-                    knobZero();
-                    }*/
-                //knobSet(reOrderR(knobVal));
-                routing[curCol][curRow] = reOrderR(knobVal); // routing page, change routing value
-                drawRoute(curCol - (pgIn * 6), curRow - (pgOut * 6));
-                Serial.print(" rout: "); Serial.println(routing[curCol][curRow]);
-
+                if (subSelect == 0) // changing routing filter state
+                {
+                    int curChan = routing[curCol][curRow] & B11111000;
+                    int curFilt = reOrderR(knobVal);
+                    int newRouteVal = curChan | curFilt;
+                    routing[curCol][curRow] = newRouteVal; // routing page, change routing value
+                    drawRoute(curCol - (pgIn * 6), curRow - (pgOut * 6));
+                } else { // change channel filters
+                    int curChan = knobVal << 3;
+                    int curFilt = routing[curCol][curRow] & B00000111;
+                    int newRouteVal = curChan | curFilt;
+                    routing[curCol][curRow] = newRouteVal;
+                    drawRoute(selCol, selRow);
+                }
             }
             else if (menu == 1)
             {
@@ -386,6 +401,31 @@ void readKnob()
             }
             knobVal = newPosition / 4;
             knob_calCV();
+        } else if (menu == 0) {  // Routing screen
+            curRoute = routing[selCol + (pgIn * 6)][selRow + (pgOut * 6)]; // gather current routing value
+
+            if ( (curRoute & B00000111) == 4 ||
+                (curRoute & B00000111) == 0) // Unrouted or just transport
+            {
+                subSelect = 0;
+                drawRoute(selCol, selRow); // redraw route
+                return;
+            }
+            highlightSelect(selCol, selRow, 0); // clear previous selection
+            subSelect = !subSelect;
+            drawRoute(selCol, selRow); // redraw route
+            if (subSelect == 1)
+            {
+                knobSave = knobVal; // store
+                knobSet(routing[curCol][curRow] >> 3); // bits 3-7 are our filtered channel val, 0 = all, 1-16 = binary 0-15
+                
+                knobMax = 16; //
+                //Serial.print("fCH:"); Serial.println(knobVal);
+            } else {
+                knobSet(knobSave); // restore
+                knobMax = 7; // 8 different routed filter states
+            }
+                
         }
 
     }
