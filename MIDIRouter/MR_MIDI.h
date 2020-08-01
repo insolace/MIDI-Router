@@ -159,27 +159,59 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
             
             // test channel against filter, if not 0 or no match then exit
             int filtChan = cR >> 3;
-            if (filtChan != ch || filtChan != 0) {return -1;} // no ch match
-            
             int filtType = cR & B00000111; // gather current filter setting
             
-            if (t == 0x90 && filtType == cvF_NOT) {                         // note on (ignore noteoff)
-                setDAC(curDac, CVnoteCal(d1, curDac)); // pitch of the note
-            } else if (t == 0x90 && filtType == cvF_VEL) {                  // velocity
-                setDAC(curDac, CVparamCal(d2, curDac)); // velocity
-            } else if (t == 0xE0 && filtType == cvF_PW) {                   // Pitch Wheel
-                setDAC(curDac, CV14bitCal( (d1 << 8 | d2), curDac)); // 14 bit converted to 16 bit value
-            } else if (t == 0xB0 && d1 == 1 && filtType == cvF_MOD) {       // Mod Wheel
-                setDAC(curDac, CVparamCal(d2, curDac)); // mod value
-            } else if (t == 0xB0 && filtType == cvF_CCs) {                  // CCs (any)
-                setDAC(curDac, CVparamCal(d2, curDac)); // CC value
-            } else if (t == 0xB0 && d1 == 74 && filtType == cvF_CC74) {     // CC74 (MPE Y axis)
-                setDAC(curDac, CVparamCal(d2, curDac)); // MPE Y axis value
-            } else if (t == 0xA0 && filtType == cvF_AT) {                   // AT (poly, any key)
-                setDAC(curDac, CVparamCal(d2, curDac)); // polyAT value, any key
-            } else if (t == 0xD0 && filtType == cvF_AT) {                   // AT (channel)
-                setDAC(curDac, CVparamCal(d1, curDac)); // chanAT value
+            if (filtChan == ch || filtChan == 0) // match channel
+            {
+                if (filtType == cvF_NOT || filtType == cvF_VEL) {                         // note on/off and/or velocity
+                    if (t == 0x90) // note on (vel 0 = note off)
+                    {
+                        if (d2 == 0) // note off
+                        {
+                            setDIG(curDac, LOW); // GATE off
+                        } else { // note on
+                            if (filtType == cvF_NOT)
+                            {
+                                setDAC(curDac, CVnoteCal(d1, curDac)); // pitch of the note
+                            } else {
+                                setDAC(curDac, CVparamCal(d2, curDac)); // velocity
+                            }
+                            setDIG(curDac, HIGH); // GATE on
+                            
+                        }
+                    } else if (t == 0x80) {
+                        setDIG(curDac, LOW); // GATE off
+                    }
+                } else if (t == 0xE0 && filtType == cvF_PW) {                   // Pitch Wheel
+                    int16_t pw14 = (d2 << 7 | d1);
+                    setDAC(curDac, CV14bitCal( pw14, curDac)); // 14 bit converted to 16 bit value
+                } else if (t == 0xB0 && d1 == 1 && filtType == cvF_MOD) {       // Mod Wheel
+                    setDAC(curDac, CVparamCal(d2, curDac)); // mod value
+                } else if (t == 0xB0 && filtType == cvF_CCs) {                  // CCs (any)
+                    setDAC(curDac, CVparamCal(d2, curDac)); // CC value
+                } else if (t == 0xB0 && d1 == 74 && filtType == cvF_CC74) {     // CC74 (MPE Y axis)
+                    setDAC(curDac, CVparamCal(d2, curDac)); // MPE Y axis value
+                } else if (t == 0xA0 && filtType == cvF_AT) {                   // AT (poly, any key)
+                    setDAC(curDac, CVparamCal(d2, curDac)); // polyAT value, any key
+                } else if (t == 0xD0 && filtType == cvF_AT) {                   // AT (channel)
+                    setDAC(curDac, CVparamCal(d1, curDac)); // chanAT value
+                }
+                
             }
+            if (filtType > 2) // clock out for any filter other than note/velocity
+            {
+                if (t == 250) {   // Realtime Start Transport
+                    clockPulse[curDac] = 1;  // set high at start
+                } else if (t == 252) {    // stop
+                    setDIG(curDac, LOW);
+                }
+                else if (t == 248)     // clock
+                {
+                    setDIG(curDac, clockPulse[curDac]);  // clock!!
+                    clockPulse[curDac] = !clockPulse[curDac];  // toggle for next clock pulse
+                }
+            }
+            
             
             /*
             if (curDac < 4)                       // A1-4 jacks get pitch for note on/off events, with gates going to the D1-4 jacks
@@ -388,8 +420,8 @@ float CVparamCal(int data, int dac)
 
 float CV14bitCal(int16_t data, int dac)
 {
-    float cvrange = ((dacPos[dac] - dacNeg[dac]) / 2);
-    return (((data * (cvrange / 16384)) + dacNeg[dac]) + cvrange);
+    float cvrange = ((dacPos[dac] - dacNeg[dac]));
+    return (((data * (cvrange / 16383)) + dacNeg[dac]));
 }
 
 void showADC()

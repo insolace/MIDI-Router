@@ -82,16 +82,22 @@ void setDIG(int dig, bool s) // iterated adjustment of eurorack digital outs
     {
         case 0:
             dig = dig1;
+            break;
         case 1:
             dig = dig2;
+            break;
         case 2:
             dig = dig3;
+            break;
         case 3:
             dig = dig4;
+            break;
         case 4:
             dig = dig5;
+            break;
         case 5:
             dig = dig6;
+            break;
     }
     digitalWriteFast(dig, s);
 }

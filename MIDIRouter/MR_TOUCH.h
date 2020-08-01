@@ -114,7 +114,12 @@ void update_Routing()
 
         if (curRoute == 0)
         {
-            routing[curCol][curRow] = 7; // route all
+            if (pgOut < 6)
+            {
+                routing[curCol][curRow] = 7; // route all (MIDI)
+            } else {
+                routing[curCol][curRow] = 1; // CV start with noteon
+            }
             knobSet(1);
         }
         else
@@ -293,7 +298,7 @@ void readKnob() // TODO: 4 clicks per knob, plus acceleration, = slippage. This 
 
         if (newPosition != oldPosition)    // filter out duplicate events
         {
-            Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition);
+//            Serial.print("oldPosition: "); Serial.print(oldPosition); Serial.print(" newPosition: "); Serial.println(newPosition);
             if (newPosition < (knobMin * 4))   // limit minimum range
             {
                 if (menu == 1)    // CV cal menu = stop at zero
@@ -348,18 +353,25 @@ void readKnob() // TODO: 4 clicks per knob, plus acceleration, = slippage. This 
             {
                 knobDir = 0; // CCW
             }
-            Serial.print(" newPos: "); Serial.print(newPosition);
-            Serial.print(" knobVal: "); Serial.println(knobVal);
-            Serial.print(" oldKnobVal: "); Serial.println(oldKnobVal);
-            Serial.print(" Dir: "); Serial.println(knobDir);
+//            Serial.print(" newPos: "); Serial.print(newPosition);
+//            Serial.print(" knobVal: "); Serial.println(knobVal);
+//            Serial.print(" oldKnobVal: "); Serial.println(oldKnobVal);
+//            Serial.print(" Dir: "); Serial.println(knobDir);
             oldKnobVal = knobVal;  // store for next comparison
 
-            if (menu == 0)
+            if (menu == 0) // Routing grid
             {
                 if (subSelect == 0) // changing routing filter state
                 {
                     int curChan = routing[curCol][curRow] & B11111000;
-                    int curFilt = reOrderR(knobVal);
+                    int curFilt = 0;
+                    if (pgOut < 6) // reorder for MIDI
+                    {
+                        curFilt = reOrderR(knobVal);
+                    } else {
+                        curFilt = knobVal & B00000111;
+                    }
+                    
                     int newRouteVal = curChan | curFilt;
                     routing[curCol][curRow] = newRouteVal; // routing page, change routing value
                     drawRoute(curCol - (pgIn * 6), curRow - (pgOut * 6));
@@ -370,9 +382,8 @@ void readKnob() // TODO: 4 clicks per knob, plus acceleration, = slippage. This 
                     routing[curCol][curRow] = newRouteVal;
                     drawRoute(selCol, selRow);
                 }
-            }
-            else if (menu == 1)
-            {
+                saveEEPROM();
+            } else if (menu == 1){ // CV
                 knob_calCV();  // calibrate CV
             }
         }

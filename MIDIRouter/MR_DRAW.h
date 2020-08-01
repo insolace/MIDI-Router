@@ -36,7 +36,7 @@ void drawBox()
     
     // home box background
     bg_homebox.draw(0, 0, false); // draw hbbg
-
+    
     // home icons
     if (menu == 0) { // routing screen
         printCenter("Output PG", (bg_homebox.w*.25), (bg_homebox.h/2) + (tBord/2), X16);
@@ -60,7 +60,7 @@ void drawColumns()
     uint16_t curColor;
     for (int c = 0; c < columns; c++) {
         if (menu == 0) {  // routing screen
-
+            
             bg_inputs.draw(cOffset + (c * cWidth), 0, false); // background
             
             int p = (pgIn * 10) + c;
@@ -93,7 +93,7 @@ void drawColumns()
             
             tft.setTextColor(txColor);
             tft.setActiveWindow(cOffset + (c * cWidth) + tBord, cOffset + ((c + 1) * cWidth) - tBord, tBord, rOffset - tBord );
-
+            
             // router could be used to obtain the CV names here
             //input = router.inputAt((5-i)+(pgIn *6));
             tft.setCursor(cOffset + (c * cWidth) + tBord, tBord);
@@ -110,7 +110,7 @@ void drawRows()
     for (int r = 0; r < 6; r++)
     {
         bg_outputs.draw(0, rOffset + (r * rHeight), false); // background
-
+        
         int p = (pgOut * 10) + r;
         guiElem * icon = &empty;
         
@@ -133,7 +133,7 @@ void drawRows()
     }
 }
 
-void drawRouting() {
+void drawRouting() { // draw the 6x6 routing grid
     for (int r = 0; r < rows; r++) {
         for (int c = 0; c < columns; c++) {
             drawRoute(c, r);
@@ -143,54 +143,140 @@ void drawRouting() {
 
 void drawRoute(int c, int r) // c and r = column/row of current displayed grid
 {
-    Serial.print("drawroute! c:"); Serial.print(c); Serial.print(" r:"); Serial.println(r);
     curRoute = routing[c + (pgIn * 6)][r + (pgOut * 6)]; // store current routing point
     if ((curRoute & B00000111) != 0) {  // draw routed
-        grid_routed.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false); // bg
+        grid_routed.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false); // routed bg
         
         bool drawCh = 0;
-        // draw piano
-        if (curRoute & B00000001) {
-            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + grid_param.h, true); // draw piano roll
-            drawCh = 1;
+        if (pgOut < 6) // for now evaluate what page we are on, TODO: evaluate based on port properties
+        {
+            drawCh = drawRouteMidi(c, r);
+        } else {
+            drawCh = drawRouteCV(c, r);
         }
-        // draw parameter
-        if (curRoute & B00000010) {
-            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
-            drawCh = 1;
-        }
-        // draw channel if parameter or piano are active
         if (drawCh == 1)
         {
-            tft.setTextColor(routColor);
-            String chText = "ch ";
-            if (curRoute >> 3 != 0)
-            {
-                uint8_t filtChan = curRoute >> 3; // bits 3-7 are our filtered channel
-                chText.append(String(filtChan));
-            } else {
-                chText.append("*");
-            }
-            
-            printCenter(chText,
-                        cOffset + (c * cWidth) + (cWidth/2) + (grid_trans.w/2),
-                        rOffset + (r * rHeight) + grid_param.h + tBord/2, X16);
-            tft.setTextColor(txColor);
-        }
-        
-        // transport
-        if (curRoute & B00000100) {
-            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+            drawRouteCH(c, r);
         }
     } else {
         // draw unrouted
         grid_unrouted.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), false);
-
     }
-
+    
     if ( (curCol - (pgIn * 6) == c) && (curRow - (pgOut * 6)  == r) ) {
         highlightSelect(c, r, 1); // draw green rectangle around current selected route
     }
+}
+
+bool drawRouteMidi(int c, int r)
+{
+    bool drawCh = 0;
+    // draw piano
+    if (curRoute & B00000001) {
+        grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + grid_param.h, true); // draw piano roll
+        drawCh = 1;
+    }
+    // draw parameter
+    if (curRoute & B00000010) {
+        grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+        drawCh = 1;
+    }
+    // draw transport
+    if (curRoute & B00000100) {
+        grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+    }
+    return drawCh;
+}
+
+void drawRouteCH(int c, int r)
+{
+    // draw channel if parameter or piano are active
+    tft.setTextColor(routColor);
+    String chText = "ch ";
+    if (curRoute >> 3 != 0)
+    {
+        uint8_t filtChan = curRoute >> 3; // bits 3-7 are our filtered channel
+        chText.append(String(filtChan));
+    } else {
+        chText.append("*");
+    }
+    
+    printCenter(chText,
+                cOffset + (c * cWidth) + (cWidth/2) + (grid_trans.w/2),
+                rOffset + (r * rHeight) + grid_param.h + tBord/2, X16);
+    tft.setTextColor(txColor);
+}
+
+bool drawRouteCV(int c, int r)
+{
+    bool drawCh = 0;
+    int filtType = curRoute & B00000111; // gather current filter setting
+    tft.setTextColor(routColor);
+    switch (filtType)
+    {
+        case cvF_NOT: // note - pitch
+            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + grid_param.h, true); // draw piano roll
+            drawCh = 1;
+            printCenter("Note",
+                        cOffset + (c * cWidth) + (grid_notes.w /2),
+                        rOffset + (r * rHeight) + tBord, X16);
+            printCenter("Gate",
+                        cOffset + (c * cWidth) + (cWidth/2) + (grid_trans.w/2),
+                        rOffset + (r * rHeight) + tBord, X16);
+            break;
+        case cvF_VEL: // note - velocity
+            grid_notes.draw(cOffset + (c * cWidth), rOffset + (r * rHeight) + grid_param.h, true); // draw piano roll
+            drawCh = 1;
+            printCenter("Vel",
+                        cOffset + (c * cWidth) + (grid_notes.w /2),
+                        rOffset + (r * rHeight) + tBord, X16);
+            printCenter("Gate",
+            cOffset + (c * cWidth) + (cWidth/2) + (grid_trans.w/2),
+            rOffset + (r * rHeight) + tBord, X16);
+            break;
+        case cvF_PW: // pitch wheel
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+            drawCh = 1;
+            printCenter("Pitch",
+                        cOffset + (c * cWidth) + (grid_notes.w /2),
+                        rOffset + (r * rHeight) + grid_param.h + tBord/3, X16);
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+            break;
+        case cvF_MOD: // mod wheel
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+            drawCh = 1;
+            printCenter("Mod",
+            cOffset + (c * cWidth) + (grid_notes.w /2),
+            rOffset + (r * rHeight) + grid_param.h + tBord/3, X16);
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+            break;
+        case cvF_CCs: // CCs (any)
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+            drawCh = 1;
+            printCenter("CC*",
+            cOffset + (c * cWidth) + (grid_notes.w /2),
+            rOffset + (r * rHeight) + grid_param.h + tBord/3, X16);
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+            break;
+        case cvF_CC74: // CCs (74)
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+            drawCh = 1;
+            printCenter("CC74",
+            cOffset + (c * cWidth) + (grid_notes.w /2),
+            rOffset + (r * rHeight) + grid_param.h + tBord/3, X16);
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+            break;
+        case cvF_AT: // Aftertouch (ch/poly)
+            grid_param.draw(cOffset + (c * cWidth), rOffset + (r * rHeight), true);
+            drawCh = 1;
+            printCenter("AfTch",
+            cOffset + (c * cWidth) + (grid_notes.w /2),
+            rOffset + (r * rHeight) + grid_param.h + tBord/3, X16);
+            grid_trans.draw(cOffset + (c * cWidth) + (cWidth/2), rOffset + (r * rHeight), true);
+            break;
+    }
+    tft.setTextColor(txColor);
+    return drawCh;
 }
 
 void highlightSelect(int c, int r, bool s)
@@ -300,7 +386,7 @@ void flashIn(int inp, int state)
         // draw input background
         tft.fillRect(cOffset + (cWidth * 6), 0, cWidth - 1, rOffset - 1, insColor);
     }
-
+    
     // redraw input name
     tft.setTextColor(txColor);
     tft.setCursor(cOffset + (inp*cWidth) + tCOffset , rOffset - tROffset);
@@ -328,17 +414,17 @@ void bmpDraw(const char *filename, int x, int y)
     uint8_t  r, g, b;
     uint32_t pos = 0, startTime = millis();
     uint8_t  lcdidx = 0;
-
+    
     if ((x >= tft.width()) || (y >= tft.height()))
     {
         return;
     }
-
+    
     Serial.println();
     Serial.print(F("Loading image '"));
     Serial.print(filename);
     Serial.println('\'');
-
+    
     // Open requested file on SD card
     if ((bmpFile = SD.open(filename)) == false)
     {
@@ -347,7 +433,7 @@ void bmpDraw(const char *filename, int x, int y)
         tft.print("BMP NOT FOUND");
         return;
     }
-
+    
     // Parse BMP header
     if (read16(bmpFile) == 0x4D42)  // BMP signature
     {
@@ -357,13 +443,13 @@ void bmpDraw(const char *filename, int x, int y)
         bmpImageoffset = read32(bmpFile); // Start of image data
         Serial.print(F("Image Offset: "));
         Serial.println(bmpImageoffset, DEC);
-
+        
         // Read DIB header
         Serial.print(F("Header size: "));
         Serial.println(read32(bmpFile));
         bmpWidth  = read32(bmpFile);
         bmpHeight = read32(bmpFile);
-
+        
         if (read16(bmpFile) == 1)  // # planes -- must be '1'
         {
             bmpDepth = read16(bmpFile); // bits per pixel
@@ -376,10 +462,10 @@ void bmpDraw(const char *filename, int x, int y)
                 Serial.print(bmpWidth);
                 Serial.print('x');
                 Serial.println(bmpHeight);
-
+                
                 // BMP rows are padded (if needed) to 4-byte boundary
                 rowSize = (bmpWidth * 3 + 3) & ~3;
-
+                
                 // If bmpHeight is negative, image is in top-down order.
                 // This is not canon but has been observed in the wild.
                 if (bmpHeight < 0)
@@ -387,7 +473,7 @@ void bmpDraw(const char *filename, int x, int y)
                     bmpHeight = -bmpHeight;
                     flip      = false;
                 }
-
+                
                 // Crop area to be loaded
                 w = bmpWidth;
                 h = bmpHeight;
@@ -399,7 +485,7 @@ void bmpDraw(const char *filename, int x, int y)
                 {
                     h = tft.height() - y;
                 }
-
+                
                 // Set TFT address window to clipped image bounds
                 ypos = y;
                 for (row = 0; row < h; row++) // For each scanline...
@@ -418,7 +504,7 @@ void bmpDraw(const char *filename, int x, int y)
                     {
                         pos = bmpImageoffset + row * rowSize;
                     }
-
+                    
                     if (bmpFile.position() != pos)   // Need seek?
                     {
                         bmpFile.seek(pos);
@@ -437,11 +523,11 @@ void bmpDraw(const char *filename, int x, int y)
                                 xpos += lcdidx;
                                 lcdidx = 0;
                             }
-
+                            
                             bmpFile.read(sdbuffer, sizeof(sdbuffer));
                             buffidx = 0; // Set index to beginning
                         }
-
+                        
                         // Convert pixel from BMP to TFT format
                         b = sdbuffer[buffidx++];
                         g = sdbuffer[buffidx++];
@@ -456,28 +542,28 @@ void bmpDraw(const char *filename, int x, int y)
                     } // end pixel
                     ypos++;
                 } // end scanline
-
+                
                 // Write any remaining data to LCD
                 if (lcdidx > 0)
                 {
                     tft.drawPixels(lcdbuffer, lcdidx, xpos, ypos);
                     xpos += lcdidx;
                 }
-
+                
                 Serial.print(F("Loaded in "));
                 Serial.print(millis() - startTime);
                 Serial.println(" ms");
-
+                
             } // end goodBmp
         }
     }
-
+    
     bmpFile.close();
     if (!goodBmp)
     {
         Serial.println(F("BMP format not recognized."));
     }
-
+    
 }
 
 // These read 16- and 32-bit types from the SD card file.
@@ -508,7 +594,7 @@ uint16_t color565(uint8_t r, uint8_t g, uint8_t b)
 // draw GUI element at destX/destY, true = transparent
 void guiElem::draw(uint16_t destX, uint16_t destY, bool transp)
 {
-    if (transp = true)
+    if (transp == true)
     {
         tft.setTextColor(tft.Color565(36, 0, 0)); // transparent, (transp) doesn't currently work
         tft.BTE_move(x, y, w, h, destX, destY, 2, 1, transp);
@@ -533,7 +619,7 @@ void drawKeyboard (int x, int y)
             kY = y + (r * (kb_lt.h + kb_Bord));
             kb_lt.draw(kX, kY, true);
             printCenter(kb_alphaNum[kb_count][kb_shift],
-                            kX + (kb_lt.w/2), kY + (kb_lt.h/2) - (tft.getFontHeight()/2) );
+                        kX + (kb_lt.w/2), kY + (kb_lt.h/2) - (tft.getFontHeight()/2) );
             kb_count++;
         }
     }
@@ -551,11 +637,11 @@ void drawKeyboard (int x, int y)
                 kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
     
     kY = y + ((kb_dk_long.h + kb_Bord) * 4);
-
+    
     // row 5 non-alphanumeric
     kX = x;
     kY = y + ((kb_lt.h + kb_Bord) * 4);
-
+    
     kb_dk_long.draw(kX, kY, true); // left punct
     printCenter("?&123", kX + (kb_dk_long.w/2),
                 kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
@@ -572,7 +658,7 @@ void drawKeyboard (int x, int y)
     
     kX += kb_lt.w + kb_Bord; // space bar
     kb_sp.draw(kX, kY, true);
-
+    
     kX += kb_sp.w + kb_Bord; // period/comma
     kb_dk.draw(kX, kY, true);
     printCenter(".", kX + (kb_dk.w/2),

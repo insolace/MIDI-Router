@@ -99,12 +99,12 @@ MROutputPort MIDIRouter_Lib::outputs[] = {
 		MROutputPort(""),
 		MROutputPort(""),
 	// page 6
-		MROutputPort("CV Gate 1"),
-		MROutputPort("CV Gate 2"),
-		MROutputPort("CV Gate 3"),
-		MROutputPort("CV Gate 4"),
-		MROutputPort("Vel Clock 5"),
-		MROutputPort("PB Clock 6")
+        MROutputPort("CV A:D 1"),
+        MROutputPort("CV A:D 2"),
+        MROutputPort("CV A:D 3"),
+        MROutputPort("CV A:D 4"),
+        MROutputPort("CV A:D 5"),
+        MROutputPort("CV A:D 6")
 	};
 	
 MidiFilter MIDIRouter_Lib::inputPortFilter = MidiFilter();

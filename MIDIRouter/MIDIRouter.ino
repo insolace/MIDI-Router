@@ -603,11 +603,15 @@ uint16_t newColor(uint8_t r, uint8_t g, uint8_t b);
 void saveEEPROM(); ///< save to eeprom
 void loadEEPROM(); ///< load from eeprom
 
-// DAC
+// Eurorack connectors
 /// set DAC output value
 /// @param dac DAC identifier
 /// @param data 16 bit output value for DAC1-4, 12 bit output value for DAC5-6
 void setDAC(int dac, uint32_t data);
+/// set DIG output value
+/// @param dac DAC identifier
+/// @param s HIGH/LOW value to set
+void setDIG(int dig, bool s);
 
 // TOUCH
 void touchIO(); ///< perform touch i/o
@@ -650,6 +654,18 @@ void drawRouting(); ///< Draw the current routing grid
 /// @param c  Column
 /// @param r Row
 void drawRoute(int c, int r);
+/// Draw the current routing point (MIDI)
+/// @param c  Column
+/// @param r Row
+bool drawRouteMidi(int c, int r);
+/// Draw the current routing point (CH)
+/// @param c  Column
+/// @param r Row
+void drawRouteCH(int c, int r);
+/// Draw the current routing point (CV)
+/// @param c  Column
+/// @param r Row
+bool drawRouteCV(int c, int r);
 /// Highlight the current routing point/selection
 /// @param c  Column
 /// @param r Row
@@ -894,7 +910,7 @@ void setup()
     pinMode(dig4, OUTPUT);
     pinMode(dig5, OUTPUT);
     pinMode(dig6, OUTPUT);
-    pinMode(dig1, OUTPUT);
+    //pinMode(dig1, OUTPUT);
     //pinMode(adc1, INPUT);  // hardware is there but not implemented yet in software
     //pinMode(adc2, INPUT);
 
@@ -942,6 +958,7 @@ void setup()
     
     // External fonts
     tft.setExternalFontRom(ER3304_1, ASCII);
+    //tft.setFont(INTFONT);
     tft.setFont(EXTFONT);
     tft.setExtFontFamily(ARIAL);
     fontSize(X24);
