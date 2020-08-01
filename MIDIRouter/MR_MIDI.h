@@ -120,7 +120,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
         cR = routing[inPort][outp];
         if (cR != 0)
         {
-            if (filtRoute(mtype, cR))
+            if (filtRoute(mtype, ch, cR))
             {
                 dinlist[outp]->send(mtype, d1, d2, ch);
             }
@@ -131,7 +131,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
     for (int outp = 6; outp < 16; outp++)
     {
         cR = routing[inPort][outp];
-        if (filtRoute(t, cR))
+        if (filtRoute(t, ch, cR))
         {
             Serial.print("tx u"); Serial.print(outp - 5); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
             midilist[outp - 6]->send(t, d1, d2, ch);
@@ -142,7 +142,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
     for (int outp = 18; outp < 34; outp++)
     {
         cR = routing[inPort][outp];
-        if (filtRoute(t, cR))
+        if (filtRoute(t, ch, cR))
         {
             Serial.print("tx h"); Serial.print(outp - 17); Serial.print(":"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.println(ch);
             usbMIDI.send(t, d1, d2, ch, outp - 18);
@@ -155,6 +155,65 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
         if (routing[inPort][outp] != 0)
         {
             int curDac = outp - 36;
+            cR = routing[inPort][outp];
+            
+            // test channel against filter, if not 0 or no match then exit
+            int filtChan = cR >> 3;
+            int filtType = cR & B00000111; // gather current filter setting
+            
+            if (filtChan == ch || filtChan == 0) // match channel
+            {
+                if (filtType == cvF_NOT || filtType == cvF_VEL) {                         // note on/off and/or velocity
+                    if (t == 0x90) // note on (vel 0 = note off)
+                    {
+                        if (d2 == 0) // note off
+                        {
+                            setDIG(curDac, LOW); // GATE off
+                        } else { // note on
+                            if (filtType == cvF_NOT)
+                            {
+                                setDAC(curDac, CVnoteCal(d1, curDac)); // pitch of the note
+                            } else {
+                                setDAC(curDac, CVparamCal(d2, curDac)); // velocity
+                            }
+                            setDIG(curDac, HIGH); // GATE on
+                            
+                        }
+                    } else if (t == 0x80) {
+                        setDIG(curDac, LOW); // GATE off
+                    }
+                } else if (t == 0xE0 && filtType == cvF_PW) {                   // Pitch Wheel
+                    int16_t pw14 = (d2 << 7 | d1);
+                    setDAC(curDac, CV14bitCal( pw14, curDac)); // 14 bit converted to 16 bit value
+                } else if (t == 0xB0 && d1 == 1 && filtType == cvF_MOD) {       // Mod Wheel
+                    setDAC(curDac, CVparamCal(d2, curDac)); // mod value
+                } else if (t == 0xB0 && filtType == cvF_CCs) {                  // CCs (any)
+                    setDAC(curDac, CVparamCal(d2, curDac)); // CC value
+                } else if (t == 0xB0 && d1 == 74 && filtType == cvF_CC74) {     // CC74 (MPE Y axis)
+                    setDAC(curDac, CVparamCal(d2, curDac)); // MPE Y axis value
+                } else if (t == 0xA0 && filtType == cvF_AT) {                   // AT (poly, any key)
+                    setDAC(curDac, CVparamCal(d2, curDac)); // polyAT value, any key
+                } else if (t == 0xD0 && filtType == cvF_AT) {                   // AT (channel)
+                    setDAC(curDac, CVparamCal(d1, curDac)); // chanAT value
+                }
+                
+            }
+            if (filtType > 2) // clock out for any filter other than note/velocity
+            {
+                if (t == 250) {   // Realtime Start Transport
+                    clockPulse[curDac] = 1;  // set high at start
+                } else if (t == 252) {    // stop
+                    setDIG(curDac, LOW);
+                }
+                else if (t == 248)     // clock
+                {
+                    setDIG(curDac, clockPulse[curDac]);  // clock!!
+                    clockPulse[curDac] = !clockPulse[curDac];  // toggle for next clock pulse
+                }
+            }
+            
+            
+            /*
             if (curDac < 4)                       // A1-4 jacks get pitch for note on/off events, with gates going to the D1-4 jacks
             {
                 if (t == 144)    // note on
@@ -181,7 +240,8 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
                     }
                     else if (startCount == 15)
                     {
-                        digitalWriteFast(dig5, LOW);   // pulse off after 16 clocks
+                        setDIG(curDac, clockPulse[curDac]);  // clock!!
+                        clockPulse[curDac] = !clockPulse[curDac];  // toggle for next clock pulse
                         startCount = 0; // was startCount++ EB TODO: Verify this!
                     }
                 }
@@ -192,7 +252,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
                 }
                 else if (t == 144)     // note on
                 {
-                    analogWrite(dac5, CVparamCal(d2, curDac));   // send velocity to CV5, 0-5v
+                    setDAC(curDac, CVparamCal(d2, curDac));   // send velocity to CV5, 0-5v
                 }
             }
             else if (curDac == 5)                 // A6 gets mod wheel, D6 gets clock that starts/stops with realtime start/stop
@@ -203,34 +263,36 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
                 }
                 else if (t == 252)     // stop
                 {
-                    digitalWriteFast(dig6, LOW);
+                    setDIG(curDac, LOW);
                 }
                 else if (t == 248)     // clock
                 {
-                    digitalWriteFast(dig6, clockPulse);  // clock!!
-                    clockPulse = !clockPulse;  // toggle for next clock pulse
+                    setDIG(curDac, clockPulse[curDac]);  // clock!!
+                    clockPulse[curDac] = !clockPulse[curDac];  // toggle for next clock pulse
                 }
                 else if (t == 176 and d1 == 1)     // mod wheel
                 {
-                    analogWrite(dac6, CVparamCal(d2, curDac));   // send mod wheel to CV6, 0-5v
+                    setDAC(curDac, CVparamCal(d2, curDac));   // send mod wheel to CV6, 0-5v
                 }
-            }
+            }*/
         }
     }
 }
 
-bool filtRoute(int t, int f)   // evaluate MIDI type against filter setting
+bool filtRoute(int t, int ch, int f)   // evaluate MIDI type and ch against filter setting
 {
+    int filtChan = f >> 3;
+    //Serial.print("filtChan:"); Serial.print(filtChan); Serial.print(" ch:"); Serial.println(ch);
     if ((t == 0x80) || (t == 0x90) || (t == 0xA0) || (t == 0xD0) || (t == 0xE0))             // note on, note off, polyAT, chanAT, pitch bend
     {
-        if (f & B00000001)
+        if (f & B00000001 && (filtChan == ch || filtChan == 0))
         {
             return true;    // keyboard events routed
         }
     }
     else if ((t == 0xB0) || (t == 0xC0) || (t == 0xF3) || (t == 0xF0) || (t == 0xF7))        // control change, program change, song select, SysEx
     {
-        if (f & B00000010)
+        if (f & B00000010 && (filtChan == ch || filtChan == 0))
         {
             return true;    // parameter events routed
         }
@@ -244,6 +306,36 @@ bool filtRoute(int t, int f)   // evaluate MIDI type against filter setting
     }
     return false;
 }
+
+/*
+int16_t filtCV(int t, int16_t d1, int16_t d2, int ch, int f) // filter messages against CV routing
+{
+    // test channel against filter, if not 0 or no match then exit
+    int filtChan = f >> 3;
+    if (filtChan != ch || filtChan != 0) {return -1;} // no ch match
+    
+    int filtType = f & B00000111; // gather current filter setting
+    
+    if (t == 0x90 && filtType == cvF_NOT) {                         // note on (ignore noteoff)
+        setDAC(curDac, CVnoteCal(d1, curDac)); // pitch of the note
+    } else if (t == 0x90 && filtType == cvF_VEL) {                  // velocity
+        setDAC(curDac, CVparamCal(d2, curDac)); // velocity
+    } else if (t == 0xE0 && filtType == cvF_PW) {                   // Pitch Wheel
+        setDAC(curDac, CV14bitCal( (d1 << 8 | d2), curDac)); // 14 bit converted to 16 bit value
+    } else if (t == 0xB0 && d1 == 1 && filtType == cvF_MOD) {       // Mod Wheel
+        setDAC(curDac, CVparamCal(d2, curDac)); // mod value
+    } else if (t == 0xB0 && filtType == cvF_CCs) {                  // CCs (any)
+        setDAC(curDac, CVparamCal(d2, curDac)); // CC value
+    } else if (t == 0xB0 && D1 == 74 && filtType == cvF_CC74) {     // CC74 (MPE Y axis)
+        setDAC(curDac, CVparamCal(d2, curDac)); // MPE Y axis value
+    } else if (t == 0xA0 && filtType == cvF_AT) {                   // AT (poly, any key)
+        setDAC(curDac, CVparamCal(d2, curDac)); // polyAT value, any key
+    } else if (t == 0xD0 && filtType == cvF_AT) {                   // AT (channel)
+        setDAC(curDac, CVparamCal(d1, curDac)); // chanAT value
+    } else {
+        return -1; // no match
+    }
+} */
 
 void transmitSysEx(unsigned int len, const uint8_t *sysexarray, byte inPort)
 {
@@ -326,6 +418,12 @@ float CVparamCal(int data, int dac)
     return (((data * (cvrange / 127)) + dacNeg[dac]) + cvrange);
 }
 
+float CV14bitCal(int16_t data, int dac)
+{
+    float cvrange = ((dacPos[dac] - dacNeg[dac]));
+    return (((data * (cvrange / 16383)) + dacNeg[dac]));
+}
+
 void showADC()
 {
     Serial.print("ADC1: "); Serial.print(analogRead(adc1)); Serial.print(" ADC2: "); Serial.println(analogRead(adc2));
@@ -338,22 +436,43 @@ void profileInstruments()
     {
         dinlist[i]->sendSysEx(sizeof(sysexIDReq), sysexIDReq, true); // request Sysex ID
     }
-    
-    // detect USB devices
+    updateUSB();
+}
+
+void updateUSB()
+{
+    // gather status
+    //Serial.println("updateUSB");
     for (int i = 0; i < 10; i++)
     {
-        String prod = (const char *)midilist[i]->product();
-        if (prod != "")
+        //Serial.print("U: "); Serial.println(i);
+        if (usbWasActive[i] != *midilist[i])
         {
-            Serial.print("USB Device detected: "); Serial.println((const char *)midilist[i]->product());
+            int tst = *midilist[i];
+            //Serial.print("ML: "); Serial.println(tst);
+            //Serial.print("Change USB"); Serial.println(i+1);
             
+            String prod = (const char *)midilist[i]->product();
+            
+            if (prod == "") {
+                prod = "USB ";
+                prod.append(i+1);
+            }
+            Serial.print("USB Device detected: "); Serial.println(prod);
+
             char portIndex = (char)(i + 6);
-            const char * shortName = prod.substring(0, 6).c_str();
+            const char * shortName = prod.substring(0, 9).c_str();
+            //const char * medName = prod.substring(0, 9).c_str();
             
             MRInputPort *inport = router.inputAt(portIndex);
             MROutputPort *outport = router.outputAt(portIndex);
             strncpy(inport->name, shortName, 6);
-            strncpy(outport->name, shortName, 6);
+            strncpy(outport->name, shortName, 8);
+            
+            usbWasActive[i] = tst;
+            
+            drawColumns();
+            drawRows();
         }
     }
 }
