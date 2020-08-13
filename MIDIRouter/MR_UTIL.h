@@ -295,5 +295,20 @@ void printCharWidths()
     }
 }
 
+// below 3 functions used for testing purposes
+void sayDonuts()
+{
+    Serial.println("donuts\n");
+}
+
+void saySalami()
+{
+    Serial.println("salami\n");
+}
+
+void sayNothing()
+{
+    Serial.println("");
+}
 
 #endif /* MR_UTIL_h */

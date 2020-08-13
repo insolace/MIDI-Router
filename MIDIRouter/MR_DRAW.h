@@ -671,4 +671,114 @@ void drawKeyboard (int x, int y)
                 kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
 }
 
+// define keyboard
+/*void defineKeyboard (Menu * ptr_m)
+{
+    int x = kb_x;
+    int y = kb_y;
+    
+    // draw alphanumeric keys
+    int kX, kY;
+    int kb_count = 0;
+    
+    for (int r = 0; r < kb_rows; r++) {
+        for (int c = 0; c < kb_rowKeys[r]; c++){
+            kX = x + kb_rowOffset[r] + (c * (kb_lt.w + kb_Bord));
+            kY = y + (r * (kb_lt.h + kb_Bord));
+            
+            ptr_m->defElem(kb_count, &kb_lt, kX, kY, true); // element index, address of graphic to draw, x, y, transparent
+            ptr_m->label[kb_count] = kb_alphaNum[kb_count][kb_shift];
+            
+            //kb_lt.draw(kX, kY, true);
+            //printCenter(kb_alphaNum[kb_count][kb_shift],
+                        //kX + (kb_lt.w/2), kY + (kb_lt.h/2) - (tft.getFontHeight()/2) );
+            kb_count++;
+        }
+    }
+    
+    // row 4 non-alphanumeric
+    kX = x;
+    kY = y + ((kb_lt.h + kb_Bord) * 3);
+    
+    //kb_dk_long.draw(kX, kY, true); // left shift
+    //printCenter("shift", kX + (kb_dk_long.w/2),
+      //          kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk_long, kX, kY, true);
+    keyboard.label[kb_count] = "shift";
+    kb_count++;
+    
+    kX += kb_rowOffset[3] + ((kb_lt.w + kb_Bord) * 7);
+    
+    //kb_dk_long.draw(kX, kY, true); // Right backsp/del
+    //printCenter("delete", kX + (kb_dk_long.w/2),
+                //kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk_long, kX, kY, true);
+    keyboard.label[kb_count] = "delete";
+    kb_count++;
+    
+    kY = y + ((kb_dk_long.h + kb_Bord) * 4);
+    
+    // row 5 non-alphanumeric
+    kX = x;
+    kY = y + ((kb_lt.h + kb_Bord) * 4);
+    
+    //kb_dk_long.draw(kX, kY, true); // left punct
+    //printCenter("?&123", kX + (kb_dk_long.w/2),
+                //kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk_long, kX, kY, true);
+    keyboard.label[kb_count] = "?&123";
+    kb_count++;
+    
+    kX += kb_dk_long.w + kb_Bord; // left
+    
+    //kb_dk.draw(kX, kY, true);
+    //printCenter("<-", kX + (kb_dk.w/2),
+                //kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk, kX, kY, true);
+    keyboard.label[kb_count] = "<-";
+    kb_count++;
+    
+    kX += kb_lt.w + kb_Bord; // right
+    
+    //kb_dk.draw(kX, kY, true);
+    //printCenter("->", kX + (kb_dk.w/2),
+                //kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk, kX, kY, true);
+    keyboard.label[kb_count] = "->";
+    kb_count++;
+    
+    kX += kb_lt.w + kb_Bord; // space bar
+    //kb_sp.draw(kX, kY, true);
+    
+    keyboard.defElem(kb_count, &kb_sp, kX, kY, true);
+    kb_count++;
+    
+    kX += kb_sp.w + kb_Bord; // period/comma
+    
+    //kb_dk.draw(kX, kY, true);
+    //printCenter(".", kX + (kb_dk.w/2),
+                //kY + ((kb_dk.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk, kX, kY, true);
+    keyboard.label[kb_count] = ".";
+    kb_count++;
+    
+    kX += kb_lt.w + kb_Bord; // Right return
+    
+    //kb_dk_long.draw(kX, kY, true);
+    //tft.setCursor(kX + (kb_dk_long.w/2), kY + ((kb_dk_long.h + kb_Bord)/2), true);
+    //printCenter("return", kX + (kb_dk_long.w/2),
+                //kY + ((kb_dk_long.h/2) - (tft.getFontHeight()/2)) );
+    
+    keyboard.defElem(kb_count, &kb_dk_long, kX, kY, true);
+    keyboard.label[kb_count] = "return";
+    kb_count++;
+}*/
+
+
 #endif /* MR_DRAW_h */

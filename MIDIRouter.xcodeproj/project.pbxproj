@@ -373,6 +373,7 @@
 		C50FE5EE2455237200371593 /* name.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = name.c; sourceTree = "<group>"; };
 		C50FE5EF2455237200371593 /* MR_MIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MR_MIDI.h; sourceTree = "<group>"; };
 		C50FE5F02455237200371593 /* MR_UTIL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MR_UTIL.h; sourceTree = "<group>"; };
+		F630C40424E5183E00DB606D /* MR_MENUS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MR_MENUS.h; sourceTree = "<group>"; };
 		F649BEB124CA2A6D005963E6 /* teensy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = teensy; path = ../../../../../../../Applications/Arduino.app/Contents/Java/hardware/teensy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -730,6 +731,7 @@
 				C50FE5E92455237000371593 /* MR_EEPROM.h */,
 				C50FE5EF2455237200371593 /* MR_MIDI.h */,
 				C50FE5EA2455237000371593 /* MR_TOUCH.h */,
+				F630C40424E5183E00DB606D /* MR_MENUS.h */,
 				C50FE5ED2455237100371593 /* MR_TXT.h */,
 				C50FE5F02455237200371593 /* MR_UTIL.h */,
 				C50FE5EE2455237200371593 /* name.c */,

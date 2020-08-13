@@ -118,7 +118,7 @@
 
 // Define structures and classes
 
-// Class that describes a GUI element
+// Class that describes a GUI graphic element
 class guiElem
 {
 public:
@@ -815,6 +815,12 @@ void csvClose();
 int reOrderR(int r);
 /// Print font character widths to serial port
 void printCharWidths();
+/// For testing purposes
+void sayDonuts();
+/// For testing purposes
+void saySalami();
+/// For testing purposes
+void sayNothing();
 
 // TXT
 /// Print string to display
@@ -845,7 +851,81 @@ int getWidthAX24(String s, int * wArray);
 USING_NAMESPACE_MIDIROUTER
 MIDIRouter_Lib router = MIDIRouter_Lib(); ///< Create MIDI Router Object
 
-// Functions
+// ==================================================
+// Class to define a menu/gui made with elements.
+// TODO: convert to a library
+// * images
+// * text
+// * buttons that call functions
+// * text/data entry fields
+
+enum menuType { draw=0, button, textEnty, numEntry, menuLink, prevMenu}; // prevMenu buttons return us to the previous menu which has to be stored in a pointer before calling the menu. Useful for things like keyboard and 10key. TODO: create current and previous menu pointers.
+template < int ARRAY_LEN >
+
+class Menu
+{
+    int _elements = ARRAY_LEN;
+public:
+    guiElem * elemA[ARRAY_LEN]; // pointer to graphic
+    int elemX[ARRAY_LEN]; // x coord of menu element
+    int elemY[ARRAY_LEN]; // y coord of menu element
+    bool elemT[ARRAY_LEN]; // transparent false/true
+    void (* elemF[ARRAY_LEN])(); // pointer to function to call when element is selected
+    menuType elemType[ARRAY_LEN]; // what type of element is this?
+    String label[ARRAY_LEN]; // text label for button
+    String * ptrText[ARRAY_LEN]; // pointer to string for text entry
+    uint16_t * ptrValue[ARRAY_LEN]; // pointer to integer (up to 16 bit) for number entry
+    Menu * ptrMenu[ARRAY_LEN]; // pointer to Menu object for linking to another menu
+    
+    // public functions
+    int getElements() // returns the number of elements in the menu
+    {
+        return _elements;
+    }
+    Menu() // initialize the class
+    {
+        //cout << "menu elements:" << getElements() << "\n";
+        for (int i = 0; i < ARRAY_LEN; i++)
+        {
+            defElem(i, &empty, 0, 0, 0); // initialize all elements to avoid bad memory access
+            elemF[i] = sayNothing;
+        }
+    }
+    void defElem (int e, guiElem * elem, int x, int y, bool transp) // define the menu element
+    {
+        elemA[e] = elem; elemX[e] = x; elemY[e] = y; elemT[e] = transp;
+    }
+    void draw (int elem) // draw the menu element and label
+    {
+        elemA[elem]->draw(elemX[elem], elemY[elem], elemT[elem]);
+        printCenter(label[elem],
+        elemX[elem] + (elemA[elem]->w/2), elemY[elem] + (elemA[elem]->h/2) - (tft.getFontHeight()/2) );
+    }
+    void drawMenu()
+    {
+        for (int i = 0; i < ARRAY_LEN; i++)
+        {
+            draw(i);
+        }
+    }
+    void evalTouch(int x, int y) // evaluate a touch x/y coordinate and return the matching menu element
+    {
+        for (int i = 0; i < ARRAY_LEN; i++)
+        {
+            if (x >= elemX[i] && x <= (elemX[i] + elemA[i]->w) &&
+                y >= elemY[i] && y <= (elemY[i] + elemA[i]->h))
+            {
+                tft.fillRect(0, 0, 800, kb_y, RA8875_BLACK);
+                tft.setCursor(0,0);
+                tft.print("touchXY within bounds of element: "); tft.print(i);
+                tft.setCursor(0,30);
+                tft.print("Label: "); tft.print(label[i]);
+                //(*elemF[i])();
+            }
+        }
+    }
+};
+// ==================================================
 
 
 ///! Add setup code
@@ -951,14 +1031,14 @@ void setup()
     tft.backlight(0);     // backlight off, avoid bright flashes at startup
     
     // Set screen brightness
-    tft.brightness(255);
+    //tft.brightness(255);
+    tft.brightness(2);
     
     // Rotation
     tft.setRotation(curRot);
     
     // External fonts
     tft.setExternalFontRom(ER3304_1, ASCII);
-    //tft.setFont(INTFONT);
     tft.setFont(EXTFONT);
     tft.setExtFontFamily(ARIAL);
     fontSize(X24);
@@ -978,9 +1058,12 @@ void setup()
     
 #ifdef TFT_DISPLAY
     
+    #include "MR_MENUS.h" // include menu definitions
+    
 #ifdef STARTUP_PICTURE
     
-    bmpDraw("WELCOME.BMP", 0, 0);
+    //bmpDraw("WELCOME.BMP", 0, 0);
+    tft.print("yup");
 
 #endif //STARTUP_PICTURE
 
@@ -998,12 +1081,47 @@ void setup()
     
     randomSeed(analogRead(0));
     
-    /*
-    kb_shift = kCaps;
-    drawKeyboard(kb_x, kb_y);
-
-    delay(1000);
+    tft.clearScreen(RA8875_BLACK); // clear screen
     
+    kb_shift = kCaps;
+    
+    keyboard.drawMenu();
+    
+    while (1)
+    {
+        if (digitalRead(INTRPT) == HIGH)
+        {
+            fingers = TS.dataread();
+            curFing = TS.readFingerID(0);  // touchscreen can read up to 10 fingers,
+            if (1)
+            {
+                switch (curRot)
+                {
+                    case 2:
+                        newX = WIDE - TS.readFingerX(0);
+                        newY = TALL - TS.readFingerY(0);
+                        break;
+                    default:
+                        newX = TS.readFingerX(0);
+                        newY = TS.readFingerY(0);
+                        break;
+                }
+                difX = newX - touchX;
+                difY = newY - touchY;
+                if ((abs(difX) > tMargin || abs(difY) > tMargin))
+                {
+                    touchX = newX;
+                    touchY = newY;
+
+                    keyboard.evalTouch(touchX, touchY);
+                }
+            }
+        }
+    }
+    
+    delay(30000);
+    
+    /*
     kb_shift = kLower;
     drawKeyboard(kb_x, kb_y);
     
