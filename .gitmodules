@@ -1,3 +1,3 @@
-[submodule "src/inc/GSL1680"]
-	path = src/inc/GSL1680
-	url = https://github.com/insolace/GSL1680.git
+[submodule "MIDI Router/lib/GSL1680"]
+	path = MIDI Router/lib/GSL1680
+	url = git@github.com:insolace/GSL1680.git
