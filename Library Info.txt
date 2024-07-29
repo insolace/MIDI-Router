@@ -1,6 +1,0 @@
-MIDI Router Library Configuration
-
-Clone these libraries to your sketchbook/libraries folder:
-
-https://github.com/insolace/GSL1680
-https://github.com/greiman/SdFat

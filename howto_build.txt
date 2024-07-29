@@ -1,0 +1,17 @@
+MIDI Router Development/Build 
+
+VSCode:
+* Install platform i/o and make sure you have the arduino/teensy frameworks
+* Open "MidiRouter.code-workspace" with VSCode 
+* Verify that platformio.ini has the correct teensy36 board and arduino framework selected
+* Open main.cpp and then "Run Build Task", either from the Terminal window or using the check mark build icon in the vscode UI 
+  (usually in the upper right, or ctrl+option+B on MacOS). There should be no build errors or warnings.
+* Load the compiled code into the teensy using the Upload icon (same location as the build icon, or ctrl+option+B on MacOS)
+* The Teensyloader should open and run. If the code doesn't load the first time, power cycle the MIDI Router and try uploading again. 
+  If that doesn't work, you may need to open the MIDI Router and press the pushbutton on the Teensy.
+
+I had to make the following modifications:
+
+~/.platformio/packages/framework-arduinoteensy/libraries/MIDI/src/serialMIDI.h:30 - add #include "midi_Defs.h" 
+~/.platformio/packages/framework-arduinoteensy/libraries/RA8875/src/RA8875.h:150 - add #include <SPI.h>
+

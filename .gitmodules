@@ -1,0 +1,3 @@
+[submodule "src/inc/GSL1680"]
+	path = src/inc/GSL1680
+	url = https://github.com/insolace/GSL1680.git

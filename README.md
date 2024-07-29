@@ -2,17 +2,17 @@
 Created by Eric Bateman (eric@timeline85.com)
 Released under GPLv3
 
+Readme last updated 2024-07-29
+
 ![](https://github.com/insolace/MIDI-Router/raw/master/Images/Collage%20LG.jpg)
 
 MIDIRouter is a hardware MIDI processor.  It routes and translates messages to/from hardware DIN, USB Devices, and a USB Host (DAW).  
 
-INSTALLATION:
+GETTING STARTED:
 * Hardware - prototype dev kits available in limited quantities for active contributors/devs, email eric (at) timeline85.com for more info.  Otherwise see hardware listed below and DIY.
-* Libraries - see “Library Info.txt” before attempting to compile!
-* First time compiling - Select Teensy 3.6 and port etc, set USB TYPE to "Serial + MIDIx16".
+* Submodules - make certain to run "git submodule update" from the root repository directory, it should add the GSL1680 touchscreen library to the lib directory
+* Building - the project is currently set up to work with VSCode and Platformio. See “howto_build.txt”
 
-Accessing the SD card:
-https://github.com/insolace/Arduino_ZModem
 
 Hardware:
 

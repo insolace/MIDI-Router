@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "MIDI Router",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.tcc": "cpp"
+		}
+	}
+}
