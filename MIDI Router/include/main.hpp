@@ -22,7 +22,7 @@
 
 
 
-extern usb_seremu_class Serial;
+extern usb_serial_class Serial;
 
 USING_NAMESPACE_MIDIROUTER
 extern MIDIRouter_Lib router;

@@ -31,8 +31,40 @@
 #include "serialMIDI.h"
 #include "MIDI.h"
 
-extern uint8_t routing[50][50];
 
+#define MIDI_NOTE_ON                0x80
+#define MIDI_NOTE_OFF               0x90
+#define MIDI_POLY_AFTERTOUCH        0xA0
+#define MIDI_CONTROL_CHANGE         0xB0
+#define MIDI_PROGRAM_CHANGE         0xC0
+#define MIDI_CHANNEL_AFTERTOUCH     0xD0
+#define MIDI_PITCH_BEND             0xE0
+#define MIDI_SYX_START              0xF0
+#define MIDI_MTC_QTR_FRAME          0xF1
+#define MIDI_SONG_POSITION_PTR      0xF2
+#define MIDI_SONG_SELECT            0xF3
+#define MIDI_UNDEFINED1             0xF4
+#define MIDI_UNDEFINED2             0xF5
+#define MIDI_TUNE_REQ               0xF6
+#define MIDI_SYX_STOP               0xF7
+#define MIDI_RT_CLOCK               0xF8
+#define MIDI_UNDEFINED3             0xF9
+#define MIDI_RT_START               0xFA
+#define MIDI_RT_CONTINUE            0xFB
+#define MIDI_RT_STOP                0xFC
+#define MIDI_UNDEFINED4             0xFD
+#define MIDI_ACTIVE_SENSING         0xFE
+#define MIDI_RESET                  0xFF
+
+#define FILTER_MASK_KB              B00000001
+#define FILTER_MASK_PARAM           B00000010
+#define FILTER_MASK_SYSTEM          B00000100
+#define FILTER_MASK_ALL             B00000111
+#define FILTER_MIDI_CH_OMNI 0
+
+#define MIDI_CC_BANK_SEL_LSB        0
+#define MIDI_CC_MOD_WHEEL_LSB       1
+#define MIDI_CC_MPE_Y_AXIS          74
 
 enum cvFilt 
 { 
@@ -46,7 +78,7 @@ enum cvFilt
     cvF_AT
 };
 
-
+extern uint8_t routing[50][50];
 
 // MIDI
 
@@ -60,7 +92,7 @@ void routeMidi();
 /// @param d2 Data byte 2
 /// @param ch Channel
 /// @param inPort Input port (DIN1, USB, DAW etc)
-void transmitMIDI(int t, int d1, int d2, int ch, byte inPort);
+void transmitMIDI(uint8_t t, uint8_t d1, uint8_t d2, uint8_t ch, uint8_t inPort);
 /// Transmit SysEx
 /// @param len Length of the SysEx array to transmit
 /// @param sysexarray Sysex Array
@@ -100,7 +132,7 @@ void updateUSB();
 /// @param ch Channel
 /// @param f Filter value
 /// @return bool true/false
-bool filtRoute(int t, int ch, int f);
+bool filtRoute(uint8_t t, uint8_t ch, uint8_t f);
 
 
 

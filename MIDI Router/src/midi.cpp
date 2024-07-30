@@ -171,7 +171,7 @@ void routeMidi()
 
     for (int port = 0; port < 6; port++)
     {
-        if (dinlist[port]->read())
+        while (dinlist[port]->read())
         {
             byte type =          dinlist[port]->getType();
             byte data1 =         dinlist[port]->getData1();
@@ -195,7 +195,7 @@ void routeMidi()
     // Next read messages arriving from the (up to) 10 USB devices plugged into the MIDIROUTER USB devices port
     for (int port = 0; port < 10; port++)
     {
-        if (midilist[port]->read())
+        while (midilist[port]->read())
         {
             uint8_t type =       midilist[port]->getType();
             uint8_t data1 =      midilist[port]->getData1();
@@ -219,7 +219,7 @@ void routeMidi()
     
     // Read USB HOST (computer/DAW) messages the PC sends to Teensy, 16 ports. Reroute them based on matrix
     
-    if (usbMIDI.read())
+    while (usbMIDI.read())
     {
         // get the USB MIDI message from computer, defined by these 5 numbers (except SysEX)
         byte type = usbMIDI.getType();
@@ -239,22 +239,21 @@ void routeMidi()
     }
 }
 
-void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
+void transmitMIDI(uint8_t t, uint8_t d1, uint8_t d2, uint8_t ch, uint8_t inPort)
 {
-    volatile int cR = 0;
+    volatile uint8_t cR = 0;
     Serial.print("rxMIDI: t"); Serial.print(t); Serial.print(" d1:"), Serial.print(d1); Serial.print(" d2:"), Serial.print(d2); Serial.print(" ch:"), Serial.print(ch); Serial.print(" inp:"), Serial.println(inPort);
     
-    // Normal messages, first we must convert usbMIDI's type (an ordinary
-    // byte) to the MIDI library's special MidiType.
+    // cast type (channel byte) to the serial MIDI library's special MidiType.
     midi::MidiType mtype = (midi::MidiType)t;
     
     // Route to 6 MIDI DIN Ports
-    for (int outp = 0; outp < 6; outp++)
+    for (uint8_t outp = 0; outp < 6; outp++)
     {
         cR = routing[inPort][outp];
         if (cR != 0)
         {
-            if (filtRoute(mtype, ch, cR))
+            if (filtRoute(t, ch, cR))
             {
                 dinlist[outp]->send(mtype, d1, d2, ch);
             }
@@ -262,7 +261,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
         }
     }
     // Route to 10 USB Devices
-    for (int outp = 6; outp < 16; outp++)
+    for (uint8_t outp = 6; outp < 16; outp++)
     {
         cR = routing[inPort][outp];
         if (filtRoute(t, ch, cR))
@@ -273,7 +272,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
     }
     
     // Route to 16 USB Host Ports
-    for (int outp = 18; outp < 34; outp++)
+    for (uint8_t outp = 18; outp < 34; outp++)
     {
         cR = routing[inPort][outp];
         if (filtRoute(t, ch, cR))
@@ -284,7 +283,7 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
     }
     
     // Route to 6 CV jacks
-    for (int outp = 36; outp < 42; outp++)
+    for (uint8_t outp = 36; outp < 42; outp++)
     {
         if (routing[inPort][outp] != 0)
         {
@@ -293,53 +292,73 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
             
             // test channel against filter, if not 0 or no match then exit
             int filtChan = cR >> 3;
-            int filtType = cR & B00000111; // gather current filter setting
+            int filtType = cR & FILTER_MASK_ALL; // gather current filter setting
             
-            if (filtChan == ch || filtChan == 0) // match channel
+            if (filtChan == ch || filtChan == FILTER_MIDI_CH_OMNI) // match channel
             {
-                if (filtType == cvF_NOT || filtType == cvF_VEL) {                         // note on/off and/or velocity
-                    if (t == 0x90) // note on (vel 0 = note off)
+                if (filtType == cvF_NOT || filtType == cvF_VEL) 
+                {                         // note on/off and/or velocity
+                    if (t == MIDI_NOTE_ON) // note on (vel 0 = note off)
                     {
                         if (d2 == 0) // note off
                         {
                             setDIG(curDac, LOW); // GATE off
-                        } else { // note on
+                        } 
+                        else 
+                        { // note on
                             if (filtType == cvF_NOT)
                             {
                                 setDAC(curDac, CVnoteCal(d1, curDac)); // pitch of the note
-                            } else {
+                            } 
+                            else 
+                            {
                                 setDAC(curDac, CVparamCal(d2, curDac)); // velocity
                             }
                             setDIG(curDac, HIGH); // GATE on
                             
                         }
-                    } else if (t == 0x80) {
+                    } 
+                    else if (t == MIDI_NOTE_OFF) 
+                    {
                         setDIG(curDac, LOW); // GATE off
                     }
-                } else if (t == 0xE0 && filtType == cvF_PW) {                   // Pitch Wheel
+                } 
+                else if (t == MIDI_PITCH_BEND && filtType == cvF_PW) 
+                {                  
                     int16_t pw14 = (d2 << 7 | d1);
                     setDAC(curDac, CV14bitCal( pw14, curDac)); // 14 bit converted to 16 bit value
-                } else if (t == 0xB0 && d1 == 1 && filtType == cvF_MOD) {       // Mod Wheel
+                } 
+                else if (t == MIDI_CONTROL_CHANGE && d1 == MIDI_CC_MOD_WHEEL_LSB && filtType == cvF_MOD) 
+                {     
                     setDAC(curDac, CVparamCal(d2, curDac)); // mod value
-                } else if (t == 0xB0 && filtType == cvF_CCs) {                  // CCs (any)
+                } 
+                else if (t == MIDI_CONTROL_CHANGE && filtType == cvF_CCs) 
+                {                 
                     setDAC(curDac, CVparamCal(d2, curDac)); // CC value
-                } else if (t == 0xB0 && d1 == 74 && filtType == cvF_CC74) {     // CC74 (MPE Y axis)
+                } 
+                else if (t == MIDI_CONTROL_CHANGE && d1 == MIDI_CC_MPE_Y_AXIS && filtType == cvF_CC74) 
+                {    
                     setDAC(curDac, CVparamCal(d2, curDac)); // MPE Y axis value
-                } else if (t == 0xA0 && filtType == cvF_AT) {                   // AT (poly, any key)
+                } 
+                else if (t == MIDI_POLY_AFTERTOUCH && filtType == cvF_AT) 
+                {                  
                     setDAC(curDac, CVparamCal(d2, curDac)); // polyAT value, any key
-                } else if (t == 0xD0 && filtType == cvF_AT) {                   // AT (channel)
+                } 
+                else if (t == MIDI_CHANNEL_AFTERTOUCH && filtType == cvF_AT) 
+                {                  
                     setDAC(curDac, CVparamCal(d1, curDac)); // chanAT value
                 }
                 
             }
             if (filtType > 2) // clock out for any filter other than note/velocity
             {
-                if (t == 250) {   // Realtime Start Transport
+                if (t == MIDI_RT_START) {   // Realtime Start Transport
                     clockPulse[curDac] = 1;  // set high at start
-                } else if (t == 252) {    // stop
+                } 
+                else if (t == MIDI_RT_STOP) {    // stop
                     setDIG(curDac, LOW);
                 }
-                else if (t == 248)     // clock
+                else if (t == MIDI_RT_CLOCK)     // clock
                 {
                     setDIG(curDac, clockPulse[curDac]);  // clock!!
                     clockPulse[curDac] = !clockPulse[curDac];  // toggle for next clock pulse
@@ -413,30 +432,64 @@ void transmitMIDI(int t, int d1, int d2, int ch, byte inPort)
     }
 }
 
-bool filtRoute(int t, int ch, int f)   // evaluate MIDI type and ch against filter setting
+bool filtRoute(uint8_t t, uint8_t ch, uint8_t f)   // evaluate MIDI type and ch against filter setting
 {
-    int filtChan = f >> 3;
     //Serial.print("filtChan:"); Serial.print(filtChan); Serial.print(" ch:"); Serial.println(ch);
-    if ((t == 0x80) || (t == 0x90) || (t == 0xA0) || (t == 0xD0) || (t == 0xE0))             // note on, note off, polyAT, chanAT, pitch bend
+
+    int filtChan = f >> 3;
+
+    if (t < MIDI_SYX_START) // channel message, check if channels match
     {
-        if (f & B00000001 && (filtChan == ch || filtChan == 0))
+        if ((filtChan == ch || filtChan == FILTER_MIDI_CH_OMNI) == false)
         {
-            return true;    // keyboard events routed
+            return false; // no match
         }
     }
-    else if ((t == 0xB0) || (t == 0xC0) || (t == 0xF3) || (t == 0xF0) || (t == 0xF7))        // control change, program change, song select, SysEx
+
+    switch (t)
     {
-        if (f & B00000010 && (filtChan == ch || filtChan == 0))
-        {
-            return true;    // parameter events routed
-        }
-    }
-    else if (t)                                                                          // common and realtime (transport/clock) events
-    {
-        if (f & B00000100)
-        {
-            return true;    // transport/clock events routed
-        }
+        case  MIDI_NOTE_ON:
+        case  MIDI_NOTE_OFF:
+        case  MIDI_POLY_AFTERTOUCH:
+        case  MIDI_CHANNEL_AFTERTOUCH:
+        case  MIDI_PITCH_BEND:
+            if (f & FILTER_MASK_KB)
+            {
+                return true;    // keyboard events routed
+            }
+            break;
+
+        case  MIDI_CONTROL_CHANGE:
+        case  MIDI_PROGRAM_CHANGE:
+        case  MIDI_SYX_START:
+        case  MIDI_SYX_STOP:
+            if (f & FILTER_MASK_PARAM)
+            {
+                return true;    // parameter events routed
+            }
+            break;
+
+        case  MIDI_MTC_QTR_FRAME:
+        case  MIDI_SONG_POSITION_PTR:
+        case  MIDI_SONG_SELECT:
+        case  MIDI_UNDEFINED1:
+        case  MIDI_UNDEFINED2:
+        case  MIDI_TUNE_REQ:
+        case  MIDI_RT_CLOCK:
+        case  MIDI_UNDEFINED3:
+        case  MIDI_RT_START:
+        case  MIDI_RT_CONTINUE:
+        case  MIDI_RT_STOP:
+        case  MIDI_UNDEFINED4:
+        case  MIDI_ACTIVE_SENSING:
+        case  MIDI_RESET:
+            if (f & FILTER_MASK_SYSTEM)
+            {
+                return true;    // transport/clock events routed
+            }
+            break;
+        default:
+            break;
     }
     return false;
 }
